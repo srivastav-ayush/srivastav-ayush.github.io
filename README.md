@@ -1,3 +1,2 @@
-# Personal Website of Ayush Srivastav
-http://github.com - automatic!
-[GitHub](http://github.com)
+# Personal Website
+This is the repository of my website https://srivastav-ayush.github.io/
