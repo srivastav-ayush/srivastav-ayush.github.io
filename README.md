@@ -1,1 +1,2 @@
-## Personal Website of Ayush Srivastav
+# Personal Website of Ayush Srivastav
+
