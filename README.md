@@ -1,2 +1,2 @@
 ## Personal Website
-This is the repository of my personal website https://srivastav-ayush.github.io/
+This is the repository for my website https://srivastav-ayush.github.io/
