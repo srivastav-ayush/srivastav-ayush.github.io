@@ -21,6 +21,7 @@
   <script src="./image-slot.js"></script>
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
   <style>
+    html { background:var(--bg); }
     body { margin:0; background:var(--bg); }
     a { color:inherit; text-decoration:none; }
     a:hover { color:var(--accent-hover); }
@@ -86,9 +87,9 @@
       </div>
     </div>
     <div style="{{ heroPhotoStyle }} position:relative; z-index:1;">
-      <div style="position:relative; width:100%;">
+      <div style="position:relative; width:100%; min-width:0;">
         <div style="position:absolute; top:16px; left:16px; right:-16px; bottom:-16px; border:2px solid var(--accent); border-radius:18px; z-index:0;"></div>
-        <div style="position:relative; z-index:1; width:100%; aspect-ratio:4/5; border-radius:18px; overflow:hidden; box-shadow:0 24px 48px rgba(0,0,0,0.2); border:1px solid var(--border);">
+        <div style="position:relative; z-index:1; width:100%; min-width:0; aspect-ratio:4/5; border-radius:18px; overflow:hidden; box-shadow:0 24px 48px rgba(0,0,0,0.2); border:1px solid var(--border);">
           <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-photo" shape="rect" src="assets/img/ayush.jpg" placeholder="Drop your photo" style="width:100%; height:100%;" hint-size="100%,100%"></x-import>
         </div>
       </div>
@@ -470,7 +471,7 @@ class Component extends DCLogic {
     { year: 2021, month: 3, dateLabel: "Mar 2021", category: "talk", text: "Presented \u201cA study of buckling phenomenon in dielectric elastomeric actuator with different potential energy functions\u201d at iCRAFT, BITS Pilani Dubai Campus." },
     { year: 2024, month: 4, dateLabel: "Apr 2024", category: "career", text: "Promoted to Manager, Simulation & Modeling at Ola Electric, leading full-vehicle digital twin development for battery, motor, and charging systems." },
     { year: 2024, month: 5, dateLabel: "May 2024", category: "patent", text: "Granted a patent internationally via WIPO for fire-resistant battery modules (WO2024095291A1), after an earlier grant in India in Nov 2022." },
-    { year: 2025, month: 11, dateLabel: "Nov 2025", category: "publication", text: "Co-authored the book chapter \u201cFinite Element Analysis of Medical Implants\u201d in Biomedical Implants (CRC Press)." },
+    { year: 2024, month: 2, dateLabel: "Feb 2024", category: "publication", text: "Co-authored the book chapter \u201cFinite Element Analysis of Medical Implants\u201d in Biomedical Implants (CRC Press)." },
     { year: 2024, month: 4, dateLabel: "Apr 2024", category: "publication", text: "Published \u201cFinite Element Analysis of Postoperative Stability of Transverse Scaphoid Waist Fracture\u201d in the Indian Journal of Orthopaedics." },
     { year: 2024, month: 3, dateLabel: "Mar 2024", category: "publication", text: "Published a study on epoxy composites using PET waste plastic and bamboo in the International Journal of Environment and Waste Management." },
     { year: 2023, month: 1, dateLabel: "Jan 2023", category: "talk", text: "Presented research on range prediction and battery pack temperature modeling at GTTC, Pune." },
@@ -525,7 +526,7 @@ class Component extends DCLogic {
         ? "display:flex; flex-direction:column-reverse; align-items:center; gap:44px;"
         : "display:flex; justify-content:space-between; align-items:flex-start; gap:clamp(32px,5vw,72px); flex-wrap:nowrap;",
       heroTextStyle: (isMobile ? "width:100%; " : "flex:1 1 560px; min-width:280px; ") + "animation:fadeInUp 0.6s ease both;",
-      heroPhotoStyle: (isMobile ? "width:100%; max-width:280px; " : "flex:0 0 clamp(260px,28vw,340px); ") + "display:flex; flex-direction:column; align-items:center; text-align:center; animation:fadeInUp 0.6s ease both; animation-delay:0.12s;",
+      heroPhotoStyle: (isMobile ? "width:100%; max-width:280px; " : "flex:0 0 auto; width:clamp(260px,28vw,340px); min-width:0; ") + "display:flex; flex-direction:column; align-items:center; text-align:center; animation:fadeInUp 0.6s ease both; animation-delay:0.12s;",
       heroStats: (() => {
         const counts = [
           { value: "4+", label: "Years Experience" },
