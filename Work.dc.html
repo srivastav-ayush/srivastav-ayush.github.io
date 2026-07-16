@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work & Projects — Ayush Srivastav</title>
+<meta name="description" content="Vehicle thermal and performance simulation projects at Volvo Group and Ola Electric, plus research in biomechanics, actuators, and materials.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Work & Projects — Ayush Srivastav">
+<meta property="og:description" content="Vehicle thermal and performance simulation projects at Volvo Group and Ola Electric, plus research in biomechanics, actuators, and materials.">
+<meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
+<meta property="og:url" content="https://srivastav-ayush.github.io/Work.dc.html">
+<meta name="twitter:card" content="summary_large_image">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <style>
+    body { margin:0; background:var(--bg); }
+    a { color:inherit; text-decoration:none; }
+    a:hover { color:var(--accent-hover); }
+    .nav-link:hover { color:var(--accent-hover) !important; }
+    .nav-links::-webkit-scrollbar { display:none; }
+    ::selection { background:var(--selection-bg); color:var(--selection-text); }
+    img { display:block; }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .reveal-card { opacity:0; transform:translateY(18px); transition:opacity 0.55s ease, transform 0.55s ease; }
+    .reveal-card.is-visible { opacity:1; transform:translateY(0); }
+    .reveal-card:hover .tag-chip { transform:scale(1.08); }
+  </style>
+</helmet>
+
+<div style="{{ rootStyle }}" ref="{{ rootRef }}">
+  <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
+      <a href="Homepage.dc.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
+        <div style="display:flex; align-items:baseline;">
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text);">A</span>
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--accent); margin-left:-4px;">S</span><span style="font-family:'Instrument Serif',serif; font-size:30px; line-height:1; color:var(--accent); margin-left:1px;">.</span>
+        </div>
+        <div style="width:32px; height:1.5px; background:var(--accent);"></div>
+      </a>
+      <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
+        <a href="Work.dc.html" class="nav-link" style="color:var(--accent);">Work</a>
+        <a href="Publications.dc.html" class="nav-link" style="color:var(--text-faint);">Publications</a>
+        <a href="Talks.dc.html" class="nav-link" style="color:var(--text-faint);">Talks</a>
+        <a href="Articles.dc.html" class="nav-link" style="color:var(--text-faint);">Writing</a>
+        <a href="CV.dc.html" class="nav-link" style="color:var(--text-faint);">CV ↗</a>
+      </div>
+    </div>
+  </nav>
+  <div style="height:84px;"></div>
+
+  <sc-if value="{{ isListView }}">
+    <section style="max-width:1200px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 24px;">
+      <h1 style="font-family:'Instrument Serif',serif; font-size:46px; font-weight:400; margin:0 0 16px;">Work &amp; projects</h1>
+      <p style="font-size:17px; line-height:1.6; color:var(--text-muted); max-width:640px; margin:0 0 28px;">Vehicle thermal and performance simulation at Volvo Group and Ola Electric, alongside research and academic projects in biomechanics, actuators, and materials. Click any project for details.</p>
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;">
+        <div style="display:inline-flex; background:var(--bg-chip); border-radius:8px; padding:4px; gap:4px; flex-wrap:wrap;">
+          <button onClick="{{ setAll }}" style="border:none; cursor:pointer; padding:8px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ allBg }}; color:{{ allColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">All</button>
+          <button onClick="{{ setWork }}" style="border:none; cursor:pointer; padding:8px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ workBg }}; color:{{ workColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Work</button>
+          <button onClick="{{ setResearch }}" style="border:none; cursor:pointer; padding:8px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ researchBg }}; color:{{ researchColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Research</button>
+          <button onClick="{{ setAcademic }}" style="border:none; cursor:pointer; padding:8px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ academicBg }}; color:{{ academicColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Academic</button>
+          <button onClick="{{ setPassion }}" style="border:none; cursor:pointer; padding:8px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ passionBg }}; color:{{ passionColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Passion</button>
+        </div>
+        <button onClick="{{ toggleSort }}" style="border:1px solid var(--border-strong); background:none; cursor:pointer; padding:8px 16px; border-radius:8px; font-size:12.5px; font-weight:600; font-family:'JetBrains Mono',monospace; color:var(--text-muted); display:flex; align-items:center; gap:7px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{ sortIconStyle }}"><path d="M3 6h18M6 12h12M10 18h4"></path></svg>
+          {{ sortLabel }}
+        </button>
+      </div>
+    </section>
+
+    <section key="{{ filterKey }}" style="max-width:1200px; margin:0 auto; padding:32px clamp(16px,5vw,64px) 96px; display:flex; flex-direction:column; gap:22px;">
+      <sc-if value="{{ hasFilteredProjects }}" hint-placeholder-val="{{ true }}">
+      <sc-for list="{{ filteredProjects }}" as="p" hint-placeholder-count="6">
+        <div onClick="{{ p.open }}" class="reveal-card" style="{{ p.cardStyle }}" style-hover="box-shadow:0 12px 28px rgba(0,0,0,0.12) !important; transform:translateY(-2px) !important; border-color:var(--border-strong) !important;">
+          <div style="position:relative; min-height:180px; overflow:hidden;">
+            <img src="{{ p.img }}" alt="{{ p.title }}" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; transition:transform 0.4s ease;" style-hover="transform:scale(1.04) !important;">
+          </div>
+          <div style="position:relative; padding:22px 28px; display:flex; flex-direction:column; gap:10px; min-width:0;">
+            <div style="position:absolute; top:20px; right:24px; display:flex; flex-direction:column; align-items:flex-end; gap:9px;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-faint);">{{ p.year }}</div>
+              <sc-if value="{{ p.orgName }}" hint-placeholder-val="{{ true }}">
+                <div style="{{ p.orgBoxStyle }}"><img src="{{ p.orgLogo }}" alt="{{ p.orgName }}" style="{{ p.orgImgStyle }}"></div>
+              </sc-if>
+            </div>
+            <div class="tag-chip" style="position:absolute; bottom:20px; right:24px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; color:{{ p.tagColor }}; text-transform:uppercase; letter-spacing:0.04em; background:{{ p.tagBg }}; padding:4px 11px; border-radius:20px; transition:transform 0.2s ease;">{{ p.tag }}</div>
+            <div style="font-weight:700; font-size:19px; line-height:1.3; padding-right:{{ p.metaPad }}px;">{{ p.title }}</div>
+            <div style="font-size:14.5px; line-height:1.5; color:var(--text-muted); padding-right:{{ p.metaPad }}px;">{{ p.summary }}</div>
+            <sc-if value="{{ p.hasLinks }}">
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:2px;">
+                <sc-for list="{{ p.links }}" as="f" hint-placeholder-count="1">
+                  <a href="{{ f.url }}" target="_blank" onClick="{{ stopPropagation }}" style="display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:6px 12px; border-radius:6px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+                    <sc-if value="{{ f.isGithub }}"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path></svg></sc-if>
+                    <sc-if value="{{ f.isPaper }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></sc-if>
+                    <sc-if value="{{ f.isVideo }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg></sc-if>
+                    {{ f.label }}
+                  </a>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </sc-for>
+      </sc-if>
+      <sc-if value="{{ noFilteredProjects }}">
+        <div style="padding:64px 24px; text-align:center; color:var(--text-faint); font-size:15px;">No projects in this category yet.</div>
+      </sc-if>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ selectedProject }}">
+    <div ref="{{ detailRef }}" style="max-width:900px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 96px;">
+      <button onClick="{{ closeDetail }}" style="border:none; background:none; cursor:pointer; padding:0; display:flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; color:var(--text-muted); margin-bottom:28px; transition:color 0.15s;" style-hover="color:var(--accent) !important;">← Back to all work</button>
+
+      <div ref="{{ heroRef }}" style="position:relative; aspect-ratio:4/3; border-radius:14px; overflow:hidden; margin-bottom:12px; background:var(--bg-chip); cursor:zoom-in;" onTouchStart="{{ onImageTouchStart }}" onTouchEnd="{{ onImageTouchEnd }}">
+        <img src="{{ selectedProject.currentImage }}" alt="{{ selectedProject.title }}" onClick="{{ openLightbox }}" style="width:100%; height:100%; object-fit:cover;">
+        <sc-if value="{{ selectedProject.hasGallery }}">
+          <button onClick="{{ prevSlide }}" aria-label="Previous image" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); width:38px; height:38px; border-radius:50%; border:none; background:rgba(20,16,12,0.45); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:18px; line-height:1; transition:background 0.15s;" style-hover="background:rgba(20,16,12,0.7) !important;">‹</button>
+          <button onClick="{{ nextSlide }}" aria-label="Next image" style="position:absolute; right:14px; top:50%; transform:translateY(-50%); width:38px; height:38px; border-radius:50%; border:none; background:rgba(20,16,12,0.45); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:18px; line-height:1; transition:background 0.15s;" style-hover="background:rgba(20,16,12,0.7) !important;">›</button>
+          <div style="position:absolute; bottom:14px; left:0; right:0; display:flex; justify-content:center;">
+            <div style="display:flex; align-items:center; gap:9px; background:rgba(255,255,255,0.55); backdrop-filter:blur(3px); padding:6px 12px; border-radius:20px;">
+              <div style="display:flex; align-items:center; gap:7px;">
+                <sc-for list="{{ selectedProject.dots }}" as="d" hint-placeholder-count="3">
+                  <button onClick="{{ d.goTo }}" aria-label="Go to image" style="{{ d.style }}"></button>
+                </sc-for>
+              </div>
+              <div style="width:1px; height:11px; background:rgba(24,20,16,0.3);"></div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#181410; font-weight:600;">{{ selectedProject.counterText }}</div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+      <div style="animation:fadeInUp 0.45s ease both;">
+      <div style="font-size:12px; color:var(--text-faint); text-align:center; margin-bottom:28px;">Click image to zoom</div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:28px;">
+        <div style="display:flex; flex-direction:column; gap:8px; min-width:0;">
+          <h2 style="font-family:'Instrument Serif',serif; font-size:32px; font-weight:400; margin:0; line-height:1.15;"><sc-if value="{{ selectedProject.hasTitleUrl }}" hint-placeholder-val="{{ false }}"><a href="{{ selectedProject.titleUrl }}" target="_blank" style="color:inherit;">{{ selectedProject.title }}</a></sc-if><sc-if value="{{ selectedProject.noTitleUrl }}" hint-placeholder-val="{{ true }}">{{ selectedProject.title }}</sc-if></h2>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:{{ selectedProject.tagColor }}; text-transform:uppercase; letter-spacing:0.04em; background:{{ selectedProject.tagBg }}; padding:5px 12px; border-radius:20px; white-space:nowrap; align-self:flex-start;">{{ selectedProject.tag }}</div>
+        </div>
+        <sc-if value="{{ selectedProject.orgName }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ selectedProject.orgBoxStyle }}"><img src="{{ selectedProject.orgLogo }}" alt="{{ selectedProject.orgName }}" style="{{ selectedProject.orgImgStyle }}"></div>
+        </sc-if>
+      </div>
+
+      <sc-if value="{{ selectedProject.role }}">
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:20px; flex-wrap:wrap;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); flex:none;">Role</div>
+          <div style="font-size:14.5px; color:var(--text-body); line-height:1.4;">{{ selectedProject.role }}</div>
+        </div>
+      </sc-if>
+
+      <div style="{{ metaGridStyle }}">
+        <sc-for list="{{ selectedProject.meta }}" as="m" hint-placeholder-count="2">
+          <div style="text-align:{{ m.align }};">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:4px;">{{ m.label }}</div>
+            <div style="font-size:14.5px; color:var(--text-body); line-height:1.4;">{{ m.value }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ selectedProject.stat }}">
+        <div style="display:flex; align-items:center; gap:18px; padding:18px 22px; background:var(--accent-faint); border-radius:12px; margin-bottom:28px;">
+          <div style="font-family:'Instrument Serif',serif; font-size:32px; color:var(--accent); line-height:1; flex:none;">{{ selectedProject.stat.value }}</div>
+          <div style="font-size:13.5px; color:var(--text-body); line-height:1.4;">{{ selectedProject.stat.label }}</div>
+        </div>
+      </sc-if>
+
+      <div style="font-size:16px; line-height:1.75; color:var(--text-body); margin-bottom:28px;"><sc-for list="{{ selectedProject.abstractSegments }}" as="sg" hint-placeholder-count="1"><sc-if value="{{ sg.isPlain }}" hint-placeholder-val="{{ true }}">{{ sg.text }}</sc-if><sc-if value="{{ sg.isBold }}" hint-placeholder-val="{{ false }}"><strong>{{ sg.text }}</strong></sc-if></sc-for></div>
+
+      <sc-if value="{{ selectedProject.hasProcess }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; padding:24px; background:var(--bg-chip); border-radius:12px; margin-bottom:28px;">
+          <sc-for list="{{ selectedProject.process }}" as="st" hint-placeholder-count="3">
+            <div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); margin-bottom:6px;">{{ st.step }}</div>
+              <div style="font-size:14px; line-height:1.55; color:var(--text-body);">{{ st.text }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:10px;">Skills</div>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:28px;">
+        <sc-for list="{{ selectedProject.skills }}" as="s" hint-placeholder-count="3">
+          <div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+            <div style="font-size:13px; font-weight:600; color:var(--text-body); background:var(--bg-chip); padding:6px 14px; border-radius:20px; flex:none;">{{ s.name }}</div>
+            <div style="font-size:13px; color:var(--text-muted);">{{ s.note }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ selectedProject.hasLinks }}">
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <sc-for list="{{ selectedProject.links }}" as="f" hint-placeholder-count="1">
+            <a href="{{ f.url }}" target="_blank" style="display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:9px 16px; border-radius:8px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+              <sc-if value="{{ f.isGithub }}"><svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path></svg></sc-if>
+              <sc-if value="{{ f.isPaper }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></sc-if>
+              <sc-if value="{{ f.isVideo }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg></sc-if>
+              {{ f.label }} ↗
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ selectedProject.showConfidentialNote }}">
+        <div style="font-size:13.5px; color:var(--text-faint); font-style:italic;">Internal project — details confidential.</div>
+      </sc-if>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; margin-top:48px; padding-top:28px; border-top:1px solid var(--border);">
+        <button onClick="{{ prevProjectNav.onClick }}" style="border:none; background:none; cursor:pointer; padding:0; display:flex; align-items:center; gap:12px; text-align:left; max-width:45%; transition:opacity 0.15s;" style-hover="opacity:0.65 !important;">
+          <img src="{{ prevProjectNav.img }}" alt="" style="width:44px; height:44px; border-radius:8px; object-fit:cover; flex:none;">
+          <div style="display:flex; flex-direction:column; gap:4px; min-width:0;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint);">← Previous</div>
+            <div style="font-size:14.5px; font-weight:600; color:var(--text);">{{ prevProjectNav.title }}</div>
+          </div>
+        </button>
+        <button onClick="{{ nextProjectNav.onClick }}" style="border:none; background:none; cursor:pointer; padding:0; display:flex; align-items:center; gap:12px; text-align:right; max-width:45%; transition:opacity 0.15s;" style-hover="opacity:0.65 !important;">
+          <div style="display:flex; flex-direction:column; gap:4px; align-items:flex-end; min-width:0;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint);">Next →</div>
+            <div style="font-size:14.5px; font-weight:600; color:var(--text);">{{ nextProjectNav.title }}</div>
+          </div>
+          <img src="{{ nextProjectNav.img }}" alt="" style="width:44px; height:44px; border-radius:8px; object-fit:cover; flex:none;">
+        </button>
+      </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ selectedProject.lightboxOpen }}">
+    <div onClick="{{ closeLightbox }}" style="position:fixed; inset:0; z-index:2000; background:rgba(10,8,6,0.92); display:flex; align-items:center; justify-content:center; cursor:zoom-out; padding:40px;">
+      <img src="{{ selectedProject.currentImage }}" alt="{{ selectedProject.title }}" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;">
+      <button onClick="{{ closeLightbox }}" aria-label="Close" style="position:absolute; top:24px; right:28px; width:44px; height:44px; border-radius:50%; border:none; background:rgba(255,255,255,0.12); color:#fff; font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.15s;" style-hover="background:rgba(255,255,255,0.22) !important;">×</button>
+      <sc-if value="{{ selectedProject.hasGallery }}">
+        <button onClick="{{ lightboxPrev }}" aria-label="Previous image" style="position:absolute; left:24px; top:50%; transform:translateY(-50%); width:46px; height:46px; border-radius:50%; border:none; background:rgba(255,255,255,0.12); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:22px; transition:background 0.15s;" style-hover="background:rgba(255,255,255,0.22) !important;">‹</button>
+        <button onClick="{{ lightboxNext }}" aria-label="Next image" style="position:absolute; right:24px; top:50%; transform:translateY(-50%); width:46px; height:46px; border-radius:50%; border:none; background:rgba(255,255,255,0.12); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:22px; transition:background 0.15s;" style-hover="background:rgba(255,255,255,0.22) !important;">›</button>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <!-- FOOTER / CONTACT -->
+  <footer style="background:var(--footer-bg); color:var(--footer-text); border-top:1px solid var(--footer-border);">
+    <div style="max-width:1200px; margin:0 auto; padding:56px clamp(16px,5vw,64px) 32px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
+      <div>
+        <div style="font-family:'Instrument Serif',serif; font-size:21px; color:var(--footer-text); margin-bottom:8px;">Ayush Srivastav</div>
+        <div style="font-size:14px; color:var(--footer-text-muted); margin-bottom:20px;">Bengaluru, India</div>
+        <a href="mailto:nitb.ayush@gmail.com" style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--footer-text); color:var(--footer-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">Get in touch</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
+        <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
+          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
+          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
+        </div>
+        <div style="display:flex; gap:22px; font-size:13px; font-weight:500; flex-wrap:wrap; justify-content:flex-end; color:var(--footer-text-muted);">
+          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">X</a>
+          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Strava</a>
+          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px; margin:0 auto; padding:20px clamp(16px,5vw,64px) 32px; border-top:1px solid var(--footer-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div style="font-size:13px; color:var(--footer-text-muted);">© {{ currentYear }} Ayush Srivastav</div>
+      <a href="#top" onClick="{{ scrollToTop }}" style="font-size:13px; color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <button onClick="{{ toggleDark }}" aria-label="Toggle dark mode" style="position:fixed; bottom:24px; right:24px; z-index:1000; width:52px; height:52px; border-radius:50%; border:1px solid var(--border-strong); background:var(--bg-card); box-shadow:0 6px 20px rgba(0,0,0,0.18); cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; overflow:hidden; transition:border-color 0.15s,box-shadow 0.15s;" style-hover="border-color:var(--accent) !important; box-shadow:0 6px 20px rgba(0,0,0,0.3) !important;">
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ sunOpacity }}; transform:{{ sunTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="5" fill="#f2b134"></circle>
+        <g stroke="#f2b134" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="1.5" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22.5"></line>
+          <line x1="1.5" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22.5" y2="12"></line>
+          <line x1="4.4" y1="4.4" x2="6.1" y2="6.1"></line>
+          <line x1="17.9" y1="17.9" x2="19.6" y2="19.6"></line>
+          <line x1="4.4" y1="19.6" x2="6.1" y2="17.9"></line>
+          <line x1="17.9" y1="6.1" x2="19.6" y2="4.4"></line>
+        </g>
+      </svg>
+    </div>
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ moonOpacity }}; transform:{{ moonTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M9.5 2.5a7.2 7.2 0 1 0 8.6 9.6A7.8 7.8 0 0 1 9.5 2.5Z" fill="#fdfaf3"></path>
+        <path d="M5.8 21c-1.7 0-3.05-1.36-3.05-3.03 0-1.5 1.1-2.75 2.55-2.98a4.3 4.3 0 0 1 8.15-1.62 3.65 3.65 0 0 1 3.75 3.63c0 .38-.06.75-.17 1.1a2.9 2.9 0 0 1-1.03 2.9H5.8Z" fill="#4a4234" stroke="#2a2419" stroke-width="0.6"></path>
+      </svg>
+    </div>
+  </button>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    filter: "all",
+    selectedId: null,
+    slideIndex: 0,
+    sortAsc: false,
+    lightboxOpen: false,
+    width: (typeof window !== "undefined" ? window.innerWidth : 1200),
+    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark")
+  };
+
+  componentWillUnmount() {
+    this.clearSlideTimer();
+    if (this.__observer) this.__observer.disconnect();
+    if (typeof window !== "undefined" && this.onResize) window.removeEventListener("resize", this.onResize);
+  }
+
+  componentDidMount() {
+    this.setupObserver();
+    setTimeout(() => this.setupObserver(), 300);
+    setTimeout(() => this.setupObserver(), 1000);
+    if (typeof window !== "undefined") {
+      this.onResize = () => this.setState({ width: window.innerWidth });
+      window.addEventListener("resize", this.onResize, { passive: true });
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.__lastSelectedId !== this.state.selectedId) {
+      this.__lastSelectedId = this.state.selectedId;
+      this.startSlideTimer();
+      this.preloadImages(this.getSelectedImages());
+    }
+    if (this.state.selectedId === null && this.__pendingRestoreScrollY != null && typeof window !== "undefined") {
+      window.scrollTo(0, this.__pendingRestoreScrollY);
+      this.__pendingRestoreScrollY = null;
+    }
+    this.setupObserver();
+  }
+
+  rootRef = (el) => {
+    if (el) { this.rootEl = el; this.setupObserver(); }
+  };
+
+  setupObserver() {
+    if (!this.rootEl) return;
+    const cards = this.rootEl.querySelectorAll(".reveal-card:not(.is-visible)");
+    cards.forEach(c => { c.classList.add("is-visible"); });
+  }
+
+  toggleSort = () => this.setState(s => ({ sortAsc: !s.sortAsc }));
+
+  onImageTouchStart = (e) => { this.__touchStartX = e.touches[0].clientX; };
+  onImageTouchEnd = (e) => {
+    if (this.__touchStartX == null) return;
+    const dx = e.changedTouches[0].clientX - this.__touchStartX;
+    this.__touchStartX = null;
+    if (Math.abs(dx) < 40) return;
+    if (dx < 0) this.nextSlide(); else this.prevSlide();
+  };
+
+  openLightbox = () => this.setState({ lightboxOpen: true });
+  closeLightbox = () => this.setState({ lightboxOpen: false });
+  lightboxPrev = (e) => { e.stopPropagation(); this.prevSlide(); };
+  lightboxNext = (e) => { e.stopPropagation(); this.nextSlide(); };
+
+  openProject = (id, rect) => {
+    this.clearSlideTimer();
+    if (rect && typeof window !== "undefined") {
+      this.__originRect = { top: rect.top + window.scrollY, left: rect.left, width: rect.width, height: rect.height };
+      this.__originScrollY = window.scrollY;
+    } else {
+      this.__originRect = null;
+      this.__originScrollY = null;
+    }
+    this.setState({ selectedId: id, slideIndex: 0, lightboxOpen: false, closing: false });
+    if (!this.__originRect && typeof window !== "undefined") window.scrollTo(0, 0);
+  };
+
+  detailRef = (el) => {
+    this.__detailEl = el;
+    if (!el) return;
+    if (typeof window === "undefined") return;
+    if (!this.__originRect) window.scrollTo(0, 0);
+  };
+
+  heroRef = (el) => {
+    this.__heroEl = el;
+    if (!el) return;
+    if (typeof window === "undefined") return;
+    const origin = this.__originRect;
+    if (!origin) return;
+    window.scrollTo(0, 0);
+    const rect = el.getBoundingClientRect();
+    const dx = origin.left - rect.left;
+    const dy = origin.top - rect.top;
+    const sx = origin.width / rect.width;
+    const sy = origin.height / rect.height;
+    el.style.transformOrigin = "top left";
+    el.style.transition = "none";
+    el.style.transform = `translate(${dx}px,${dy}px) scale(${sx},${sy})`;
+    void el.offsetHeight;
+    if (typeof document !== "undefined" && document.hidden) {
+      el.style.transition = "none";
+      el.style.transform = "translate(0px,0px) scale(1,1)";
+      return;
+    }
+    let settled = false;
+    const settle = () => {
+      if (settled || this.__heroEl !== el) return;
+      settled = true;
+      el.style.transition = "transform 0.5s cubic-bezier(.16,1,.3,1)";
+      el.style.transform = "translate(0px,0px) scale(1,1)";
+    };
+    requestAnimationFrame(() => {
+      requestAnimationFrame(settle);
+    });
+    setTimeout(settle, 120);
+  };
+
+  closeDetail = () => {
+    this.clearSlideTimer();
+    if (this.__closing) return;
+    const origin = this.__originRect;
+    const originScrollY = this.__originScrollY;
+    const heroEl = this.__heroEl;
+    const wrapEl = this.__detailEl;
+    if (!origin || !heroEl || typeof window === "undefined") {
+      this.__originRect = null;
+      this.setState({ selectedId: null, lightboxOpen: false, closing: false });
+      return;
+    }
+    this.__closing = true;
+    this.setState({ closing: true });
+    const currentScrollY = window.scrollY;
+    const rect = heroEl.getBoundingClientRect();
+    const originViewportTop = origin.top - currentScrollY;
+    const dx = origin.left - rect.left;
+    const dy = originViewportTop - rect.top;
+    const sx = origin.width / rect.width;
+    const sy = origin.height / rect.height;
+    heroEl.style.transformOrigin = "top left";
+    heroEl.style.transition = "none";
+    heroEl.style.transform = "translate(0px,0px) scale(1,1)";
+    void heroEl.offsetHeight;
+    if (wrapEl) { wrapEl.style.transition = "opacity 0.3s ease"; }
+    const finish = () => {
+      if (!this.__closing) return;
+      this.__closing = false;
+      this.__originRect = null;
+      heroEl.removeEventListener("transitionend", finish);
+      clearTimeout(this.__closeTimeout);
+      this.__pendingRestoreScrollY = originScrollY;
+      this.setState({ selectedId: null, lightboxOpen: false, closing: false });
+    };
+    if (typeof document !== "undefined" && document.hidden) {
+      finish();
+      return;
+    }
+    let shrunk = false;
+    const shrink = () => {
+      if (shrunk || !this.__closing) return;
+      shrunk = true;
+      heroEl.style.transition = "transform 0.45s cubic-bezier(.4,0,.2,1)";
+      heroEl.style.transform = `translate(${dx}px,${dy}px) scale(${sx},${sy})`;
+      if (wrapEl) wrapEl.style.opacity = "0";
+    };
+    requestAnimationFrame(() => {
+      requestAnimationFrame(shrink);
+    });
+    setTimeout(shrink, 120);
+    heroEl.addEventListener("transitionend", finish);
+    this.__closeTimeout = setTimeout(finish, 650);
+  };
+
+  getSelectedImages() {
+    const proj = this.state.selectedId ? this.allProjects.find(p => p.id === this.state.selectedId) : null;
+    return proj ? (proj.images && proj.images.length ? proj.images : [proj.img]) : [];
+  }
+
+  preloadImages(images) {
+    if (typeof Image === "undefined") return;
+    (images || []).forEach(src => { const im = new Image(); im.src = src; });
+  }
+
+  clearSlideTimer() {
+    if (this.__slideTimer) { clearInterval(this.__slideTimer); this.__slideTimer = null; }
+  }
+
+  startSlideTimer() {
+    this.clearSlideTimer();
+    const imgs = this.getSelectedImages();
+    if (imgs.length > 1) {
+      this.__slideTimer = setInterval(() => {
+        const n = this.getSelectedImages().length || 1;
+        this.setState(s => ({ slideIndex: (s.slideIndex + 1) % n }));
+      }, 2000);
+    }
+  }
+
+  goToSlide = (i) => { this.clearSlideTimer(); this.setState({ slideIndex: i }); };
+  nextSlide = () => {
+    const n = this.getSelectedImages().length || 1;
+    this.clearSlideTimer();
+    this.setState(s => ({ slideIndex: (s.slideIndex + 1) % n }));
+  };
+  prevSlide = () => {
+    const n = this.getSelectedImages().length || 1;
+    this.clearSlideTimer();
+    this.setState(s => ({ slideIndex: (s.slideIndex - 1 + n) % n }));
+  };
+
+  scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  toggleDark = () => {
+    this.setState(s => {
+      const next = !s.dark;
+      try { localStorage.setItem("ayush-theme", next ? "dark" : "light"); } catch (e) {}
+      return { dark: next };
+    });
+  };
+
+  hexToRgba(hex, alpha) {
+    const h = hex.replace("#", "");
+    const num = parseInt(h, 16);
+    const r = (num >> 16) & 255, g = (num >> 8) & 255, b = num & 255;
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
+
+  categoryColors(dark) {
+    const hues = {
+      work: dark ? "#87aed6" : "#3568a0",
+      research: dark ? "#8ebd82" : "#4a7a43",
+      academic: dark ? "#e0a37c" : "#c1703f",
+      passion: dark ? "#d391bd" : "#a34a82"
+    };
+    const out = {};
+    for (const k in hues) out[k] = { color: hues[k], bg: this.hexToRgba(hues[k], dark ? 0.18 : 0.12) };
+    return out;
+  }
+
+  solidCategoryColors = { work: "#3568a0", research: "#4a7a43", academic: "#c1703f", passion: "#a34a82" };
+
+  orgBoxStyle(shape, size) {
+    const sizes = size === "detail" ? { square: 68, wideH: 42, wideHLg: 58, pad: 10 } : { square: 70, wideH: 38, wideHLg: 55, pad: 10 };
+    if (shape === "wide-lg") {
+      return `background:#fff; border-radius:6px; height:${sizes.wideHLg}px; box-sizing:border-box; padding:0 ${sizes.pad - 4}px; display:flex; align-items:center; justify-content:center;`;
+    }
+    if (shape === "wide") {
+      return `background:#fff; border-radius:6px; height:${sizes.wideH}px; box-sizing:border-box; padding:0 ${sizes.pad}px; display:flex; align-items:center; justify-content:center;`;
+    }
+    return `background:#fff; border-radius:8px; width:${sizes.square}px; height:${sizes.square}px; box-sizing:border-box; padding:3px; display:flex; align-items:center; justify-content:center;`;
+  }
+
+  orgImgStyle(shape, size) {
+    if (shape === "wide-lg") {
+      const h = size === "detail" ? 48 : 43;
+      const w = size === "detail" ? 220 : 213;
+      return `max-height:${h}px; max-width:${w}px; width:auto; height:auto; object-fit:contain;`;
+    }
+    if (shape === "wide") {
+      const h = size === "detail" ? 32 : 28;
+      const w = size === "detail" ? 130 : 125;
+      return `max-height:${h}px; max-width:${w}px; width:auto; height:auto; object-fit:contain;`;
+    }
+    return `max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain;`;
+  }
+
+  theme(dark) {
+    const accent = dark ? "#87aed6" : "#3568a0";
+    return dark ? {
+      bg: "#181410", bgAlt: "#1d1712", bgCard: "#231e18", bgChip: "#2b251d",
+      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#8f8571", textFaint: "#8f8571",
+      border: "#3a3327", borderStrong: "#4a4234", dotMuted: "#4a4234",
+      accent, accentHover: "#a6c5e6", accentFaint: this.hexToRgba(accent, 0.16),
+      btnBg: "#f3ede0", btnText: "#181410",
+      footerAccent: "#87aed6",
+      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#8f8571", footerBorder: "#2a2419",
+      navBg: "rgba(24,20,16,.88)",
+      selectionBg: "#87aed6", selectionText: "#181410"
+    } : {
+      bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
+      text: "#241f19", textBody: "#57503f", textMuted: "#8d8271", textFaint: "#8d8271",
+      border: "#e4dbca", borderStrong: "#d8cfc0", dotMuted: "#c9bfa9",
+      accent, accentHover: "#244f78", accentFaint: this.hexToRgba(accent, 0.1),
+      btnBg: "#241f19", btnText: "#faf7f0",
+      footerAccent: "#87aed6",
+      footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#8d8271", footerBorder: "#3a3327",
+      navBg: "rgba(250,247,240,.92)",
+      selectionBg: "#2e4a6b", selectionText: "#faf7f0"
+    };
+  }
+
+  allProjects = [
+    { id: "gt-vehicle", logoShape: "wide", category: "work", tag: "Work Project", title: "Vehicle sizing", year: 2024, img: "assets/img/portfolio/GT-vehicle-1.jpg", images: ["assets/img/portfolio/GT-vehicle-1.jpg","assets/img/portfolio/GT-vehicle-2.jpg","assets/img/portfolio/GT-vehicle-3.jpg","assets/img/portfolio/GT-vehicle-4.jpg"],
+      orgName: "Ola Electric", orgLogo: "assets/logos/ola-cropped.png",
+      summary: "Defining vehicle-level specs — battery, motor, gearing — to hit performance and range targets.",
+      role: "Owned vehicle-level spec definition across the platform lineup",
+      stat: { value: "2", label: "vehicle platforms specced (S1 and M1)" },
+      process: [
+        { step: "Problem", text: "Translate product performance and range targets into concrete vehicle hardware specs, across every platform in the lineup." },
+        { step: "Approach", text: "1D GT Suite models of road-load resistance, driveline efficiency, motor and battery behavior, and transmission sizing." },
+        { step: "Result", text: "Battery voltage/capacity, battery current requirement, motor torque/power, gear ratios, vehicle weight, and frontal area/drag coefficient specced across the S1 and M1 platforms — every target met with margin." }
+      ],
+      meta: [{ label: "Product", value: "S1 platform and M1 platform" }, { label: "Timeline", value: "'22 – '24" }],
+      abstractSegments: [
+        { text: "Before an EV platform is built, its ", kind: "plain" }, { text: "battery, motor, and gearing", kind: "bold" },
+        { text: " have to be sized correctly — undersize any of them and the vehicle misses its performance and range targets; oversize them and cost and weight balloon. When I joined Ola Electric, the company had a single product on the road; by the time I left, that had grown into a full ", kind: "plain" },
+        { text: "S1 scooter platform", kind: "bold" }, { text: " and an all-new ", kind: "plain" }, { text: "M1 motorcycle platform", kind: "bold" }, { text: " — I owned spec definition across both.", kind: "plain" }
+      ],
+      skills: [{ name: "GT Suite", note: "1D vehicle performance model" }], links: [] },
+    { id: "gt-thermal", logoShape: "wide", category: "work", tag: "Work Project", title: "Temperature based deration", year: 2023, img: "assets/img/portfolio/GT-thermal-2.jpg", images: ["assets/img/portfolio/GT-thermal-2.jpg","assets/img/portfolio/GT-thermal-1.jpg","assets/img/portfolio/GT-thermal-3.jpg","assets/img/portfolio/GT-thermal-4.jpg"],
+      orgName: "Ola Electric", orgLogo: "assets/logos/ola-cropped.png",
+      summary: "Predicting how far a vehicle can drive before thermal deration kicks in, across drive cycles.",
+      role: "Built and owned the thermal deration prediction model",
+      stat: { value: "S1 platform", label: "full range modeled for thermal deration limits" },
+      process: [
+        { step: "Problem", text: "Predict how far a rider can go before heat forces the vehicle to derate performance." },
+        { step: "Approach", text: "Lumped-parameter and FE thermal models of battery, motor, MCU, and charger, integrated with the vehicle model." },
+        { step: "Result", text: "Defined how hard every vehicle in the S1 platform can run before heat forces it to pull back power — distance-to-deration numbers used to set product limits across ambient conditions and drive cycles." }
+      ],
+      meta: [{ label: "Product", value: "S1 platform" }, { label: "Timeline", value: "'22 – '23" }],
+      abstractSegments: [
+        { text: "Push an EV hard enough and heat builds up in the ", kind: "plain" }, { text: "battery, motor, MCU, and charger", kind: "bold" },
+        { text: " faster than it can dissipate — forcing the vehicle to derate performance to protect the components, and leaving the rider wondering how much farther they can actually go. I built the thermal models behind that limit for Ola's entire ", kind: "plain" }, { text: "S1 platform", kind: "bold" },
+        { text: ", defining how hard each vehicle could run before heat pulled its performance back.", kind: "plain" }
+      ],
+      skills: [{ name: "GT Suite", note: "vehicle + thermal integration" }, { name: "MATLAB", note: "lumped-parameter thermal models" }], links: [] },
+    { id: "battery-cht", logoShape: "wide", category: "work", tag: "Work Project", title: "Battery Thermal Management", year: 2024, img: "assets/img/portfolio/batteryCHT-2.jpg", images: ["assets/img/portfolio/batteryCHT-2.jpg","assets/img/portfolio/batteryCHT-1.jpg","assets/img/portfolio/batteryCHT-3.jpg","assets/img/portfolio/batteryCHT-4.jpg","assets/img/portfolio/batteryCHT-5.jpg"],
+      orgName: "Ola Electric", orgLogo: "assets/logos/ola-cropped.png",
+      summary: "Cell-to-vehicle battery cooling: CFD-derived heat transfer coefficients feeding a 1D thermal model.",
+      role: "Designed the cooling concept and led the CFD-to-1D handoff",
+      stat: { value: "M1 platform", label: "cell-to-vehicle cooling validated" },
+      process: [
+        { step: "Problem", text: "Keep cell temperatures safe across the pack under varying coolant flow." },
+        { step: "Approach", text: "Conjugate heat transfer CFD in StarCCM+ to derive heat transfer coefficients, fed into a 1D battery thermal model with a radiator circuit." },
+        { step: "Result", text: "Cold-plate cooling concept validated cell-to-vehicle for the M1 platform, and sized against real drive cycles." }
+      ],
+      meta: [{ label: "Product", value: "M1 platform" }, { label: "Timeline", value: "'23 – '24" }],
+      abstractSegments: [
+        { text: "Li-ion cells have a narrow safe operating temperature band — run them too hot and they degrade faster, and uneven coolant flow across the pack means some cells age faster than others. I validated a ", kind: "plain" }, { text: "cold-plate cooling", kind: "bold" },
+        { text: " concept from cell to vehicle level for Ola's ", kind: "plain" }, { text: "M1 platform", kind: "bold" }, { text: ".", kind: "plain" }
+      ],
+      skills: [{ name: "StarCCM+", note: "CFD heat transfer coefficients" }, { name: "GT Suite", note: "1D thermal + radiator circuit" }], links: [] },
+    { id: "cartilage", logoShape: "wide-lg", category: "research", tag: "Research Project", title: "Articular cartilage regeneration", year: 2022, img: "assets/img/portfolio/cartilage-1.jpg", images: ["assets/img/portfolio/cartilage-1.jpg","assets/img/portfolio/cartilage-2.jpg"],
+      orgName: "KU Leuven", orgLogo: "assets/logos/ku-leuven.png",
+      summary: "FEA of cartilage regeneration inside a mechanically stimulated hydrogel scaffold.",
+      role: "Remote intern — sole developer of the simulation pipeline",
+      stat: { value: "2-way", label: "custom Abaqus–MATLAB co-simulation interface" },
+      process: [
+        { step: "Problem", text: "Simulate how cartilage regenerates inside a mechanically stimulated hydrogel scaffold." },
+        { step: "Approach", text: "Mechano-regulation algorithm for stem cell differentiation inside a poro-hyperelastic FE model, with a custom interface recalculating tissue properties as regeneration progressed." },
+        { step: "Result", text: "A working regeneration model supporting osteochondral defect repair research." }
+      ],
+      meta: [{ label: "Guide", value: "Dr. Satanik Mukherjee & Prof. Liesbet Geris" }, { label: "Timeline", value: "Jun '21 – Jan '22" }],
+      abstractSegments: [
+        { text: "Cartilage has ", kind: "plain" }, { text: "almost no capacity to heal itself", kind: "bold" },
+        { text: " once damaged, which is why osteochondral defects are hard to treat — one proposed fix is a mechanically stimulated ", kind: "plain" }, { text: "hydrogel scaffold", kind: "bold" },
+        { text: " that encourages stem cells to differentiate and regenerate the tissue. As the sole developer of the simulation pipeline, I built the model connecting that regeneration process to the scaffold's changing material behavior.", kind: "plain" }
+      ],
+      skills: [{ name: "Abaqus", note: "poro-hyperelastic FE model" }, { name: "MATLAB", note: "co-simulation + property updates" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/Cartilage_hydrogel_regeneration", type: "github" }] },
+    { id: "socketsense", category: "research", tag: "Research Project", title: "Socket Sense", titleUrl: "https://www.socketsense.eu/", year: 2021, img: "assets/img/portfolio/socketsense-1.jpg", images: ["assets/img/portfolio/socketsense-1.jpg","assets/img/portfolio/socketsense-2.jpg","assets/img/portfolio/socketsense-3.jpeg","assets/img/portfolio/socketsense-4.jpg","assets/img/portfolio/socketsense-5.jpg","assets/img/portfolio/socketsense-6.jpg"],
+      orgName: "KTH Royal Institute of Technology", orgLogo: "assets/logos/kth.png",
+      summary: "Pressure-distribution FEA of a transfemoral amputee's stump-socket interface.",
+      role: "Remote Intern — bachelor's thesis; led the simulation and analysis",
+      stat: { value: "Full gait cycle", label: "pressure & contact force mapped across the cycle" },
+      process: [
+        { step: "Problem", text: "Understand pressure and load on a transfemoral amputee's stump inside a prosthetic socket." },
+        { step: "Approach", text: "Donning and dynamic-loading FE simulation of the socket–stump interface, driven by joint moments and forces from inverse gait dynamics." },
+        { step: "Result", text: "Pressure, contact force, and displacement maps across the gait cycle for the Socket Sense project." }
+      ],
+      meta: [{ label: "Guide", value: "Dr. Suranjan Ottikkutti & Prof. Dejiu Chen" }, { label: "Timeline", value: "May '21 – Aug '21" }],
+      abstractSegments: [
+        { text: "SocketSense is an ", kind: "plain" }, { text: "EU Horizon 2020", kind: "bold" },
+        { text: " project building sensor-embedded prosthetic sockets that read a residual limb's tissue changes in real time, aiming for a comfortable, tailored-fit socket within a single day. Within it, KTH's role was to model the biomechanics of the ", kind: "plain" }, { text: "socket–stump interface", kind: "bold" },
+        { text: " — the work behind my ", kind: "plain" }, { text: "bachelor's thesis", kind: "bold" }, { text: ".", kind: "plain" }
+      ],
+      skills: [{ name: "ANSYS", note: "FE socket–stump simulation" }, { name: "OpenSim", note: "inverse dynamics of gait" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/socket-sense", type: "github" }, { label: "White Paper", url: "https://www.socketsense.eu/publications/", type: "paper" }] },
+    { id: "hyper-sphere", category: "research", tag: "Research Project", title: "Hyperelastic spherical actuator", year: 2021, img: "assets/img/portfolio/hyper_sphere-1.jpg", images: ["assets/img/portfolio/hyper_sphere-1.jpg","assets/img/portfolio/hyper_sphere-2.jpg"],
+      orgName: "MANIT Bhopal", orgLogo: "assets/logos/manit.png",
+      summary: "FEA of a hyperelastic spherical actuator for soft robotics and haptic feedback.",
+      role: "Undergraduate researcher — built the analytical and FE model",
+      stat: { value: "UHYPER", label: "custom Fortran subroutine for an Augmented Gent model" },
+      process: [
+        { step: "Problem", text: "Model large hyperelastic deformation of a spherical balloon actuator for soft robotics." },
+        { step: "Approach", text: "Analytical model under pressure and rotation, verified against FE simulation using a custom UHYPER Fortran subroutine in Abaqus." },
+        { step: "Result", text: "A validated actuator model applicable to haptic feedback for robot-assisted surgery." }
+      ],
+      meta: [{ label: "Guide", value: "Dr. Deepak Kumar & Dr. Vinod Yadav" }, { label: "Timeline", value: "Dec '20 – Apr '21" }],
+      abstractSegments: [
+        { text: "Soft robotics and haptic feedback systems", kind: "bold" }, { text: " increasingly rely on hyperelastic actuators that can undergo huge, reversible deformation — but modeling that large deformation accurately, especially for a pressurized, rotating spherical shape, is difficult with standard material models. I built and verified an actuator model that holds up under both, with an eye toward ", kind: "plain" }, { text: "haptic feedback for robot-assisted surgery", kind: "bold" }, { text: ".", kind: "plain" }
+      ],
+      skills: [{ name: "Abaqus CAE", note: "FE verification" }, { name: "MATLAB", note: "analytical model" }, { name: "Fortran", note: "UHYPER material subroutine" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/hyperelastic-spherical-actuator", type: "github" }, { label: "Journal Article (DOI)", url: "https://doi.org/10.1080/14484846.2022.2062882", type: "paper" }] },
+    { id: "scaphoid", category: "research", tag: "Research Project", title: "Scaphoid Analysis", year: 2021, img: "assets/img/portfolio/scaphoid-1.jpg", images: ["assets/img/portfolio/scaphoid-1.jpg","assets/img/portfolio/scaphoid-2.jpg","assets/img/portfolio/scaphoid-3.jpg","assets/img/portfolio/scaphoid-4.jpg","assets/img/portfolio/scaphoid-5.jpg","assets/img/portfolio/scaphoid-6.jpg"],
+      orgName: "AIIMS Bhopal", orgLogo: "assets/logos/aiims-bhopal-cropped.png",
+      summary: "Comparative FEA of scaphoid fracture fixation across 18 fixation configurations.",
+      role: "Undergraduate researcher — ran the full FEA comparison study",
+      stat: { value: "18", label: "fixation configurations analyzed" },
+      process: [
+        { step: "Problem", text: "Find the most stable K-wire / Herbert's-screw fixation for scaphoid fractures." },
+        { step: "Approach", text: "STL reconstruction from wrist CT DICOM data, then FEA across single-screw, screw+wire, and wire+wire configurations." },
+        { step: "Result", text: "Identified the configuration with maximum post-surgery stability across 18 fixation setups." }
+      ],
+      meta: [{ label: "Guide", value: "Dr. John A. Santoshi & Prof. R.K. Dwivedi" }, { label: "Timeline", value: "Aug '20 – Jun '21" }],
+      abstractSegments: [
+        { text: "The scaphoid is the ", kind: "plain" }, { text: "most fractured bone in the wrist", kind: "bold" },
+        { text: ", and one of the hardest to fix — its ", kind: "plain" }, { text: "blood supply runs backwards", kind: "bold" },
+        { text: " from the thumb-side end, so a poorly stabilized fracture can starve the bone of blood and simply never heal. Surgeons stabilize it with K-wires, Herbert's screws, or a combination of both, but which configuration gives the best shot at post-surgery stability was an open clinical question I set out to answer with a comparative FEA study.", kind: "plain" }
+      ],
+      skills: [{ name: "Materialise Mimics", note: "CT to STL reconstruction" }, { name: "MeshMixer", note: "mesh cleanup" }, { name: "ANSYS", note: "FEA" }, { name: "SolidWorks", note: "fixation hardware CAD" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/scaphoid-analysis", type: "github" }, { label: "Journal Article — IJO (DOI)", url: "https://doi.org/10.1007/s43465-024-01156-w", type: "paper" }, { label: "Journal Article — JHS (DOI)", url: "https://doi.org/10.1177/17531934221145516", type: "paper" }] },
+    { id: "ebaja", category: "academic", tag: "Academic Project", title: "eBAJA — All-Terrain Electric Vehicle", year: 2020, img: "assets/img/portfolio/ebaja-1.jpg", images: ["assets/img/portfolio/ebaja-1.jpg","assets/img/portfolio/ebaja-2.jpg","assets/img/portfolio/ebaja-3.jpg","assets/img/portfolio/ebaja-4.jpg","assets/img/portfolio/ebaja-5.jpg"],
+      orgName: "MANIT Bhopal", orgLogo: "assets/logos/manit.png",
+      summary: "All-terrain EV design — steering geometry optimized for a tight turning radius.",
+      role: "Steering Design Head, SAE student chapter — designed the steering system",
+      stat: { value: "98%", label: "Ackermann percentage achieved" },
+      process: [
+        { step: "Problem", text: "Design a steering system for a tight 1.5 m turning radius without bump-steer or tie-rod buckling." },
+        { step: "Approach", text: "Reverse-Ackermann geometry optimized in Python, at a 128 mm/rev steering ratio." },
+        { step: "Result", text: "98% Ackermann percentage; All-India Rank 10 in the Virtuals round of SAEINDIA eBAJA 2020." }
+      ],
+      meta: [{ label: "Guide", value: "Prof. R.K. Mandloi" }, { label: "Timeline", value: "Mar '19 – Jan '20" }],
+      abstractSegments: [
+        { text: "SAE India's BAJA program", kind: "bold" }, { text: " challenges student teams to design, build, and race a single-seat, off-road all-terrain vehicle (ATV) to a strict rulebook, judged on both engineering design and performance over rough terrain. As Steering Design Head for MANIT's eBAJA team, I designed the steering system for our entry — a ", kind: "plain" }, { text: "reverse-Ackermann geometry", kind: "bold" },
+        { text: " that helped the vehicle secure All-India Rank 10 in the Virtuals round of SAEINDIA eBAJA 2020.", kind: "plain" }
+      ],
+      skills: [{ name: "ANSYS", note: "structural checks" }, { name: "SolidWorks", note: "steering assembly CAD" }, { name: "MSC Adams (Car)", note: "kinematic simulation" }, { name: "Python", note: "Ackermann optimization" }], links: [{ label: "Ackerman Optimization", url: "https://github.com/srivastav-ayush/Ackerman-Optimization", type: "github" }, { label: "Steering Report", url: "https://drive.google.com/file/d/1_FXMnYLBdtmolq2vrURyv_HLNYWm70AB/view?usp=drive_link", type: "paper" }] },
+    { id: "fgm-cyl", category: "academic", tag: "Academic Project", title: "FEA of FGM Cylinder", year: 2021, img: "assets/img/portfolio/fgm_cyl-1.jpeg", images: ["assets/img/portfolio/fgm_cyl-1.jpeg","assets/img/portfolio/fgm_cyl-2.jpg","assets/img/portfolio/fgm_cyl-3.jpeg"],
+      orgName: "MANIT Bhopal", orgLogo: "assets/logos/manit.png",
+      summary: "Comparing power-function vs. exponential grading in functionally graded material cylinders.",
+      role: "Undergraduate researcher — led the comparative FGM study, published as a journal article",
+      stat: { value: "2", label: "grading functions compared (power vs. exponential)" },
+      process: [
+        { step: "Problem", text: "Reduce stress concentration in pressurized, rotating cylinders." },
+        { step: "Approach", text: "FEA of functionally graded material cylinders under power-function vs. exponential-function property grading." },
+        { step: "Result", text: "Exponential grading handles stress better; published in Advances in Materials and Processing Technologies." }
+      ],
+      meta: [{ label: "Guide", value: "Dr. Vinod Yadav" }, { label: "Timeline", value: "May '20 – Jul '20" }],
+      abstractSegments: [
+        { text: "Thick-walled cylinders under internal pressure \u2014 ", kind: "plain" }, { text: "gun barrels, pressure vessels, and CNG storage tanks", kind: "bold" },
+        { text: " among them \u2014 see their stress concentrated at the inner wall, where a uniform, isotropic material is often overbuilt everywhere else just to survive that one spot. Grading the material's properties from a stronger inner layer to a lighter outer layer lets a ", kind: "plain" },
+        { text: "functionally graded material (FGM)", kind: "bold" },
+        { text: " cylinder handle that stress more efficiently than an isotropic one. I compared two ways of defining that grading \u2014 power function and ", kind: "plain" },
+        { text: "exponential function", kind: "bold" },
+        { text: " \u2014 under combined pressure and rotation, with the exponential function found to handle stress better.", kind: "plain" }
+      ],
+      skills: [{ name: "Abaqus CAE", note: "FE cylinder model" }, { name: "MATLAB", note: "grading function definitions" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/fgm-cylinder", type: "github" }, { label: "Journal Article (DOI)", url: "https://doi.org/10.1080/2374068X.2021.1945274", type: "paper" }] },
+    { id: "passion-placeholder", category: "passion", tag: "Passion Project", title: "Your next passion project", year: 2026, img: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='400' height='300' fill='%23f2e2ec'/><text x='200' y='158' font-family='Arial,sans-serif' font-size='20' fill='%23a34a82' text-anchor='middle'>Add project image</text></svg>",
+      summary: "Placeholder — add a personal project here once it's ready.",
+      meta: [{ label: "Status", value: "Coming soon" }],
+      abstract: "This is a placeholder card for a future passion project — a personal build outside of work or academia. Replace this image, summary, and description once you have one to add.",
+      skills: [], links: [] },
+    { id: "uvat", category: "academic", tag: "Academic Project", title: "Inverse modelling of UVAT", year: 2020, img: "assets/img/portfolio/uvat-1.jpg",
+      orgName: "MANIT Bhopal", orgLogo: "assets/logos/manit.png",
+      summary: "Inverse estimation of cutting forces in ultrasonic vibration-assisted turning.",
+      role: "Undergraduate researcher — built the inverse model and optimization routine",
+      stat: { value: "SQP", label: "optimization method used to fit experimental data" },
+      process: [
+        { step: "Problem", text: "Estimate material-dependent parameters and friction in ultrasonic vibration-assisted turning without direct measurement." },
+        { step: "Approach", text: "Inverse method using normal force, friction force, and tool-chip contact length from conventional turning, optimized via sequential quadratic programming." },
+        { step: "Result", text: "Parametric model fit to experimental data; published in the Journal of The Institution of Engineers (India)." }
+      ],
+      meta: [{ label: "Guide", value: "Dr. Vinod Yadav" }, { label: "Timeline", value: "Feb '20 – May '20" }],
+      abstractSegments: [
+        { text: "Ultrasonic vibration-assisted turning (UVAT)", kind: "bold" },
+        { text: " overlays high-frequency vibration on a conventional turning tool, cutting tool wear and improving surface finish compared to conventional turning — but predicting how much a given material benefits from it requires material-dependent parameters and friction coefficients that can't be measured directly during machining. I developed an inverse method, optimized via ", kind: "plain" }, { text: "sequential quadratic programming (SQP)", kind: "bold" },
+        { text: ", to back those parameters out from measurable turning data.", kind: "plain" }
+      ],
+      skills: [{ name: "MATLAB", note: "inverse modeling + SQP optimization" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/inverse-uvat", type: "github" }, { label: "Journal Article (DOI)", url: "https://doi.org/10.1007/s40032-022-00813-z", type: "paper" }] }
+  ];
+
+  enrichLinks(links) {
+    return (links || []).map(f => ({ ...f, isGithub: f.type === "github", isPaper: f.type === "paper", isVideo: f.type === "video" }));
+  }
+
+  renderVals() {
+    const filter = this.state.filter;
+    const isMobile = this.state.width < 640;
+    const cardLayout = isMobile ? "display:flex; flex-direction:column;" : "display:grid; grid-template-columns:280px 1fr;";
+    const cardStyle = `${cardLayout} background:var(--bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; cursor:pointer; transition:box-shadow 0.15s, transform 0.15s, border-color 0.15s;`;
+    const placeholderCardStyle = `${cardLayout} background:var(--bg-chip); border:1.5px dashed var(--border-strong); border-radius:12px; overflow:hidden; cursor:pointer; transition:box-shadow 0.15s, transform 0.15s, border-color 0.15s;`;
+    const catColors = this.categoryColors(this.state.dark);
+    const sortAsc = this.state.sortAsc;
+    const filteredProjects = (filter === "all" ? this.allProjects : this.allProjects.filter(p => p.category === filter))
+      .slice().sort((a, b) => {
+        if (a.id === "passion-placeholder") return 1;
+        if (b.id === "passion-placeholder") return -1;
+        return sortAsc ? a.year - b.year : b.year - a.year;
+      })
+      .map(p => ({ ...p, cardStyle: p.id === "passion-placeholder" ? placeholderCardStyle : cardStyle, tagColor: catColors[p.category].color, tagBg: catColors[p.category].bg,
+        metaPad: isMobile ? 105 : 130,
+        orgBoxStyle: this.orgBoxStyle(p.logoShape || "square", "list"), orgImgStyle: this.orgImgStyle(p.logoShape || "square", "list"),
+        links: this.enrichLinks(p.links), hasLinks: (p.links || []).length > 0, open: (e) => this.openProject(p.id, e.currentTarget.firstElementChild.getBoundingClientRect()) }));
+    const hasFilteredProjects = filteredProjects.length > 0;
+    const noFilteredProjects = !hasFilteredProjects;
+    const filterKey = filter + "-" + (sortAsc ? "asc" : "desc");
+
+    const rawSelected = this.state.selectedId ? this.allProjects.find(p => p.id === this.state.selectedId) : null;
+    const selImages = rawSelected ? (rawSelected.images && rawSelected.images.length ? rawSelected.images : [rawSelected.img]) : [];
+    const curIdx = selImages.length ? this.state.slideIndex % selImages.length : 0;
+
+    const chronological = this.allProjects.slice().sort((a, b) => {
+      if (a.id === "passion-placeholder") return 1;
+      if (b.id === "passion-placeholder") return -1;
+      return b.year - a.year || a.title.localeCompare(b.title);
+    });
+    let prevProjectNav = { title: "", img: "", onClick: () => {} }, nextProjectNav = { title: "", img: "", onClick: () => {} };
+    if (rawSelected) {
+      const idx = chronological.findIndex(p => p.id === rawSelected.id);
+      const prevP = chronological[(idx - 1 + chronological.length) % chronological.length];
+      const nextP = chronological[(idx + 1) % chronological.length];
+      prevProjectNav = { title: prevP.title, img: prevP.img, onClick: () => this.openProject(prevP.id) };
+      nextProjectNav = { title: nextP.title, img: nextP.img, onClick: () => this.openProject(nextP.id) };
+    }
+
+    const orgMeta = rawSelected && rawSelected.orgName ? [{ label: rawSelected.category === "work" ? "Organization" : "Institution", value: rawSelected.orgName }] : [];
+    const rawFullMeta = rawSelected ? orgMeta.concat(rawSelected.meta || []) : [];
+    const fullMeta = rawFullMeta.map((m, i) => ({ ...m, align: (!isMobile && i === rawFullMeta.length - 1) ? "right" : "left" }));
+
+    const selectedProject = rawSelected ? {
+      ...rawSelected,
+      meta: fullMeta,
+      images: selImages,
+      currentImage: selImages[curIdx],
+      hasGallery: selImages.length > 1,
+      lightboxOpen: this.state.lightboxOpen,
+      counterText: `${curIdx + 1} / ${selImages.length}`,
+      dots: selImages.map((im, i) => ({
+        goTo: () => this.goToSlide(i),
+        style: `width:7px; height:7px; padding:0; border-radius:50%; border:none; cursor:pointer; background:${i === curIdx ? "#181410" : "rgba(24,20,16,0.35)"}; transition:background 0.15s;`
+      })),
+      tagColor: catColors[rawSelected.category].color,
+      tagBg: catColors[rawSelected.category].bg,
+      orgBoxStyle: this.orgBoxStyle(rawSelected.logoShape || "square", "detail"),
+      orgImgStyle: this.orgImgStyle(rawSelected.logoShape || "square", "detail"),
+      links: this.enrichLinks(rawSelected.links),
+      hasLinks: (rawSelected.links || []).length > 0,
+      hasTitleUrl: !!rawSelected.titleUrl,
+      noTitleUrl: !rawSelected.titleUrl,
+      hasProcess: (rawSelected.process || []).length > 0,
+      abstractSegments: (rawSelected.abstractSegments || [{ text: rawSelected.abstract, kind: "plain" }]).map(sg => ({ ...sg, isBold: sg.kind === "bold", isPlain: sg.kind !== "bold" })),
+      showConfidentialNote: (rawSelected.links || []).length === 0 && rawSelected.category === "work"
+    } : null;
+
+    const activeStyle = (name) => {
+      if (filter !== name) return { bg: "transparent", color: "var(--text-muted)" };
+      if (name === "all") return { bg: "var(--btn-bg)", color: "var(--btn-text)" };
+      return { bg: this.solidCategoryColors[name], color: "#ffffff" };
+    };
+    const all = activeStyle("all"), academic = activeStyle("academic"), research = activeStyle("research"), work = activeStyle("work"), passion = activeStyle("passion");
+
+    const metaGridStyle = isMobile
+      ? "display:grid; grid-template-columns:1fr; gap:16px; padding:20px 0; margin-bottom:28px; border-top:1px solid var(--border); border-bottom:1px solid var(--border);"
+      : "display:grid; grid-template-columns:minmax(150px,260px) 1fr max-content; gap:16px 36px; padding:20px 0; margin-bottom:28px; border-top:1px solid var(--border); border-bottom:1px solid var(--border);";
+
+    const t = this.theme(this.state.dark);
+    const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
+      `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
+      `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; --accent-faint:${t.accentFaint}; ` +
+      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText};`;
+
+    return {
+      rootStyle,
+      rootRef: this.rootRef,
+      isDarkMode: this.state.dark,
+      isLightMode: !this.state.dark,
+      toggleDark: this.toggleDark,
+      scrollToTop: this.scrollToTop,
+      currentYear: new Date().getFullYear(),
+      sunOpacity: this.state.dark ? 0 : 1,
+      sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
+      moonOpacity: this.state.dark ? 1 : 0,
+      moonTransform: this.state.dark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.4)",
+      isListView: !selectedProject,
+      filteredProjects,
+      hasFilteredProjects,
+      noFilteredProjects,
+      filterKey,
+      metaGridStyle,
+      isMobile,
+      selectedProject,
+      prevProjectNav, nextProjectNav,
+      closeDetail: this.closeDetail,
+      detailRef: this.detailRef,
+      heroRef: this.heroRef,
+      prevSlide: this.prevSlide,
+      nextSlide: this.nextSlide,
+      openLightbox: this.openLightbox,
+      closeLightbox: this.closeLightbox,
+      lightboxPrev: this.lightboxPrev,
+      lightboxNext: this.lightboxNext,
+      onImageTouchStart: this.onImageTouchStart,
+      onImageTouchEnd: this.onImageTouchEnd,
+      stopPropagation: (e) => e.stopPropagation(),
+      setAll: () => this.setState({ filter: "all" }),
+      setAcademic: () => this.setState({ filter: "academic" }),
+      setResearch: () => this.setState({ filter: "research" }),
+      setWork: () => this.setState({ filter: "work" }),
+      setPassion: () => this.setState({ filter: "passion" }),
+      toggleSort: this.toggleSort,
+      sortLabel: sortAsc ? "Oldest first" : "Newest first",
+      sortIconStyle: sortAsc ? "transform:scaleY(-1);" : "",
+      allBg: all.bg, allColor: all.color,
+      academicBg: academic.bg, academicColor: academic.color,
+      researchBg: research.bg, researchColor: research.color,
+      workBg: work.bg, workColor: work.color,
+      passionBg: passion.bg, passionColor: passion.color
+    };
+  }
+}
+
+</script>
+</body>
+</html>
