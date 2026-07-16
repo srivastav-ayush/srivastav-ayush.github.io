@@ -75,7 +75,7 @@ Categories: `career, education, talk, publication, patent, award`. Add `upcoming
 - **Theme colors**: defined in `theme(dark)` in each of the 5 page files. Light accent `#3568a0`, dark accent `#87aed6`, warm paper background `#faf7f0` / `#181410`.
 - **Tab titles & search snippets**: `<title>` and `<meta name="description">` in each file's `<head>`.
 - **Social preview** (LinkedIn/WhatsApp cards): `og:` meta tags in each `<head>`, pointing to `https://srivastav-ayush.github.io/assets/img/og-card.png`. If the domain ever changes, update these URLs in all 6 files.
-- **Favicon**: an inline SVG data-URI in each file's `<helmet>` (the "AS" mark).
+- **Favicon**: `assets/img/favicon.png` — the "AS." mark on the accent-blue square, referenced by `<link rel="icon">` in each file's `<helmet>`. Replace that one file to change it everywhere.
 - **Fonts**: Instrument Serif (headings), Archivo (body), JetBrains Mono (labels) — loaded from Google Fonts in each `<helmet>`.
 - **Responsive**: pages listen to window width in their logic class (breakpoints 640/760/860px) and swap grid/flex styles — no media queries.
 
