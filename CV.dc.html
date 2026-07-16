@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV — Ayush Srivastav</title>
+<meta name="description" content="Curriculum vitae of Ayush Srivastav — roles, research, awards, and education.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CV — Ayush Srivastav">
+<meta property="og:description" content="Curriculum vitae of Ayush Srivastav — roles, research, awards, and education.">
+<meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
+<meta property="og:url" content="https://srivastav-ayush.github.io/CV.dc.html">
+<meta name="twitter:card" content="summary_large_image">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <style>
+    html { background:var(--bg); }
+    body { margin:0; background:var(--bg); }
+    a { color:inherit; text-decoration:none; }
+    a:hover { color:var(--accent-hover); }
+    .nav-link:hover { color:var(--accent-hover) !important; }
+    .nav-links::-webkit-scrollbar { display:none; }
+    ::selection { background:var(--selection-bg); color:var(--selection-text); }
+    img { display:block; }
+  </style>
+</helmet>
+
+<div style="{{ rootStyle }}">
+  <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
+      <a href="Homepage.dc.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
+        <div style="display:flex; align-items:baseline;">
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text);">A</span>
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--accent); margin-left:-4px;">S</span><span style="font-family:'Instrument Serif',serif; font-size:30px; line-height:1; color:var(--accent); margin-left:1px;">.</span>
+        </div>
+        <div style="width:32px; height:1.5px; background:var(--accent);"></div>
+      </a>
+      <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
+        <a href="Work.dc.html" class="nav-link" style="color:var(--text-faint);">Work</a>
+        <a href="Publications.dc.html" class="nav-link" style="color:var(--text-faint);">Publications</a>
+        <a href="Talks.dc.html" class="nav-link" style="color:var(--text-faint);">Talks</a>
+        <a href="Articles.dc.html" class="nav-link" style="color:var(--text-faint);">Writing</a>
+        <a href="CV.dc.html" class="nav-link" style="color:var(--accent);">CV</a>
+      </div>
+    </div>
+  </nav>
+  <div style="height:84px;"></div>
+
+  <section style="max-width:1200px; margin:0 auto; padding:40px clamp(16px,5vw,64px) 8px; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px;">
+    <div>
+      <h1 style="font-family:'Instrument Serif',serif; font-size:44px; font-weight:400; margin:0 0 12px;">Curriculum Vitae</h1>
+      <p style="font-size:16px; color:var(--text-muted); margin:0;">Roles, research, awards, and education — last updated July 2026</p>
+    </div>
+    <a href="https://drive.google.com/file/d/1JC_OW4jU3vughbOkgJKv0CRKku9bYQBR/view?usp=sharing" target="_blank" style="background:var(--btn-bg); color:var(--btn-text); padding:12px 24px; border-radius:6px; font-weight:600; font-size:15px; white-space:nowrap;">Download PDF ↓</a>
+  </section>
+
+  <section style="max-width:1200px; margin:0 auto; padding:32px clamp(16px,5vw,64px) 96px; {{ mainGridStyle }}">
+
+    <!-- SIDEBAR -->
+    <div style="{{ sidebarStyle }}">
+      <div>
+        <div style="font-family:'Instrument Serif',serif; font-size:26px; font-weight:700; color:var(--text); margin-bottom:6px;">Ayush Srivastav</div>
+        <div style="font-size:14px; font-weight:600; color:var(--text-body); line-height:1.5;">System Engineer, ECU Cooling<br>Volvo Group</div>
+      </div>
+
+      <div>
+        <div style="display:flex; align-items:center; gap:6px; margin-bottom:10px;">
+          <div style="width:14px; height:2px; background:var(--accent);"></div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint);">Contact</div>
+        </div>
+        <div style="font-size:14px; line-height:1.8; color:var(--text-body);">
+          <div><a href="mailto:nitb.ayush@gmail.com" style="color:var(--accent);">nitb.ayush@gmail.com</a></div>
+          <div>Bengaluru, India</div>
+          <div><a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--accent);">LinkedIn ↗</a></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex; align-items:center; gap:6px; margin-bottom:10px;">
+          <div style="width:14px; height:2px; background:var(--accent);"></div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint);">Education</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:48px; height:48px; flex:none; border-radius:10px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="assets/logos/manit.png" alt="" style="width:36px; height:36px; object-fit:contain;"></div>
+              <div>
+                <div style="font-weight:700; font-size:15px;"><a href="https://www.manit.ac.in/" target="_blank" style="color:var(--text);" style-hover="color:var(--accent) !important;">Maulana Azad National Institute of Technology, Bhopal</a></div>
+                <div style="font-size:13px; color:var(--text-muted); margin-top:6px;">Bachelor of Technology, Mechanical Engineering</div>
+              </div>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; padding-top:12px; border-top:1px solid var(--border);">
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:3px;">Rank</div>
+                <div style="font-size:12.5px; font-weight:600; color:var(--text-body);">7/174</div>
+              </div>
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:3px;">Year</div>
+                <div style="font-size:12.5px; font-weight:600; color:var(--text-body);">2022</div>
+              </div>
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:3px;">Result</div>
+                <div style="font-size:12.5px; font-weight:600; color:var(--accent);">CGPA 8.99/10</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:48px; height:48px; flex:none; border-radius:10px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="assets/logos/sps.jpg" alt="" style="width:48px; height:48px; object-fit:cover;"></div>
+              <div>
+                <div style="font-weight:700; font-size:15px;"><a href="https://www.spssn.ac.in/" target="_blank" style="color:var(--text);" style-hover="color:var(--accent) !important;">Sagar Public School, Saket Nagar, Bhopal</a></div>
+                <div style="font-size:13px; color:var(--text-muted); margin-top:6px;">All India Senior School Certificate Examination (Grade 12)</div>
+              </div>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; padding-top:12px; border-top:1px solid var(--border);">
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:3px;">Board</div>
+                <div style="font-size:12.5px; font-weight:600; color:var(--text-body);">CBSE</div>
+              </div>
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:3px;">Year</div>
+                <div style="font-size:12.5px; font-weight:600; color:var(--text-body);">2018</div>
+              </div>
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:3px;">Result</div>
+                <div style="font-size:12.5px; font-weight:600; color:var(--accent);">89.8%</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:48px; height:48px; flex:none; border-radius:10px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="assets/logos/nvis.png" alt="" style="width:38px; height:38px; object-fit:contain;"></div>
+              <div>
+                <div style="font-weight:700; font-size:15px;"><a href="https://www.nvis.co.in/" target="_blank" style="color:var(--text);" style-hover="color:var(--accent) !important;">Narmada Valley International School, Hoshangabad</a></div>
+                <div style="font-size:13px; color:var(--text-muted); margin-top:6px;">All India Secondary School Examination (Grade 10)</div>
+              </div>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; padding-top:12px; border-top:1px solid var(--border);">
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:3px;">Board</div>
+                <div style="font-size:12.5px; font-weight:600; color:var(--text-body);">CBSE</div>
+              </div>
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:3px;">Year</div>
+                <div style="font-size:12.5px; font-weight:600; color:var(--text-body);">2016</div>
+              </div>
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:3px;">Result</div>
+                <div style="font-size:12.5px; font-weight:600; color:var(--accent);">CGPA 10/10</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex; align-items:center; gap:6px; margin-bottom:10px;">
+          <div style="width:14px; height:2px; background:var(--accent);"></div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint);">Skills</div>
+        </div>
+        <div style="font-size:14px; line-height:1.7; color:var(--text-body);">
+          <div style="margin-bottom:10px;"><span style="font-weight:600; color:var(--text);">Systems &amp; Functional Safety</span><br>ISO 26262, FuSa, DFMEA/SFMEA, requirements engineering, risk management</div>
+          <div style="margin-bottom:10px;"><span style="font-weight:600; color:var(--text);">Simulation &amp; Modeling</span><br>GT Suite, Simulink, StarCCM+, Abaqus, ANSYS, MSC Adams, OpenSim</div>
+          <div style="margin-bottom:10px;"><span style="font-weight:600; color:var(--text);">Design &amp; CAD</span><br>NX, SolidWorks, Fusion 360, MeshMixer, Creo, Mimics</div>
+          <div style="margin-bottom:10px;"><span style="font-weight:600; color:var(--text);">Programming &amp; Analytics</span><br>Python, MATLAB, C/C++, FORTRAN, Git, LaTeX, cloud data analytics</div>
+          <div><span style="font-weight:600; color:var(--text);">Testing &amp; Validation</span><br>Vehicle energy mapping, thermal runaway/BMS testing, CT scanning</div>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex; align-items:center; gap:6px; margin-bottom:10px;">
+          <div style="width:14px; height:2px; background:var(--accent);"></div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint);">Industries of Interest</div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <div style="font-size:13px; font-weight:600; color:var(--text-body); background:var(--bg-chip); padding:5px 10px; border-radius:20px;">Automotive</div>
+          <div style="font-size:13px; font-weight:600; color:var(--text-body); background:var(--bg-chip); padding:5px 10px; border-radius:20px;">Electric Vehicles</div>
+          <div style="font-size:13px; font-weight:600; color:var(--text-body); background:var(--bg-chip); padding:5px 10px; border-radius:20px;">BESS</div>
+          <div style="font-size:13px; font-weight:600; color:var(--text-body); background:var(--bg-chip); padding:5px 10px; border-radius:20px;">Renewable Energy</div>
+          <div style="font-size:13px; font-weight:600; color:var(--text-body); background:var(--bg-chip); padding:5px 10px; border-radius:20px;">Data Center Cooling</div>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex; align-items:center; gap:6px; margin-bottom:10px;">
+          <div style="width:14px; height:2px; background:var(--accent);"></div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:500; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint);">Outside work</div>
+        </div>
+        <ul style="font-size:14px; line-height:1.7; color:var(--text-body); margin:0; padding-left:16px;">
+          <li>An easy 5K most weeks — the thinking time matters more than the pace</li>
+          <li>A weekly 1K swim to shut the brain off entirely</li>
+          <li>Scouting Bengaluru's restaurants for that rare food-meets-ambience combination</li>
+          <li>Weekend reads with the city's book clubs, whenever the mood strikes</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div>
+      <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:28px;">
+        <h3 style="font-family:'Instrument Serif',serif; font-size:25px; font-weight:400; margin:0;">Work Experience</h3>
+        <div style="flex:1; height:1px; background:var(--border);"></div>
+      </div>
+
+      <div style="position:relative; border-left:2px solid var(--border-strong); margin-bottom:40px;">
+      <div style="position:relative; padding-left:22px; margin-bottom:28px;">
+        <div style="position:absolute; left:-6px; top:19px; width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px var(--bg);"></div>
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:8px;">
+          <div style="width:48px; height:48px; flex:none; border-radius:10px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="assets/logos/volvo.png" alt="" style="width:36px; height:36px; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:700; font-size:15.5px;"><a href="https://www.volvogroup.com/" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">Volvo Group</a>, Bengaluru</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-top:2px;">Function and Software Defined Vehicle</div>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; gap:12px; margin:0 0 10px;"><span style="font-weight:700; font-size:14px;">Experienced Engineer – System Engineer, ECU Cooling</span><span style="white-space:nowrap; font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-muted);">Aug 2025 – Present</span></div>
+        <ul style="font-size:14px; line-height:1.55; color:var(--text-body); margin:0; padding-left:20px;">
+          <li>Owns electronics and ECU cooling system development as system engineer/component owner, defining concepts, topology, and thermal budgets for control units and power electronics.</li>
+          <li>Leads cross-functional development with Volvo teams and suppliers to secure requirements and keep ECUs within safe temperature and pressure limits across duty cycles.</li>
+          <li>Drives delivery through 1D/CFD tradeoffs, vehicle thermal validation, DFMEA/SFMEA, and risk registers for cooling hardware.</li>
+        </ul>
+      </div>
+
+      <div style="position:relative; padding-left:22px;">
+        <div style="position:absolute; left:-6px; top:19px; width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px var(--bg);"></div>
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:12px;">
+          <div style="width:48px; height:48px; flex:none; border-radius:10px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="assets/logos/ola-cropped.png" alt="" style="width:36px; height:36px; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:700; font-size:15.5px;"><a href="https://www.olaelectric.com/" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">Ola Electric</a>, Bengaluru</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-top:2px;">System Integration</div>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; gap:12px; font-size:13px; font-weight:600; color:var(--text-body); margin-bottom:6px;"><span style="font-weight:700; font-size:15.5px; color:var(--text);">Manager – Simulation &amp; Modeling</span><span style="white-space:nowrap; font-family:'JetBrains Mono',monospace; font-weight:500; font-size:12.5px; color:var(--text-muted);">Apr 2024 – Jul 2025</span></div>
+        <ul style="font-size:14px; line-height:1.55; color:var(--text-body); margin:0 0 16px; padding-left:20px;">
+          <li>Evaluated 2170/4680/2670 NMC/NCA/LFP cell data (SoC-OCV, DCIR, current limits, cycle life) and defined cell/BMS requirements with suppliers.</li>
+          <li>Built full-vehicle digital twins for battery, PDU, motor, MCU, and charger to generate simulation data for AI models.</li>
+          <li>Used vehicle cloud data analytics to estimate SoH for warranty negotiations and optimize charging strategies.</li>
+        </ul>
+
+        <div style="display:flex; justify-content:space-between; gap:12px; font-size:13px; font-weight:600; color:var(--text-body); margin-bottom:6px;"><span style="font-weight:700; font-size:15.5px; color:var(--text);">Assistant Manager – Simulation &amp; Modeling</span><span style="white-space:nowrap; font-family:'JetBrains Mono',monospace; font-weight:500; font-size:12.5px; color:var(--text-muted);">Jul 2022 – Mar 2024</span></div>
+        <ul style="font-size:14px; line-height:1.55; color:var(--text-body); margin:0 0 16px; padding-left:20px;">
+          <li>Defined product specs to hit target performance and range via 1D vehicle simulations (resistance, efficiency, motor, battery, transmission sizing).</li>
+          <li>Developed lumped-parameter and FE thermal models for battery, motor, MCU, and charger temperature prediction.</li>
+          <li>Conducted vehicle energy mapping tests to quantify losses and validate simulations against test data.</li>
+        </ul>
+
+        <div style="display:flex; justify-content:space-between; gap:12px; font-size:13px; font-weight:600; color:var(--text-body); margin-bottom:6px;"><span style="font-weight:700; font-size:15.5px; color:var(--text);">Vehicle Engineering Intern</span><span style="white-space:nowrap; font-family:'JetBrains Mono',monospace; font-weight:500; font-size:12.5px; color:var(--text-muted);">Feb – Jun 2022</span></div>
+        <ul style="font-size:14px; line-height:1.55; color:var(--text-body); margin:0; padding-left:20px;">
+          <li>Conducted cell/battery thermal runaway and BMS short-circuit testing to investigate root causes of EV fire incidents; CT scanning of defective and burst cells.</li>
+          <li>Developed and patented a ceramic-wool thermal runaway propagation-prevention solution, cutting cost 6x for AIS-156 (Amd-3) compliance.</li>
+        </ul>
+      </div>
+      </div>
+
+      <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:28px;">
+        <h3 style="font-family:'Instrument Serif',serif; font-size:25px; font-weight:400; margin:0;">Research Experience</h3>
+        <div style="flex:1; height:1px; background:var(--border);"></div>
+      </div>
+
+      <div style="position:relative; border-left:2px solid var(--border-strong); margin-bottom:40px;">
+      <div style="position:relative; padding-left:22px; margin-bottom:24px;">
+        <div style="position:absolute; left:-6px; top:19px; width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px var(--bg);"></div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:6px;">
+          <div style="width:48px; height:48px; flex:none; border-radius:10px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="assets/logos/ku-leuven.png" alt="" style="width:36px; height:36px; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:700; font-size:15.5px;"><a href="https://www.kuleuven.be/" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">KU Leuven</a>, Belgium</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-top:2px;">Remote Intern</div>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-muted); margin:0 0 8px;"><span>Guide: <a href="http://www.biomech.ulg.ac.be/team/satanik-mukherjee/" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">Dr. Satanik Mukherjee</a> &amp; <a href="http://www.biomech.ulg.ac.be/team/liesbet-geris/" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">Prof. Liesbet Geris</a></span><span style="white-space:nowrap;">Jun 2021 – Jan 2022</span></div>
+        <div style="font-size:13px; font-weight:600; color:var(--text-body); margin-bottom:6px;">Articular cartilage repair for osteochondral defects — <a href="https://github.com/srivastav-ayush/Cartilage_hydrogel_regeneration" target="_blank" style="font-weight:600; color:var(--accent);">Repository ↗</a></div>
+        <ul style="font-size:14px; line-height:1.55; color:var(--text-body); margin:0; padding-left:20px;">
+          <li>Implemented the mechano-regulation algorithm for stem cell differentiation to simulate cartilage regeneration inside a mechanically stimulated hydrogel scaffold.</li>
+          <li>Designed an Abaqus–MATLAB interface to iteratively calculate changing material properties from tissue regeneration in a poro-hyperelastic FE model.</li>
+        </ul>
+      </div>
+
+      <div style="position:relative; padding-left:22px; margin-bottom:24px;">
+        <div style="position:absolute; left:-6px; top:19px; width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px var(--bg);"></div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:6px;">
+          <div style="width:48px; height:48px; flex:none; border-radius:10px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="assets/logos/kth.png" alt="" style="width:36px; height:36px; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:700; font-size:15.5px;"><a href="https://www.kth.se/" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">KTH Royal Institute of Technology</a>, Sweden</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-top:2px;">Remote Intern</div>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-muted); margin:0 0 8px;"><span>Guide: <a href="https://www.kth.se/profile/suranjan" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">Dr. Suranjan Ram Ottikkutti</a> &amp; <a href="https://www.kth.se/profile/chendj" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">Prof. Dejiu Chen</a></span><span style="white-space:nowrap;">May – Aug 2021</span></div>
+        <div style="font-size:13px; font-weight:600; color:var(--text-body); margin-bottom:6px;"><a href="https://www.socketsense.eu/" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">Socket Sense</a> — a tailored fit of the future (Major Thesis) — <a href="https://github.com/srivastav-ayush/socket-sense" target="_blank" style="font-weight:600; color:var(--accent);">Repository ↗</a></div>
+        <ul style="font-size:14px; line-height:1.55; color:var(--text-body); margin:0; padding-left:20px;">
+          <li>Simulated donning and dynamic loading of a prosthetic socket to analyze stresses on the stump's soft tissue.</li>
+          <li>Investigated pressure, contact forces, and displacement at the socket–stump interface for a transfemoral amputee.</li>
+          <li>Performed inverse dynamics analysis of prosthetic gait to calculate joint moments and forces.</li>
+        </ul>
+      </div>
+
+      <div style="position:relative; padding-left:22px; margin-bottom:24px;">
+        <div style="position:absolute; left:-6px; top:19px; width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px var(--bg);"></div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:6px;">
+          <div style="width:48px; height:48px; flex:none; border-radius:10px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="assets/logos/manit.png" alt="" style="width:36px; height:36px; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:700; font-size:15.5px;"><a href="https://www.manit.ac.in/" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">Maulana Azad National Institute of Technology, Bhopal</a></div>
+            <div style="font-size:13px; color:var(--text-muted); margin-top:2px;">Undergraduate Researcher</div>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-muted); margin:0 0 8px;"><span>Guide: <a href="https://sites.google.com/view/dkumar/home" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">Dr. Deepak Kumar</a> &amp; <a href="http://www.manit.ac.in/content/dr-vinod-yadav" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">Dr. Vinod Yadav</a></span><span style="white-space:nowrap;">Dec 2020 – Apr 2021</span></div>
+        <div style="font-size:13px; font-weight:600; color:var(--text-body); margin-bottom:6px;">Modelling of hyperelastic spherical balloon actuator — <a href="https://github.com/srivastav-ayush/hyperelastic-spherical-actuator" target="_blank" style="font-weight:600; color:var(--accent);">Repository ↗</a></div>
+        <ul style="font-size:14px; line-height:1.55; color:var(--text-body); margin:0; padding-left:20px;">
+          <li>Designed an analytical model for hyperelastic spherical balloon actuators under pressure and angular velocity.</li>
+          <li>Developed a UHYPER subroutine in Fortran for an Augmented Gent material model in Abaqus CAE.</li>
+          <li>Conducted instability analysis under pressure and angular velocity for different actuator wall thicknesses.</li>
+        </ul>
+      </div>
+
+      <div style="position:relative; padding-left:22px;">
+        <div style="position:absolute; left:-6px; top:19px; width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px var(--bg);"></div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:6px;">
+          <div style="width:48px; height:48px; flex:none; border-radius:10px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="assets/logos/aiims-bhopal-cropped.png" alt="" style="width:36px; height:36px; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:700; font-size:15.5px;"><a href="https://aiimsbhopal.edu.in/" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">All India Institute of Medical Sciences, Bhopal</a></div>
+            <div style="font-size:13px; color:var(--text-muted); margin-top:2px;">Undergraduate Researcher</div>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-muted); margin:0 0 8px;"><span>Guide: <a href="https://aiimsbhopal.edu.in/index_controller/facultyDetails?sid=125&amp;id=" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">Dr. John A. Santoshi</a> &amp; <a href="http://www.manit.ac.in/dr-rk-dwivedi" target="_blank" style="color:inherit;" style-hover="color:var(--accent) !important;">Prof. R.K. Dwivedi</a></span><span style="white-space:nowrap;">Aug 2020 – Jul 2021</span></div>
+        <div style="font-size:13px; font-weight:600; color:var(--text-body); margin-bottom:6px;">Post-surgery stability of Scaphoid bone fractures — <a href="https://github.com/srivastav-ayush/scaphoid-analysis" target="_blank" style="font-weight:600; color:var(--accent);">Repository ↗</a></div>
+        <ul style="font-size:14px; line-height:1.55; color:var(--text-body); margin:0; padding-left:20px;">
+          <li>Constructed an STL model of the scaphoid bone from wrist CT DICOM files for fracture analysis under load.</li>
+          <li>Ran FEA across 18 K-wire and Herbert-screw fixation configurations to find the setup with maximum post-surgery stability.</li>
+        </ul>
+      </div>
+      </div>
+
+      <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:28px;">
+        <h3 style="font-family:'Instrument Serif',serif; font-size:25px; font-weight:400; margin:0;">Awards &amp; Achievements</h3>
+        <div style="flex:1; height:1px; background:var(--border);"></div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:0;">
+        <div style="display:grid; grid-template-columns:150px 1fr 60px; gap:4px 36px; align-items:center; padding:12px 0; border-bottom:1px solid var(--border);">
+          <div style="width:115px; height:40px; flex:none; border-radius:8px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:8px; justify-self:end;"><img src="assets/logos/narotam-sekhsaria.jpg" alt="" style="max-width:100%; max-height:100%; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:600; font-size:15.5px; margin-bottom:3px;">Narotam Sekhsaria Foundation — PG Scholarship</div>
+            <div style="font-size:14px; line-height:1.55; color:var(--text-body);">Selected among 22 scholars nationwide; awarded ₹25 lakh after admits from Imperial, TU Delft, KTH, and Texas A&amp;M (declined).</div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); white-space:nowrap; text-align:right;">2025</div>
+        </div>
+        <div style="display:grid; grid-template-columns:150px 1fr 60px; gap:4px 36px; align-items:center; padding:12px 0; border-bottom:1px solid var(--border);">
+          <div style="width:115px; height:40px; flex:none; border-radius:8px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:8px; justify-self:end;"><img src="assets/logos/dr-kalam-fellowship.jpg" alt="" style="max-width:100%; max-height:100%; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:600; font-size:15.5px; margin-bottom:3px;">Dr. APJ Abdul Kalam Young Research Fellowship</div>
+            <div style="font-size:14px; line-height:1.55; color:var(--text-body);">Recognized for notable research contributions in environment protection; awarded a cash prize of ₹25,000 by <a href="http://www.drkalamfellowship.com/" target="_blank" style="color:var(--accent);">TERRE Policy Center</a>. <a href="https://drive.google.com/file/d/1DuSLooKcoYUGRr8FZQUHWcwUEkDiYypm/view?usp=sharing" target="_blank" style="font-weight:600; color:var(--accent);">Certificate ↗</a></div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); white-space:nowrap; text-align:right;">2022</div>
+        </div>
+        <div style="display:grid; grid-template-columns:150px 1fr 60px; gap:4px 36px; align-items:center; padding:12px 0; border-bottom:1px solid var(--border);">
+          <div style="width:66px; height:66px; flex:none; border-radius:11px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden; justify-self:end;"><img src="assets/logos/manit.png" alt="" style="width:56px; height:56px; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:600; font-size:15.5px; margin-bottom:3px;">Academic Excellence Award</div>
+            <div style="font-size:14px; line-height:1.55; color:var(--text-body);">2nd rank among 176 students in the 3rd year of B.Tech, Mechanical Engineering at MANIT Bhopal. <a href="https://drive.google.com/file/d/1yKDCzDZ8XviAG-WlWq2wXxFHrm-C4r3B/view?usp=sharing" target="_blank" style="font-weight:600; color:var(--accent);">Certificate ↗</a></div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); white-space:nowrap; text-align:right;">2021</div>
+        </div>
+        <div style="display:grid; grid-template-columns:150px 1fr 60px; gap:4px 36px; align-items:center; padding:12px 0; border-bottom:1px solid var(--border);">
+          <div style="width:104px; height:50px; flex:none; border-radius:8px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:8px; justify-self:end;"><img src="assets/logos/moyas-full.jpg" alt="" style="max-width:100%; max-height:100%; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:600; font-size:15.5px; margin-bottom:3px;">International Youth Exchange Programme (IYEP)</div>
+            <div style="font-size:14px; line-height:1.55; color:var(--text-body);">Selected among the top 15 students nationwide by MYAS, Government of India, to serve as India's Youth Engagement representative at the <a href="https://brics2021.gov.in/youth-summit" target="_blank" style="color:var(--accent);">VII BRICS Youth Summit</a>. <a href="https://drive.google.com/file/d/1sH45blIprykhYSmRb1L_tMd8lDt52xO5/view?usp=sharing" target="_blank" style="font-weight:600; color:var(--accent);">Certificate ↗</a></div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); white-space:nowrap; text-align:right;">2021</div>
+        </div>
+        <div style="display:grid; grid-template-columns:150px 1fr 60px; gap:4px 36px; align-items:center; padding:12px 0; border-bottom:1px solid var(--border);">
+          <div style="width:66px; height:66px; flex:none; border-radius:11px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden; justify-self:end;"><img src="assets/logos/hpair.jpg" alt="" style="width:67px; height:67px; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:600; font-size:15.5px; margin-bottom:3px;">HPAIR Delegate</div>
+            <div style="font-size:14px; line-height:1.55; color:var(--text-body);">Remote delegate for HCONF 2021 — Embracing Change, the Harvard Project for Asian and International Relations (HPAIR) conference. <a href="https://drive.google.com/file/d/12HQql777tbg0-dUr-MJgEdX1WdVZqjOa/view?usp=sharing" target="_blank" style="font-weight:600; color:var(--accent);">Certificate ↗</a></div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); white-space:nowrap; text-align:right;">2021</div>
+        </div>
+        <div style="display:grid; grid-template-columns:150px 1fr 60px; gap:4px 36px; align-items:center; padding:12px 0; border-bottom:1px solid var(--border);">
+          <div style="width:66px; height:66px; flex:none; border-radius:11px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden; justify-self:end;"><img src="assets/logos/somme.jpg" alt="" style="width:67px; height:67px; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:600; font-size:15.5px; margin-bottom:3px;">AFTMME — Best Paper Runner-Up</div>
+            <div style="font-size:14px; line-height:1.55; color:var(--text-body);">2nd position and a cash prize of ₹31,000 in the Undergraduate Presentation Skill Contest at the 8th International Conference on Advancements and Futuristic Trends in Mechanical and Materials Engineering (AFTMME). <a href="https://drive.google.com/file/d/1xoZVinwn-v-kkRqAroA2ytIgI3KYy_zz/view?usp=drive_link" target="_blank" style="font-weight:600; color:var(--accent);">Certificate ↗</a></div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); white-space:nowrap; text-align:right;">2020</div>
+        </div>
+        <div style="display:grid; grid-template-columns:150px 1fr 60px; gap:4px 36px; align-items:center; padding:12px 0; border-bottom:1px solid var(--border);">
+          <div style="width:66px; height:66px; flex:none; border-radius:11px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden; justify-self:end;"><img src="assets/logos/ebaja.jpg" alt="" style="width:67px; height:67px; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:600; font-size:15.5px; margin-bottom:3px;">eBAJA — All-India Rank 10</div>
+            <div style="font-size:14px; line-height:1.55; color:var(--text-body);">Secured an All-India Rank of 10 in the Virtual round of eBAJA 2020, organized by SAEINDIA. <a href="https://drive.google.com/file/d/1xoZVinwn-v-kkRqAroA2ytIgI3KYy_zz/view?usp=drive_link" target="_blank" style="font-weight:600; color:var(--accent);">Certificate ↗</a></div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); white-space:nowrap; text-align:right;">2019</div>
+        </div>
+        <div style="display:grid; grid-template-columns:150px 1fr 60px; gap:4px 36px; align-items:center; padding:12px 0;">
+          <div style="width:66px; height:66px; flex:none; border-radius:11px; background:#ffffff; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden; justify-self:end;"><img src="assets/logos/cbse.png" alt="" style="width:61px; height:61px; object-fit:contain;"></div>
+          <div>
+            <div style="font-weight:600; font-size:15.5px; margin-bottom:3px;">JEE Main — Top 1.5%</div>
+            <div style="font-size:14px; line-height:1.55; color:var(--text-body);">Ranked in the top 1.5% among 1.2 million candidates in the Joint Entrance Examination (Main) 2018.</div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); white-space:nowrap; text-align:right;">2018</div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; color:var(--text-faint); margin-top:44px; padding-top:28px; border-top:1px solid var(--border);">Full publication and patent list on the <a href="Publications.dc.html" style="color:var(--accent);">Publications page</a>. Conference talks and slides on the <a href="Talks.dc.html" style="color:var(--accent);">Talks page</a>. Projects in depth on the <a href="Work.dc.html" style="color:var(--accent);">Work page</a>.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer style="background:var(--footer-bg); color:var(--footer-text); border-top:1px solid var(--footer-border);">
+    <div style="max-width:1200px; margin:0 auto; padding:56px clamp(16px,5vw,64px) 32px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
+      <div>
+        <div style="font-family:'Instrument Serif',serif; font-size:21px; color:var(--footer-text); margin-bottom:8px;">Ayush Srivastav</div>
+        <div style="font-size:14px; color:var(--footer-text-muted); margin-bottom:20px;">Bengaluru, India</div>
+        <a href="mailto:nitb.ayush@gmail.com" style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--footer-text); color:var(--footer-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">Get in touch</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
+        <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
+          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
+          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
+        </div>
+        <div style="display:flex; gap:22px; font-size:13px; font-weight:500; flex-wrap:wrap; justify-content:flex-end; color:var(--footer-text-muted);">
+          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">X</a>
+          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Strava</a>
+          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px; margin:0 auto; padding:20px clamp(16px,5vw,64px) 32px; border-top:1px solid var(--footer-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div style="font-size:13px; color:var(--footer-text-muted);">© {{ currentYear }} Ayush Srivastav</div>
+      <a href="#top" onClick="{{ scrollToTop }}" style="font-size:13px; color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <button onClick="{{ toggleDark }}" aria-label="Toggle dark mode" style="position:fixed; bottom:24px; right:24px; z-index:1000; width:52px; height:52px; border-radius:50%; border:1px solid var(--border-strong); background:var(--bg-card); box-shadow:0 6px 20px rgba(0,0,0,0.18); cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; overflow:hidden;">
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ sunOpacity }}; transform:{{ sunTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="5" fill="#f2b134"></circle>
+        <g stroke="#f2b134" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="1.5" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22.5"></line>
+          <line x1="1.5" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22.5" y2="12"></line>
+          <line x1="4.4" y1="4.4" x2="6.1" y2="6.1"></line>
+          <line x1="17.9" y1="17.9" x2="19.6" y2="19.6"></line>
+          <line x1="4.4" y1="19.6" x2="6.1" y2="17.9"></line>
+          <line x1="17.9" y1="6.1" x2="19.6" y2="4.4"></line>
+        </g>
+      </svg>
+    </div>
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ moonOpacity }}; transform:{{ moonTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M9.5 2.5a7.2 7.2 0 1 0 8.6 9.6A7.8 7.8 0 0 1 9.5 2.5Z" fill="#fdfaf3"></path>
+        <path d="M5.8 21c-1.7 0-3.05-1.36-3.05-3.03 0-1.5 1.1-2.75 2.55-2.98a4.3 4.3 0 0 1 8.15-1.62 3.65 3.65 0 0 1 3.75 3.63c0 .38-.06.75-.17 1.1a2.9 2.9 0 0 1-1.03 2.9H5.8Z" fill="#4a4234" stroke="#2a2419" stroke-width="0.6"></path>
+      </svg>
+    </div>
+  </button>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    width: (typeof window !== "undefined" ? window.innerWidth : 1200),
+    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark")
+  };
+
+  componentDidMount() {
+    this.onResize = () => this.setState({ width: window.innerWidth });
+    window.addEventListener("resize", this.onResize, { passive: true });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.onResize);
+  }
+
+  scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  toggleDark = () => {
+    this.setState(s => {
+      const next = !s.dark;
+      try { localStorage.setItem("ayush-theme", next ? "dark" : "light"); } catch (e) {}
+      return { dark: next };
+    });
+  };
+
+  theme(dark) {
+    return dark ? {
+      bg: "#181410", bgAlt: "#1d1712", bgCard: "#231e18", bgChip: "#2b251d",
+      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#8f8571", textFaint: "#8f8571",
+      border: "#3a3327", borderStrong: "#4a4234", dotMuted: "#4a4234",
+      accent: "#87aed6", accentHover: "#a6c5e6",
+      btnBg: "#f3ede0", btnText: "#181410",
+      footerAccent: "#87aed6",
+      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#8f8571", footerBorder: "#2a2419",
+      navBg: "rgba(24,20,16,.88)",
+      selectionBg: "#87aed6", selectionText: "#181410"
+    } : {
+      bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
+      text: "#241f19", textBody: "#57503f", textMuted: "#8d8271", textFaint: "#8d8271",
+      border: "#e4dbca", borderStrong: "#d8cfc0", dotMuted: "#c9bfa9",
+      accent: "#3568a0", accentHover: "#244f78",
+      btnBg: "#241f19", btnText: "#faf7f0",
+      footerAccent: "#87aed6",
+      footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#8d8271", footerBorder: "#3a3327",
+      navBg: "rgba(250,247,240,.92)",
+      selectionBg: "#2e4a6b", selectionText: "#faf7f0"
+    };
+  }
+
+  renderVals() {
+    const isMobile = this.state.width < 860;
+    const t = this.theme(this.state.dark);
+    if (typeof document !== "undefined") { document.documentElement.style.background = t.bg; document.body.style.background = t.bg; }
+        const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
+      `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
+      `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
+      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText};`;
+
+    return {
+      rootStyle,
+      isDarkMode: this.state.dark,
+      isLightMode: !this.state.dark,
+      toggleDark: this.toggleDark,
+      scrollToTop: this.scrollToTop,
+      currentYear: new Date().getFullYear(),
+      sunOpacity: this.state.dark ? 0 : 1,
+      sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
+      moonOpacity: this.state.dark ? 1 : 0,
+      moonTransform: this.state.dark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.4)",
+      mainGridStyle: isMobile
+        ? "display:grid; grid-template-columns:1fr; gap:40px;"
+        : "display:grid; grid-template-columns:340px 1fr; gap:44px; align-items:start;",
+      sidebarStyle: isMobile
+        ? "display:flex; flex-direction:column; gap:32px;"
+        : "position:sticky; top:32px; display:flex; flex-direction:column; gap:32px; padding-right:4px;"
+    };
+  }
+}
+
+</script>
+</body>
+</html>

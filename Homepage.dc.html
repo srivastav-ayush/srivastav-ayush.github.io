@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayush Srivastav</title>
+<meta name="description" content="Ayush Srivastav — system engineer for ECU cooling at Volvo Group. Patents, publications, talks, and vehicle thermal simulation work.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ayush Srivastav">
+<meta property="og:description" content="Ayush Srivastav — system engineer for ECU cooling at Volvo Group. Patents, publications, talks, and vehicle thermal simulation work.">
+<meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
+<meta property="og:url" content="https://srivastav-ayush.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <style>
+    html { background:var(--bg); }
+    body { margin:0; background:var(--bg); }
+    a { color:inherit; text-decoration:none; }
+    a:hover { color:var(--accent-hover); }
+    .nav-link:hover { color:var(--accent-hover) !important; }
+    .nav-links::-webkit-scrollbar { display:none; }
+    ::selection { background:var(--selection-bg); color:var(--selection-text); }
+    img { display:block; }
+    image-slot::part(ctl) { display:none !important; }
+    image-slot::part(ring) { display:none !important; }
+    html { scrollbar-gutter: stable both-edges; }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+  </style>
+</helmet>
+
+<div style="{{ rootStyle }}">
+
+  <!-- NAV -->
+  <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
+      <div style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
+        <div style="display:flex; align-items:baseline;">
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text); letter-spacing:-1px;">A</span>
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--accent); letter-spacing:-1px; margin-left:-4px;">S</span><span style="font-family:'Instrument Serif',serif; font-size:30px; line-height:1; color:var(--accent); margin-left:1px;">.</span>
+        </div>
+        <div style="width:32px; height:1.5px; background:var(--accent);"></div>
+      </div>
+      <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
+        <a href="Work.dc.html" class="nav-link" style="color:var(--text-faint);">Work</a>
+        <a href="Publications.dc.html" class="nav-link" style="color:var(--text-faint);">Publications</a>
+        <a href="Talks.dc.html" class="nav-link" style="color:var(--text-faint);">Talks</a>
+        <a href="Articles.dc.html" class="nav-link" style="color:var(--text-faint);">Writing</a>
+        <a href="CV.dc.html" class="nav-link" style="color:var(--text-faint);">CV ↗</a>
+      </div>
+    </div>
+  </nav>
+  <div style="height:84px;"></div>
+
+  <!-- HERO -->
+  <section style="position:relative; max-width:1200px; margin:0 auto; padding:{{ heroPaddingStyle }} clamp(16px,5vw,64px) 80px; overflow:hidden; {{ heroGridStyle }}">
+    <div aria-hidden="true" style="position:absolute; top:-64px; right:-8px; font-family:'Instrument Serif',serif; font-style:italic; font-size:min(46vw,380px); line-height:1; color:var(--border); opacity:0.55; pointer-events:none; z-index:0; user-select:none;">S</div>
+
+    <div style="{{ heroTextStyle }} position:relative; z-index:1;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:24px;">
+        <span style="width:7px; height:7px; border-radius:50%; background:var(--accent); flex:none;"></span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">System Engineer, ECU Cooling · Volvo Group</span>
+      </div>
+      <h1 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(52px,7.4vw,100px); line-height:0.96; letter-spacing:-0.02em; margin:0 0 30px;">
+        <span style="color:var(--text); display:block;">Ayush</span>
+        <span style="color:var(--accent); font-style:italic; display:block;">Srivastav</span>
+      </h1>
+      <p style="font-size:18.5px; line-height:1.65; color:var(--text-body); max-width:580px; margin:0 0 38px;">I take care of systems engineering for ECU cooling at Volvo&nbsp;Group — full-vehicle digital twins across battery, motor, and charging systems built along the way at Ola Electric.</p>
+      <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:44px;">
+        <a href="Work.dc.html" style="display:inline-flex; align-items:center; gap:10px; background:var(--btn-bg); color:var(--btn-text); padding:16px 30px; border-radius:8px; font-weight:700; font-size:15px; transition:background 0.15s,color 0.15s,transform 0.15s;" style-hover="background:var(--accent) !important; color:var(--btn-text) !important; transform:translateY(-2px) !important;">See my Work <span style="display:inline-flex; align-items:center; line-height:1;">→</span></a>
+        <a href="mailto:nitb.ayush@gmail.com" style="font-weight:600; font-size:15px; color:var(--text-muted); transition:color 0.15s;" style-hover="color:var(--accent) !important;">Contact Me</a>
+      </div>
+      <div style="display:flex; align-items:stretch; gap:0; flex-wrap:wrap; padding-top:28px; border-top:1px solid var(--border); max-width:560px;">
+        <sc-for list="{{ heroStats }}" as="hs" hint-placeholder-count="3">
+          <div style="{{ hs.wrapStyle }}">
+            <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:32px; color:var(--accent); line-height:1;">{{ hs.value }}</div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-top:6px;">{{ hs.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="{{ heroPhotoStyle }} position:relative; z-index:1;">
+      <div style="position:relative; width:100%; min-width:0;">
+        <div style="position:absolute; top:16px; left:16px; right:-16px; bottom:-16px; border:2px solid var(--accent); border-radius:18px; z-index:0;"></div>
+        <div style="position:relative; z-index:1; width:100%; min-width:0; aspect-ratio:4/5; border-radius:18px; overflow:hidden; box-shadow:0 24px 48px rgba(0,0,0,0.2); border:1px solid var(--border);">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-photo" shape="rect" src="assets/img/ayush.jpg" placeholder="Drop your photo" style="width:100%; height:100%;" hint-size="100%,100%"></x-import>
+        </div>
+      </div>
+      <a href="mailto:nitb.ayush@gmail.com" style="font-size:14.5px; color:var(--text-muted); margin:24px 0 16px; display:inline-block; transition:color 0.15s;" style-hover="color:var(--accent) !important;">nitb.ayush@gmail.com</a>
+      <div style="display:flex; gap:12px;">
+        <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="width:36px; height:36px; border-radius:50%; border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; color:var(--text); transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"></path></svg></a>
+        <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="width:36px; height:36px; border-radius:50%; border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; color:var(--text); transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"></path><path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"></path></svg></a>
+        <a href="https://github.com/srivastav-ayush" target="_blank" style="width:36px; height:36px; border-radius:50%; border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; color:var(--text); transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path></svg></a>
+        <a href="https://twitter.com/srvstv_ayush" target="_blank" style="width:36px; height:36px; border-radius:50%; border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; color:var(--text); transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"></path></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPDATES -->
+  <section style="border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px; margin:0 auto; padding:44px clamp(16px,5vw,64px) 52px;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:16px; flex-wrap:wrap; margin-bottom:6px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.07em;">Milestones</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-faint);">{{ milestoneCount }} milestones · 2016–2026</div>
+      </div>
+      <p style="font-size:15px; line-height:1.55; color:var(--text-muted); max-width:640px; margin:0 0 26px;">Publications, patents, talks, career moves, and education, in one running log.</p>
+
+      <div style="display:inline-flex; background:var(--bg-chip); border-radius:8px; padding:4px; gap:4px; flex-wrap:wrap; margin-bottom:8px;">
+        <button onClick="{{ setFilterAll }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.all.bg }}; color:{{ filterStyles.all.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">All</button>
+        <button onClick="{{ setFilterCareer }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.career.bg }}; color:{{ filterStyles.career.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Career</button>
+        <button onClick="{{ setFilterEducation }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.education.bg }}; color:{{ filterStyles.education.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Education</button>
+        <button onClick="{{ setFilterAward }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.award.bg }}; color:{{ filterStyles.award.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Awards</button>
+        <button onClick="{{ setFilterPublication }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.publication.bg }}; color:{{ filterStyles.publication.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Publications</button>
+        <button onClick="{{ setFilterPatent }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.patent.bg }}; color:{{ filterStyles.patent.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Patents</button>
+        <button onClick="{{ setFilterTalk }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.talk.bg }}; color:{{ filterStyles.talk.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Talks</button>
+      </div>
+
+      <div style="margin-top:18px;">
+        <sc-for list="{{ yearGroups }}" as="yg" hint-placeholder-count="3">
+          <div>
+            <div style="display:flex; align-items:baseline; gap:14px; margin:26px 0 4px;">
+              <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:26px; color:var(--accent); line-height:1;">{{ yg.year }}</div>
+              <div style="flex:1; height:1px; background:var(--border);"></div>
+            </div>
+            <sc-for list="{{ yg.items }}" as="m" hint-placeholder-count="2">
+              <div style="display:flex; gap:18px; padding:13px 0; border-bottom:1px solid var(--border); animation:fadeInUp 0.4s ease both; animation-delay:{{ m.delay }};">
+                <div style="width:74px; flex:none; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-faint); padding-top:3px;">{{ m.dateLabel }}</div>
+                <div style="flex:1; min-width:0;">
+                  <span style="{{ m.pillStyle }}">{{ m.pillLabel }}</span>
+                  <div style="font-size:14.5px; line-height:1.55; color:var(--text-body); margin-top:5px;">{{ m.text }} <a href="{{ m.link }}" style="font-weight:600; color:var(--accent);">↗</a></div>
+                </div>
+                <sc-if value="{{ m.upcoming }}">
+                  <div style="flex:none; align-self:center;">
+                    <span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); border:1px solid var(--accent); padding:4px 10px; border-radius:20px; white-space:nowrap;">Upcoming</span>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+        <sc-if value="{{ noneMatch }}">
+          <p style="font-size:14.5px; color:var(--text-faint); padding:24px 0;">No milestones in this category yet.</p>
+        </sc-if>
+      </div>
+
+      <div style="margin-top:18px;">
+        <button onClick="{{ toggleMilestonesExpand }}" style="border:none; background:none; cursor:pointer; padding:0; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--accent); transition:opacity 0.15s;" style-hover="opacity:0.7 !important; text-decoration:underline !important;">{{ milestonesToggleLabel }}</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME -->
+  <section id="about" style="max-width:1200px; margin:0 auto; padding:64px clamp(16px,5vw,64px) 96px;">
+      <h2 style="font-family:'Instrument Serif',serif; font-size:34px; font-weight:400; margin:0 0 10px;">Experience</h2>
+      <p style="font-size:15px; line-height:1.55; color:var(--text-muted); max-width:640px; margin:0 0 44px;">How I approached the problems, and what came of it.</p>
+
+      <div style="position:relative;">
+        <div style="position:absolute; left:13px; top:8px; bottom:8px; width:2px; background:linear-gradient(to top, var(--accent-faint), var(--accent));"></div>
+        <div style="position:absolute; left:8px; top:-3px; width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:10px solid var(--accent);"></div>
+        <sc-for list="{{ impactTimeline }}" as="e" hint-placeholder-count="5">
+          <div style="{{ e.rowStyle }}">
+            <div style="position:relative; z-index:1; display:flex; justify-content:center; align-items:flex-start; padding-top:5px;">
+              <div style="box-sizing:border-box; width:14px; height:14px; border-radius:50%; background:var(--accent); border:2px solid var(--bg);"></div>
+            </div>
+            <div style="display:flex; justify-content:center; align-items:flex-start;">
+              <div style="{{ e.impactBoxStyle }}" style-hover="transform:translateY(-4px) scale(1.03) !important; box-shadow:0 10px 20px rgba(0,0,0,0.16) !important;"><div role="img" aria-label="{{ e.org }}" style="{{ e.logoBgStyle }}"></div></div>
+            </div>
+            <div>
+              <div style="display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:20px; margin-bottom:18px;">
+                <div>
+                  <div style="font-weight:700; font-size:19.5px; margin-bottom:4px; line-height:1.25; letter-spacing:-0.01em;">{{ e.role }}</div>
+                  <a href="{{ e.website }}" target="_blank" style="font-size:15px; font-weight:600; color:var(--text); margin-bottom:3px; display:inline-block; transition:color 0.15s;" style-hover="color:var(--accent) !important;">{{ e.org }}</a>
+                  <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--text-faint); display:flex; align-items:center; gap:8px;">
+                    <span>{{ e.date }}</span>
+                    <sc-if value="{{ e.virtual }}">
+                      <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint); border:1px solid var(--border-strong); padding:2px 7px; border-radius:10px;">Virtual</span>
+                    </sc-if>
+                  </div>
+                </div>
+                <sc-if value="{{ e.hasStats }}">
+                  <div style="flex:none; display:flex; align-items:stretch; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
+                    <sc-if value="{{ e.hasPills }}">
+                      <div style="{{ e.pillsGridStyle }}">
+                        <sc-for list="{{ e.pills }}" as="p" hint-placeholder-count="3">
+                          <span style="{{ p.pillStyle }}"><span style="font-weight:700;">{{ p.value }}</span> <span style="font-weight:500; opacity:0.85;">{{ p.label }}</span></span>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ e.hasStatBox }}">
+                      <div style="background:var(--accent-faint); border:1px solid var(--accent); border-radius:10px; padding:8px 16px; display:flex; flex-direction:column; justify-content:center;">
+                        <div style="font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); margin-bottom:3px;">{{ e.statBoxLabel }}</div>
+                        <sc-for list="{{ e.statBoxLines }}" as="line" hint-placeholder-count="1">
+                          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:16px; color:var(--accent); line-height:1.35; white-space:nowrap;"><sc-if value="{{ e.hasStatBoxLink }}"><a href="{{ e.statBoxUrl }}" target="_blank" style="color:inherit;">{{ line }}</a></sc-if><sc-if value="{{ e.noStatBoxLink }}">{{ line }}</sc-if></div>
+                        </sc-for>
+                      </div>
+                    </sc-if>
+                  </div>
+                </sc-if>
+              </div>
+              <sc-if value="{{ e.hasHook }}">
+                <p style="font-size:15.5px; line-height:1.55; color:var(--text); font-weight:600; margin:0 0 10px;">{{ e.hook }}</p>
+              </sc-if>
+              <p style="font-size:14.5px; line-height:1.65; color:var(--text-muted); margin:0 0 16px;"><sc-if value="{{ e.hasIntroSegments }}" hint-placeholder-val="{{ false }}"><sc-for list="{{ e.introSegments }}" as="sg" hint-placeholder-count="1"><sc-if value="{{ sg.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ sg.url }}" target="_blank" style="color:inherit;">{{ sg.text }}</a></sc-if><sc-if value="{{ sg.isSup }}" hint-placeholder-val="{{ false }}"><sup>{{ sg.text }}</sup></sc-if><sc-if value="{{ sg.isPlain }}" hint-placeholder-val="{{ true }}">{{ sg.text }}</sc-if></sc-for></sc-if><sc-if value="{{ e.hasIntroSegmentsNot }}" hint-placeholder-val="{{ true }}">{{ e.introPre }}<sc-if value="{{ e.hasIntroLink }}"><a href="{{ e.introLinkUrl }}" target="_blank" style="color:inherit;">{{ e.introLinkText }}</a></sc-if>{{ e.introPost }}</sc-if></p>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; padding:22px; background:var(--bg-chip); border-radius:12px;">
+                <sc-for list="{{ e.process }}" as="st" hint-placeholder-count="3">
+                  <div>
+                    <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); margin-bottom:6px;">{{ st.step }}</div>
+                    <div style="font-size:14px; line-height:1.55; color:var(--text-body);"><sc-for list="{{ st.segments }}" as="sg" hint-placeholder-count="1"><sc-if value="{{ sg.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ sg.url }}" target="_blank" style="color:inherit; text-decoration:none;">{{ sg.text }}</a></sc-if><sc-if value="{{ sg.isSup }}" hint-placeholder-val="{{ false }}"><sup>{{ sg.text }}</sup></sc-if><sc-if value="{{ sg.isPlain }}" hint-placeholder-val="{{ true }}">{{ sg.text }}</sc-if></sc-for></div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer style="background:var(--footer-bg); color:var(--footer-text); margin-top:40px; border-top:1px solid var(--footer-border);">
+    <div style="max-width:1200px; margin:0 auto; padding:56px clamp(16px,5vw,64px) 32px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
+      <div>
+        <div style="font-family:'Instrument Serif',serif; font-size:21px; color:var(--footer-text); margin-bottom:8px;">Ayush Srivastav</div>
+        <div style="font-size:14px; color:var(--footer-text-muted); margin-bottom:20px;">Bengaluru, India</div>
+        <a href="mailto:nitb.ayush@gmail.com" style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--footer-text); color:var(--footer-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">Get in touch</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
+        <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
+          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
+          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
+        </div>
+        <div style="display:flex; gap:22px; font-size:13px; font-weight:500; flex-wrap:wrap; justify-content:flex-end; color:var(--footer-text-muted);">
+          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">X</a>
+          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Strava</a>
+          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px; margin:0 auto; padding:20px clamp(16px,5vw,64px) 32px; border-top:1px solid var(--footer-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div style="font-size:13px; color:var(--footer-text-muted);">© {{ currentYear }} Ayush Srivastav</div>
+      <a href="#top" onClick="{{ scrollToTop }}" style="font-size:13px; color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <button onClick="{{ toggleDark }}" aria-label="Toggle dark mode" style="position:fixed; bottom:24px; right:24px; z-index:1000; width:52px; height:52px; border-radius:50%; border:1px solid var(--border-strong); background:var(--bg-card); box-shadow:0 6px 20px rgba(0,0,0,0.18); cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; overflow:hidden; transition:border-color 0.15s,box-shadow 0.15s;" style-hover="border-color:var(--accent) !important; box-shadow:0 6px 20px rgba(0,0,0,0.3) !important;">
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ sunOpacity }}; transform:{{ sunTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="5" fill="#f2b134"></circle>
+        <g stroke="#f2b134" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="1.5" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22.5"></line>
+          <line x1="1.5" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22.5" y2="12"></line>
+          <line x1="4.4" y1="4.4" x2="6.1" y2="6.1"></line>
+          <line x1="17.9" y1="17.9" x2="19.6" y2="19.6"></line>
+          <line x1="4.4" y1="19.6" x2="6.1" y2="17.9"></line>
+          <line x1="17.9" y1="6.1" x2="19.6" y2="4.4"></line>
+        </g>
+      </svg>
+    </div>
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ moonOpacity }}; transform:{{ moonTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M9.5 2.5a7.2 7.2 0 1 0 8.6 9.6A7.8 7.8 0 0 1 9.5 2.5Z" fill="#fdfaf3"></path>
+        <path d="M5.8 21c-1.7 0-3.05-1.36-3.05-3.03 0-1.5 1.1-2.75 2.55-2.98a4.3 4.3 0 0 1 8.15-1.62 3.65 3.65 0 0 1 3.75 3.63c0 .38-.06.75-.17 1.1a2.9 2.9 0 0 1-1.03 2.9H5.8Z" fill="#4a4234" stroke="#2a2419" stroke-width="0.6"></path>
+      </svg>
+    </div>
+  </button>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    width: (typeof window !== "undefined" ? window.innerWidth : 1200),
+    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark"),
+    milestonesExpanded: false,
+    milestoneFilter: "all"
+  };
+
+  componentDidMount() {
+    this.onResize = () => this.setState({ width: window.innerWidth });
+    window.addEventListener("resize", this.onResize, { passive: true });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.onResize);
+  }
+
+  scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  toggleDark = () => {
+    this.setState(s => {
+      const next = !s.dark;
+      try { localStorage.setItem("ayush-theme", next ? "dark" : "light"); } catch (e) {}
+      return { dark: next };
+    });
+  };
+
+  toggleMilestonesExpand = () => this.setState(s => ({ milestonesExpanded: !s.milestonesExpanded }));
+  setMilestoneFilter = (cat) => this.setState({ milestoneFilter: cat });
+
+  categoryLabels = { career: "Career", education: "Education", talk: "Talk", publication: "Publication", patent: "Patent", award: "Award" };
+  solidMilestoneColors = { career: "#3568a0", education: "#5b4a9e", talk: "#c1703f", publication: "#4a7a43", patent: "#a34a82", award: "#b8892e" };
+
+  categoryColors(dark) {
+    const hues = {
+      career: dark ? "#87aed6" : "#3568a0",
+      education: dark ? "#ab9fe8" : "#5b4a9e",
+      talk: dark ? "#e0a37c" : "#c1703f",
+      publication: dark ? "#8ebd82" : "#4a7a43",
+      patent: dark ? "#d391bd" : "#a34a82",
+      award: dark ? "#e0b34a" : "#b8892e"
+    };
+    const out = {};
+    for (const k in hues) out[k] = { color: hues[k], bg: this.hexToRgba(hues[k], dark ? 0.18 : 0.12) };
+    return out;
+  }
+
+  linkFor(category) {
+    if (category === "talk") return "Talks.dc.html";
+    if (category === "publication" || category === "patent") return "Publications.dc.html";
+    return "CV.dc.html";
+  }
+
+  accentThemes = {
+    "#3568a0": { light: "#3568a0", lightHover: "#244f78", dark: "#87aed6", darkHover: "#a6c5e6" },
+    "#4a7a43": { light: "#4a7a43", lightHover: "#375c31", dark: "#8ebd82", darkHover: "#a8d49c" },
+    "#c1703f": { light: "#c1703f", lightHover: "#9c5730", dark: "#e0a37c", darkHover: "#eab896" },
+    "#2f8a7d": { light: "#2f8a7d", lightHover: "#236a5f", dark: "#7fd4c4", darkHover: "#9fe0d3" }
+  };
+
+  hexToRgba(hex, alpha) {
+    const h = hex.replace("#", "");
+    const num = parseInt(h, 16);
+    const r = (num >> 16) & 255, g = (num >> 8) & 255, b = num & 255;
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
+
+  theme(dark, accentKey) {
+    const a = this.accentThemes[accentKey] || this.accentThemes["#3568a0"];
+    const accent = dark ? a.dark : a.light;
+    const accentFaint = this.hexToRgba(accent, 0.22);
+    const footerAccent = a.dark;
+    return dark ? {
+      footerAccent,
+      bg: "#181410", bgAlt: "#1d1712", bgCard: "#231e18", bgChip: "#2b251d",
+      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#8f8571", textFaint: "#8f8571",
+      border: "#3a3327", borderStrong: "#4a4234", dotMuted: "#4a4234",
+      accent: a.dark, accentHover: a.darkHover, accentFaint,
+      btnBg: "#f3ede0", btnText: "#181410",
+      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#8f8571", footerBorder: "#2a2419",
+      navBg: "rgba(24,20,16,.88)",
+      selectionBg: a.dark, selectionText: "#181410"
+    } : {
+      footerAccent,
+      bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
+      text: "#241f19", textBody: "#57503f", textMuted: "#8d8271", textFaint: "#8d8271",
+      border: "#e4dbca", borderStrong: "#d8cfc0", dotMuted: "#c9bfa9",
+      accent: a.light, accentHover: a.lightHover, accentFaint,
+      btnBg: "#241f19", btnText: "#faf7f0",
+      footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#8d8271", footerBorder: "#3a3327",
+      navBg: "rgba(250,247,240,.92)",
+      selectionBg: a.light, selectionText: "#faf7f0"
+    };
+  }
+
+  rawTimeline = [
+    { role: "Experienced Engineer, ECU Cooling", org: "Volvo Group, Bengaluru, India", date: "Aug 2025 – Present", website: "https://www.volvogroup.com", logo: "assets/logos/volvo.png",
+      hook: "Volvo's next generation of trucks is software-defined — more sensors, more compute, more control units than any generation before them, and every one of them has to stay within temperature.",
+      introPre: "It's been a big shift coming from Ola Electric's fast, hands-on startup pace — and I'm enjoying the change. I'm learning a more rigorous, documented way of engineering, with due diligence and review boards behind every decision, because what's on the line now is a brand nearly a century old.",
+      process: [
+        { step: "ECU Cooling", text: "Once a control unit's heat load is known and it's decided that it needs active cooling, I help decide what type of cooling to use. My job as system engineer doesn't stop at the design — it's ownership of delivery: making sure what's designed actually gets implemented, and actually works in the vehicle." },
+        { step: "Coolant System", text: "Still figuring this out — next up on my plate." }
+      ] },
+    { role: "Manager, Simulation & Modeling", org: "Ola Electric, Bengaluru, India", date: "Feb 2022 – Jul 2025 (3 years 5 months)", website: "https://www.olaelectric.com", logo: "assets/logos/ola-cropped.png",
+      statBoxLabel: "Platforms",
+      statBoxLines: ["S1 Pro · S1 · S1 Air · M1 Roadster"],
+      pills: [
+        { value: "2", label: "Promotions", cat: "career" },
+        { value: "2", label: "Conferences", cat: "talk" },
+        { value: "3 granted", label: "Patents", cat: "patent" },
+        { value: "1", label: "Award", cat: "award" }
+      ],
+      hook: "Ola Electric was India's market leader in two-wheeler EVs, with just the S1 Pro on the road — a single-product lineup that would grow, over the next three years, into a full S1 range and even a new M1 motorcycle platform.",
+      introPre: "I joined as an intern with my college batch and grew up here — learning everything from scratch, making mistakes, and doing a bit of everything. My manager was demanding, but it shaped me into a sharper engineer — validating fixes for homologation under real deadlines, and chasing fast-track decisions when the business needed them fast. Hectic, but rewarding: I don't think I'd have grown this much in three years anywhere else.",
+      process: [
+        { step: "Vehicle Component Sizing", text: "Translated product performance and range targets into battery voltage/capacity, battery current requirement, motor torque/power, gear ratios, vehicle weight, and frontal area/drag coefficient, specced across every platform." },
+        { step: "Temperature-Based Deration", text: "Built thermal models for the battery, motor, and MCU, then used them to predict distance-to-deration across ambient conditions and drive cycles — defining how hard a vehicle can run before heat forces it to pull back power." },
+        { step: "Cell Supplier Selection", text: "Served as technical support to sourcing, evaluating cell supplier performance and compatibility with Ola's products as our chemistry moved from NMC to NCA to LFP — balancing energy density, weight, thermal stability, and performance." },
+        { step: "Thermal Runaway Prevention", text: "Designed the cheapest thermal-runaway containment solution on the market at the time — roughly 6x cheaper than the next available alternative — that stops a single cell failure from propagating through the pack. Patented, and now running in production vehicles." }
+      ] },
+    { role: "Remote Intern", org: "KTH Royal Institute of Technology, Stockholm, Sweden", date: "May – Aug 2021 (3 months)", website: "https://www.kth.se", virtual: true, logo: "assets/logos/kth.png",
+      statBoxLabel: "EU-Funded Project",
+      statBoxLines: ["Socket Sense"],
+      statBoxUrl: "https://www.socketsense.eu/",
+      hook: "SocketSense is an EU Horizon 2020 project building sensor-embedded prosthetic sockets that read a residual limb's tissue changes in real time, aiming for a comfortable, tailored-fit socket within a single day.",
+      introPre: "I worked on ",
+      introLinkText: "Socket Sense",
+      introLinkUrl: "https://www.socketsense.eu/",
+      introPost: "'s biomechanical modeling & FEA with Dr. Suranjan Ottikkutti and Prof. Dejiu Chen. One early lesson had nothing to do with biomechanics: Sweden uses a comma for decimals, not a period — a quiet mismatch that fed garbage into my simulation for days before I tracked it down.",
+      process: [
+        { step: "When I Joined", text: "Came on as a remote intern to help quantify how much pain a prosthetic-limb wearer feels inside their socket under everyday loading." },
+        { step: "What I Did", text: "Built an FE simulation of the socket–stump interface, driven by inverse gait dynamics, to map pressure and contact forces across a full walking cycle — the team was measuring the same thing with embedded pressure sensors, so my FEA had a real benchmark to match against." },
+        { step: "When I Left", text: "Left with FE-predicted pressure maps that matched the team's sensor recordings, and fed directly into redesigning the socket for a more comfortable, tailored fit." }
+      ] },
+    { role: "Undergraduate Researcher", org: "All India Institute of Medical Sciences (AIIMS), Bhopal, India", date: "Aug 2020 – Jul 2021 (11 months)", website: "https://www.aiimsbhopal.edu.in", logo: "assets/logos/aiims-bhopal-cropped.png",
+      statBoxLabel: "Collaboration Project",
+      statBoxLines: ["Surgery × Engineering"],
+      pillColumns: 1,
+      pills: [
+        { value: "3", label: "Publications", cat: "publication" },
+        { value: "2", label: "Conferences", cat: "talk" }
+      ],
+      hook: "The scaphoid is the most fractured bone in the wrist, and one of the hardest to fix — its blood supply runs backwards from the thumb-side end, so a poorly stabilized fracture can starve the bone of blood and simply never heal.",
+      introPre: "I worked with hand surgeon Dr. John A. Santoshi at AIIMS Bhopal, with MANIT's Prof. R.K. Dwivedi co-guiding the analysis. Dr. Santoshi's days were wall-to-wall patients, so most of our science happened between them — I'd wait outside his cabin in the department until he was free to talk through the work.",
+      process: [
+        { step: "When I Joined", text: "Joined to help settle a real clinical question: which K-wire and screw combination gives a fractured scaphoid the best shot at healing." },
+        { step: "What I Did", text: "Reconstructed the bone from wrist CT scans into a 3D model, then ran FEA across 18 fixation configurations spanning single-screw, screw+wire, and wire+wire setups." },
+        { step: "When I Left", text: "Left with the most stable configuration identified — a result that went on to become two journal papers." }
+      ] },
+    { role: "B.Tech, Mechanical Engineering", org: "Maulana Azad National Institute of Technology (MANIT), Bhopal, India", date: "2018 – 2022 (4 years)", website: "https://www.manit.ac.in", logo: "assets/logos/manit.png",
+      statBoxLabel: "Academics",
+      statBoxLines: ["Rank 7 (top 5%) · 8.99 CGPA"],
+      pills: [
+        { value: "6", label: "Awards", cat: "award" },
+        { value: "5", label: "Publications", cat: "publication" },
+        { value: "3", label: "Conferences", cat: "talk" }
+      ],
+      oddPillAlign: "right",
+      hook: "MANIT Bhopal is one of India's 31 National Institutes of Technology — federally funded and admitting through JEE Main from a pool where only the top 5% of applicants qualify, with Mechanical Engineering as one of its founding programs since 1962.",
+      introSegments: [
+        { text: "That's the pool I found myself in — until COVID shut campus down midway through ", kind: "plain" },
+        { text: "4", kind: "plain" }, { text: "th", kind: "sup" },
+        { text: " semester and everything moved online. By the time we were called back in ", kind: "plain" },
+        { text: "8", kind: "plain" }, { text: "th", kind: "sup" },
+        { text: " semester, I was already at Ola Electric for my internship, so I mostly returned just to sit for exams, missing out on the full campus experience along the way.", kind: "plain" }
+      ],
+      process: [
+        { step: "Studies & Clubs", segments: [
+          { text: "Studied enough that I could score well and still find time for everything else — including ranking ", kind: "plain" },
+          { text: "2", kind: "plain" }, { text: "nd", kind: "sup" },
+          { text: " in my ", kind: "plain" },
+          { text: "3", kind: "plain" }, { text: "rd", kind: "sup" },
+          { text: " year of B.Tech. That left room to join IBC, the literary society behind events like MUN, and SAE, where I worked on building the eBAJA all-terrain vehicle for national-level competitions.", kind: "plain" }
+        ] },
+        { step: "Research", text: "Research pulled me in too — journal papers, a book chapter, some conference presentations, a best runner-up paper, and a research fellowship along the way. It even landed me two international research internships, at KTH and KU Leuven (remote, thanks to COVID-19)." },
+        { step: "Recognition", segments: [
+          { text: "Two mentions in the MANIT newsletter, plus a spot in ", kind: "plain" },
+          { text: "Excelsior", kind: "link", url: "https://flip.manit.ac.in/?utm_source=ig&utm_medium=social&utm_content=link_in_bio" },
+          { text: "'s (magazine) Achiever's section. Proudest one: the director noted my pick as 1 of just 15 nationwide for the International Youth Exchange Programme, representing India at the BRICS Youth Summit.", kind: "plain" }
+        ] }
+      ] }
+  ];
+
+  allMilestones = [
+    { year: 2026, month: 12, dateLabel: "Dec 2026", category: "talk", upcoming: true, text: "Presenting at SAE TTTMS — Total Traceability, Testing, Modelling & Simulation — at IIT Roorkee." },
+    { year: 2025, month: 8, dateLabel: "Aug 2025", category: "career", text: "Joined Volvo Group as an Experienced Engineer, taking ownership of ECU cooling system engineering for control units and power electronics." },
+    { year: 2025, month: 7, dateLabel: "Jul 2025", category: "award", text: "Awarded the Narotam Sekhsaria Foundation postgraduate scholarship (₹25 lakh) — one of 22 scholars selected nationwide — after securing, and declining, admits from Imperial College London, TU Delft, KTH Royal Institute of Technology, and Texas A&M." },
+    { year: 2024, month: 2, dateLabel: "Feb 2024", category: "talk", text: "Presented \u201cCooling Requirement, Strategy and Control Setting for high-end electric motor bikes\u201d at GTTC, Pune." },
+    { year: 2021, month: 3, dateLabel: "Mar 2021", category: "talk", text: "Presented \u201cA study of buckling phenomenon in dielectric elastomeric actuator with different potential energy functions\u201d at iCRAFT, BITS Pilani Dubai Campus." },
+    { year: 2024, month: 4, dateLabel: "Apr 2024", category: "career", text: "Promoted to Manager, Simulation & Modeling at Ola Electric, leading full-vehicle digital twin development for battery, motor, and charging systems." },
+    { year: 2024, month: 5, dateLabel: "May 2024", category: "patent", text: "Granted a patent internationally via WIPO for fire-resistant battery modules (WO2024095291A1), after an earlier grant in India in Nov 2022." },
+    { year: 2024, month: 2, dateLabel: "Feb 2024", category: "publication", text: "Co-authored the book chapter \u201cFinite Element Analysis of Medical Implants\u201d in Biomedical Implants (CRC Press)." },
+    { year: 2024, month: 4, dateLabel: "Apr 2024", category: "publication", text: "Published \u201cFinite Element Analysis of Postoperative Stability of Transverse Scaphoid Waist Fracture\u201d in the Indian Journal of Orthopaedics." },
+    { year: 2024, month: 3, dateLabel: "Mar 2024", category: "publication", text: "Published a study on epoxy composites using PET waste plastic and bamboo in the International Journal of Environment and Waste Management." },
+    { year: 2023, month: 1, dateLabel: "Jan 2023", category: "talk", text: "Presented research on range prediction and battery pack temperature modeling at GTTC, Pune." },
+    { year: 2022, month: 11, dateLabel: "Nov 2022", category: "patent", text: "Granted a patent for a fire-extinguishing system to prevent thermal propagation in battery packs (IN 447009)." },
+    { year: 2022, month: 12, dateLabel: "Dec 2022", category: "patent", text: "Granted a patent for a method to identify defective li-ion cells (IN 444783)." },
+    { year: 2022, month: 12, dateLabel: "Dec 2022", category: "publication", text: "Published \u201cMechanism of Scaphoid Waist Fracture: Finite Element Analysis\u201d in the Journal of Hand Surgery (European Volume)." },
+    { year: 2023, month: 5, dateLabel: "May 2023", category: "publication", text: "Published a study on buckling in dielectric elastomeric actuators in AIP Conference Proceedings." },
+    { year: 2022, month: 2, dateLabel: "Feb 2022", category: "career", text: "Joined Ola Electric as a Vehicle Engineering Intern, investigating battery thermal runaway and developing a patented ceramic-wool propagation-prevention solution." },
+    { year: 2022, month: 5, dateLabel: "May 2022", category: "education", text: "Graduated with a B.Tech in Mechanical Engineering from MANIT Bhopal, CGPA 8.99/10, ranked in the top 5% of the class." },
+    { year: 2022, month: 7, dateLabel: "Jul 2022", category: "award", text: "Awarded the Dr. APJ Abdul Kalam Young Research Fellowship by TERRE Policy Center for contributions to environmental research." },
+    { year: 2022, month: 7, dateLabel: "Jul 2022", category: "career", text: "Promoted to Assistant Manager, Simulation & Modeling at Ola Electric." },
+    { year: 2021, month: 7, dateLabel: "Jul 2021", category: "publication", text: "Published \u201cModelling and FEM simulation of a pressurized and rotated functionally graded thick cylinder\u201d in Advances in Materials and Processing Technologies." },
+    { year: 2022, month: 4, dateLabel: "Apr 2022", category: "publication", text: "Published \u201cModelling and FEM simulation of a rotating hyperelastic spherical balloon actuator\u201d in the Australian Journal of Mechanical Engineering." },
+    { year: 2022, month: 1, dateLabel: "Jan 2022", category: "publication", text: "Published \u201cDetermination of Material-Dependent Parameters and Friction in Ultrasonic-Vibration-Assisted Turning\u201d in the Journal of The Institution of Engineers (India)." },
+    { year: 2021, month: 5, dateLabel: "May 2021", category: "education", text: "Began a remote research internship at KTH Royal Institute of Technology, Sweden, on prosthetic socket biomechanics (Socket Sense)." },
+    { year: 2021, month: 4, dateLabel: "Apr 2021", category: "award", text: "Ranked 2nd among 176 students in the 3rd year of B.Tech Mechanical Engineering at MANIT Bhopal, earning the Academic Excellence Award." },
+    { year: 2021, month: 6, dateLabel: "Jun 2021", category: "education", text: "Began a remote research internship at KU Leuven, Belgium, on articular cartilage repair for osteochondral defects." },
+    { year: 2021, month: 8, dateLabel: "Aug 2021", category: "award", text: "Selected for the International Youth Exchange Programme to represent India at the VII BRICS Youth Summit — one of just 15 students chosen nationwide, publicly recognized by MANIT's director." },
+    { year: 2021, month: 2, dateLabel: "Feb 2021", category: "award", text: "Selected as a remote delegate for HCONF 2021 under the Harvard Project for Asian and International Relations (HPAIR)." },
+    { year: 2021, month: 9, dateLabel: "Sep 2021", category: "talk", text: "Presented scaphoid fracture research at the Carnegie Mellon Forum on Biomedical Engineering, Pittsburgh." },
+    { year: 2021, month: 10, dateLabel: "Oct 2021", category: "talk", text: "Presented the same scaphoid fracture research at the 58th Society of Engineering Science Annual Conference, UIUC." },
+    { year: 2020, month: 8, dateLabel: "Aug 2020", category: "talk", text: "Presented UVAT research at ICoEV, University of Aberdeen." },
+    { year: 2020, month: 8, dateLabel: "Aug 2020", category: "education", text: "Began undergraduate research at AIIMS Bhopal on scaphoid fracture fixation." },
+    { year: 2019, month: 11, dateLabel: "Nov 2019", category: "award", text: "Ranked All-India 10th as a team in the Virtual round of SAEINDIA's eBAJA 2020 competition, having designed the steering system for MANIT's all-terrain electric vehicle." },
+    { year: 2020, month: 2, dateLabel: "Feb 2020", category: "career", text: "Became Co-coordinator of the Intellect Browsers' Consortium, leading a 55-member team at MANIT Bhopal." },
+    { year: 2020, month: 3, dateLabel: "Mar 2020", category: "career", text: "Became Steering Design Head for the SAE India student chapter at MANIT Bhopal, leading the eBAJA program's steering design vertical." },
+    { year: 2020, month: 12, dateLabel: "Dec 2020", category: "education", text: "Began undergraduate research on hyperelastic spherical balloon actuators with Dr. Deepak Kumar and Dr. Vinod Yadav at MANIT Bhopal." },
+    { year: 2020, month: 12, dateLabel: "Dec 2020", category: "talk", text: "Presented at AFTMME, IIT Ropar." },
+    { year: 2020, month: 12, dateLabel: "Dec 2020", category: "award", text: "Won 2nd place (Best Paper Runner-Up) in the Undergraduate Presentation Skill Contest at AFTMME, with a ₹31,000 cash prize." },
+    { year: 2018, month: 5, dateLabel: "May 2018", category: "education", text: "Completed AISSCE (Grade 12) at Sagar Public School, Saket Nagar, Bhopal with 89.8%." },
+    { year: 2018, month: 4, dateLabel: "Apr 2018", category: "award", text: "Ranked in the top 1.5% among 1.2 million candidates in JEE Main." },
+    { year: 2018, month: 7, dateLabel: "Jul 2018", category: "education", text: "Began a B.Tech in Mechanical Engineering at MANIT Bhopal." },
+    { year: 2016, month: 5, dateLabel: "May 2016", category: "education", text: "Completed AISSE (Grade 10) at Narmada Valley International School with a perfect CGPA of 10/10." }
+  ];
+
+  renderVals() {
+    const isMobile = this.state.width < 760;
+    const t = this.theme(this.state.dark, this.props.accentColor ?? "#3568a0");
+    if (typeof document !== "undefined") { document.documentElement.style.background = t.bg; document.body.style.background = t.bg; }
+        const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
+      `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
+      `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
+      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText}; --accent-faint:${t.accentFaint}; --footer-accent:${t.footerAccent};`;
+
+    const catColors = this.categoryColors(this.state.dark);
+
+    return {
+      rootStyle,
+      isMobile,
+      isDesktop: !isMobile,
+      heroPaddingStyle: isMobile ? "56px" : "84px",
+      heroGridStyle: isMobile
+        ? "display:flex; flex-direction:column-reverse; align-items:center; gap:44px;"
+        : "display:flex; justify-content:space-between; align-items:flex-start; gap:clamp(32px,5vw,72px); flex-wrap:nowrap;",
+      heroTextStyle: (isMobile ? "width:100%; " : "flex:1 1 560px; min-width:280px; ") + "animation:fadeInUp 0.6s ease both;",
+      heroPhotoStyle: (isMobile ? "width:100%; max-width:280px; " : "flex:0 0 auto; width:clamp(260px,28vw,340px); min-width:0; ") + "display:flex; flex-direction:column; align-items:center; text-align:center; animation:fadeInUp 0.6s ease both; animation-delay:0.12s;",
+      heroStats: (() => {
+        const counts = [
+          { value: "4+", label: "Years Experience" },
+          { value: this.allMilestones.filter(m => m.category === "patent").length, label: "Patents" },
+          { value: this.allMilestones.filter(m => m.category === "publication").length, label: "Publications" },
+          { value: this.allMilestones.filter(m => m.category === "talk" && !m.upcoming).length, label: "Talks" }
+        ];
+        const statPad = isMobile ? 14 : 22;
+        return counts.map((c, i) => ({
+          ...c,
+          wrapStyle: `padding:0 ${statPad}px; ${i === 0 ? "padding-left:0;" : ""} ${i < counts.length - 1 ? "border-right:1px solid var(--border);" : ""}`
+        }));
+      })(),
+      isDarkMode: this.state.dark,
+      isLightMode: !this.state.dark,
+      toggleDark: this.toggleDark,
+      scrollToTop: this.scrollToTop,
+      currentYear: new Date().getFullYear(),
+      sunOpacity: this.state.dark ? 0 : 1,
+      sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
+      moonOpacity: this.state.dark ? 1 : 0,
+      moonTransform: this.state.dark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.4)",
+      impactTimeline: this.rawTimeline.map((e, i) => ({
+        ...e,
+        logoBgStyle: `width:${isMobile ? 44 : 70}px; height:${isMobile ? 44 : 70}px; background-image:url('${e.logo}'); background-size:contain; background-repeat:no-repeat; background-position:center;`,
+        hasIntroSegments: !!e.introSegments,
+        hasIntroSegmentsNot: !e.introSegments,
+        introSegments: (e.introSegments || []).map(sg => ({ ...sg, isPlain: sg.kind === "plain", isLink: sg.kind === "link", isSup: sg.kind === "sup" })),
+        process: (e.process || []).map(st => {
+          let rawSegs = st.segments;
+          if (!rawSegs) {
+            if (st.linkUrl) {
+              rawSegs = [];
+              if (st.linkPre) rawSegs.push({ text: st.linkPre, kind: "plain" });
+              rawSegs.push({ text: st.linkText, kind: "link", url: st.linkUrl });
+              if (st.linkPost) rawSegs.push({ text: st.linkPost, kind: "plain" });
+            } else {
+              rawSegs = [{ text: st.text, kind: "plain" }];
+            }
+          }
+          return { ...st, segments: rawSegs.map(sg => ({ ...sg, isPlain: sg.kind === "plain", isLink: sg.kind === "link", isSup: sg.kind === "sup" })) };
+        }),
+        impactBoxStyle: `width:${isMobile ? 60 : 96}px; height:${isMobile ? 60 : 96}px; border-radius:14px; background:#ffffff; border:1px solid var(--border); box-shadow:0 1px 4px rgba(0,0,0,0.12); display:flex; align-items:center; justify-content:center; overflow:hidden; flex:none; transition:transform 0.2s ease, box-shadow 0.2s ease;`,
+        impactImgStyle: `width:${isMobile ? 44 : 70}px; height:${isMobile ? 44 : 70}px; object-fit:${e.fit || "contain"};`,
+        hasStatBox: !!(e.statBoxLines && e.statBoxLines.length),
+        hasStatBoxLink: !!e.statBoxUrl,
+        noStatBoxLink: !e.statBoxUrl,
+        hasPills: !!(e.pills && e.pills.length),
+        hasStats: !!(e.statBoxLines && e.statBoxLines.length) || !!(e.pills && e.pills.length),
+        pillsGridStyle: `display:grid; grid-template-columns:repeat(${Math.min(e.pillColumns || 2, (e.pills || []).length || 1)}, max-content); gap:6px; align-content:start;`,
+        pills: (e.pills || []).map((p, pi, arr) => {
+          const cols = e.pillColumns || 2;
+          const isLastOdd = cols === 2 && pi === arr.length - 1 && arr.length % 2 === 1 && arr.length > 1;
+          let extra = "";
+          if (isLastOdd) extra = (e.oddPillAlign === "right") ? " grid-column:2;" : " grid-column:1 / -1; text-align:center;";
+          return {
+            value: p.value,
+            label: p.label,
+            pillStyle: `font-family:'JetBrains Mono',monospace; font-size:11px; color:${catColors[p.cat].color}; background:${catColors[p.cat].bg}; padding:5px 11px; border-radius:20px; white-space:nowrap;` + extra
+          };
+        }),
+        hasHook: !!e.hook,
+        introPost: e.introPost || "",
+        hasIntroLink: !!e.introLinkUrl,
+        rowStyle: `position:relative; display:grid; grid-template-columns:${isMobile ? "28px 64px 1fr" : "28px 112px 1fr"}; column-gap:${isMobile ? "12px" : "20px"}; padding:26px 0; animation:fadeInUp 0.4s ease both; animation-delay:${Math.min(i * 90, 400)}ms;` + (i < this.rawTimeline.length - 1 ? " border-bottom:1px solid var(--border);" : "")
+      })),
+      milestoneCount: this.allMilestones.length,
+      ...(() => {
+        const filter = this.state.milestoneFilter;
+        const sorted = (filter === "all" ? this.allMilestones : this.allMilestones.filter(m => m.category === filter))
+          .slice()
+          .sort((a, b) => (b.year * 12 + b.month) - (a.year * 12 + a.month));
+        const picked = this.state.milestonesExpanded ? sorted : sorted.slice(0, 5);
+        const enriched = picked.map((m, i) => ({
+          ...m,
+          pillLabel: this.categoryLabels[m.category],
+          pillStyle: `font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:${catColors[m.category].color}; background:${catColors[m.category].bg}; padding:3px 9px; border-radius:20px; white-space:nowrap;`,
+          link: this.linkFor(m.category),
+          delay: Math.min(i * 30, 600) + "ms"
+        }));
+        const groups = [];
+        const idx = {};
+        enriched.forEach(m => {
+          if (idx[m.year] === undefined) { idx[m.year] = groups.length; groups.push({ year: m.year, items: [] }); }
+          groups[idx[m.year]].items.push(m);
+        });
+        const activeStyle = (name) => {
+          if (filter !== name) return { bg: "transparent", color: "var(--text-muted)" };
+          if (name === "all") return { bg: "var(--btn-bg)", color: "var(--btn-text)" };
+          return { bg: this.solidMilestoneColors[name], color: "#ffffff" };
+        };
+        return {
+          yearGroups: groups,
+          noneMatch: enriched.length === 0,
+          filterStyles: {
+            all: activeStyle("all"), career: activeStyle("career"), education: activeStyle("education"),
+            talk: activeStyle("talk"), publication: activeStyle("publication"), patent: activeStyle("patent"), award: activeStyle("award")
+          }
+        };
+      })(),
+      milestonesToggleLabel: this.state.milestonesExpanded ? "Show recent only ↑" : "Show full timeline since 2016 ↓",
+      toggleMilestonesExpand: this.toggleMilestonesExpand,
+      setFilterAll: () => this.setMilestoneFilter("all"),
+      setFilterCareer: () => this.setMilestoneFilter("career"),
+      setFilterEducation: () => this.setMilestoneFilter("education"),
+      setFilterTalk: () => this.setMilestoneFilter("talk"),
+      setFilterPublication: () => this.setMilestoneFilter("publication"),
+      setFilterPatent: () => this.setMilestoneFilter("patent"),
+      setFilterAward: () => this.setMilestoneFilter("award")
+    };
+  }
+}
+
+</script>
+</body>
+</html>
