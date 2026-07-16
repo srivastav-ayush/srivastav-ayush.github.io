@@ -10,7 +10,7 @@ A fully static website — no build step, no framework install, no server. Every
 
 | File | Purpose |
 |---|---|
-| `index.html` | Redirects `/` to `Homepage.dc.html` |
+| `index.html` | The homepage, served directly at `/` (a full copy of `Homepage.dc.html` — no redirect, so there's no flash on load) |
 | `Homepage.dc.html` | Hero, milestones log, experience timeline |
 | `Work.dc.html` | Project portfolio (list + detail views in one file) |
 | `Publications.dc.html` | Journal papers, book chapters, conference papers, patents |
@@ -110,6 +110,7 @@ Categories: `career, education, talk, publication, patent, award`. Add `upcoming
 - **Trailing/double commas** in a data array inside a `.dc.html` file's `<script>` block — this silently breaks that whole page (blank screen). Check the browser console if a page goes blank after an edit.
 - **Uploading via drag-and-drop into GitHub's web UI from a Finder/Explorer window with hidden files still hidden** — same dotfile problem as step 2, worth repeating since it's the single most common way this deploy breaks.
 - **Forgetting to update `og:url`/`og:image` domain** in all 6 files if you ever change the custom domain or GitHub username.
+- **Editing `Homepage.dc.html` without re-copying it to `index.html`.** They must stay identical — `index.html` is served at `/` directly (no redirect), `Homepage.dc.html` is served at `/Homepage.dc.html`. After any homepage edit, copy the full contents of `Homepage.dc.html` over `index.html`.
 
 ## 7. Workflow for future changes (no Claude design tool needed)
 
