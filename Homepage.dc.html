@@ -20,9 +20,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="./image-slot.js"></script>
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <script>try{if(localStorage.getItem("ayush-theme")==="dark"){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}}catch(e){}</script>
   <style>
-    html { background:var(--bg); }
-    body { margin:0; background:var(--bg); }
+    html { background:#faf7f0; }
+    html.dark-init { background:#181410; }
+    body { margin:0; background:inherit; }
     a { color:inherit; text-decoration:none; }
     a:hover { color:var(--accent-hover); }
     .nav-link:hover { color:var(--accent-hover) !important; }
@@ -31,7 +33,7 @@
     img { display:block; }
     image-slot::part(ctl) { display:none !important; }
     image-slot::part(ring) { display:none !important; }
-    html { scrollbar-gutter: stable both-edges; }
+    html { scrollbar-gutter: stable; }
     @keyframes fadeInUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
   </style>
 </helmet>
@@ -376,14 +378,14 @@ class Component extends DCLogic {
   }
 
   rawTimeline = [
-    { role: "Experienced Engineer, ECU Cooling", org: "Volvo Group, Bengaluru, India", date: "Aug 2025 – Present", website: "https://www.volvogroup.com", logo: "assets/logos/volvo.png",
+    { role: "Experienced Engineer, ECU Cooling", org: "Volvo Group, Bengaluru, India", date: "Aug 2025 – Present", website: "https://www.volvogroup.com/en/", logo: "assets/logos/volvo.png",
       hook: "Volvo's next generation of trucks is software-defined — more sensors, more compute, more control units than any generation before them, and every one of them has to stay within temperature.",
       introPre: "It's been a big shift coming from Ola Electric's fast, hands-on startup pace — and I'm enjoying the change. I'm learning a more rigorous, documented way of engineering, with due diligence and review boards behind every decision, because what's on the line now is a brand nearly a century old.",
       process: [
         { step: "ECU Cooling", text: "Once a control unit's heat load is known and it's decided that it needs active cooling, I help decide what type of cooling to use. My job as system engineer doesn't stop at the design — it's ownership of delivery: making sure what's designed actually gets implemented, and actually works in the vehicle." },
         { step: "Coolant System", text: "Still figuring this out — next up on my plate." }
       ] },
-    { role: "Manager, Simulation & Modeling", org: "Ola Electric, Bengaluru, India", date: "Feb 2022 – Jul 2025 (3 years 5 months)", website: "https://www.olaelectric.com", logo: "assets/logos/ola-cropped.png",
+    { role: "Manager, Simulation & Modeling", org: "Ola Electric, Bengaluru, India", date: "Feb 2022 – Jul 2025 (3 years 5 months)", website: "https://www.olaelectric.com/", logo: "assets/logos/ola-cropped.png",
       statBoxLabel: "Platforms",
       statBoxLines: ["S1 Pro · S1 · S1 Air · M1 Roadster"],
       pills: [
@@ -400,7 +402,7 @@ class Component extends DCLogic {
         { step: "Cell Supplier Selection", text: "Served as technical support to sourcing, evaluating cell supplier performance and compatibility with Ola's products as our chemistry moved from NMC to NCA to LFP — balancing energy density, weight, thermal stability, and performance." },
         { step: "Thermal Runaway Prevention", text: "Designed the cheapest thermal-runaway containment solution on the market at the time — roughly 6x cheaper than the next available alternative — that stops a single cell failure from propagating through the pack. Patented, and now running in production vehicles." }
       ] },
-    { role: "Remote Intern", org: "KTH Royal Institute of Technology, Stockholm, Sweden", date: "May – Aug 2021 (3 months)", website: "https://www.kth.se", virtual: true, logo: "assets/logos/kth.png",
+    { role: "Remote Intern", org: "KTH Royal Institute of Technology, Stockholm, Sweden", date: "May – Aug 2021 (3 months)", website: "https://www.kth.se/en", virtual: true, logo: "assets/logos/kth.png",
       statBoxLabel: "EU-Funded Project",
       statBoxLines: ["Socket Sense"],
       statBoxUrl: "https://www.socketsense.eu/",
@@ -414,7 +416,7 @@ class Component extends DCLogic {
         { step: "What I Did", text: "Built an FE simulation of the socket–stump interface, driven by inverse gait dynamics, to map pressure and contact forces across a full walking cycle — the team was measuring the same thing with embedded pressure sensors, so my FEA had a real benchmark to match against." },
         { step: "When I Left", text: "Left with FE-predicted pressure maps that matched the team's sensor recordings, and fed directly into redesigning the socket for a more comfortable, tailored fit." }
       ] },
-    { role: "Undergraduate Researcher", org: "All India Institute of Medical Sciences (AIIMS), Bhopal, India", date: "Aug 2020 – Jul 2021 (11 months)", website: "https://www.aiimsbhopal.edu.in", logo: "assets/logos/aiims-bhopal-cropped.png",
+    { role: "Undergraduate Researcher", org: "All India Institute of Medical Sciences (AIIMS), Bhopal, India", date: "Aug 2020 – Jul 2021 (11 months)", website: "https://www.aiimsbhopal.edu.in/", logo: "assets/logos/aiims-bhopal-cropped.png",
       statBoxLabel: "Collaboration Project",
       statBoxLines: ["Surgery × Engineering"],
       pillColumns: 1,
@@ -429,7 +431,7 @@ class Component extends DCLogic {
         { step: "What I Did", text: "Reconstructed the bone from wrist CT scans into a 3D model, then ran FEA across 18 fixation configurations spanning single-screw, screw+wire, and wire+wire setups." },
         { step: "When I Left", text: "Left with the most stable configuration identified — a result that went on to become two journal papers." }
       ] },
-    { role: "B.Tech, Mechanical Engineering", org: "Maulana Azad National Institute of Technology (MANIT), Bhopal, India", date: "2018 – 2022 (4 years)", website: "https://www.manit.ac.in", logo: "assets/logos/manit.png",
+    { role: "B.Tech, Mechanical Engineering", org: "Maulana Azad National Institute of Technology (MANIT), Bhopal, India", date: "2018 – 2022 (4 years)", website: "https://www.manit.ac.in/", logo: "assets/logos/manit.png",
       statBoxLabel: "Academics",
       statBoxLines: ["Rank 7 (top 5%) · 8.99 CGPA"],
       pills: [
@@ -510,7 +512,7 @@ class Component extends DCLogic {
   renderVals() {
     const isMobile = this.state.width < 760;
     const t = this.theme(this.state.dark, this.props.accentColor ?? "#3568a0");
-    if (typeof document !== "undefined") { document.documentElement.style.background = t.bg; document.body.style.background = t.bg; }
+    if (typeof document !== "undefined") { const ds = document.documentElement.style; ds.background = t.bg; ds.colorScheme = this.state.dark ? "dark" : "light"; document.body.style.background = t.bg; }
         const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
       `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
       `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +

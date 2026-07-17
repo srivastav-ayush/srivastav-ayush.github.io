@@ -19,9 +19,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <script>try{if(localStorage.getItem("ayush-theme")==="dark"){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}}catch(e){}</script>
   <style>
-    html { background:var(--bg); }
-    body { margin:0; background:var(--bg); }
+    html { background:#faf7f0; }
+    html.dark-init { background:#181410; }
+    body { margin:0; background:inherit; }
     a { color:inherit; text-decoration:none; }
     a:hover { color:var(--accent-hover); }
     .nav-link:hover { color:var(--accent-hover) !important; }
@@ -663,7 +665,7 @@ class Component extends DCLogic {
     { id: "socketsense", category: "research", tag: "Research Project", title: "Socket Sense", titleUrl: "https://www.socketsense.eu/", year: 2021, img: "assets/img/portfolio/socketsense-1.jpg", images: ["assets/img/portfolio/socketsense-1.jpg","assets/img/portfolio/socketsense-2.jpg","assets/img/portfolio/socketsense-3.jpeg","assets/img/portfolio/socketsense-4.jpg","assets/img/portfolio/socketsense-5.jpg","assets/img/portfolio/socketsense-6.jpg"],
       orgName: "KTH Royal Institute of Technology", orgLogo: "assets/logos/kth.png",
       summary: "Pressure-distribution FEA of a transfemoral amputee's stump-socket interface.",
-      role: "Remote Intern — bachelor's thesis; led the simulation and analysis",
+      role: "Remote Intern — major project thesis; led the simulation and analysis",
       stat: { value: "Full gait cycle", label: "pressure & contact force mapped across the cycle" },
       process: [
         { step: "Problem", text: "Understand pressure and load on a transfemoral amputee's stump inside a prosthetic socket." },
@@ -674,9 +676,9 @@ class Component extends DCLogic {
       abstractSegments: [
         { text: "SocketSense is an ", kind: "plain" }, { text: "EU Horizon 2020", kind: "bold" },
         { text: " project building sensor-embedded prosthetic sockets that read a residual limb's tissue changes in real time, aiming for a comfortable, tailored-fit socket within a single day. Within it, KTH's role was to model the biomechanics of the ", kind: "plain" }, { text: "socket–stump interface", kind: "bold" },
-        { text: " — the work behind my ", kind: "plain" }, { text: "bachelor's thesis", kind: "bold" }, { text: ".", kind: "plain" }
+        { text: " — the work behind my ", kind: "plain" }, { text: "major project thesis", kind: "bold" }, { text: ".", kind: "plain" }
       ],
-      skills: [{ name: "ANSYS", note: "FE socket–stump simulation" }, { name: "OpenSim", note: "inverse dynamics of gait" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/socket-sense", type: "github" }, { label: "White Paper", url: "https://www.socketsense.eu/publications/", type: "paper" }] },
+      skills: [{ name: "ANSYS", note: "FE socket–stump simulation" }, { name: "OpenSim", note: "inverse dynamics of gait" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/socket-sense", type: "github" }, { label: "Major Project Thesis", url: "https://drive.google.com/file/d/1Iq8iHG-aLJQCsMoNtcDTl3kaXE3R4Z-n/view?usp=drive_link", type: "paper" }, { label: "White Paper", url: "https://www.socketsense.eu/publications/", type: "paper" }] },
     { id: "hyper-sphere", category: "research", tag: "Research Project", title: "Hyperelastic spherical actuator", year: 2021, img: "assets/img/portfolio/hyper_sphere-1.jpg", images: ["assets/img/portfolio/hyper_sphere-1.jpg","assets/img/portfolio/hyper_sphere-2.jpg"],
       orgName: "MANIT Bhopal", orgLogo: "assets/logos/manit.png",
       summary: "FEA of a hyperelastic spherical actuator for soft robotics and haptic feedback.",
@@ -744,7 +746,7 @@ class Component extends DCLogic {
         { text: "exponential function", kind: "bold" },
         { text: " \u2014 under combined pressure and rotation, with the exponential function found to handle stress better.", kind: "plain" }
       ],
-      skills: [{ name: "Abaqus CAE", note: "FE cylinder model" }, { name: "MATLAB", note: "grading function definitions" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/fgm-cylinder", type: "github" }, { label: "Journal Article (DOI)", url: "https://doi.org/10.1080/2374068X.2021.1945274", type: "paper" }] },
+      skills: [{ name: "Abaqus CAE", note: "FE cylinder model" }, { name: "MATLAB", note: "grading function definitions" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/fgm-cylinder", type: "github" }, { label: "Minor Project Thesis", url: "https://drive.google.com/file/d/18li0QySujtvvRewaTtC9c4skQOUFHiYL/view?usp=drive_link", type: "paper" }, { label: "Journal Article (DOI)", url: "https://doi.org/10.1080/2374068X.2021.1945274", type: "paper" }] },
     { id: "passion-placeholder", category: "passion", tag: "Passion Project", title: "Your next passion project", year: 2026, img: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='400' height='300' fill='%23f2e2ec'/><text x='200' y='158' font-family='Arial,sans-serif' font-size='20' fill='%23a34a82' text-anchor='middle'>Add project image</text></svg>",
       summary: "Placeholder — add a personal project here once it's ready.",
       meta: [{ label: "Status", value: "Coming soon" }],
@@ -854,7 +856,7 @@ class Component extends DCLogic {
       : "display:grid; grid-template-columns:minmax(150px,260px) 1fr max-content; gap:16px 36px; padding:20px 0; margin-bottom:28px; border-top:1px solid var(--border); border-bottom:1px solid var(--border);";
 
     const t = this.theme(this.state.dark);
-    if (typeof document !== "undefined") { document.documentElement.style.background = t.bg; document.body.style.background = t.bg; }
+    if (typeof document !== "undefined") { const ds = document.documentElement.style; ds.background = t.bg; ds.colorScheme = this.state.dark ? "dark" : "light"; document.body.style.background = t.bg; }
         const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
       `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
       `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; --accent-faint:${t.accentFaint}; ` +

@@ -22,9 +22,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <script>try{if(localStorage.getItem("ayush-theme")==="dark"){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}}catch(e){}</script>
   <style>
-    html { background:var(--bg); }
-    body { margin:0; background:var(--bg); }
+    html { background:#faf7f0; }
+    html.dark-init { background:#181410; }
+    body { margin:0; background:inherit; }
     a { color:inherit; text-decoration:none; }
     a:hover { color:var(--accent-hover); }
     .nav-link:hover { color:var(--accent-hover) !important; }
@@ -525,7 +527,7 @@ class Component extends DCLogic {
     const pluralOf = (n) => n === 1 ? "" : "s";
 
     const t = this.theme(this.state.dark);
-    if (typeof document !== "undefined") { document.documentElement.style.background = t.bg; document.body.style.background = t.bg; }
+    if (typeof document !== "undefined") { const ds = document.documentElement.style; ds.background = t.bg; ds.colorScheme = this.state.dark ? "dark" : "light"; document.body.style.background = t.bg; }
         const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
       `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
       `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
