@@ -146,11 +146,15 @@ class Component extends DCLogic {
 
   toggleSort = () => this.setState(s => ({ sortAsc: !s.sortAsc }));
 
+  // ARCHIVE TOGGLE — each article below can be hidden from the Writing page without deleting its content.
+  // To ARCHIVE an article: wrap its entire line in  /*  and  */  so it becomes a comment.
+  // To RESTORE an article: delete the  /*  right before it and the  */  right after it.
+  // (A line is "live" — showing on the site — whenever it is NOT wrapped in /* */.)
   allArticles = [
     { key: "wearable", href: "Wearable Watch Decision.dc.html", tag: "Wearables", title: "The Watch Isn't the Decision. Your Training Structure Is.", summary: "Why Apple Watch, Coros, Whoop, and two different Garmins all lose to each other in different ways — and the full sensor, insight, and feature matrix behind the call.", readTime: "10 min read", date: "July 2026", sortDate: new Date(2026, 6, 1) },
     { key: "trek", href: "Himalayan Trek Planner.dc.html", tag: "Travel", title: "The Himalayan Trek Calendar: Which Trek, Which Month, Which Year", summary: "Four quarters, 65 treks, one decision framework — which trek to do, in which month, and in what order across a multi-year progression.", readTime: "11 min read", date: "May 2026", sortDate: new Date(2026, 4, 1) },
-    { key: "iphone", href: "iPhone Ownership Strategy.dc.html", tag: "Finance", title: "iPhone Ownership in India: When to Buy, When to Sell", summary: "A complete, numbers-grounded framework covering the value case for iPhone, the Base vs Pro decision, and the financially optimal ownership strategy for every Indian income bracket.", readTime: "12 min read", date: "March 2026", sortDate: new Date(2026, 2, 1) },
-    { key: "gmat", href: "GMAT vs GRE Decision.dc.html", tag: "Education", title: "GMAT vs GRE: Which One Actually Fits How You Think", summary: "A full structural, syllabus, and difficulty comparison of the GMAT Focus Edition and the GRE — plus a framework for matching the right exam to your strengths.", readTime: "9 min read", date: "January 2026", sortDate: new Date(2026, 0, 1) }
+    /* { key: "iphone", href: "iPhone Ownership Strategy.dc.html", tag: "Finance", title: "iPhone Ownership in India: When to Buy, When to Sell", summary: "A complete, numbers-grounded framework covering the value case for iPhone, the Base vs Pro decision, and the financially optimal ownership strategy for every Indian income bracket.", readTime: "12 min read", date: "March 2026", sortDate: new Date(2026, 2, 1) }, */
+    /* { key: "gmat", href: "GMAT vs GRE Decision.dc.html", tag: "Education", title: "GMAT vs GRE: Which One Actually Fits How You Think", summary: "A full structural, syllabus, and difficulty comparison of the GMAT Focus Edition and the GRE — plus a framework for matching the right exam to your strengths.", readTime: "9 min read", date: "January 2026", sortDate: new Date(2026, 0, 1) }, */
   ];
 
   captureOpen(e, key) {

@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   
-  <text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="86" letter-spacing="-7">
-    <tspan class="a">A</tspan><tspan class="s">S</tspan>
+  <text x="50" y="64" text-anchor="middle" font-family="&#39;Instrument Serif&#39;, Georgia, &#39;Times New Roman&#39;, serif" font-size="58">
+    <tspan class="a" font-style="italic">A</tspan><tspan class="s" font-style="italic" dx="-7">S</tspan><tspan class="s" font-style="normal" dx="1">.</tspan>
   </text>
+  <rect class="s" x="25" y="79" width="50" height="5" rx="2.5"></rect>
 </svg>
