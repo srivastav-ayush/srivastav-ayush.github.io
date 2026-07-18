@@ -21,12 +21,9 @@
   <link rel="preload" href="./.image-slots.state.json" as="fetch" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
-  <link rel="icon" type="image/png" href="./assets/img/favicon-light.png" media="(prefers-color-scheme: light)">
-  <link rel="icon" type="image/png" href="./assets/img/favicon-dark.png" media="(prefers-color-scheme: dark)">
-  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <link rel="icon" type="image/png" id="favicon-icon" href="./assets/img/favicon-light.png">
   <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
-  <script>try{if(localStorage.getItem("ayush-theme")==="dark"){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}}catch(e){}</script>
+  <script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}var __f=document.getElementById("favicon-icon");if(__f)__f.setAttribute("href",__d?"./assets/img/favicon-dark.png":"./assets/img/favicon-light.png");}catch(e){}</script>
   <style>
     html { background:#faf7f0; }
     html.dark-init { background:#181410; }
@@ -52,8 +49,8 @@
     <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
       <a href="Homepage.dc.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
         <div style="display:flex; align-items:baseline;">
-          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text);">A</span>
-          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--accent); margin-left:-4px;">S</span><span style="font-family:'Instrument Serif',serif; font-size:30px; line-height:1; color:var(--accent); margin-left:1px;">.</span>
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text); letter-spacing:-1px;">A</span>
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--accent); letter-spacing:-1px; margin-left:-4px;">S</span><span style="font-family:'Instrument Serif',serif; font-size:30px; line-height:1; color:var(--accent); margin-left:1px;">.</span>
         </div>
         <div style="width:32px; height:1.5px; background:var(--accent);"></div>
       </a>
@@ -386,6 +383,7 @@ class Component extends DCLogic {
     this.setState(s => {
       const next = !s.dark;
       try { localStorage.setItem("ayush-theme", next ? "dark" : "light"); } catch (e) {}
+      try { var __f = document.getElementById("favicon-icon"); if (__f) __f.setAttribute("href", next ? "./assets/img/favicon-dark.png" : "./assets/img/favicon-light.png"); } catch (e) {}
       return { dark: next };
     });
   };
