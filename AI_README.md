@@ -17,7 +17,11 @@ A static personal website for Ayush Srivastav (mechanical/systems engineer). Six
 | `Work.dc.html` | Project portfolio — list + detail view in one file. |
 | `Publications.dc.html` | Journal papers, book chapters, conference papers, patents. |
 | `Talks.dc.html` | Conference talks timeline. |
-| `Articles.dc.html` | Writing/blog index (currently a thin placeholder page — nav + footer only). |
+| `Articles.dc.html` | Writing/blog index — lists the long-form decision essays below (data array `allArticles`, each linking to its own page). |
+| `Wearable Watch Decision.dc.html` | Long-form essay page (Writing) — data-array-driven tables/charts, links back to `Articles.dc.html`. |
+| `Himalayan Trek Planner.dc.html` | Long-form essay page (Writing) — same structure. |
+| `iPhone Ownership Strategy.dc.html` | Long-form essay page (Writing) — same structure. |
+| `GMAT vs GRE Decision.dc.html` | Long-form essay page (Writing) — same structure. |
 | `CV.dc.html` | Full CV — mostly hand-written HTML in the template, not data-array-driven. |
 | `support.js` | The template-rendering runtime (turns `{{ }}` holes, `<sc-for>`, `<sc-if>` into a live page). **Never edit.** |
 | `image-slot.js` | Drag-and-drop image placeholder web component (`<image-slot>` / `<x-import component-from-global-scope="image-slot">`). **Never edit.** |

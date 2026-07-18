@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   
-  <text x="50" y="73" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="78" letter-spacing="-7">
+  <text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="86" letter-spacing="-7">
     <tspan class="a">A</tspan><tspan class="s">S</tspan>
   </text>
 </svg>

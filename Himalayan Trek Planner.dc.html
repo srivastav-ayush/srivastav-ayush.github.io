@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+  <link rel="icon" type="image/png" href="./assets/img/favicon-light.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="./assets/img/favicon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+  <script>try{if(localStorage.getItem("ayush-theme")==="dark"){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}}catch(e){}</script>
+  <style>
+    html { background:#faf7f0; }
+    html.dark-init { background:#181410; }
+    body { margin:0; background:inherit; }
+    a { color:inherit; text-decoration:none; }
+    a:hover { color:var(--accent-hover); }
+    .nav-link:hover { color:var(--accent-hover) !important; }
+    .nav-links::-webkit-scrollbar { display:none; }
+    ::selection { background:var(--selection-bg); color:var(--selection-text); }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+    .art-table { width:100%; border-collapse:collapse; font-family:'Archivo',sans-serif; font-size:13px; }
+    .art-table th, .art-table td { padding:10px 12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--border); }
+    .art-table-compact { table-layout:fixed; }
+    .art-table-compact th, .art-table-compact td { padding:6px 6px; font-size:10px; line-height:1.35; word-break:break-word; white-space:normal; }
+  </style>
+</helmet>
+
+<div style="{{ rootStyle }}">
+  <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
+      <a href="Homepage.dc.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
+        <div style="display:flex; align-items:baseline;">
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text);">A</span>
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--accent); margin-left:-4px;">S</span><span style="font-family:'Instrument Serif',serif; font-size:30px; line-height:1; color:var(--accent); margin-left:1px;">.</span>
+        </div>
+        <div style="width:32px; height:1.5px; background:var(--accent);"></div>
+      </a>
+      <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
+        <a href="Work.dc.html" class="nav-link" style="color:var(--text-faint);">Work</a>
+        <a href="Publications.dc.html" class="nav-link" style="color:var(--text-faint);">Publications</a>
+        <a href="Talks.dc.html" class="nav-link" style="color:var(--text-faint);">Talks</a>
+        <a href="Articles.dc.html" class="nav-link" style="color:var(--accent);">Writing</a>
+        <a href="CV.dc.html" class="nav-link" style="color:var(--text-faint);">CV ↗</a>
+      </div>
+    </div>
+  </nav>
+  <div style="height:84px;"></div>
+
+  <article style="max-width:740px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 100px;">
+    <a href="Articles.dc.html" onClick="{{ handleBack }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; margin-bottom:28px;">← Back to Writing</a>
+
+    <div ref="{{ titleRef }}">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:14px;">Travel</div>
+    <h1 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(28px,4.6vw,44px); line-height:1.15; margin:0 0 18px; color:var(--text);">The Himalayan Trek Calendar: Which Trek, Which Month, Which Year</h1>
+    <p style="font-size:18px; line-height:1.6; color:var(--text-body); margin:0;">Four quarters, 65 treks, one decision framework — which trek to do, in which month, and in what order across a multi-year progression.</p>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:14px; margin-top:26px; padding-top:20px; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); animation:fadeInUp 0.4s ease both;">
+      <span>By Ayush</span><span>·</span><span>11 min read</span><span>·</span><span>May 2026</span>
+    </div>
+
+    <div style="font-size:17px; line-height:1.8; color:var(--text-body); margin-top:40px; animation:fadeInUp 0.4s ease 0.05s both;">
+
+      <p style="margin:0 0 22px;">Across the full April 2026 → March 2027 trekking year, 12+ treks score above 8.0 on a composite framework — distributed across all four quarters. <strong style="color:var(--text);">A year of intentional trekking should include: one spring temple trek (Q1), one monsoon crossover (Q2), one Nepal/Sikkim autumn trek (Q3), and one winter snow summit (Q4).</strong> For a first-timer, the correct progression is Q1 Chopta (4,000m debut) → Q4 Kedarkantha (3,800m winter summit) → Q2 Kashmir Great Lakes (4,000m monsoon) → Q3 Nepal, in that order.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:34px;">
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Highest annual score</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--accent); line-height:1;">9.1/10</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">EBC in October (Q3) — peak-season convergence of weather, views, and culture.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Best first-timer pick</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">8.7/10</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Chopta Chandrashila (Q1, April) — temple on trail, accessible altitude.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Most unique experience</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">9.0/10</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Chadar, January (Q4) — a frozen-river walk that exists nowhere else on earth.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Safe debut treks</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:#b3453a; line-height:1;">5 of 65</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Only 5 treks are safe for a first-timer without prior altitude experience.</div>
+        </div>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The four quarters</h2>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:34px;">
+        <sc-for list="{{ quarterDefs }}" as="qd" hint-placeholder-count="4">
+          <div style="background:var(--bg-card); border-left:3px solid {{ qd.color }}; border-radius:0 8px 8px 0; padding:12px 16px;">
+            <div style="font-size:13px; font-weight:700; color:{{ qd.color }};">{{ qd.title }}</div>
+            <div style="font-size:13.5px; color:var(--text-body); margin-top:3px; line-height:1.55;">{{ qd.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:26px 24px 8px; margin:34px 0;">
+        <div style="display:flex; gap:20px; align-items:flex-end; height:150px; padding:0 4px;">
+          <sc-for list="{{ champBars }}" as="cb" hint-placeholder-count="4">
+            <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px; height:100%; justify-content:flex-end;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; color:{{ cb.color }};">{{ cb.score }}</div>
+              <div style="{{ cb.barStyle }}"></div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-faint); text-align:center; line-height:1.4; white-space:pre-line;">{{ cb.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font-size:13px; color:var(--text-faint); text-align:center; margin-top:14px; padding-bottom:14px;">Fig. 1 — Quarterly champion scores (top single pick per quarter)</div>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Q3 October peaks at 9.1 (EBC) but demands Nepal, 14 days, and prior altitude experience. Q1 April's 8.7 is the right entry point for someone with zero trekking history — nearly the same score, a fraction of the logistics.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">How the composite score is calculated</h2>
+      <p style="margin:0 0 16px;">Every trek's score is a weighted average across seven factors — weighted toward what actually decides whether a trek is worth doing, not toward what's easiest to measure.</p>
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:22px 24px; margin-bottom:16px;">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <sc-for list="{{ scoreWeights }}" as="w" hint-placeholder-count="7">
+            <div style="display:grid; grid-template-columns:120px 1fr 44px; align-items:center; gap:12px;">
+              <div style="font-size:13.5px; font-weight:600; color:var(--text);">{{ w.label }}</div>
+              <div style="height:10px; border-radius:5px; background:var(--bg-chip); overflow:hidden;"><div style="{{ w.barStyle }}"></div></div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-muted); text-align:right;">{{ w.pct }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Views and Weather carry the most weight (35% combined) because they're what you'll actually remember about a trek. Food carries the least (10%) — it's the easiest factor to work around by bringing your own supplies.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Score by category, all four quarters</h2>
+      <p style="margin:0 0 16px;">Average score across each quarter's top-3 picks, by dimension.</p>
+      <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact">
+          <colgroup><col style="width:14%;"><col style="width:12.3%;"><col style="width:12.3%;"><col style="width:12.3%;"><col style="width:12.3%;"><col style="width:12.3%;"><col style="width:12.3%;"><col style="width:12.2%;"></colgroup>
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th style="border-bottom:none;">Quarter</th><th style="border-bottom:none;">Views</th><th style="border-bottom:none;">Summit</th><th style="border-bottom:none;">Weather</th><th style="border-bottom:none;">Culture</th><th style="border-bottom:none;">Vibe</th><th style="border-bottom:none;">Food</th><th style="border-bottom:none;">Safety</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ categoryRows }}" as="row" hint-placeholder-count="4">
+              <tr>
+                <td style="font-weight:600; color:{{ row.color }};">{{ row.label }}</td>
+                <td style="color:var(--text-body);">{{ row.views }}</td>
+                <td style="color:var(--text-body);">{{ row.summit }}</td>
+                <td style="color:var(--text-body);">{{ row.weather }}</td>
+                <td style="color:var(--text-body);">{{ row.culture }}</td>
+                <td style="color:var(--text-body);">{{ row.vibe }}</td>
+                <td style="color:var(--text-body);">{{ row.food }}</td>
+                <td style="color:var(--text-body);">{{ row.safety }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Q3 leads Views and Weather. Q1 leads Culture. Q2 wins Trail Vibe (empty rain-shadow trails). Q4's Summit score is uniquely high — frozen rivers and snow peaks are a category of experience the other three quarters can't replicate.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The top pick, per quarter</h2>
+      <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:34px;">
+        <sc-for list="{{ quarterPicks }}" as="qp" hint-placeholder-count="4">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 20px; display:flex; gap:16px; align-items:flex-start;">
+            <div style="flex-shrink:0; font-family:'Instrument Serif',serif; font-style:italic; font-size:22px; color:{{ qp.color }}; width:52px;">{{ qp.score }}</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-weight:600; color:var(--text); font-size:15px;">{{ qp.trek }} <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; color:{{ qp.color }};">{{ qp.quarter }}</span></div>
+              <div style="font-size:14px; color:var(--text-body); margin-top:4px; line-height:1.6;">{{ qp.why }}</div>
+              <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:10px;">
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--text-muted); background:var(--bg-chip); padding:3px 8px; border-radius:5px;">{{ qp.alt }}</span>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--text-muted); background:var(--bg-chip); padding:3px 8px; border-radius:5px;">{{ qp.days }}</span>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--text-muted); background:var(--bg-chip); padding:3px 8px; border-radius:5px;">AMS: {{ qp.ams }}</span>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--text-muted); background:var(--bg-chip); padding:3px 8px; border-radius:5px;">{{ qp.cost }}</span>
+              </div>
+              <div style="font-size:12.5px; color:var(--text-faint); margin-top:8px; line-height:1.55;"><strong style="color:var(--text-muted);">Base:</strong> {{ qp.base }} &nbsp;·&nbsp; <strong style="color:var(--text-muted);">From Bengaluru:</strong> {{ qp.reach }}</div>
+              <div style="font-size:12.5px; color:var(--text-faint); margin-top:4px; line-height:1.55;"><strong style="color:var(--text-muted);">On the trail:</strong> {{ qp.temple }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Master table — all 65 treks, ranked by score</h2>
+      <div style="overflow-x:auto; overflow-y:auto; max-height:560px; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact">
+          <colgroup><col style="width:8%;"><col style="width:30%;"><col style="width:8%;"><col style="width:9%;"><col style="width:11%;"><col style="width:8%;"><col style="width:14%;"><col style="width:12%;"></colgroup>
+          <thead>
+            <tr style="background:var(--text); color:var(--bg); position:sticky; top:0;">
+              <th style="border-bottom:none;">#</th><th style="border-bottom:none;">Trek</th><th style="border-bottom:none;">Qtr</th><th style="border-bottom:none;">Score</th><th style="border-bottom:none;">Altitude</th><th style="border-bottom:none;">Days</th><th style="border-bottom:none;">AMS risk</th><th style="border-bottom:none;">Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ masterRows }}" as="mr" hint-placeholder-count="65">
+              <tr>
+                <td style="color:var(--text-faint);">{{ mr.rank }}</td>
+                <td style="font-weight:600; color:var(--text);">{{ mr.name }}</td>
+                <td><span style="color:{{ mr.color }}; font-weight:600;">{{ mr.quarter }}</span></td>
+                <td style="color:var(--text-body);">{{ mr.score }}</td>
+                <td style="color:var(--text-body);">{{ mr.alt }}</td>
+                <td style="color:var(--text-body);">{{ mr.days }}</td>
+                <td style="color:var(--text-body);">{{ mr.ams }}</td>
+                <td style="color:var(--text-body);">{{ mr.cost }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Score drops off gradually, not with a cliff — the gap between rank 1 (9.1) and rank 30 is smaller than it looks, because most of the field is genuinely good. The real filters are altitude, AMS risk, and days off — not score alone.</p>
+
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:26px 24px 8px; margin:34px 0;">
+        <div style="max-height:640px; overflow-y:auto; padding-right:6px;">
+          <div style="position:relative; display:flex; flex-direction:column; gap:6px;">
+            <div style="position:absolute; top:0; bottom:0; left:calc(160px + (100% - 194px) * 0.8791); border-left:2px dashed var(--accent); opacity:0.55; pointer-events:none; z-index:1;">
+              <div style="position:sticky; top:2px; transform:translateX(-50%); background:var(--accent); color:#fff; font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700; padding:2px 6px; border-radius:4px; white-space:nowrap;">8.0 threshold</div>
+            </div>
+            <sc-for list="{{ masterBars }}" as="mb" hint-placeholder-count="65">
+              <div style="display:grid; grid-template-columns:150px 1fr 34px; align-items:center; gap:10px;">
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ mb.name }}</div>
+                <div style="height:8px; border-radius:4px; background:var(--bg-chip); overflow:hidden;"><div style="{{ mb.barStyle }}"></div></div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text); text-align:right;">{{ mb.score }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="font-size:13px; color:var(--text-faint); text-align:center; margin-top:14px; padding-bottom:14px;">Fig. 2 — All 65 treks by composite score, colour-coded by quarter, dashed line marks the 8.0 threshold (scroll for full list)</div>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Key findings</h2>
+      <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:34px;">
+        <sc-for list="{{ findings }}" as="f" hint-placeholder-count="6">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 20px;">
+            <div style="font-weight:600; color:var(--text); font-size:15px; margin-bottom:6px;">{{ f.title }}</div>
+            <div style="font-size:14px; color:var(--text-body); line-height:1.65;">{{ f.body }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Recommendations — a 4-year progression</h2>
+      <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:34px;">
+        <sc-for list="{{ recommendations }}" as="rec" hint-placeholder-count="4">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:18px 20px; display:flex; gap:16px; align-items:flex-start;">
+            <div style="flex-shrink:0; width:32px; height:32px; border-radius:50%; background:{{ rec.color }}; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">{{ rec.n }}</div>
+            <div>
+              <div style="font-weight:600; color:var(--text); font-size:15px; margin-bottom:6px;">{{ rec.title }}</div>
+              <div style="font-size:14px; color:var(--text-body); line-height:1.65;">{{ rec.body }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Action plan — this month</h2>
+      <div style="overflow-x:auto; margin:0 0 34px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact">
+          <colgroup><col style="width:26%;"><col style="width:44%;"><col style="width:16%;"><col style="width:14%;"></colgroup>
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th style="border-bottom:none;">Action</th><th style="border-bottom:none;">Detail</th><th style="border-bottom:none;">Deadline</th><th style="border-bottom:none;">Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ actionPlan }}" as="a" hint-placeholder-count="6">
+              <tr>
+                <td style="font-weight:600; color:var(--text);">{{ a.step }}</td>
+                <td style="color:var(--text-body);">{{ a.detail }}</td>
+                <td><span style="display:inline-block; font-size:9.5px; font-weight:700; padding:3px 7px; border-radius:20px; color:#fff; background:{{ a.deadlineColor }}; white-space:nowrap;">{{ a.deadline }}</span></td>
+                <td style="color:var(--text-body);">{{ a.cost }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="background:var(--btn-bg); color:var(--btn-text); text-align:center; padding:44px 30px; border-radius:16px; margin:50px 0 20px;">
+        <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:22px; margin:0 0 12px;">Start with the trek that matches who you are today, not the one you'll be in three years.</div>
+        <p style="font-size:15px; opacity:0.85; margin:0; line-height:1.6;">Year 1: Chopta (April) + Kedarkantha (December). Year 2: Kashmir Great Lakes + Annapurna Base Camp. Year 3: Chadar + Everest Base Camp. Each step adds ~500m of altitude and a new terrain type.</p>
+      </div>
+
+      <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:36px; padding-top:20px; border-top:1px solid var(--border);">
+        <strong style="color:var(--text-muted);">Data sources:</strong> Trek the Himalayas, Indiahikes, Nepal Mountain Trekkers, Indiahikes seasonal reports, Nepal trekking permit databases. Scores reflect seasonal conditions only, not a trek's absolute ceiling — the same trek scores differently in different quarters. First-timer safety assumes an IMF-certified guided group operator; independent trekking lowers safety scores by 2–3 points. Cost figures are approximate and exclude international flights unless noted.
+      </div>
+    </div>
+  </article>
+
+  <footer style="background:var(--footer-bg); color:var(--footer-text); border-top:1px solid var(--footer-border);">
+    <div style="max-width:1200px; margin:0 auto; padding:56px clamp(16px,5vw,64px) 32px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
+      <div>
+        <div style="font-family:'Instrument Serif',serif; font-size:21px; color:var(--footer-text); margin-bottom:8px;">Ayush Srivastav</div>
+        <div style="font-size:14px; color:var(--footer-text-muted); margin-bottom:20px;">Bengaluru, India</div>
+        <a href="mailto:nitb.ayush@gmail.com" style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--footer-text); color:var(--footer-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">Get in touch</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
+        <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
+          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
+          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
+        </div>
+        <div style="display:flex; gap:22px; font-size:13px; font-weight:500; flex-wrap:wrap; justify-content:flex-end; color:var(--footer-text-muted);">
+          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">X</a>
+          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Strava</a>
+          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px; margin:0 auto; padding:20px clamp(16px,5vw,64px) 32px; border-top:1px solid var(--footer-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div style="font-size:13px; color:var(--footer-text-muted);">© {{ currentYear }} Ayush Srivastav</div>
+      <a href="#top" onClick="{{ scrollToTop }}" style="font-size:13px; color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <button onClick="{{ toggleDark }}" aria-label="Toggle dark mode" style="position:fixed; bottom:24px; right:24px; z-index:1000; width:52px; height:52px; border-radius:50%; border:1px solid var(--border-strong); background:var(--bg-card); box-shadow:0 6px 20px rgba(0,0,0,0.18); cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; overflow:hidden;">
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ sunOpacity }}; transform:{{ sunTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="5" fill="#f2b134"></circle>
+        <g stroke="#f2b134" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="1.5" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22.5"></line>
+          <line x1="1.5" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22.5" y2="12"></line>
+          <line x1="4.4" y1="4.4" x2="6.1" y2="6.1"></line>
+          <line x1="17.9" y1="17.9" x2="19.6" y2="19.6"></line>
+          <line x1="4.4" y1="19.6" x2="6.1" y2="17.9"></line>
+          <line x1="17.9" y1="6.1" x2="19.6" y2="4.4"></line>
+        </g>
+      </svg>
+    </div>
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ moonOpacity }}; transform:{{ moonTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M9.5 2.5a7.2 7.2 0 1 0 8.6 9.6A7.8 7.8 0 0 1 9.5 2.5Z" fill="#fdfaf3"></path>
+        <path d="M5.8 21c-1.7 0-3.05-1.36-3.05-3.03 0-1.5 1.1-2.75 2.55-2.98a4.3 4.3 0 0 1 8.15-1.62 3.65 3.65 0 0 1 3.75 3.63c0 .38-.06.75-.17 1.1a2.9 2.9 0 0 1-1.03 2.9H5.8Z" fill="#4a4234" stroke="#2a2419" stroke-width="0.6"></path>
+      </svg>
+    </div>
+  </button>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark")
+  };
+
+  scrollToTop = (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); };
+
+  toggleDark = () => {
+    this.setState(s => {
+      const next = !s.dark;
+      try { localStorage.setItem("ayush-theme", next ? "dark" : "light"); } catch (e) {}
+      return { dark: next };
+    });
+  };
+
+  titleRef = (el) => {
+    if (!el) return;
+    this.__titleEl = el;
+    if (this.__titleDone) return;
+    this.__titleDone = true;
+    if (typeof window === "undefined") return;
+    let origin = null;
+    try {
+      const raw = sessionStorage.getItem("art-open");
+      if (raw) { const data = JSON.parse(raw); if (data && data.key === "trek") origin = data.rect; }
+    } catch (e) {}
+    if (!origin) return;
+    try { sessionStorage.removeItem("art-open"); } catch (e) {}
+    const rect = el.getBoundingClientRect();
+    const dx = origin.left - rect.left, dy = origin.top - rect.top;
+    const sx = origin.width / rect.width, sy = origin.height / rect.height;
+    el.style.transformOrigin = "top left";
+    if (typeof el.animate === "function") {
+      el.animate([
+        { transform: `translate(${dx}px,${dy}px) scale(${sx},${sy})`, opacity: 0.55 },
+        { transform: "translate(0px,0px) scale(1,1)", opacity: 1 }
+      ], { duration: 400, easing: "cubic-bezier(.16,1,.3,1)", fill: "forwards" });
+    }
+  };
+  handleBack = () => {
+    if (typeof window === "undefined" || !this.__titleEl) return;
+    try {
+      const rect = this.__titleEl.getBoundingClientRect();
+      sessionStorage.setItem("art-close", JSON.stringify({ key: "trek", rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height } }));
+    } catch (err) {}
+  };
+
+  theme(dark) {
+    return dark ? {
+      bg: "#181410", bgAlt: "#1d1712", bgCard: "#231e18", bgChip: "#2b251d",
+      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#8f8571", textFaint: "#8f8571",
+      border: "#3a3327", borderStrong: "#4a4234", dotMuted: "#4a4234",
+      accent: "#87aed6", accentHover: "#a6c5e6",
+      btnBg: "#f3ede0", btnText: "#181410",
+      footerAccent: "#87aed6",
+      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#8f8571", footerBorder: "#2a2419",
+      navBg: "rgba(24,20,16,.88)",
+      selectionBg: "#87aed6", selectionText: "#181410"
+    } : {
+      bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
+      text: "#241f19", textBody: "#57503f", textMuted: "#8d8271", textFaint: "#8d8271",
+      border: "#e4dbca", borderStrong: "#d8cfc0", dotMuted: "#c9bfa9",
+      accent: "#3568a0", accentHover: "#244f78",
+      btnBg: "#241f19", btnText: "#faf7f0",
+      footerAccent: "#87aed6",
+      footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#8d8271", footerBorder: "#3a3327",
+      navBg: "rgba(250,247,240,.92)",
+      selectionBg: "#2e4a6b", selectionText: "#faf7f0"
+    };
+  }
+
+  renderVals() {
+    const t = this.theme(this.state.dark);
+    if (typeof document !== "undefined") { const ds = document.documentElement.style; ds.background = t.bg; ds.colorScheme = this.state.dark ? "dark" : "light"; document.body.style.background = t.bg; }
+    const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
+      `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
+      `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
+      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText};`;
+
+    const Q = { Q1: t.accent, Q2: "#4a7a43", Q3: "#b8752e", Q4: "#6a4d9c" };
+
+    const quarterDefs = [
+      { title: "Q1 — April to June (Spring + Early Summer)", desc: "Rhododendrons, snow passes opening, pre-monsoon clarity. Best for Uttarakhand + Nepal.", color: Q.Q1 },
+      { title: "Q2 — July to September (Monsoon)", desc: "Green Himalaya is closed. Rain-shadow areas — Kashmir, Lahaul, Ladakh, Spiti — are at their finest: dry, open, uncrowded.", color: Q.Q2 },
+      { title: "Q3 — October to December (Post-monsoon Autumn)", desc: "Universally considered peak season. Clearest skies, stable weather, golden forests. Nepal at its absolute best.", color: Q.Q3 },
+      { title: "Q4 — January to March (Deep Winter)", desc: "Most passes closed. Specialist treks — Chadar's frozen river, Kedarkantha/Brahmatal snow summits.", color: Q.Q4 }
+    ];
+
+    const champData = [
+      { label: "Q1 Apr–Jun\nChopta Chandrashila", score: 8.7, q: "Q1" },
+      { label: "Q2 Jul–Sep\nKashmir Gt Lakes", score: 8.6, q: "Q2" },
+      { label: "Q3 Oct–Dec\nEBC October", score: 9.1, q: "Q3" },
+      { label: "Q4 Jan–Mar\nChadar Trek", score: 9.0, q: "Q4" }
+    ];
+    const champBars = champData.map(d => ({
+      label: d.label, score: d.score.toFixed(1), color: Q[d.q],
+      barStyle: `width:56px; height:${(d.score / 10) * 100}%; background:${Q[d.q]}; border-radius:4px 4px 0 0;`
+    }));
+
+    const scoreWeights = [
+      { label: "Views", w: 20 },
+      { label: "Weather", w: 15 },
+      { label: "Safety", w: 15 },
+      { label: "Summit/Altitude", w: 14 },
+      { label: "Culture", w: 13 },
+      { label: "Trail vibe", w: 13 },
+      { label: "Food", w: 10 }
+    ].map(x => ({ ...x, pct: x.w + "%", barStyle: `width:${x.w}%; height:100%; background:var(--accent); border-radius:5px;` }));
+
+    const categoryRows = [
+      { label: "Q1 Spring", color: Q.Q1, views: 8.5, summit: 8.5, weather: 8.5, culture: 8.5, vibe: 8.5, food: 7.0, safety: 8.0 },
+      { label: "Q2 Monsoon", color: Q.Q2, views: 8.0, summit: 7.5, weather: 7.0, culture: 7.0, vibe: 9.0, food: 7.0, safety: 6.5 },
+      { label: "Q3 Autumn", color: Q.Q3, views: 9.5, summit: 9.0, weather: 9.5, culture: 8.5, vibe: 8.5, food: 8.0, safety: 7.0 },
+      { label: "Q4 Winter", color: Q.Q4, views: 8.0, summit: 8.5, weather: 7.0, culture: 7.5, vibe: 8.0, food: 6.0, safety: 7.5 }
+    ];
+
+    const quarterPicks = [
+      { quarter: "Q1", trek: "Chopta Chandrashila + Deoriatal", score: "8.7", color: Q.Q1, why: "A temple on the summit, 4,000m altitude test, and a Rishikesh add-on — the year's best debut trek for a first-timer.",
+        alt: "3,965m", days: "6 days", ams: "Low-Mod", cost: "₹9–14k", base: "Sari Village / Rishikesh", reach: "Dehradun (2.5h flight) → Sari Village (6h drive)", temple: "★ Tungnath — world's highest Shiva temple, at 3,680m on the trail." },
+      { quarter: "Q2", trek: "Kashmir Great Lakes", score: "8.6", color: Q.Q2, why: "7 alpine lakes, rain-shadow clarity while the rest of the Himalaya is under monsoon cloud, and 40% fewer trekkers than April–May.",
+        alt: "4,138m", days: "8 days", ams: "Moderate", cost: "₹12–18k", base: "Sonamarg / Naranag", reach: "Srinagar (2.5h direct flight) → base (2h drive)", temple: "No temple on trail — Dal Lake houseboat + Hazratbal add-on in Srinagar." },
+      { quarter: "Q3", trek: "Everest Base Camp (October)", score: "9.1", color: Q.Q3, why: "The year's single highest score — peak-season convergence of weather, views, and culture. Needs Nepal, 14 days, and prior altitude experience.",
+        alt: "5,364m", days: "14 days", ams: "High", cost: "₹90k–1.5L", base: "Lukla (fly in from Kathmandu)", reach: "Kathmandu (3.5h flight) → Lukla (45min domestic hop)", temple: "Tengboche Monastery and the Khumjung prayer walls en route." },
+      { quarter: "Q4", trek: "Chadar Trek — Frozen Zanskar", score: "9.0", color: Q.Q4, why: "Walking on a frozen river for 8 days at -30°C exists nowhere else on earth — but requires specialist gear and cold-weather experience first.",
+        alt: "3,500m", days: "9 days", ams: "Low(alt)/High(cold)", cost: "₹18–28k", base: "Chilling Village (60km from Leh)", reach: "Leh (2.5h direct flight) → Chilling (1.5h drive)", temple: "Buddhist cave temples along the Zanskar gorge; Nerak village." }
+    ];
+
+    const allTreksData = [
+      { name: "Chopta Chandrashila + Deoriatal", q: "Q1", score: 8.7, alt: "3,965m", days: 6, ams: "Low-Mod", cost: "₹9–14k" },
+      { name: "Annapurna Base Camp (Apr–May)", q: "Q1", score: 8.9, alt: "4,130m", days: 11, ams: "Moderate", cost: "₹55–90k" },
+      { name: "Sandakphu–Phalut (April)", q: "Q1", score: 8.2, alt: "3,636m", days: 8, ams: "Low", cost: "₹8–14k" },
+      { name: "Pangarchulla Peak (April)", q: "Q1", score: 7.8, alt: "4,590m", days: 7, ams: "Mod-High", cost: "₹11–18k" },
+      { name: "Gaumukh Tapovan (May)", q: "Q1", score: 7.95, alt: "4,460m", days: 8, ams: "Mod-High", cost: "₹10–18k" },
+      { name: "Rupin Pass (May–Jun)", q: "Q1", score: 7.6, alt: "4,650m", days: 8, ams: "Mod-High", cost: "₹9–15k" },
+      { name: "Har Ki Dun (Apr–Jun)", q: "Q1", score: 7.4, alt: "3,566m", days: 7, ams: "Low", cost: "₹7–11k" },
+      { name: "Buran Ghati (May–Jun)", q: "Q1", score: 6.7, alt: "4,700m", days: 8, ams: "Mod-High", cost: "₹9–15k" },
+      { name: "Kedarnath + Vasuki Tal (May)", q: "Q1", score: 8.3, alt: "4,135m", days: 8, ams: "Moderate", cost: "₹8–14k" },
+      { name: "Chandrakhani Pass (May–Jun)", q: "Q1", score: 7.3, alt: "3,714m", days: 5, ams: "Low", cost: "₹7–11k" },
+      { name: "Kedartal Trek (May–Sep)", q: "Q1", score: 8.0, alt: "4,877m", days: 7, ams: "High", cost: "₹10–16k" },
+      { name: "Surya Top Trek (Apr–Jun)", q: "Q1", score: 8.2, alt: "3,947m", days: 5, ams: "Low-Mod", cost: "₹8–13k" },
+      { name: "Pir Panjal Lakes Trek (May–Jun)", q: "Q1", score: 8.3, alt: "3,700m", days: 8, ams: "Low-Mod", cost: "₹12–18k" },
+      { name: "Panwali Kantha Trek", q: "Q1", score: 7.8, alt: "3,800m", days: 6, ams: "Low-Mod", cost: "₹8–13k" },
+      { name: "Bali Pass Trek", q: "Q1", score: 7.8, alt: "4,940m", days: 9, ams: "High", cost: "₹12–18k" },
+      { name: "Kareri Lake Trek", q: "Q1", score: 7.2, alt: "2,934m", days: 4, ams: "Low", cost: "₹6–10k" },
+      { name: "Sar Pass Trek", q: "Q1", score: 7.8, alt: "3,900m", days: 5, ams: "Low-Mod", cost: "₹8–13k" },
+      { name: "Dodital Darwa Pass Trek", q: "Q1", score: 7.9, alt: "4,150m", days: 7, ams: "Low-Mod", cost: "₹8–13k" },
+      { name: "Gidara Bugyal Trek", q: "Q1", score: 8.5, alt: "4,100m", days: 7, ams: "Moderate", cost: "₹9–15k" },
+      { name: "Kashmir Great Lakes (Aug–Sep)", q: "Q2", score: 8.6, alt: "4,138m", days: 8, ams: "Moderate", cost: "₹12–18k" },
+      { name: "Tarsar Marsar (Jul–Sep)", q: "Q2", score: 8.2, alt: "3,900m", days: 7, ams: "Low-Mod", cost: "₹10–15k" },
+      { name: "Markha Valley (Jul–Sep)", q: "Q2", score: 8.0, alt: "5,150m", days: 9, ams: "High", cost: "₹15–25k" },
+      { name: "Valley of Flowers + Hemkund (Jul–Aug)", q: "Q2", score: 7.9, alt: "4,329m", days: 6, ams: "Low-Mod", cost: "₹7–12k" },
+      { name: "Pin Bhaba Pass (Jul–Sep)", q: "Q2", score: 7.8, alt: "4,865m", days: 8, ams: "High", cost: "₹10–16k" },
+      { name: "Hampta Pass (Jul–Aug)", q: "Q2", score: 7.5, alt: "4,270m", days: 5, ams: "Moderate", cost: "₹8–13k" },
+      { name: "Bhrigu Lake (Jul–Aug)", q: "Q2", score: 7.3, alt: "4,235m", days: 4, ams: "Moderate", cost: "₹6–10k" },
+      { name: "Goechala (Apr & Sep)", q: "Q2", score: 7.5, alt: "4,940m", days: 11, ams: "High", cost: "₹15–25k" },
+      { name: "Beas Kund Trek (Jun–Sep)", q: "Q2", score: 7.5, alt: "3,892m", days: 4, ams: "Low-Mod", cost: "₹5–9k" },
+      { name: "Kedartal Trek (Jul–Sep)", q: "Q2", score: 8.0, alt: "4,877m", days: 7, ams: "High", cost: "₹10–16k" },
+      { name: "Pir Panjal Lakes Trek (Jul–Aug)", q: "Q2", score: 8.3, alt: "3,700m", days: 8, ams: "Low-Mod", cost: "₹12–18k" },
+      { name: "Nafran Valley Trek", q: "Q2", score: 7.5, alt: "3,500m", days: 5, ams: "Low", cost: "₹10–15k" },
+      { name: "Tulian Lake Trek", q: "Q2", score: 7.2, alt: "3,648m", days: 3, ams: "Low", cost: "₹8–12k" },
+      { name: "Pindari Glacier Trek", q: "Q2", score: 7.8, alt: "3,820m", days: 6, ams: "Low", cost: "₹7–12k" },
+      { name: "Doodhpathri Trek", q: "Q2", score: 7.5, alt: "2,800m", days: 6, ams: "Low", cost: "₹10–15k" },
+      { name: "Everest Base Camp (October)", q: "Q3", score: 9.1, alt: "5,364m", days: 14, ams: "High", cost: "₹90k–1.5L" },
+      { name: "Annapurna Circuit (Oct–Nov)", q: "Q3", score: 8.8, alt: "5,416m", days: 16, ams: "High", cost: "₹65–100k" },
+      { name: "Goechala (October)", q: "Q3", score: 8.5, alt: "4,940m", days: 11, ams: "High", cost: "₹15–25k" },
+      { name: "Kuari Pass (Oct–Nov)", q: "Q3", score: 8.1, alt: "3,640m", days: 6, ams: "Low", cost: "₹8–13k" },
+      { name: "Roopkund (Sep–Oct)", q: "Q3", score: 8.0, alt: "5,029m", days: 8, ams: "Mod-High", cost: "₹11–18k" },
+      { name: "Kedarkantha (December)", q: "Q3", score: 8.0, alt: "3,810m", days: 6, ams: "Low", cost: "₹8–13k" },
+      { name: "Sandakphu (Oct–Nov)", q: "Q3", score: 7.9, alt: "3,636m", days: 8, ams: "Low", cost: "₹8–14k" },
+      { name: "Ali Bedni Bugyal (Oct–Nov)", q: "Q3", score: 7.6, alt: "3,654m", days: 6, ams: "Low", cost: "₹7–12k" },
+      { name: "Phulara Ridge (Oct–Nov)", q: "Q3", score: 7.4, alt: "3,600m", days: 5, ams: "Low", cost: "₹7–11k" },
+      { name: "Aancha Top Trek (Oct–Dec)", q: "Q3", score: 7.3, alt: "3,810m", days: 6, ams: "Low", cost: "₹7–12k" },
+      { name: "Gulabi Kantha Trek (Sep–Nov)", q: "Q3", score: 8.0, alt: "4,023m", days: 5, ams: "Low-Mod", cost: "₹8–13k" },
+      { name: "Satopanth Lake Trek", q: "Q3", score: 7.9, alt: "4,402m", days: 6, ams: "Moderate", cost: "₹10–16k" },
+      { name: "Surya Top Trek (Autumn)", q: "Q3", score: 8.2, alt: "3,947m", days: 5, ams: "Low-Mod", cost: "₹8–13k" },
+      { name: "Mardi Himal Trek", q: "Q3", score: 8.4, alt: "4,500m", days: 6, ams: "Moderate", cost: "₹35–50k" },
+      { name: "Ghorepani Poon Hill Trek", q: "Q3", score: 8.0, alt: "3,210m", days: 5, ams: "Low", cost: "₹30–45k" },
+      { name: "Bajre Dara Trek", q: "Q3", score: 7.6, alt: "4,162m", days: 5, ams: "Low-Mod", cost: "₹9–14k" },
+      { name: "Chadar Trek — Frozen Zanskar", q: "Q4", score: 9.0, alt: "3,500m", days: 9, ams: "Low(alt)/High(cold)", cost: "₹18–28k" },
+      { name: "Kedarkantha (Jan–Feb)", q: "Q4", score: 8.3, alt: "3,810m", days: 6, ams: "Low", cost: "₹8–13k" },
+      { name: "Brahmatal (Jan–Feb)", q: "Q4", score: 8.0, alt: "3,594m", days: 6, ams: "Low", cost: "₹8–13k" },
+      { name: "Dayara Bugyal (Jan–Feb)", q: "Q4", score: 7.5, alt: "3,750m", days: 5, ams: "Low", cost: "₹7–12k" },
+      { name: "Sandakphu Winter (Dec–Mar)", q: "Q4", score: 7.5, alt: "3,636m", days: 8, ams: "Low", cost: "₹8–14k" },
+      { name: "Annapurna BC (March)", q: "Q4", score: 8.0, alt: "4,130m", days: 11, ams: "Moderate", cost: "₹55–90k" },
+      { name: "Prashar Lake (Jan–Feb)", q: "Q4", score: 7.2, alt: "2,730m", days: 3, ams: "Low", cost: "₹3–5k" },
+      { name: "Ranthan Kharak (March)", q: "Q4", score: 7.2, alt: "4,200m", days: 6, ams: "Low-Mod", cost: "₹8–12k" },
+      { name: "Nag Tibba Weekend Trek", q: "Q4", score: 7.8, alt: "3,022m", days: 2, ams: "Low", cost: "₹2–4k" },
+      { name: "Patalkot Gorge Trek", q: "Q4", score: 6.5, alt: "611m", days: 4, ams: "None", cost: "₹4–7k" },
+      { name: "Chhattisgarh Jungle Trek", q: "Q4", score: 6.2, alt: "860m", days: 4, ams: "None", cost: "₹4–6k" },
+      { name: "Pench Tiger Trail", q: "Q4", score: 6.8, alt: "611m", days: 4, ams: "None", cost: "₹6–10k" },
+      { name: "Gulabi Kantha (Winter Dec–Mar)", q: "Q4", score: 7.8, alt: "4,023m", days: 5, ams: "Low-Mod", cost: "₹8–13k" },
+      { name: "Mukta Top Trek", q: "Q4", score: 7.5, alt: "3,480m", days: 6, ams: "Low", cost: "₹7–12k" },
+      { name: "Dudhatoli Trek", q: "Q4", score: 7.2, alt: "2,900m", days: 5, ams: "Low", cost: "₹6–10k" }
+    ];
+    const sortedTreks = allTreksData.slice().sort((a, b) => b.score - a.score);
+    const masterRows = sortedTreks.map((m, i) => ({ rank: i + 1, name: m.name, quarter: m.q, color: Q[m.q], score: m.score.toFixed(1), alt: m.alt, days: m.days + "d", ams: m.ams, cost: m.cost }));
+    const maxScore = 9.1;
+    const masterBars = sortedTreks.map(m => ({
+      name: m.name, score: m.score.toFixed(1),
+      barStyle: `width:${(m.score / maxScore) * 100}%; height:100%; background:${Q[m.q]}; border-radius:4px;`
+    }));
+
+    const findings = [
+      { title: "Q3 October is the year's single best trekking month", body: "Average top-pick score of 9.1 — driven by post-monsoon sky clarity, stable weather, and Nepal's peak-season alignment. Target October 2027 for EBC or Annapurna once the Q1 2026 first-trek baseline is established." },
+      { title: "Q2 is the most underrated quarter", body: "Kashmir Great Lakes (8.6) and Tarsar Marsar (8.2) score higher than most Q1 India options, yet July–September has 40% fewer trekkers. Kashmir's rain-shadow geography is widely misunderstood — it gets no monsoon rain." },
+      { title: "Only 5 of 65 treks are safe for a debut first-timer", body: "Chopta Chandrashila, Sandakphu, Kedarkantha, Brahmatal, and Har Ki Dun share: max altitude ≤4,000m, gradual ascent, and multiple operator options. Year 1 must be one of these five — altitude cannot be trained for on a treadmill." },
+      { title: "A 4-trek progression unlocks the full Himalayan experience by Year 4", body: "Year 1: Chopta (~4,000m) → Year 2: Kashmir Great Lakes or Kedarkantha → Year 3: Goechala or Roopkund (~5,000m) → Year 4: EBC or Annapurna Circuit (~5,400m). Each step adds ~500m and a new terrain type — jumping straight to EBC has a documented 30–40% summit-failure rate from AMS." },
+      { title: "Nepal's 5x cost premium is justified only after Year 2", body: "India's top-tier treks deliver 85–90% of Nepal's experience quality at 15–20% of the cost. Spend the Nepal premium once the trek itself — not the country — is the differentiator." },
+      { title: "December is the year's most underserved month", body: "Kedarkantha (8.0) and Brahmatal (7.8) open in December with high first-timer accessibility, yet most trekkers wait until January–February — leaving better availability in December batches." }
+    ];
+
+    const recommendations = [
+      { n: "1", color: Q.Q1, title: "Year 1 (2026): Chopta in April + Kedarkantha in December", body: "April Chopta (8.7) is the debut — temple summit, 4,000m altitude test. December Kedarkantha (8.0) is the sequel — first snow summit. Together: ₹25,000–35,000 for both, and by December you'll know exactly how your body handles altitude." },
+      { n: "2", color: Q.Q2, title: "Year 2 (2027): Kashmir Great Lakes + Annapurna Base Camp", body: "Kashmir Great Lakes (8.6) in August is the year-2 India target. Annapurna Base Camp (8.9) in October is the international debut — only 100m above your Chopta altitude. Combined budget: ₹80,000–1,10,000 including international flights." },
+      { n: "3", color: Q.Q3, title: "Year 3 (2028): Chadar in January + Everest Base Camp in October", body: "Chadar (9.0 uniqueness) requires cold tolerance built via Kedarkantha and Kashmir. EBC (9.1) is the year's peak experience — achievable after three prior treks at 4,000–5,000m+. Highest budget of the progression: ₹1,50,000–2,00,000 combined." },
+      { n: "4", color: Q.Q4, title: "Start now: an 8-week fitness protocol and book April Chopta within 7 days", body: "Indiahikes requires 5km in 45 minutes minimum. Week 1–2: 3km daily + stairs. Week 3–4: 5km + 8kg pack. Week 5–8: 8km + 12kg pack on inclines. Get a medical certificate and discuss Diamox with a GP; buy trekking shoes 3+ weeks ahead." }
+    ];
+
+    const actionPlan = [
+      { step: "Book April Chopta + Rishikesh", detail: "TTH or Indiahikes April batch, 6 trek + 2 Rishikesh days. Pay ₹2–3k advance.", deadline: "This week", deadlineColor: "#b3453a", cost: "₹11–18k" },
+      { step: "Book flights to Dehradun", detail: "2–3 months ahead for April. Fly out 1 day before trek start.", deadline: "This week", deadlineColor: "#b3453a", cost: "₹6–10k" },
+      { step: "Start 8-week fitness protocol", detail: "5km in 45min is the minimum requirement — submit a Strava link 30 days before.", deadline: "Today", deadlineColor: "#b3453a", cost: "₹0" },
+      { step: "Shoes + medical certificate", detail: "Shoes broken in 3+ weeks ahead; certificate mandatory for both operators.", deadline: "3 weeks", deadlineColor: "#b8752e", cost: "₹4–8k" },
+      { step: "Book December Kedarkantha", detail: "After completing April Chopta. December has better availability than January.", deadline: "Sep 2026", deadlineColor: "#4a7a43", cost: "₹8–13k" },
+      { step: "Plan Nepal Annapurna BC", detail: "Passport + Nepal visa + ACAP/TIMS permits ($50 USD total).", deadline: "Mar 2027", deadlineColor: "#4a7a43", cost: "₹55–90k" }
+    ];
+
+    return {
+      rootStyle,
+      toggleDark: this.toggleDark,
+      titleRef: this.titleRef, handleBack: this.handleBack,
+      scrollToTop: this.scrollToTop,
+      currentYear: new Date().getFullYear(),
+      sunOpacity: this.state.dark ? 0 : 1,
+      sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
+      moonOpacity: this.state.dark ? 1 : 0,
+      moonTransform: this.state.dark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.4)",
+      quarterDefs, champBars, scoreWeights, categoryRows, quarterPicks, masterRows, masterBars, findings, recommendations, actionPlan
+    };
+  }
+}
+
+</script>
+</body>
+</html>

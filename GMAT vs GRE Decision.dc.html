@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+  <link rel="icon" type="image/png" href="./assets/img/favicon-light.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="./assets/img/favicon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+  <script>try{if(localStorage.getItem("ayush-theme")==="dark"){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}}catch(e){}</script>
+  <style>
+    html { background:#faf7f0; }
+    html.dark-init { background:#181410; }
+    body { margin:0; background:inherit; }
+    a { color:inherit; text-decoration:none; }
+    a:hover { color:var(--accent-hover); }
+    .nav-link:hover { color:var(--accent-hover) !important; }
+    .nav-links::-webkit-scrollbar { display:none; }
+    ::selection { background:var(--selection-bg); color:var(--selection-text); }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+    .art-table { width:100%; border-collapse:collapse; font-family:'Archivo',sans-serif; font-size:13px; }
+    .art-table th, .art-table td { padding:10px 12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--border); }
+    .art-table-compact { table-layout:fixed; }
+    .art-table-compact th, .art-table-compact td { padding:6px 6px; font-size:10px; line-height:1.35; word-break:break-word; white-space:normal; }
+  </style>
+</helmet>
+
+<div style="{{ rootStyle }}">
+  <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
+      <a href="Homepage.dc.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
+        <div style="display:flex; align-items:baseline;">
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text);">A</span>
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--accent); margin-left:-4px;">S</span><span style="font-family:'Instrument Serif',serif; font-size:30px; line-height:1; color:var(--accent); margin-left:1px;">.</span>
+        </div>
+        <div style="width:32px; height:1.5px; background:var(--accent);"></div>
+      </a>
+      <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
+        <a href="Work.dc.html" class="nav-link" style="color:var(--text-faint);">Work</a>
+        <a href="Publications.dc.html" class="nav-link" style="color:var(--text-faint);">Publications</a>
+        <a href="Talks.dc.html" class="nav-link" style="color:var(--text-faint);">Talks</a>
+        <a href="Articles.dc.html" class="nav-link" style="color:var(--accent);">Writing</a>
+        <a href="CV.dc.html" class="nav-link" style="color:var(--text-faint);">CV ↗</a>
+      </div>
+    </div>
+  </nav>
+  <div style="height:84px;"></div>
+
+  <article style="max-width:740px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 100px;">
+    <a href="Articles.dc.html" onClick="{{ handleBack }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; margin-bottom:28px;">← Back to Writing</a>
+
+    <div ref="{{ titleRef }}">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:14px;">Education</div>
+    <h1 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(30px,5vw,46px); line-height:1.15; margin:0 0 18px; color:var(--text);">GMAT vs GRE: Which One Actually Fits How You Think</h1>
+    <p style="font-size:18px; line-height:1.6; color:var(--text-body); margin:0;">A full structural, syllabus, and difficulty comparison of the GMAT Focus Edition and the GRE — and a framework for matching the right exam to your strengths, not the other way around.</p>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:14px; margin-top:26px; padding-top:20px; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); animation:fadeInUp 0.4s ease both;">
+      <span>By Ayush</span><span>·</span><span>9 min read</span><span>·</span><span>January 2026</span>
+    </div>
+
+    <div style="font-size:17px; line-height:1.8; color:var(--text-body); margin-top:40px; animation:fadeInUp 0.4s ease 0.05s both;">
+
+      <p style="margin:0 0 22px;">Most people pick between GMAT and GRE by asking which one their target program prefers. That matters — but for anyone with a choice, the better question is which exam's syllabus plays to your actual strengths. <strong style="color:var(--text);">The two exams no longer test the same skills.</strong> The GMAT Focus Edition (the only GMAT version offered since February 2024) removed geometry and the essay entirely and rebuilt Verbal around pure logic. The GRE kept geometry, kept an essay, and still leans hard on vocabulary. Same broad purpose, structurally different exams.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:34px;">
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Vocabulary in GRE Verbal</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--accent); line-height:1;">~40%</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Text Completion + Sentence Equivalence — pure vocabulary, no GMAT equivalent.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Vocabulary in GMAT Verbal</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">0%</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Verbal is Reading Comprehension + Critical Reasoning only — logic, not word lists.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Geometry on GMAT Focus</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">Removed</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">GRE still tests it — roughly a quarter of Quant.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Programs accepting both</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">7,700+</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Most business schools now accept either at parity.</div>
+        </div>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">How the two exams are actually built</h2>
+      <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact">
+          <colgroup><col style="width:26%;"><col style="width:37%;"><col style="width:37%;"></colgroup>
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th style="border-bottom:none;">Factor</th><th style="border-bottom:none;">GMAT Focus Edition</th><th style="border-bottom:none;">GRE General Test</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ structureRows }}" as="r" hint-placeholder-count="13">
+              <tr>
+                <td style="font-weight:600; color:var(--text);">{{ r.factor }}</td>
+                <td style="color:var(--text-body);">{{ r.gmat }}</td>
+                <td style="color:var(--text-body);">{{ r.gre }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> GMAT Focus is shorter, lets you choose section order, and gives you a break. GRE is section-adaptive rather than question-adaptive, and keeps the essay GMAT dropped. Neither is objectively "easier" — they're built around different skills.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The real fork in the road: verbal reasoning</h2>
+      <p style="margin:0 0 16px;">This is where the two exams diverge most, and where most people's decision should actually start. GRE Verbal spends roughly 40% of its questions on Text Completion and Sentence Equivalence — fill-in-the-blank vocabulary questions with no logic shortcut. You either know the word or you don't. GMAT Focus Verbal, by contrast, is entirely Reading Comprehension and Critical Reasoning: you're evaluating arguments and passages, never recalling a definition.</p>
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px 22px; margin-bottom:16px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); margin-bottom:10px;">Worked example — a typical GMAT Critical Reasoning question</div>
+        <p style="font-size:14.5px; color:var(--text-body); line-height:1.7; margin:0 0 10px;">"A study found students who ate breakfast daily scored 15% higher on standardized tests than those who skipped it. The school board concluded requiring breakfast would raise scores. Which statement most weakens this conclusion?"</p>
+        <p style="font-size:13.5px; color:var(--text-muted); line-height:1.7; margin:0;"><strong style="color:var(--text);">Answer:</strong> "Students who eat breakfast daily tend to come from more stable home environments, which independently predict higher performance." It introduces an alternate cause — a classic correlation-vs-causation weaken. No vocabulary involved, only argument structure.</p>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> If you can't or don't want to memorize a 1,000-word list, GRE Verbal has a hard ceiling for you. If you find memorizing word lists tedious but logic puzzles easy, GMAT Verbal will feel dramatically easier than GRE Verbal — and vice versa for strong readers who enjoy language.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Where GRE pulls ahead: quantitative breadth</h2>
+      <p style="margin:0 0 16px;">Quant is the one area where GRE is arguably more forgiving. It provides an on-screen calculator throughout, and its unique Quantitative Comparison format rewards smart estimation over exact calculation — you're often comparing two quantities rather than solving for one. The tradeoff is breadth: GRE Quant still includes geometry (triangles, circles, volumes, coordinate geometry) — roughly a quarter of the section — which GMAT Focus removed completely in favor of a narrower, deeper arithmetic-and-algebra syllabus with no calculator.</p>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> If geometry was never your strong suit, GMAT Focus's narrower syllabus is a real advantage. If you like having a calculator and haven't touched geometry proofs since school but remember the formulas fine, GRE Quant won't feel much harder — and its Quantitative Comparison format is fast to learn.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Data Sufficiency: GMAT's strangest, most learnable question type</h2>
+      <p style="margin:0 0 16px;">Data Sufficiency exists only on GMAT (now inside the Data Insights section) and unnerves first-time test-takers precisely because it isn't a math question — it's a logic question. You're given a question and two statements, and asked only whether each statement (alone, or together) gives you <em>enough</em> information to answer — never asked to actually solve it. The answer is always one of the same five fixed choices.</p>
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px 22px; margin-bottom:16px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); margin-bottom:10px;">Worked example</div>
+        <p style="font-size:14.5px; color:var(--text-body); line-height:1.7; margin:0 0 8px;"><strong style="color:var(--text);">Question:</strong> Is x a positive number? (1) x² = 16 &nbsp; (2) x + 4 &gt; 0</p>
+        <p style="font-size:13.5px; color:var(--text-muted); line-height:1.7; margin:0;">Statement 1 alone allows x = 4 or −4 — not sufficient. Statement 2 alone allows many values, positive and negative — not sufficient. Together, only x = 4 satisfies both — sufficient. <strong style="color:var(--text);">Answer: both statements together, but neither alone.</strong></p>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Data Sufficiency feels foreign for the first week and mechanical by the second — it's one of the most learnable, coachable parts of either exam, and shouldn't be a deciding factor on its own.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Which exam fits which kind of person</h2>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:34px;">
+        <sc-for list="{{ personaRows }}" as="p" hint-placeholder-count="8">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
+            <div style="flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:{{ p.color }}; text-transform:uppercase; letter-spacing:0.04em; width:100px; padding-top:2px;">{{ p.pick }}</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-weight:600; color:var(--text); font-size:14.5px;">{{ p.profile }}</div>
+              <div style="font-size:13.5px; color:var(--text-body); margin-top:4px; line-height:1.6;">{{ p.why }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Full syllabus comparison — math</h2>
+      <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact">
+          <colgroup><col style="width:24%;"><col style="width:14%;"><col style="width:14%;"><col style="width:48%;"></colgroup>
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th style="border-bottom:none;">Topic</th><th style="border-bottom:none;">GMAT</th><th style="border-bottom:none;">GRE</th><th style="border-bottom:none;">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ mathRows }}" as="m" hint-placeholder-count="10">
+              <tr>
+                <td style="font-weight:600; color:var(--text);">{{ m.topic }}</td>
+                <td style="color:{{ m.gmatColor }}; font-weight:600;">{{ m.gmat }}</td>
+                <td style="color:{{ m.greColor }}; font-weight:600;">{{ m.gre }}</td>
+                <td style="color:var(--text-body);">{{ m.note }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Full syllabus comparison — verbal</h2>
+      <div style="overflow-x:auto; margin:0 0 34px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact">
+          <colgroup><col style="width:26%;"><col style="width:14%;"><col style="width:14%;"><col style="width:46%;"></colgroup>
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th style="border-bottom:none;">Question type</th><th style="border-bottom:none;">GMAT</th><th style="border-bottom:none;">GRE</th><th style="border-bottom:none;">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ verbalRows }}" as="v" hint-placeholder-count="5">
+              <tr>
+                <td style="font-weight:600; color:var(--text);">{{ v.topic }}</td>
+                <td style="color:{{ v.gmatColor }}; font-weight:600;">{{ v.gmat }}</td>
+                <td style="color:{{ v.greColor }}; font-weight:600;">{{ v.gre }}</td>
+                <td style="color:var(--text-body);">{{ v.note }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">A simple 2×2 for deciding fast</h2>
+      <p style="margin:0 0 16px;">Score yourself honestly on two independent axes — comfort with a large vocabulary, and comfort with school-level geometry — and the decision mostly makes itself.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:34px;">
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Weak vocab · Weak geometry</div>
+          <div style="font-weight:700; color:var(--accent); font-size:15px; margin-bottom:6px;">GMAT Focus</div>
+          <div style="font-size:13px; color:var(--text-body); line-height:1.6;">Avoids both weaknesses entirely — the clearest case for GMAT of the four.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Weak vocab · Strong geometry</div>
+          <div style="font-weight:700; color:var(--accent); font-size:15px; margin-bottom:6px;">GMAT Focus</div>
+          <div style="font-size:13px; color:var(--text-body); line-height:1.6;">Your geometry strength goes unused, but there's no vocabulary downside to offset it on GRE.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Strong vocab · Weak geometry</div>
+          <div style="font-weight:700; color:var(--text); font-size:15px; margin-bottom:6px;">Toss-up, lean GMAT</div>
+          <div style="font-size:13px; color:var(--text-body); line-height:1.6;">GMAT avoids your geometry gap; GRE would reward your vocabulary. Let program preference break the tie.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Strong vocab · Strong geometry</div>
+          <div style="font-weight:700; color:#6a4d9c; font-size:15px; margin-bottom:6px;">GRE</div>
+          <div style="font-size:13px; color:var(--text-body); line-height:1.6;">Plays directly to both strengths — plus a calculator throughout Quant.</div>
+        </div>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">How to actually decide — a 20-minute checklist</h2>
+      <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:34px;">
+        <sc-for list="{{ actionSteps }}" as="a" hint-placeholder-count="5">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:18px 20px; display:flex; gap:16px; align-items:flex-start;">
+            <div style="flex-shrink:0; width:32px; height:32px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">{{ a.n }}</div>
+            <div>
+              <div style="font-weight:600; color:var(--text); font-size:15px; margin-bottom:6px;">{{ a.title }}</div>
+              <div style="font-size:14px; color:var(--text-body); line-height:1.65;">{{ a.body }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:var(--btn-bg); color:var(--btn-text); text-align:center; padding:44px 30px; border-radius:16px; margin:50px 0 20px;">
+        <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:22px; margin:0 0 12px;">Pick the exam whose syllabus avoids your weakest skill, not the one your friends took.</div>
+        <p style="font-size:15px; opacity:0.85; margin:0; line-height:1.6;">Both are accepted at parity by most business schools, both scores are valid for 5 years, and both are fully learnable with 100+ hours of structured prep. The difference is entirely in where those hours have to go.</p>
+      </div>
+
+      <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:36px; padding-top:20px; border-top:1px solid var(--border);">
+        <strong style="color:var(--text-muted);">Data sources:</strong> GMAT Official Guide and mba.com exam specifications, ETS GRE General Test specifications (post-September 2023 format), GMAT Club and r/GMAT / r/GRE community prep data. Section weights are approximate and vary slightly between official practice tests.
+      </div>
+    </div>
+  </article>
+
+  <footer style="background:var(--footer-bg); color:var(--footer-text); border-top:1px solid var(--footer-border);">
+    <div style="max-width:1200px; margin:0 auto; padding:56px clamp(16px,5vw,64px) 32px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
+      <div>
+        <div style="font-family:'Instrument Serif',serif; font-size:21px; color:var(--footer-text); margin-bottom:8px;">Ayush Srivastav</div>
+        <div style="font-size:14px; color:var(--footer-text-muted); margin-bottom:20px;">Bengaluru, India</div>
+        <a href="mailto:nitb.ayush@gmail.com" style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--footer-text); color:var(--footer-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">Get in touch</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
+        <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
+          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
+          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
+        </div>
+        <div style="display:flex; gap:22px; font-size:13px; font-weight:500; flex-wrap:wrap; justify-content:flex-end; color:var(--footer-text-muted);">
+          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">X</a>
+          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Strava</a>
+          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px; margin:0 auto; padding:20px clamp(16px,5vw,64px) 32px; border-top:1px solid var(--footer-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div style="font-size:13px; color:var(--footer-text-muted);">© {{ currentYear }} Ayush Srivastav</div>
+      <a href="#top" onClick="{{ scrollToTop }}" style="font-size:13px; color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <button onClick="{{ toggleDark }}" aria-label="Toggle dark mode" style="position:fixed; bottom:24px; right:24px; z-index:1000; width:52px; height:52px; border-radius:50%; border:1px solid var(--border-strong); background:var(--bg-card); box-shadow:0 6px 20px rgba(0,0,0,0.18); cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; overflow:hidden;">
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ sunOpacity }}; transform:{{ sunTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="5" fill="#f2b134"></circle>
+        <g stroke="#f2b134" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="1.5" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22.5"></line>
+          <line x1="1.5" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22.5" y2="12"></line>
+          <line x1="4.4" y1="4.4" x2="6.1" y2="6.1"></line>
+          <line x1="17.9" y1="17.9" x2="19.6" y2="19.6"></line>
+          <line x1="4.4" y1="19.6" x2="6.1" y2="17.9"></line>
+          <line x1="17.9" y1="6.1" x2="19.6" y2="4.4"></line>
+        </g>
+      </svg>
+    </div>
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ moonOpacity }}; transform:{{ moonTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M9.5 2.5a7.2 7.2 0 1 0 8.6 9.6A7.8 7.8 0 0 1 9.5 2.5Z" fill="#fdfaf3"></path>
+        <path d="M5.8 21c-1.7 0-3.05-1.36-3.05-3.03 0-1.5 1.1-2.75 2.55-2.98a4.3 4.3 0 0 1 8.15-1.62 3.65 3.65 0 0 1 3.75 3.63c0 .38-.06.75-.17 1.1a2.9 2.9 0 0 1-1.03 2.9H5.8Z" fill="#4a4234" stroke="#2a2419" stroke-width="0.6"></path>
+      </svg>
+    </div>
+  </button>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark")
+  };
+
+  scrollToTop = (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); };
+
+  toggleDark = () => {
+    this.setState(s => {
+      const next = !s.dark;
+      try { localStorage.setItem("ayush-theme", next ? "dark" : "light"); } catch (e) {}
+      return { dark: next };
+    });
+  };
+
+  titleRef = (el) => {
+    if (!el) return;
+    this.__titleEl = el;
+    if (this.__titleDone) return;
+    this.__titleDone = true;
+    if (typeof window === "undefined") return;
+    let origin = null;
+    try {
+      const raw = sessionStorage.getItem("art-open");
+      if (raw) { const data = JSON.parse(raw); if (data && data.key === "gmat") origin = data.rect; }
+    } catch (e) {}
+    if (!origin) return;
+    try { sessionStorage.removeItem("art-open"); } catch (e) {}
+    const rect = el.getBoundingClientRect();
+    const dx = origin.left - rect.left, dy = origin.top - rect.top;
+    const sx = origin.width / rect.width, sy = origin.height / rect.height;
+    el.style.transformOrigin = "top left";
+    if (typeof el.animate === "function") {
+      el.animate([
+        { transform: `translate(${dx}px,${dy}px) scale(${sx},${sy})`, opacity: 0.55 },
+        { transform: "translate(0px,0px) scale(1,1)", opacity: 1 }
+      ], { duration: 400, easing: "cubic-bezier(.16,1,.3,1)", fill: "forwards" });
+    }
+  };
+  handleBack = () => {
+    if (typeof window === "undefined" || !this.__titleEl) return;
+    try {
+      const rect = this.__titleEl.getBoundingClientRect();
+      sessionStorage.setItem("art-close", JSON.stringify({ key: "gmat", rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height } }));
+    } catch (err) {}
+  };
+
+  theme(dark) {
+    return dark ? {
+      bg: "#181410", bgAlt: "#1d1712", bgCard: "#231e18", bgChip: "#2b251d",
+      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#8f8571", textFaint: "#8f8571",
+      border: "#3a3327", borderStrong: "#4a4234", dotMuted: "#4a4234",
+      accent: "#87aed6", accentHover: "#a6c5e6",
+      btnBg: "#f3ede0", btnText: "#181410",
+      footerAccent: "#87aed6",
+      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#8f8571", footerBorder: "#2a2419",
+      navBg: "rgba(24,20,16,.88)",
+      selectionBg: "#87aed6", selectionText: "#181410"
+    } : {
+      bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
+      text: "#241f19", textBody: "#57503f", textMuted: "#8d8271", textFaint: "#8d8271",
+      border: "#e4dbca", borderStrong: "#d8cfc0", dotMuted: "#c9bfa9",
+      accent: "#3568a0", accentHover: "#244f78",
+      btnBg: "#241f19", btnText: "#faf7f0",
+      footerAccent: "#87aed6",
+      footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#8d8271", footerBorder: "#3a3327",
+      navBg: "rgba(250,247,240,.92)",
+      selectionBg: "#2e4a6b", selectionText: "#faf7f0"
+    };
+  }
+
+  renderVals() {
+    const t = this.theme(this.state.dark);
+    if (typeof document !== "undefined") { const ds = document.documentElement.style; ds.background = t.bg; ds.colorScheme = this.state.dark ? "dark" : "light"; document.body.style.background = t.bg; }
+    const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
+      `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
+      `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
+      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText};`;
+
+    const structureRows = [
+      { factor: "Total duration", gmat: "2h 15m", gre: "≈1h 58m" },
+      { factor: "Sections", gmat: "3 — Quant, Verbal, Data Insights", gre: "3 — Writing, Verbal (×2), Quant (×2)" },
+      { factor: "Total questions", gmat: "64", gre: "54 + 1 essay" },
+      { factor: "Section order", gmat: "You choose the order", gre: "Fixed: Writing → Verbal → Quant" },
+      { factor: "Can revisit answers?", gmat: "Yes — edit up to 3 per section", gre: "Yes — within the current section only" },
+      { factor: "Break", gmat: "One optional 10-minute break", gre: "None scheduled (under 2 hours)" },
+      { factor: "Adaptive type", gmat: "Question-by-question, within each section", gre: "Section-by-section (2nd section adjusts to 1st)" },
+      { factor: "Calculator", gmat: "Not on Quant; available on Data Insights", gre: "Available throughout Quant" },
+      { factor: "Score scale", gmat: "205–805", gre: "260–340, plus a separate 0–6 essay score" },
+      { factor: "Score validity", gmat: "5 years", gre: "5 years" },
+      { factor: "Retakes", gmat: "Up to 5×/year, 8 lifetime, 16-day gap", gre: "Up to 5×/year, 21-day gap" },
+      { factor: "Writing section", gmat: "None", gre: "One 30-minute essay" },
+      { factor: "Vocabulary required", gmat: "None", gre: "Yes — roughly a quarter of Verbal" }
+    ];
+
+    const personaRows = [
+      { profile: "Strong at quant, want to avoid memorizing vocabulary", pick: "GMAT Focus", color: t.accent, why: "Verbal is 100% logic-based (Reading Comprehension + Critical Reasoning) — there isn't a single vocabulary question anywhere on the exam." },
+      { profile: "Strong reader/writer, comfortable building a vocabulary list", pick: "GRE", color: "#6a4d9c", why: "Text Completion and Sentence Equivalence directly reward vocabulary depth, and the essay plays to strong writers." },
+      { profile: "Geometry is rusty or was never a strength", pick: "GMAT Focus", color: t.accent, why: "Geometry was removed entirely in the Focus Edition — no triangles, circles, or coordinate geometry anywhere." },
+      { profile: "Comfortable with geometry and want calculator access", pick: "GRE", color: "#6a4d9c", why: "A full on-screen calculator runs through all of Quant, and geometry is tested rather than avoided." },
+      { profile: "Applying only to MBA / business programs", pick: "Either works", color: t.text, why: "Nearly every business school now accepts both exams at parity — pick whichever plays to your strengths." },
+      { profile: "Keeping options open across business, engineering, or other grad programs", pick: "GRE", color: "#6a4d9c", why: "A much wider range of non-business graduate programs accept GRE than GMAT." },
+      { profile: "Want the shorter, more flexible test day", pick: "GMAT Focus", color: t.accent, why: "2h15m total, you pick the section order, and you can edit a few answers per section after submitting." },
+      { profile: "Prefer comparing two quantities over solving from scratch", pick: "GRE", color: "#6a4d9c", why: "Quantitative Comparison rewards smart estimation and elimination — a question type that doesn't exist on GMAT." }
+    ];
+
+    const green = this.state.dark ? "#8ebd82" : "#4a7a43";
+    const red = this.state.dark ? "#e0847c" : "#b3453a";
+    const mathRows = [
+      { topic: "Arithmetic", gmat: "✓ ~33%", gre: "✓ ~25%", gmatColor: green, greColor: green, note: "Core for both — percentages, ratios, fractions, exponents." },
+      { topic: "Number theory / integers", gmat: "✓ ~10%", gre: "✓ ~10%", gmatColor: green, greColor: green, note: "Similar weight on both — primes, divisibility, factors." },
+      { topic: "Algebra", gmat: "✓ ~38%", gre: "✓ ~25%", gmatColor: green, greColor: green, note: "GMAT is significantly more algebra-heavy; GRE is more balanced." },
+      { topic: "Word problems", gmat: "✓ ~27%", gre: "✓ ~20%", gmatColor: green, greColor: green, note: "Both test these; GMAT's tend to be more algebra-driven." },
+      { topic: "Statistics / probability", gmat: "✓ ~8%", gre: "✓ ~8%", gmatColor: green, greColor: green, note: "Mean, median, mode, standard deviation, basic probability." },
+      { topic: "Geometry (2D)", gmat: "✗ removed", gre: "✓ ~18%", gmatColor: red, greColor: green, note: "The single biggest syllabus difference between the two exams." },
+      { topic: "Geometry (3D) + coordinate", gmat: "✗ removed", gre: "✓ ~10%", gmatColor: red, greColor: green, note: "Volumes of solids, slope, distance and midpoint formulas." },
+      { topic: "Data Sufficiency", gmat: "✓ in Data Insights", gre: "✗ not tested", gmatColor: green, greColor: red, note: "Unique to GMAT — a logic format, not a math one. See above." },
+      { topic: "Quantitative Comparison", gmat: "✗ not tested", gre: "✓ ~35% of Quant", gmatColor: red, greColor: green, note: "Unique to GRE — compare two quantities, no exact answer needed." },
+      { topic: "Numeric entry (type the answer)", gmat: "✗ not tested", gre: "✓ ~25% of Quant", gmatColor: red, greColor: green, note: "No answer choices to eliminate from — you type the exact value." }
+    ];
+
+    const verbalRows = [
+      { topic: "Reading Comprehension", gmat: "✓ ~43%", gre: "✓ ~50%", gmatColor: green, greColor: green, note: "Passage-based; main idea, inference, detail, tone. No vocabulary needed on either exam." },
+      { topic: "Critical Reasoning", gmat: "✓ ~57%", gre: "Minimal", gmatColor: green, greColor: this.state.dark ? "#c9a15a" : "#b8752e", note: "Strengthen, Weaken, Assumption, Inference — GMAT's core logic format." },
+      { topic: "Text Completion", gmat: "✗ not tested", gre: "✓ ~25%", gmatColor: red, greColor: red, note: "Fill in 1–3 blanks with the correct word — pure vocabulary, no logic shortcut." },
+      { topic: "Sentence Equivalence", gmat: "✗ not tested", gre: "✓ ~15%", gmatColor: red, greColor: red, note: "Pick 2 of 6 words that create equivalent meaning — also pure vocabulary." },
+      { topic: "Analytical Writing (essay)", gmat: "✗ removed", gre: "✓ 30-min essay", gmatColor: red, greColor: this.state.dark ? "#c9a15a" : "#b8752e", note: "A formulaic, learnable structure — not primarily a test of literary skill." }
+    ];
+
+    const actionSteps = [
+      { n: "1", title: "Take one free diagnostic of each", body: "mba.com offers a free GMAT Focus practice test; ETS offers a free GRE PowerPrep test. A cold baseline on both tells you more than any article." },
+      { n: "2", title: "Check what your actual target programs accept", body: "If a program only takes one exam, or clearly prefers one, that overrides every other consideration on this page." },
+      { n: "3", title: "Be honest about vocabulary and geometry", body: "Not 'I could relearn it' — actually honest. These are the two factors that decide almost everyone's answer." },
+      { n: "4", title: "Weigh the essay and test-day format", body: "If you write well and don't mind a fixed section order, GRE's format costs you nothing extra. If you'd rather skip writing entirely and control section order, GMAT Focus wins on format alone." },
+      { n: "5", title: "Commit and stop re-deciding", body: "Both exams are fully learnable with structured, consistent prep. The exam you start and finish beats the 'objectively better' one you keep switching away from." }
+    ];
+
+    return {
+      rootStyle,
+      toggleDark: this.toggleDark,
+      titleRef: this.titleRef, handleBack: this.handleBack,
+      scrollToTop: this.scrollToTop,
+      currentYear: new Date().getFullYear(),
+      sunOpacity: this.state.dark ? 0 : 1,
+      sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
+      moonOpacity: this.state.dark ? 1 : 0,
+      moonTransform: this.state.dark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.4)",
+      structureRows, personaRows, mathRows, verbalRows, actionSteps
+    };
+  }
+}
+
+</script>
+</body>
+</html>

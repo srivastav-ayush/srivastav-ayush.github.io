@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+  <link rel="icon" type="image/png" href="./assets/img/favicon-light.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="./assets/img/favicon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+  <script>try{if(localStorage.getItem("ayush-theme")==="dark"){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}}catch(e){}</script>
+  <style>
+    html { background:#faf7f0; }
+    html.dark-init { background:#181410; }
+    body { margin:0; background:inherit; }
+    a { color:inherit; text-decoration:none; }
+    a:hover { color:var(--accent-hover); }
+    .nav-link:hover { color:var(--accent-hover) !important; }
+    .nav-links::-webkit-scrollbar { display:none; }
+    ::selection { background:var(--selection-bg); color:var(--selection-text); }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+    .art-table { width:100%; border-collapse:collapse; font-family:'Archivo',sans-serif; font-size:13px; }
+    .art-table th, .art-table td { padding:10px 12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--border); }
+    .art-table-compact { table-layout:fixed; }
+    .art-table-compact th, .art-table-compact td { padding:6px 6px; font-size:10px; line-height:1.35; word-break:break-word; white-space:normal; }
+  </style>
+</helmet>
+
+<div style="{{ rootStyle }}">
+  <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
+      <a href="Homepage.dc.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
+        <div style="display:flex; align-items:baseline;">
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text);">A</span>
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--accent); margin-left:-4px;">S</span><span style="font-family:'Instrument Serif',serif; font-size:30px; line-height:1; color:var(--accent); margin-left:1px;">.</span>
+        </div>
+        <div style="width:32px; height:1.5px; background:var(--accent);"></div>
+      </a>
+      <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
+        <a href="Work.dc.html" class="nav-link" style="color:var(--text-faint);">Work</a>
+        <a href="Publications.dc.html" class="nav-link" style="color:var(--text-faint);">Publications</a>
+        <a href="Talks.dc.html" class="nav-link" style="color:var(--text-faint);">Talks</a>
+        <a href="Articles.dc.html" class="nav-link" style="color:var(--accent);">Writing</a>
+        <a href="CV.dc.html" class="nav-link" style="color:var(--text-faint);">CV ↗</a>
+      </div>
+    </div>
+  </nav>
+  <div style="height:84px;"></div>
+
+  <article style="max-width:740px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 100px;">
+    <a href="Articles.dc.html" onClick="{{ handleBack }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; margin-bottom:28px;">← Back to Writing</a>
+
+    <div ref="{{ titleRef }}">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:14px;">Finance</div>
+    <h1 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(30px,5vw,46px); line-height:1.15; margin:0 0 18px; color:var(--text);">iPhone Ownership in India: When to Buy, When to Sell</h1>
+    <p style="font-size:18px; line-height:1.6; color:var(--text-body); margin:0;">A complete, numbers-grounded framework covering the value case for iPhone, the Base vs Pro decision, and the financially optimal ownership strategy for every Indian income bracket. Built from first principles — not opinions.</p>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:14px; margin-top:26px; padding-top:20px; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); animation:fadeInUp 0.4s ease both;">
+      <span>By Ayush</span><span>·</span><span>12 min read</span><span>·</span><span>March 2026</span>
+    </div>
+
+    <div style="font-size:17px; line-height:1.8; color:var(--text-body); margin-top:40px; animation:fadeInUp 0.4s ease 0.05s both;">
+
+      <p style="margin:0 0 22px;">Any Indian consumer facing an iPhone purchase encounters the same three decisions, in the same order: is it worth buying over Android, which model to buy, and how long to keep it. This isn't a review of features — it's a structured decision framework, resolved with financial modelling rather than opinion.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Executive summary</h2>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:24px;">
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Cheapest strategy</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">₹16,240/yr</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Battery + 5yr cycle. 4–5 gens behind by the end.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Best value (most people)</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--accent); line-height:1;">₹19,620/yr</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Base iPhone, 3yr cycle. Correct for ₹65K–1.1L/mo.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Premium strategy</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">₹31,926/yr</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Pro, 3yr cycle. Justified above ₹1.1L/mo.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Universal hard stop</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:#b3453a; line-height:1;">Year 5</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Resale collapses to 12%. iOS support ends.</div>
+        </div>
+      </div>
+
+      <div style="background:var(--btn-bg); color:var(--btn-text); border-radius:14px; padding:24px 26px; margin-bottom:22px;">
+        <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:19px; margin:0 0 10px;">iPhone is financially rational for metro India incomes above ₹60K/month. Your strategy is determined by one variable — monthly income. Everyone should exit at the same point: Year 3.</div>
+        <p style="font-size:14px; line-height:1.7; opacity:0.85; margin:0;">India's import duties inflate iPhone pricing — but 2–3× better resale value vs. Android and up to 6 years of iOS updates recover much of that premium. The depreciation curve is exponential: <strong>56% of total value is destroyed in the first 2 years</strong>. Selling at Year 3 captures the optimal exit, before the Year 4–5 resale cliff.</p>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Why iPhone — the value case, quantified</h2>
+      <p style="margin:0 0 22px;">India's iPhone pricing is among the highest globally — 15% customs duty + 18% IGST + 2% surcharge means an Indian buyer pays <strong style="color:var(--text);">37–55% more than a US buyer</strong> for the same device. Five quantifiable pillars make the case for paying it anyway.</p>
+
+      <p style="margin:0 0 10px;"><strong style="color:var(--text);">1. Software support longevity — the clearest financial argument.</strong> Apple supports iPhones for 6+ years of full iOS feature updates, not just security patches. iPhone 6s (2015) reached iOS 15 (2021) — 6 years. Most Android OEMs outside Samsung's newer promise: 2–3 years.</p>
+      <p style="margin:0 0 10px;"><strong style="color:var(--text);">2. Resale value — iPhones depreciate slower in India.</strong> A ₹70,000 iPhone 14 retained ₹20,000 (28.6%) after 3.5 years; a comparable Samsung Galaxy S22 retained 16–19% over the same period. Measurable on Cashify, OLX, and Amazon Renewed — not subjective.</p>
+      <p style="margin:0 0 10px;"><strong style="color:var(--text);">3. Security — monthly patches, no bloatware, on-device AI.</strong> Median time-to-patch for critical vulnerabilities: Apple under 7 days vs. an Android-ecosystem average of 37–60 days (Google Project Zero, 2024). Apple Intelligence processes on-device — relevant given India's UPI fraud landscape.</p>
+      <p style="margin:0 0 10px;"><strong style="color:var(--text);">4. Ecosystem — a multiplier if you already own Apple hardware.</strong> AirDrop, Continuity Camera, Universal Clipboard, and Handoff are exclusive to the ecosystem. Each additional Apple product multiplies the value of the others — but this only applies if you own or plan to own a Mac, iPad, or Watch.</p>
+      <p style="margin:0 0 22px;"><strong style="color:var(--text);">5. Chip performance — over-engineered for now, future-proofed for iOS.</strong> The A19 benchmarks ~35% ahead of the Snapdragon 8 Gen 3 in single-core, and Apple designs iOS to run smoothly on the same chip for 5–6 years — Android flagships often slow down as new OS versions raise the baseline spec.</p>
+
+      <div style="background:var(--bg-card); border-left:3px solid #b3453a; border-radius:0 8px 8px 0; padding:16px 20px; margin-bottom:34px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:#b3453a; margin-bottom:10px;">iPhone is a poor choice if:</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="background:var(--bg-chip); border-radius:6px; padding:5px 11px; font-size:12.5px; color:var(--text-body);">You change phones every 1–2 years</span>
+          <span style="background:var(--bg-chip); border-radius:6px; padding:5px 11px; font-size:12.5px; color:var(--text-body);">Income below ₹60K/month (metro)</span>
+          <span style="background:var(--bg-chip); border-radius:6px; padding:5px 11px; font-size:12.5px; color:var(--text-body);">You rely on Google Maps / Pay advanced features</span>
+          <span style="background:var(--bg-chip); border-radius:6px; padding:5px 11px; font-size:12.5px; color:var(--text-body);">You own no other Apple products</span>
+          <span style="background:var(--bg-chip); border-radius:6px; padding:5px 11px; font-size:12.5px; color:var(--text-body);">You need sideloading / max customisation</span>
+        </div>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Which iPhone — the Base vs Pro decision</h2>
+      <p style="margin:0 0 18px;">The iPhone 17 lineup reduces to one variable: <strong style="color:var(--text);">do you need a true optical telephoto camera?</strong> Apple moved 120Hz OLED, A19-class performance, 48MP main camera, and USB-C to the base model this year, eliminating most historical reasons to pay the Pro premium.</p>
+
+      <div style="overflow-x:auto; margin:0 0 20px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table">
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th style="border-bottom:none;">Model</th><th style="border-bottom:none;">Price</th><th style="border-bottom:none;">Best for</th><th style="border-bottom:none;">Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ iphoneModels }}" as="model" hint-placeholder-count="4">
+              <tr>
+                <td style="font-weight:600; color:var(--text);">{{ model.name }}</td>
+                <td style="color:{{ model.priceColor }}; font-weight:600; white-space:nowrap;">{{ model.price }}</td>
+                <td style="color:var(--text-body);">{{ model.bestFor }}</td>
+                <td style="color:var(--text-body);">{{ model.verdict }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:22px 24px; margin-bottom:22px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:14px;">The ₹52,000 Pro premium — what you're actually paying for</div>
+        <p style="margin:0 0 10px; font-size:15px;"><strong style="color:#4a7a43;">Genuine value (~₹11K):</strong> the 3× optical telephoto lens — real photography value for travel users.</p>
+        <p style="margin:0 0 10px; font-size:15px;"><strong style="color:#b8752e;">Marginal value (~₹15K):</strong> A19 Pro's ~12% GPU uplift, vapour-chamber cooling, and the "Pro" badge itself.</p>
+        <p style="margin:0; font-size:15px;"><strong style="color:#b3453a;">No value for most (~₹25K):</strong> ProRes RAW and Apple Log 2 — professional hardware most users never touch.</p>
+      </div>
+      <p style="margin:0 0 34px; font-size:15.5px; color:var(--text-muted); border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">The one question to ask:</strong> on your last 10 trips, how often did you wish you could zoom in optically and couldn't? Frequently → buy the Pro. Rarely → buy the base and keep the ₹52,000.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The three ownership strategies</h2>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin-bottom:14px;">
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-top:3px solid #b8752e; border-radius:10px; padding:18px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:4px;">Strategy 1 — Conservative</div>
+          <div style="font-weight:600; color:var(--text); margin-bottom:12px; font-size:15px;">Battery bridge: keep 5 years</div>
+          <div style="font-size:13px; color:var(--text-muted); display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid var(--border);"><span>Phone (MRP)</span><span>₹82,900</span></div>
+          <div style="font-size:13px; color:var(--text-muted); display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid var(--border);"><span>Battery @ Yr 3</span><span>+₹8,250</span></div>
+          <div style="font-size:13px; color:var(--text-muted); display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid var(--border);"><span>Trade-in @ Yr 5 (12%)</span><span>−₹9,948</span></div>
+          <div style="font-size:14px; color:var(--text); font-weight:700; display:flex; justify-content:space-between; padding:8px 0 0;"><span>Annual net</span><span>₹16,240/yr</span></div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-top:3px solid var(--accent); border-radius:10px; padding:18px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:4px;">Strategy 2 — Recommended</div>
+          <div style="font-weight:600; color:var(--text); margin-bottom:12px; font-size:15px;">Base iPhone, replace at Year 3</div>
+          <div style="font-size:13px; color:var(--text-muted); display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid var(--border);"><span>Phone (MRP)</span><span>₹82,900</span></div>
+          <div style="font-size:13px; color:var(--text-muted); display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid var(--border);"><span>Battery</span><span>₹0</span></div>
+          <div style="font-size:13px; color:var(--text-muted); display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid var(--border);"><span>Trade-in @ Yr 3 (29%)</span><span>−₹24,041</span></div>
+          <div style="font-size:14px; color:var(--accent); font-weight:700; display:flex; justify-content:space-between; padding:8px 0 0;"><span>Annual net</span><span>₹19,620/yr</span></div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-top:3px solid #6a4d9c; border-radius:10px; padding:18px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:4px;">Strategy 3 — Premium</div>
+          <div style="font-weight:600; color:var(--text); margin-bottom:12px; font-size:15px;">Pro iPhone, replace at Year 3</div>
+          <div style="font-size:13px; color:var(--text-muted); display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid var(--border);"><span>Pro (MRP)</span><span>₹1,34,900</span></div>
+          <div style="font-size:13px; color:var(--text-muted); display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid var(--border);"><span>Battery</span><span>₹0</span></div>
+          <div style="font-size:13px; color:var(--text-muted); display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid var(--border);"><span>Trade-in @ Yr 3 (29%)</span><span>−₹39,121</span></div>
+          <div style="font-size:14px; color:#6a4d9c; font-weight:700; display:flex; justify-content:space-between; padding:8px 0 0;"><span>Annual net</span><span>₹31,926/yr</span></div>
+        </div>
+      </div>
+      <p style="margin:0 0 34px; font-size:14.5px; color:var(--text-muted);"><strong style="color:var(--text);">Formula:</strong> net annual cost = (MRP − trade-in received + repair cost) ÷ cycle length. Depreciation is modelled as a negative exponential, V(t) = MRP × e<sup>−0.42t</sup>, calibrated to Year-3 (≈29%) and Year-5 (≈12%) resale data from Cashify and Apple Trade-In.</p>
+
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:26px 24px 8px; margin:34px 0;">
+        <svg viewBox="0 0 440 165" style="width:100%; height:165px; display:block;">
+          <sc-for list="{{ deprChart.xLabels }}" as="xl" hint-placeholder-count="7">
+            <text x="{{ xl.x }}" y="152" textAnchor="middle" fontSize="9.5" fill="var(--text-faint)" fontFamily="JetBrains Mono, monospace">{{ xl.label }}</text>
+          </sc-for>
+          <polyline points="{{ deprChart.linePoints }}" fill="none" stroke="var(--accent)" strokeWidth="2.5"></polyline>
+          <sc-for list="{{ deprChart.dots }}" as="d" hint-placeholder-count="7">
+            <circle cx="{{ d.cx }}" cy="{{ d.cy }}" r="{{ d.r }}" fill="{{ d.color }}"></circle>
+          </sc-for>
+          <text x="{{ deprChart.y3.x }}" y="{{ deprChart.y3.labelY }}" textAnchor="middle" fontSize="10" fontWeight="600" fill="#4a7a43" fontFamily="Archivo, sans-serif">Yr 3: 29% — sell</text>
+          <text x="{{ deprChart.y5.x }}" y="{{ deprChart.y5.labelY }}" textAnchor="middle" fontSize="10" fontWeight="600" fill="#b3453a" fontFamily="Archivo, sans-serif">Yr 5: 12% — hard stop</text>
+        </svg>
+        <div style="font-size:13px; color:var(--text-faint); text-align:center; margin-top:8px; padding-bottom:14px;">Fig. 1 — % of original value retained over 6 years (V(t) = MRP × e^−0.42t)</div>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Depreciation is exponential, not linear — Year 1 alone destroys ₹28,419 in value (₹78/day); by Year 5 the annual loss has fallen to ₹5,313 (₹15/day). Selling at Year 3 captures the inflection point: the curve has flattened enough to make the exit efficient, while 29% residual value is still meaningful.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The income–strategy matrix</h2>
+      <p style="margin:0 0 16px;">Annual strategy cost as a share of annual discretionary income, by monthly take-home (metro India, ₹30K expense floor, 50/40/10 split).</p>
+      <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact">
+          <colgroup><col style="width:15%;"><col style="width:16%;"><col style="width:12%;"><col style="width:12%;"><col style="width:12%;"><col style="width:20%;"><col style="width:13%;"></colgroup>
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th style="border-bottom:none;">Income/mo</th><th style="border-bottom:none;">Discretionary</th><th style="border-bottom:none;">S1</th><th style="border-bottom:none;">S2</th><th style="border-bottom:none;">S3</th><th style="border-bottom:none;">Recommended</th><th style="border-bottom:none;">Sell at</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ incomeMatrix }}" as="row" hint-placeholder-count="10">
+              <tr>
+                <td style="font-weight:600; color:var(--text);">{{ row.income }}</td>
+                <td style="color:var(--text-body);">{{ row.disc }}</td>
+                <td><span style="color:{{ row.s1Color }}; font-weight:600;">{{ row.s1 }}</span></td>
+                <td><span style="color:{{ row.s2Color }}; font-weight:600;">{{ row.s2 }}</span></td>
+                <td><span style="color:{{ row.s3Color }}; font-weight:600;">{{ row.s3 }}</span></td>
+                <td style="color:var(--text-body);">{{ row.recommended }}</td>
+                <td style="color:var(--text-body);">{{ row.sellAt }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap; font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--text-faint); margin-bottom:34px;">
+        <span><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#4a7a43;margin-right:5px;"></span>affordable</span>
+        <span><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#b8752e;margin-right:5px;"></span>border/stretch</span>
+        <span><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#b3453a;margin-right:5px;"></span>not viable</span>
+      </div>
+
+      <div style="background:var(--bg-card); border-left:4px solid #b3453a; border-radius:0 10px 10px 0; padding:20px 22px; margin-bottom:34px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:#b3453a; margin-bottom:8px;">Universal hard stop — Year 5, every income group</div>
+        <p style="margin:0; font-size:14.5px; line-height:1.65; color:var(--text-body);">At Year 5, residual value is 12.3% (₹10,169) — and the annual loss that year alone is 43% of what remains. iOS support for a 2026 iPhone ends around 2031–32. The technology gap reaches 5 chip generations. <strong style="color:var(--text);">No income group's financial case supports holding an iPhone past Year 5.</strong></p>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Recommendations by income bracket</h2>
+
+      <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:34px;">
+        <sc-for list="{{ recommendations }}" as="rec" hint-placeholder-count="4">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:18px 20px; display:flex; gap:16px; align-items:flex-start;">
+            <div style="flex-shrink:0; width:32px; height:32px; border-radius:50%; background:{{ rec.badgeColor }}; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">{{ rec.badge }}</div>
+            <div>
+              <div style="font-weight:600; color:var(--text); font-size:15px; margin-bottom:6px;">{{ rec.title }}</div>
+              <div style="font-size:14px; color:var(--text-body); line-height:1.65;">{{ rec.body }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Decision framework — apply in under 5 minutes</h2>
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:22px 24px; margin-bottom:34px;">
+        <p style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin:0 0 16px;">Three questions, answered in order.</p>
+        <div style="margin-bottom:16px;"><strong style="color:var(--text); font-size:14.5px;">1. What is your monthly take-home?</strong><div style="font-size:14px; color:var(--text-body); margin-top:5px; line-height:1.6;">Below ₹60K → don't buy new, consider refurbished. ₹60K–65K → Strategy 1. ₹65K–1.06L → Strategy 2. ₹1.06L+ → go to Question 2.</div></div>
+        <div style="margin-bottom:16px;"><strong style="color:var(--text); font-size:14.5px;">2. Do you actively shoot at optical distance on 3+ trips/year?</strong> <span style="font-size:13px; color:var(--text-faint);">(only relevant above ₹1.06L)</span><div style="font-size:14px; color:var(--text-body); margin-top:5px; line-height:1.6;">Rarely → base iPhone, Strategy 2. Frequently → Pro, Strategy 3.</div></div>
+        <div><strong style="color:var(--text); font-size:14.5px;">3. How old is your current iPhone?</strong><div style="font-size:14px; color:var(--text-body); margin-top:5px; line-height:1.6;">Year 0–2 → hold. Year 3–4 → window is open, check trade-in value now. Year 5+ → universal hard stop, replace immediately.</div></div>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Action plan — this week</h2>
+      <div style="overflow-x:auto; margin:0 0 34px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact">
+          <colgroup><col style="width:20%;"><col style="width:32%;"><col style="width:24%;"><col style="width:24%;"></colgroup>
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th style="border-bottom:none;">If you are…</th><th style="border-bottom:none;">Do this week</th><th style="border-bottom:none;">Year 3 / 5</th><th style="border-bottom:none;">Strategy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ actionPlan }}" as="item" hint-placeholder-count="5">
+              <tr>
+                <td style="font-weight:600; color:var(--text);">{{ item.who }}</td>
+                <td style="color:var(--text-body);">{{ item.thisWeek }}</td>
+                <td style="color:var(--text-body);">{{ item.later }}</td>
+                <td><span style="display:inline-block; font-size:10px; font-weight:700; padding:3px 8px; border-radius:20px; color:#fff; background:{{ item.strategyColor }}; white-space:nowrap;">{{ item.strategy }}</span></td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:34px;">
+        <div style="background:var(--bg-card); border-left:4px solid #4a7a43; border-radius:0 10px 10px 0; padding:16px 20px;">
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; color:#4a7a43; font-size:16px; margin-bottom:6px;">Rule 01</div>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:var(--text-body);">Don't buy a new iPhone before Year 3 — the early depreciation curve makes an earlier upgrade financially irrational at any income.</p>
+        </div>
+        <div style="background:var(--bg-card); border-left:4px solid #b8752e; border-radius:0 10px 10px 0; padding:16px 20px;">
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; color:#b8752e; font-size:16px; margin-bottom:6px;">Rule 02</div>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:var(--text-body);">Don't hold any iPhone past Year 5 — resale collapses, iOS support ends, and continued use costs more than a new phone.</p>
+        </div>
+        <div style="background:var(--bg-card); border-left:4px solid #6a4d9c; border-radius:0 10px 10px 0; padding:16px 20px;">
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; color:#6a4d9c; font-size:16px; margin-bottom:6px;">Rule 03</div>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:var(--text-body);">Your income bracket — not features or aesthetics — determines your strategy. Telephoto use is the only rational justification for the Pro premium.</p>
+        </div>
+      </div>
+
+      <div style="background:var(--btn-bg); color:var(--btn-text); text-align:center; padding:44px 30px; border-radius:16px; margin:50px 0 20px;">
+        <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:22px; margin:0 0 12px;">The iPhone decision is a spreadsheet, not a lifestyle question.</div>
+        <p style="font-size:15px; opacity:0.85; margin:0; line-height:1.6;">Strategy 1 (₹16,240/yr) below ₹65K income. Strategy 2 (₹19,620/yr) from ₹65K–₹1.06L. Strategy 3 (₹31,926/yr) above ₹1.06L.</p>
+      </div>
+
+      <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:36px; padding-top:20px; border-top:1px solid var(--border);">
+        <strong style="color:var(--text-muted);">Data sources:</strong> Apple India official pricing, Cashify and Apple Trade-In resale data (April 2026), Apple iOS support-lifecycle history, Google Project Zero patch-velocity data (2024), Geekbench 6 (Sept 2025), PLFS 2023–24 urban expenditure benchmarks. Depreciation modelled as V(t) = MRP × e^−0.42t, calibrated to Year-3/Year-5 anchors — actual resale varies ±3% by condition and market timing. Not financial advice.
+      </div>
+    </div>
+  </article>
+
+  <footer style="background:var(--footer-bg); color:var(--footer-text); border-top:1px solid var(--footer-border);">
+    <div style="max-width:1200px; margin:0 auto; padding:56px clamp(16px,5vw,64px) 32px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
+      <div>
+        <div style="font-family:'Instrument Serif',serif; font-size:21px; color:var(--footer-text); margin-bottom:8px;">Ayush Srivastav</div>
+        <div style="font-size:14px; color:var(--footer-text-muted); margin-bottom:20px;">Bengaluru, India</div>
+        <a href="mailto:nitb.ayush@gmail.com" style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--footer-text); color:var(--footer-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">Get in touch</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
+        <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
+          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
+          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
+        </div>
+        <div style="display:flex; gap:22px; font-size:13px; font-weight:500; flex-wrap:wrap; justify-content:flex-end; color:var(--footer-text-muted);">
+          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">X</a>
+          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Strava</a>
+          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px; margin:0 auto; padding:20px clamp(16px,5vw,64px) 32px; border-top:1px solid var(--footer-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div style="font-size:13px; color:var(--footer-text-muted);">© {{ currentYear }} Ayush Srivastav</div>
+      <a href="#top" onClick="{{ scrollToTop }}" style="font-size:13px; color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <button onClick="{{ toggleDark }}" aria-label="Toggle dark mode" style="position:fixed; bottom:24px; right:24px; z-index:1000; width:52px; height:52px; border-radius:50%; border:1px solid var(--border-strong); background:var(--bg-card); box-shadow:0 6px 20px rgba(0,0,0,0.18); cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; overflow:hidden;">
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ sunOpacity }}; transform:{{ sunTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="5" fill="#f2b134"></circle>
+        <g stroke="#f2b134" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="1.5" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22.5"></line>
+          <line x1="1.5" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22.5" y2="12"></line>
+          <line x1="4.4" y1="4.4" x2="6.1" y2="6.1"></line>
+          <line x1="17.9" y1="17.9" x2="19.6" y2="19.6"></line>
+          <line x1="4.4" y1="19.6" x2="6.1" y2="17.9"></line>
+          <line x1="17.9" y1="6.1" x2="19.6" y2="4.4"></line>
+        </g>
+      </svg>
+    </div>
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ moonOpacity }}; transform:{{ moonTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M9.5 2.5a7.2 7.2 0 1 0 8.6 9.6A7.8 7.8 0 0 1 9.5 2.5Z" fill="#fdfaf3"></path>
+        <path d="M5.8 21c-1.7 0-3.05-1.36-3.05-3.03 0-1.5 1.1-2.75 2.55-2.98a4.3 4.3 0 0 1 8.15-1.62 3.65 3.65 0 0 1 3.75 3.63c0 .38-.06.75-.17 1.1a2.9 2.9 0 0 1-1.03 2.9H5.8Z" fill="#4a4234" stroke="#2a2419" stroke-width="0.6"></path>
+      </svg>
+    </div>
+  </button>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark")
+  };
+
+  scrollToTop = (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); };
+
+  toggleDark = () => {
+    this.setState(s => {
+      const next = !s.dark;
+      try { localStorage.setItem("ayush-theme", next ? "dark" : "light"); } catch (e) {}
+      return { dark: next };
+    });
+  };
+
+  titleRef = (el) => {
+    if (!el) return;
+    this.__titleEl = el;
+    if (this.__titleDone) return;
+    this.__titleDone = true;
+    if (typeof window === "undefined") return;
+    let origin = null;
+    try {
+      const raw = sessionStorage.getItem("art-open");
+      if (raw) { const data = JSON.parse(raw); if (data && data.key === "iphone") origin = data.rect; }
+    } catch (e) {}
+    if (!origin) return;
+    try { sessionStorage.removeItem("art-open"); } catch (e) {}
+    const rect = el.getBoundingClientRect();
+    const dx = origin.left - rect.left, dy = origin.top - rect.top;
+    const sx = origin.width / rect.width, sy = origin.height / rect.height;
+    el.style.transformOrigin = "top left";
+    if (typeof el.animate === "function") {
+      el.animate([
+        { transform: `translate(${dx}px,${dy}px) scale(${sx},${sy})`, opacity: 0.55 },
+        { transform: "translate(0px,0px) scale(1,1)", opacity: 1 }
+      ], { duration: 400, easing: "cubic-bezier(.16,1,.3,1)", fill: "forwards" });
+    }
+  };
+  handleBack = () => {
+    if (typeof window === "undefined" || !this.__titleEl) return;
+    try {
+      const rect = this.__titleEl.getBoundingClientRect();
+      sessionStorage.setItem("art-close", JSON.stringify({ key: "iphone", rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height } }));
+    } catch (err) {}
+  };
+
+  theme(dark) {
+    return dark ? {
+      bg: "#181410", bgAlt: "#1d1712", bgCard: "#231e18", bgChip: "#2b251d",
+      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#8f8571", textFaint: "#8f8571",
+      border: "#3a3327", borderStrong: "#4a4234", dotMuted: "#4a4234",
+      accent: "#87aed6", accentHover: "#a6c5e6",
+      btnBg: "#f3ede0", btnText: "#181410",
+      footerAccent: "#87aed6",
+      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#8f8571", footerBorder: "#2a2419",
+      navBg: "rgba(24,20,16,.88)",
+      selectionBg: "#87aed6", selectionText: "#181410"
+    } : {
+      bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
+      text: "#241f19", textBody: "#57503f", textMuted: "#8d8271", textFaint: "#8d8271",
+      border: "#e4dbca", borderStrong: "#d8cfc0", dotMuted: "#c9bfa9",
+      accent: "#3568a0", accentHover: "#244f78",
+      btnBg: "#241f19", btnText: "#faf7f0",
+      footerAccent: "#87aed6",
+      footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#8d8271", footerBorder: "#3a3327",
+      navBg: "rgba(250,247,240,.92)",
+      selectionBg: "#2e4a6b", selectionText: "#faf7f0"
+    };
+  }
+
+  buildDeprChart() {
+    const pct = [100, 65.7, 43.2, 28.4, 18.7, 12.3, 8.0];
+    const xs = [40, 100, 160, 220, 280, 340, 400];
+    const toY = p => 140 - (p / 100) * 120;
+    const linePoints = pct.map((p, i) => `${xs[i]},${toY(p)}`).join(" ");
+    const dots = pct.map((p, i) => ({
+      cx: xs[i], cy: toY(p), r: (i === 3 || i === 5) ? 5 : 3.5,
+      color: i === 3 ? "#4a7a43" : i === 5 ? "#b3453a" : "var(--text-faint)"
+    }));
+    return {
+      linePoints, dots,
+      xLabels: xs.map((x, i) => ({ x, label: "Yr " + i })),
+      y3: { x: xs[3], labelY: toY(pct[3]) - 14 },
+      y5: { x: xs[5], labelY: toY(pct[5]) - 14 }
+    };
+  }
+
+  renderVals() {
+    const t = this.theme(this.state.dark);
+    if (typeof document !== "undefined") { const ds = document.documentElement.style; ds.background = t.bg; ds.colorScheme = this.state.dark ? "dark" : "light"; document.body.style.background = t.bg; }
+    const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
+      `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
+      `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
+      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText};`;
+
+    const iphoneModels = [
+      { name: "iPhone 17 Air", price: "₹1,09,900", priceColor: "#b8752e", bestFor: "Design-obsessed users only", verdict: "Camera is a step back from the base 17 — single rear camera, no ultrawide or zoom." },
+      { name: "iPhone 17 (256GB)", price: "₹82,900", priceColor: "#4a7a43", bestFor: "95% of buyers", verdict: "Every meaningful upgrade — 120Hz OLED, A19, 48MP dual camera, 2× zoom — at ₹52K less than Pro." },
+      { name: "iPhone 17 Pro (256GB)", price: "₹1,34,900", priceColor: t.accent, bestFor: "Travel photographers", verdict: "Buy if you actively use optical zoom. The premium is essentially the price of the 3× telephoto lens." },
+      { name: "iPhone 17 Pro Max", price: "₹1,49,900", priceColor: t.accent, bestFor: "Max screen / battery", verdict: "Justified only if screen size and battery are primary drivers — camera is identical to Pro." }
+    ];
+
+    const mkColor = r => (!isFinite(r) || r > 60) ? "#b3453a" : (r > 25) ? "#b8752e" : "#4a7a43";
+    const S1 = 16240, S2 = 19620, S3 = 31926;
+    const rows = [
+      { inc: 40, disc: 0 }, { inc: 55, disc: 3000 }, { inc: 60, disc: 6000 }, { inc: 65, disc: 6500 },
+      { inc: 70, disc: 7000 }, { inc: 80, disc: 8000 }, { inc: 100, disc: 10000 }, { inc: 110, disc: 11000 },
+      { inc: 150, disc: 15000 }, { inc: 200, disc: 20000 }
+    ];
+    const incomeMatrix = rows.map(row => {
+      const annual = row.disc * 12;
+      const r1 = annual > 0 ? (S1 / annual) * 100 : Infinity;
+      const r2 = annual > 0 ? (S2 / annual) * 100 : Infinity;
+      const r3 = annual > 0 ? (S3 / annual) * 100 : Infinity;
+      const recommended = r1 > 35 ? "Not recommended" : r2 > 35 ? "Strategy 1" : r3 > 25 ? "Strategy 2" : "Strategy 2 or 3";
+      const sellAt = r2 > 35 ? "Year 5" : r2 > 25 ? "Year 4–5" : "Year 3";
+      return {
+        income: `₹${row.inc}K/mo`,
+        disc: row.disc === 0 ? "₹0/mo" : `₹${(row.disc / 1000).toFixed(1)}K/mo`,
+        s1: isFinite(r1) ? r1.toFixed(0) + "%" : "n/a", s1Color: mkColor(r1),
+        s2: isFinite(r2) ? r2.toFixed(0) + "%" : "n/a", s2Color: mkColor(r2),
+        s3: isFinite(r3) ? r3.toFixed(0) + "%" : "n/a", s3Color: mkColor(r3),
+        recommended, sellAt
+      };
+    });
+
+    const recommendations = [
+      { badge: "!", badgeColor: "#b3453a", title: "Below ₹60K/month — not a financially responsible fresh purchase", body: "All three strategies exceed 22% of discretionary income at minimum. If you already own an iPhone, use Strategy 1 (battery at Year 3, sell at Year 5). If buying fresh, consider a refurbished 2-year-old unit at 50–60% of new price — same software support, lower capital commitment." },
+      { badge: "1", badgeColor: "#b8752e", title: "₹60K–65K/month — Strategy 1, base iPhone, 5-year cycle", body: "Strategy 1 runs 20–22% of annual discretionary — within the 25% threshold but not comfortable. Use 12-month No-Cost EMI. Replace the battery at Year 3 (₹8,250), sell at Year 5, and apply the full trade-in as a downpayment on the next phone." },
+      { badge: "2", badgeColor: t.accent, title: "₹65K–1.06L/month — Strategy 2, base iPhone every 3 years", body: "Strategy 2 runs a comfortable 15–25% of annual discretionary. Execute the trade-in within 30 days of the 3-year mark — resale value declines roughly ₹700–1,000/month as newer models mature." },
+      { badge: "3", badgeColor: "#6a4d9c", title: "₹1.06L+/month — Strategy 2 or 3, Pro only if telephoto is used", body: "Both strategies sit comfortably under the 25% threshold. The choice is functional, not financial: do you actively shoot at optical distance while travelling? If rarely, buy the base and bank the ₹52,000." }
+    ];
+
+    const actionPlan = [
+      { who: "Below ₹60K", thisWeek: "Check battery health (Settings → Battery). If <80% and phone is 3yr+, plan a replacement.", later: "Battery @ Yr3. Trade in @ Yr5, expect ₹8–10K.", strategy: "S1", strategyColor: "#b8752e" },
+      { who: "₹60K–65K", thisWeek: "Same as above, plus get a Cashify quote today.", later: "Battery @ Yr3, no upgrade. Upgrade @ Yr5 on NC-EMI.", strategy: "S1", strategyColor: "#b8752e" },
+      { who: "₹65K–1.06L", thisWeek: "If within 6 months of Yr3, get a trade-in quote now — values decline ~₹750/month.", later: "Sell + buy new base @ Yr3, same-day trade-in credit.", strategy: "S2", strategyColor: t.accent },
+      { who: "₹1.06L+", thisWeek: "Answer the telephoto question honestly — Pro only if the answer is yes.", later: "Sell + buy Base or Pro @ Yr3.", strategy: "S2/S3", strategyColor: "#6a4d9c" },
+      { who: "First iPhone", thisWeek: "Apply your income bracket above. Buy from Apple.in (unlocked).", later: "Add AppleCare+ within 60 days if buying Pro or travelling often.", strategy: "Per bracket", strategyColor: "#4a7a43" }
+    ];
+
+    return {
+      rootStyle,
+      toggleDark: this.toggleDark,
+      titleRef: this.titleRef, handleBack: this.handleBack,
+      scrollToTop: this.scrollToTop,
+      currentYear: new Date().getFullYear(),
+      sunOpacity: this.state.dark ? 0 : 1,
+      sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
+      moonOpacity: this.state.dark ? 1 : 0,
+      moonTransform: this.state.dark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.4)",
+      deprChart: this.buildDeprChart(),
+      iphoneModels, incomeMatrix, recommendations, actionPlan
+    };
+  }
+}
+
+</script>
+</body>
+</html>

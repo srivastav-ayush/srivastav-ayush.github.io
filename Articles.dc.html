@@ -59,13 +59,29 @@
 
   <section style="max-width:900px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 24px;">
     <h1 style="font-family:'Instrument Serif',serif; font-size:46px; font-weight:400; margin:0 0 16px;">Writing</h1>
-    <p style="font-size:17px; line-height:1.6; color:var(--text-muted); margin:0;">Reflections on travel and life outside of engineering — first posts coming soon.</p>
+    <p style="font-size:17px; line-height:1.6; color:var(--text-muted); margin:0;">Decision frameworks for everyday choices — reasoned out with the same rigor I'd bring to an engineering problem.</p>
   </section>
 
-  <section style="max-width:900px; margin:0 auto; padding:32px clamp(16px,5vw,64px) 120px;">
-    <div style="border:1px dashed var(--border-strong); border-radius:10px; padding:48px; text-align:center; color:var(--text-faint); font-size:15px;">
-      No articles yet — check back soon.
-    </div>
+  <section style="max-width:900px; margin:0 auto; padding:0 clamp(16px,5vw,64px) 12px; display:flex; justify-content:flex-end;">
+    <button onClick="{{ toggleSort }}" style="border:1px solid var(--border-strong); background:none; cursor:pointer; padding:8px 16px; border-radius:8px; font-size:12.5px; font-weight:600; font-family:'JetBrains Mono',monospace; color:var(--text-muted); display:flex; align-items:center; gap:7px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{ sortIconStyle }}"><path d="M3 6h18M6 12h12M10 18h4"></path></svg>
+      {{ sortLabel }}
+    </button>
+  </section>
+
+  <section style="max-width:900px; margin:0 auto; padding:12px clamp(16px,5vw,64px) 120px;">
+    <sc-for list="{{ articles }}" as="art" hint-placeholder-count="4">
+      <a href="{{ art.href }}" ref="{{ art.cardRef }}" onClick="{{ art.open }}" style="display:block; border:1px solid var(--border); border-radius:14px; padding:32px clamp(20px,4vw,36px); margin-top:20px; transition:border-color 0.15s, background 0.15s, transform 0.2s ease, box-shadow 0.2s ease;" style-hover="border-color:var(--accent) !important; background:var(--bg-card) !important; transform:translateY(-4px) !important; box-shadow:0 14px 30px rgba(0,0,0,0.10) !important;">
+        <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:12px;">{{ art.tag }}</div>
+        <h2 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(24px,3.2vw,30px); line-height:1.25; margin:0 0 12px; color:var(--text);">{{ art.title }}</h2>
+        <p style="font-size:15.5px; line-height:1.6; color:var(--text-body); margin:0 0 18px; max-width:640px;">{{ art.summary }}</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-faint);">
+          <span>{{ art.readTime }}</span><span>·</span><span>{{ art.date }}</span><span>·</span><span style="color:var(--accent);">Read article →</span>
+        </div>
+      </a>
+    </sc-for>
   </section>
 
   <!-- FOOTER / CONTACT -->
@@ -124,8 +140,65 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = {
-    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark")
+    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark"),
+    sortAsc: false
   };
+
+  toggleSort = () => this.setState(s => ({ sortAsc: !s.sortAsc }));
+
+  allArticles = [
+    { key: "wearable", href: "Wearable Watch Decision.dc.html", tag: "Wearables", title: "The Watch Isn't the Decision. Your Training Structure Is.", summary: "Why Apple Watch, Coros, Whoop, and two different Garmins all lose to each other in different ways — and the full sensor, insight, and feature matrix behind the call.", readTime: "10 min read", date: "July 2026", sortDate: new Date(2026, 6, 1) },
+    { key: "trek", href: "Himalayan Trek Planner.dc.html", tag: "Travel", title: "The Himalayan Trek Calendar: Which Trek, Which Month, Which Year", summary: "Four quarters, 65 treks, one decision framework — which trek to do, in which month, and in what order across a multi-year progression.", readTime: "11 min read", date: "May 2026", sortDate: new Date(2026, 4, 1) },
+    { key: "iphone", href: "iPhone Ownership Strategy.dc.html", tag: "Finance", title: "iPhone Ownership in India: When to Buy, When to Sell", summary: "A complete, numbers-grounded framework covering the value case for iPhone, the Base vs Pro decision, and the financially optimal ownership strategy for every Indian income bracket.", readTime: "12 min read", date: "March 2026", sortDate: new Date(2026, 2, 1) },
+    { key: "gmat", href: "GMAT vs GRE Decision.dc.html", tag: "Education", title: "GMAT vs GRE: Which One Actually Fits How You Think", summary: "A full structural, syllabus, and difficulty comparison of the GMAT Focus Edition and the GRE — plus a framework for matching the right exam to your strengths.", readTime: "9 min read", date: "January 2026", sortDate: new Date(2026, 0, 1) }
+  ];
+
+  captureOpen(e, key) {
+    if (typeof window === "undefined") return;
+    try {
+      const inner = e.currentTarget.firstElementChild;
+      const rect = inner.getBoundingClientRect();
+      sessionStorage.setItem("art-open", JSON.stringify({ key, rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height } }));
+      sessionStorage.setItem("art-scroll", String(window.scrollY));
+    } catch (err) {}
+  }
+
+  maybeRestoreScroll() {
+    if (this.__scrollRestored) return;
+    this.__scrollRestored = true;
+    if (typeof window === "undefined") return;
+    try {
+      const y = sessionStorage.getItem("art-scroll");
+      if (y != null) { window.scrollTo(0, parseInt(y, 10) || 0); sessionStorage.removeItem("art-scroll"); }
+    } catch (e) {}
+  }
+
+  setupCardRef(el, key) {
+    if (!el) return;
+    this.maybeRestoreScroll();
+    this.__cardDone = this.__cardDone || {};
+    if (this.__cardDone[key]) return;
+    this.__cardDone[key] = true;
+    if (typeof window === "undefined") return;
+    let origin = null;
+    try {
+      const raw = sessionStorage.getItem("art-close");
+      if (raw) { const data = JSON.parse(raw); if (data && data.key === key) origin = data.rect; }
+    } catch (e) {}
+    if (!origin) return;
+    try { sessionStorage.removeItem("art-close"); } catch (e) {}
+    const target = el.firstElementChild;
+    const rect = target.getBoundingClientRect();
+    const dx = origin.left - rect.left, dy = origin.top - rect.top;
+    const sx = origin.width / rect.width, sy = origin.height / rect.height;
+    target.style.transformOrigin = "top left";
+    if (typeof target.animate === "function") {
+      target.animate([
+        { transform: `translate(${dx}px,${dy}px) scale(${sx},${sy})`, opacity: 0.7 },
+        { transform: "translate(0px,0px) scale(1,1)", opacity: 1 }
+      ], { duration: 300, easing: "cubic-bezier(.4,0,.2,1)", fill: "forwards" });
+    }
+  }
 
   scrollToTop = (e) => {
     e.preventDefault();
@@ -179,6 +252,11 @@ class Component extends DCLogic {
       toggleDark: this.toggleDark,
       scrollToTop: this.scrollToTop,
       currentYear: new Date().getFullYear(),
+      articles: this.allArticles.slice().sort((a, b) => this.state.sortAsc ? a.sortDate - b.sortDate : b.sortDate - a.sortDate)
+        .map(a => ({ ...a, open: (e) => this.captureOpen(e, a.key), cardRef: (el) => this.setupCardRef(el, a.key) })),
+      toggleSort: this.toggleSort,
+      sortLabel: this.state.sortAsc ? "Oldest first" : "Newest first",
+      sortIconStyle: this.state.sortAsc ? "transform:scaleY(-1);" : "",
       sunOpacity: this.state.dark ? 0 : 1,
       sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
       moonOpacity: this.state.dark ? 1 : 0,
