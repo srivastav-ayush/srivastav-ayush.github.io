@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XML0VEY6NS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XML0VEY6NS');
+</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -12,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" id="favicon-icon" href="./assets/img/favicon-light.png">
   <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
-  <script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}var __f=document.getElementById("favicon-icon");if(__f)__f.setAttribute("href",__d?"./assets/img/favicon-dark.png":"./assets/img/favicon-light.png");}catch(e){}</script>
+  <script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}var __f=document.getElementById("favicon-icon");function __setFav(m){if(__f)__f.setAttribute("href",m?"./assets/img/favicon-dark.png":"./assets/img/favicon-light.png");}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});}catch(e){}</script>
   <style>
     html { background:#faf7f0; }
     html.dark-init { background:#181410; }
@@ -344,7 +351,6 @@ class Component extends DCLogic {
     this.setState(s => {
       const next = !s.dark;
       try { localStorage.setItem("ayush-theme", next ? "dark" : "light"); } catch (e) {}
-      try { var __f = document.getElementById("favicon-icon"); if (__f) __f.setAttribute("href", next ? "./assets/img/favicon-dark.png" : "./assets/img/favicon-light.png"); } catch (e) {}
       return { dark: next };
     });
   };
