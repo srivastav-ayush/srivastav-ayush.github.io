@@ -1,36 +1,48 @@
-# Ayush Srivastav — Personal Website
+# srivastav-ayush.github.io
 
-Live at **[srivastav-ayush.github.io](https://srivastav-ayush.github.io/)**
-
-A static personal website — homepage, project portfolio, publications, talks, writing, and a full CV. No build step: every page is a plain HTML file you can open directly in a browser.
+Personal website of Ayush Srivastav — System Engineer, ECU Cooling at Volvo Group.
+Static, hand-built, no framework and no build step. GitHub Pages serves the files exactly as committed.
 
 ## Pages
 
-| Page | File |
+| URL | File |
 |---|---|
-| Home | `index.html` |
-| Work / Projects | `work/Work.dc.html` |
-| Publications & Patents | `publications/Publications.dc.html` |
-| Talks | `talks/Talks.dc.html` |
-| Writing | `writing/Articles.dc.html` (essays in the same folder: Wearables, Himalayan Trek Calendar, Kudremukh Trek, iPhone Ownership, GMAT vs GRE) |
-| CV | `cv/CV.dc.html` |
+| `/` | `index.html` (mirror of `Homepage.dc.html`) |
+| `/work/` | `work/index.html` (mirror of `work/Work.dc.html`) |
+| `/publications/` | `publications/index.html` (mirror of `publications/Publications.dc.html`) |
+| `/talks/` | `talks/index.html` (mirror of `talks/Talks.dc.html`) |
+| `/writing/` | `writing/index.html` (mirror of `writing/Articles.dc.html`) |
+| `/cv/` | `cv/index.html` (mirror of `cv/CV.dc.html`) |
+| `/writing/<Article-Name>.dc.html` | the five long-form essays |
 
-Pages are grouped into folders by section (`work/`, `writing/`, `publications/`, `talks/`, `cv/`); only the homepage and shared assets (`assets/`, `support.js`, `image-slot.js`) live at the root.
+Each section folder has an `index.html`, so GitHub Pages serves the clean URL (`/work/`) as
+well as the explicit one (`/work/index.html`). Links in the markup use the **explicit** form so
+the site also works when opened from a plain file server or local folder, where bare folder
+URLs 404. The `.dc.html` file is the editable working copy; the `index.html` next to it must
+stay byte-identical.
 
-## Editing this site
+## Editing
 
-Each page is one self-contained `.dc.html` file. To add or change content (a new job, publication, talk, project, or award), the easiest path is to open **`AI_README.md`** together with the page you want to change in any AI chat assistant and describe what you want — it has full technical instructions for making safe edits without breaking the design.
-
-To edit by hand: open the file, find the relevant entry near the top of the `<script>` block at the bottom (data lives in plain JavaScript arrays), and edit the text there.
-
-## Running locally
-
-No install needed — just double-click any `.dc.html` file or `index.html` to open it in your browser.
+All content lives in plain JavaScript arrays inside each page file. All styling is inline.
+Read `AI_README.md` before making changes — it documents the data schemas, the colour
+system, the mirroring rules, and the things that will silently break the site.
 
 ## Deploying
 
-This repo is already set up for GitHub Pages: push to the `main` branch of a repo named exactly `srivastav-ayush.github.io`, then enable Pages in Settings → Pages → Source → `main` / root. See `AI_README.md` §6 for the full first-time deploy checklist and common pitfalls.
+1. Repo must be named exactly `srivastav-ayush.github.io`.
+2. Show hidden files before uploading — `.nojekyll` must be included.
+3. `git add -A && git commit && git push` from the repo root, then
+   Settings → Pages → Deploy from branch → `main` / `/(root)`.
 
-## Contact
+`uploads/` and `site-deploy/` are listed in `.gitignore`: `uploads/` is raw source material
+(~39 MB of original photos and PDFs) and `site-deploy/` is a build mirror — neither belongs
+in the deployed repo.
 
-Ayush Srivastav — [srvstv.aysh@gmail.com](mailto:srvstv.aysh@gmail.com) · [LinkedIn](https://www.linkedin.com/in/srivastav-ayush/) · [GitHub](https://github.com/srivastav-ayush)
+## Housekeeping
+
+- `robots.txt` and `sitemap.xml` are at the root; update `sitemap.xml` when adding a page.
+- Every page carries `lang="en"`, a canonical URL, Open Graph/Twitter metadata,
+  print styles, and a `prefers-reduced-motion` block.
+- Publication figures are real files in `assets/img/publications/` (named after each
+  entry's `slotId`), not base64 in a sidecar — dropping a new figure in the editor
+  writes a `.image-slots.state.json`, which then takes precedence.

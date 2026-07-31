@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +11,7 @@
 <meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
 <meta property="og:url" content="https://srivastav-ayush.github.io/">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://srivastav-ayush.github.io/">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XML0VEY6NS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -43,6 +44,24 @@
     image-slot::part(ring) { display:none !important; }
     html { scrollbar-gutter: stable; }
     @keyframes fadeInUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration:0.001ms !important; animation-delay:0ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+      .reveal-card { opacity:1 !important; transform:none !important; }
+    }
+    @media print {
+      @page { margin:14mm; }
+      html, body { background:#ffffff !important; }
+      *, *::before, *::after { animation:none !important; transition:none !important; box-shadow:none !important; }
+      .reveal-card { opacity:1 !important; transform:none !important; }
+      div[style*="--bg:"] { --bg:#ffffff !important; --bg-alt:#ffffff !important; --bg-card:#ffffff !important; --bg-chip:#f2f0eb !important; --text:#14110d !important; --text-body:#33302a !important; --text-muted:#4d483f !important; --text-faint:#4d483f !important; --border:#c9c4b8 !important; --border-strong:#b3ada0 !important; --accent:#134a80 !important; --accent-hover:#134a80 !important; --btn-bg:#14110d !important; --btn-text:#ffffff !important; --footer-bg:#ffffff !important; --footer-text:#14110d !important; --footer-text-muted:#4d483f !important; --footer-border:#c9c4b8 !important; --nav-bg:#ffffff !important; }
+      nav { position:static !important; background:#ffffff !important; backdrop-filter:none !important; }
+      button[aria-label="Toggle dark mode"], [data-print-hide] { display:none !important; }
+      a { text-decoration:none !important; }
+      footer { margin-top:16px !important; border-top:1px solid #c9c4b8 !important; }
+      section, article, table, tr, .reveal-card { break-inside:avoid; page-break-inside:avoid; }
+      h1, h2, h3 { break-after:avoid; page-break-after:avoid; }
+    }
   </style>
 </helmet>
 
@@ -59,11 +78,11 @@
         <div style="width:32px; height:1.5px; background:var(--accent);"></div>
       </div>
       <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
-        <a href="work/Work.dc.html" class="nav-link" style="color:var(--text-faint);">Work</a>
-        <a href="publications/Publications.dc.html" class="nav-link" style="color:var(--text-faint);">Publications</a>
-        <a href="talks/Talks.dc.html" class="nav-link" style="color:var(--text-faint);">Talks</a>
-        <a href="writing/Articles.dc.html" class="nav-link" style="color:var(--text-faint);">Writing</a>
-        <a href="cv/CV.dc.html" class="nav-link" style="color:var(--text-faint);">CV ↗</a>
+        <a href="work/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
+        <a href="publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
+        <a href="talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
+        <a href="writing/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
+        <a href="cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV ↗</a>
       </div>
     </div>
   </nav>
@@ -84,7 +103,7 @@
       </h1>
       <p style="font-size:18.5px; line-height:1.65; color:var(--text-body); max-width:580px; margin:0 0 38px;">I take care of systems engineering for ECU cooling at Volvo&nbsp;Group — full-vehicle digital twins across battery, motor, and charging systems built along the way at Ola Electric.</p>
       <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:44px;">
-        <a href="work/Work.dc.html" style="display:inline-flex; align-items:center; gap:10px; background:var(--btn-bg); color:var(--btn-text); padding:16px 30px; border-radius:8px; font-weight:700; font-size:15px; transition:background 0.15s,color 0.15s,transform 0.15s;" style-hover="background:var(--accent) !important; color:var(--btn-text) !important; transform:translateY(-2px) !important;">See my Work <span style="display:inline-flex; align-items:center; line-height:1;">→</span></a>
+        <a href="work/index.html" style="display:inline-flex; align-items:center; gap:10px; background:var(--btn-bg); color:var(--btn-text); padding:16px 30px; border-radius:8px; font-weight:700; font-size:15px; transition:background 0.15s,color 0.15s,transform 0.15s;" style-hover="background:var(--accent) !important; color:var(--btn-text) !important; transform:translateY(-2px) !important;">See my Work <span style="display:inline-flex; align-items:center; line-height:1;">→</span></a>
         <a href="mailto:srvstv.aysh@gmail.com" style="font-weight:600; font-size:15px; color:var(--text-muted); transition:color 0.15s;" style-hover="color:var(--accent) !important;">Contact Me</a>
       </div>
       <div style="display:flex; align-items:stretch; gap:0; flex-wrap:wrap; padding-top:28px; border-top:1px solid var(--border); max-width:560px;">
@@ -123,13 +142,13 @@
       <p style="font-size:15px; line-height:1.55; color:var(--text-muted); max-width:640px; margin:0 0 26px;">Publications, patents, talks, career moves, and education, in one running log.</p>
 
       <div style="display:inline-flex; background:var(--bg-chip); border-radius:8px; padding:4px; gap:4px; flex-wrap:wrap; margin-bottom:8px;">
-        <button onClick="{{ setFilterAll }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.all.bg }}; color:{{ filterStyles.all.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">All</button>
-        <button onClick="{{ setFilterCareer }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.career.bg }}; color:{{ filterStyles.career.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Career</button>
-        <button onClick="{{ setFilterEducation }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.education.bg }}; color:{{ filterStyles.education.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Education</button>
-        <button onClick="{{ setFilterAward }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.award.bg }}; color:{{ filterStyles.award.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Awards</button>
-        <button onClick="{{ setFilterPublication }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.publication.bg }}; color:{{ filterStyles.publication.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Publications</button>
-        <button onClick="{{ setFilterPatent }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.patent.bg }}; color:{{ filterStyles.patent.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Patents</button>
-        <button onClick="{{ setFilterTalk }}" style="border:none; cursor:pointer; padding:7px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.talk.bg }}; color:{{ filterStyles.talk.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Talks</button>
+        <button onClick="{{ setFilterAll }}" style="border:none; cursor:pointer; padding:12px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.all.bg }}; color:{{ filterStyles.all.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">All</button>
+        <button onClick="{{ setFilterCareer }}" style="border:none; cursor:pointer; padding:12px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.career.bg }}; color:{{ filterStyles.career.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Career</button>
+        <button onClick="{{ setFilterEducation }}" style="border:none; cursor:pointer; padding:12px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.education.bg }}; color:{{ filterStyles.education.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Education</button>
+        <button onClick="{{ setFilterAward }}" style="border:none; cursor:pointer; padding:12px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.award.bg }}; color:{{ filterStyles.award.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Awards</button>
+        <button onClick="{{ setFilterPublication }}" style="border:none; cursor:pointer; padding:12px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.publication.bg }}; color:{{ filterStyles.publication.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Publications</button>
+        <button onClick="{{ setFilterPatent }}" style="border:none; cursor:pointer; padding:12px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.patent.bg }}; color:{{ filterStyles.patent.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Patents</button>
+        <button onClick="{{ setFilterTalk }}" style="border:none; cursor:pointer; padding:12px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.talk.bg }}; color:{{ filterStyles.talk.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Talks</button>
       </div>
 
       <div style="margin-top:18px;">
@@ -148,7 +167,7 @@
                 </div>
                 <sc-if value="{{ m.upcoming }}">
                   <div style="flex:none; align-self:center;">
-                    <span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); border:1px solid var(--accent); padding:4px 10px; border-radius:20px; white-space:nowrap;">Upcoming</span>
+                    <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); border:1px solid var(--accent); padding:4px 10px; border-radius:20px; white-space:nowrap;">Upcoming</span>
                   </div>
                 </sc-if>
               </div>
@@ -190,7 +209,7 @@
                   <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--text-faint); display:flex; align-items:center; gap:8px;">
                     <span>{{ e.date }}</span>
                     <sc-if value="{{ e.virtual }}">
-                      <span style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint); border:1px solid var(--border-strong); padding:2px 7px; border-radius:10px;">Virtual</span>
+                      <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint); border:1px solid var(--border-strong); padding:2px 7px; border-radius:10px;">Virtual</span>
                     </sc-if>
                   </div>
                 </div>
@@ -205,7 +224,7 @@
                     </sc-if>
                     <sc-if value="{{ e.hasStatBox }}">
                       <div style="background:var(--accent-faint); border:1px solid var(--accent); border-radius:10px; padding:8px 16px; display:flex; flex-direction:column; justify-content:center;">
-                        <div style="font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); margin-bottom:3px;">{{ e.statBoxLabel }}</div>
+                        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); margin-bottom:3px;">{{ e.statBoxLabel }}</div>
                         <sc-for list="{{ e.statBoxLines }}" as="line" hint-placeholder-count="1">
                           <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:16px; color:var(--accent); line-height:1.35; white-space:nowrap;"><sc-if value="{{ e.hasStatBoxLink }}"><a href="{{ e.statBoxUrl }}" target="_blank" style="color:inherit;">{{ line }}</a></sc-if><sc-if value="{{ e.noStatBoxLink }}">{{ line }}</sc-if></div>
                         </sc-for>
@@ -242,14 +261,14 @@
       </div>
       <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
         <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
-          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
-          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
-          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
+          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
+          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
         </div>
         <div style="display:flex; gap:22px; font-size:13px; font-weight:500; flex-wrap:wrap; justify-content:flex-end; color:var(--footer-text-muted);">
-          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">X</a>
-          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Strava</a>
-          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
+          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">X</a>
+          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Strava</a>
+          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
         </div>
       </div>
     </div>
@@ -338,9 +357,9 @@ class Component extends DCLogic {
   }
 
   linkFor(category) {
-    if (category === "talk") return "talks/Talks.dc.html";
-    if (category === "publication" || category === "patent") return "publications/Publications.dc.html";
-    return "cv/CV.dc.html";
+    if (category === "talk") return "talks/index.html";
+    if (category === "publication" || category === "patent") return "publications/index.html";
+    return "cv/index.html";
   }
 
   accentThemes = {
@@ -365,28 +384,28 @@ class Component extends DCLogic {
     return dark ? {
       footerAccent,
       bg: "#181410", bgAlt: "#1d1712", bgCard: "#231e18", bgChip: "#2b251d",
-      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#8f8571", textFaint: "#8f8571",
+      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#9a907b", textFaint: "#9a907b",
       border: "#3a3327", borderStrong: "#4a4234", dotMuted: "#4a4234",
       accent: a.dark, accentHover: a.darkHover, accentFaint,
       btnBg: "#f3ede0", btnText: "#181410",
-      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#8f8571", footerBorder: "#2a2419",
+      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#9a907b", footerBorder: "#2a2419",
       navBg: "rgba(24,20,16,.88)",
       selectionBg: a.dark, selectionText: "#181410"
     } : {
       footerAccent,
       bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
-      text: "#241f19", textBody: "#57503f", textMuted: "#8d8271", textFaint: "#8d8271",
+      text: "#241f19", textBody: "#57503f", textMuted: "#6f6656", textFaint: "#6f6656",
       border: "#e4dbca", borderStrong: "#d8cfc0", dotMuted: "#c9bfa9",
       accent: a.light, accentHover: a.lightHover, accentFaint,
       btnBg: "#241f19", btnText: "#faf7f0",
-      footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#8d8271", footerBorder: "#3a3327",
+      footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#a49a85", footerBorder: "#3a3327",
       navBg: "rgba(250,247,240,.92)",
       selectionBg: a.light, selectionText: "#faf7f0"
     };
   }
 
   rawTimeline = [
-    { role: "Experienced Engineer, ECU Cooling", org: "Volvo Group, Bengaluru, India", date: "Aug 2025 – Present", website: "https://www.volvogroup.com/en/", logo: "assets/logos/volvo.png",
+    { role: "System Engineer, ECU Cooling", org: "Volvo Group, Bengaluru, India", date: "Aug 2025 – Present", website: "https://www.volvogroup.com/en/", logo: "assets/logos/volvo.png",
       hook: "Volvo's next generation of trucks is software-defined — more sensors, more compute, more control units than any generation before them, and every one of them has to stay within temperature.",
       introPre: "It's been a big shift coming from Ola Electric's fast, hands-on startup pace — and I'm enjoying the change. I'm learning a more rigorous, documented way of engineering, with due diligence and review boards behind every decision, because what's on the line now is a brand nearly a century old.",
       process: [
@@ -475,7 +494,7 @@ class Component extends DCLogic {
 
   allMilestones = [
     { year: 2026, month: 12, dateLabel: "Dec 2026", category: "talk", upcoming: true, text: "Presenting at SAE TTTMS — Total Traceability, Testing, Modelling & Simulation — at IIT Roorkee." },
-    { year: 2025, month: 8, dateLabel: "Aug 2025", category: "career", text: "Joined Volvo Group as an Experienced Engineer, taking ownership of ECU cooling system engineering for control units and power electronics." },
+    { year: 2025, month: 8, dateLabel: "Aug 2025", category: "career", text: "Joined Volvo Group as a System Engineer, taking ownership of ECU cooling system engineering for control units and power electronics." },
     { year: 2025, month: 7, dateLabel: "Jul 2025", category: "award", text: "Awarded the Narotam Sekhsaria Foundation postgraduate scholarship (₹25 lakh) — one of 22 scholars selected nationwide — after securing, and declining, admits from Imperial College London, TU Delft, KTH Royal Institute of Technology, and Texas A&M." },
     { year: 2024, month: 2, dateLabel: "Feb 2024", category: "talk", text: "Presented \u201cCooling Requirement, Strategy and Control Setting for high-end electric motor bikes\u201d at GTTC, Pune." },
     { year: 2021, month: 3, dateLabel: "Mar 2021", category: "talk", text: "Presented \u201cA study of buckling phenomenon in dielectric elastomeric actuator with different potential energy functions\u201d at iCRAFT, BITS Pilani Dubai Campus." },
@@ -614,7 +633,7 @@ class Component extends DCLogic {
         const enriched = picked.map((m, i) => ({
           ...m,
           pillLabel: this.categoryLabels[m.category],
-          pillStyle: `font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:${catColors[m.category].color}; background:${catColors[m.category].bg}; padding:3px 9px; border-radius:20px; white-space:nowrap;`,
+          pillStyle: `font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:${catColors[m.category].color}; background:${catColors[m.category].bg}; padding:3px 9px; border-radius:20px; white-space:nowrap;`,
           link: this.linkFor(m.category),
           delay: Math.min(i * 30, 600) + "ms"
         }));

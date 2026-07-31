@@ -15,25 +15,29 @@ Pages are grouped into per-section folders; only the homepage and shared runtime
 | File | Role |
 |---|---|
 | `index.html` | Homepage, served at `/`. **Must stay byte-identical to `Homepage.dc.html`** — see §8. |
+| `work/index.html`, `publications/index.html`, `talks/index.html`, `writing/index.html`, `cv/index.html` | Clean-URL entry points (`/work/`, `/cv/`, …). Each **must stay byte-identical to the `.dc.html` working copy in the same folder** — see §8. |
+| `robots.txt` / `sitemap.xml` | Crawler files at the root. Add a `<url>` entry to `sitemap.xml` for every new page. |
+| `.gitignore` | Excludes `uploads/` (raw source material, ~39 MB) and `site-deploy/` from the deployed repo. |
 | `Homepage.dc.html` | Working copy of the homepage (hero, milestones log, experience timeline). |
 | `work/Work.dc.html` | Project portfolio — list + detail view in one file. |
 | `publications/Publications.dc.html` | Journal papers, book chapters, conference papers, patents. |
 | `talks/Talks.dc.html` | Conference talks timeline. |
 | `writing/Articles.dc.html` | Writing/blog index — lists the long-form decision essays below (data array `allArticles`, each linking to its own page in the same `writing/` folder). |
-| `writing/Wearable Watch Decision.dc.html` | Long-form essay page (Writing) — data-array-driven tables/charts, links back to `Articles.dc.html`. |
-| `writing/Himalayan Trek Planner.dc.html` | Long-form essay page (Writing) — same structure. |
-| `writing/iPhone Ownership Strategy.dc.html` | Long-form essay page (Writing) — same structure. |
-| `writing/GMAT vs GRE Decision.dc.html` | Long-form essay page (Writing) — same structure. |
-| `writing/Kudremukh Trek.dc.html` | Long-form essay page (Writing) — personal trip narrative (not data-array-driven; prose + `image-slot` photo placeholders written directly in the template), unlike the decision-framework essays above. |
+| `writing/Wearable-Watch-Decision.dc.html` | Long-form essay page (Writing) — data-array-driven tables/charts, links back to `../writing/`. |
+| `writing/Himalayan-Trek-Planner.dc.html` | Long-form essay page (Writing) — same structure. |
+| `writing/iPhone-Ownership-Strategy.dc.html` | Long-form essay page (Writing) — same structure. |
+| `writing/GMAT-vs-GRE-Decision.dc.html` | Long-form essay page (Writing) — same structure. |
+| `writing/Kudremukh-Trek.dc.html` | Long-form essay page (Writing) — personal trip narrative (not data-array-driven; prose + `image-slot` photo placeholders written directly in the template), unlike the decision-framework essays above. |
 | `cv/CV.dc.html` | Full CV — mostly hand-written HTML in the template, not data-array-driven. |
 | `support.js` | The template-rendering runtime (turns `{{ }}` holes, `<sc-for>`, `<sc-if>` into a live page). **Never edit.** |
 | `image-slot.js` | Drag-and-drop image placeholder web component (`<image-slot>` / `<x-import component-from-global-scope="image-slot">`). **Never edit.** |
-| `.image-slots.state.json` | Persisted state for images dropped into `image-slot` components (hero photo, publication/patent figures). **Never delete** — figures silently disappear without it. |
+| `.image-slots.state.json` | **No longer present, and no longer needed.** Publication/patent figures are real files in `assets/img/publications/<slotId>.webp`, wired via `src="{{ pub.figure }}"` on each slot; the hero photo and article photos use plain `src` paths. If you drop a new image into a slot in the editor, the runtime will create this sidecar again in that page's folder and it will take precedence over `src` — that's fine, but prefer saving the file into `assets/` and pointing `src` at it. |
 | `.nojekyll` | Empty marker file. Tells GitHub Pages not to run Jekyll (which would otherwise ignore/mangle files starting with `_` or dotfiles). **Never delete.** |
 | `.thumbnail` | Bundler/preview thumbnail artifact. Harmless, leave alone. |
 | `README.md` | Short human-facing readme. |
 | `AI_README.md` | This file. |
-| `assets/img/` | `ayush.jpg` (hero photo fallback), `favicon.png`, `og-card.png` (social share image). |
+| `assets/img/` | `ayush.jpg` (hero photo), `favicon-light.png` / `favicon-dark.png`, `apple-touch-icon.png`, `og-card.png` (social share image). |
+| `assets/img/publications/` | The 13 publication/patent figures, one `.webp` per `slotId`. |
 | `assets/img/portfolio/` | Work page project images. |
 | `assets/logos/` | Company/institution/award logos used on the CV and homepage (transparent-safe, square-ish, referenced at 36–67px). |
 | `assets/talks/` | Talk event photos, referenced via `customImage` in `Talks.dc.html`. |
@@ -56,6 +60,8 @@ Every page follows the same skeleton:
   <meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
   <meta property="og:url" content="https://srivastav-ayush.github.io/…">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" content="https://srivastav-ayush.github.io/…">
+  <!-- Google Analytics gtag snippet -->
   <script src="./support.js"></script>
 </head><body>
 <x-dc>
@@ -81,7 +87,7 @@ class Component extends DCLogic {
 - `{{ name }}` = a value hole, resolved by `renderVals()` in the logic class below.
 - `<sc-for list="{{ items }}" as="item">…</sc-for>` = repeat block; `$index` is available inside.
 - `<sc-if value="{{ cond }}">…</sc-if>` = conditional render.
-- **Every style is inline** (`style="…"`). There is no `<link rel="stylesheet">` and no CSS class-based styling anywhere in the body. Color values reference CSS custom properties (`var(--accent)`, `var(--text-muted)`, etc.) that are set once, inline, on the page's root `<div style="{{ rootStyle }}">`.
+- **Every style is inline** (`style="…"`), with two documented exceptions that live in `<helmet><style>` because they cannot be expressed inline: (a) the shared reset/keyframes/reduced-motion/print blocks, and (b) the `.art-table` / `.art-table-compact` table rules on the five Writing essay pages (they need `thead th { position:sticky }` and descendant selectors). Do not add new class-based styling beyond these. There is no `<link rel="stylesheet">`. Color values reference CSS custom properties (`var(--accent)`, `var(--text-muted)`, etc.) that are set once, inline, on the page's root `<div style="{{ rootStyle }}">`.
 - Hover states use the non-standard `style-hover="…"` attribute (handled by `support.js`) — e.g. `style="color:var(--text);" style-hover="color:var(--accent) !important;"`. Always include `!important` in `style-hover` values, matching existing usage, or the hover won't override the base inline style.
 - The `<helmet>` block is the only place `<link>`/`<style>`/`<script>` tags belong. A `<script>` placed later in the template body will not run until the stream reaches it and is not how this site does anything — don't add one.
 
@@ -90,7 +96,7 @@ class Component extends DCLogic {
 A plain ES class named `Component extends DCLogic`, no imports, no TypeScript. Three things matter:
 
 1. **Data arrays near the top of the class** — this is where ~95% of content edits happen:
-   - `Homepage.dc.html` / `index.html`: `rawTimeline` (career/education timeline entries, rich per-entry structure with `hook`, `introPre`/`introSegments`, `process` steps, `pills`, `statBoxLabel`), and `allMilestones` (the scrolling milestone log — flat, one line each).
+   - `Homepage.dc.html` / `index.html` (job title is **"System Engineer, ECU Cooling"** verbatim everywhere — hero eyebrow, timeline card, milestone text and CV): `rawTimeline` (career/education timeline entries, rich per-entry structure with `hook`, `introPre`/`introSegments`, `process` steps, `pills`, `statBoxLabel`), and `allMilestones` (the scrolling milestone log — flat, one line each).
    - `Work.dc.html`: `allProjects`.
    - `Publications.dc.html`: `allJournalPapers`, `allBookChapters`, `allConferencePapers`, `allPatents`.
    - `Talks.dc.html`: `allTalks`.
@@ -101,8 +107,9 @@ A plain ES class named `Component extends DCLogic`, no imports, no TypeScript. T
 ## 5. Design system (colors, type, spacing)
 
 **Palette** — warm, slightly desaturated paper tones, not pure black/white:
-- Light mode: background `#faf7f0` (bgAlt `#f1ebde`, card `#fff9f0`, chip `#efe8d8`), text `#241f19`, body text `#57503f`, muted/faint text `#8d8271`, border `#e4dbca` (strong `#d8cfc0`).
-- Dark mode: background `#181410` (bgAlt `#1d1712`, card `#231e18`, chip `#2b251d`), text `#f3ede0`, body text `#c4b9a6`, muted/faint text `#8f8571`, border `#3a3327` (strong `#4a4234`).
+- Light mode: background `#faf7f0` (bgAlt `#f1ebde`, card `#fff9f0`, chip `#efe8d8`), text `#241f19`, body text `#57503f`, muted/faint text `#6f6656`, border `#e4dbca` (strong `#d8cfc0`).
+- Dark mode: background `#181410` (bgAlt `#1d1712`, card `#231e18`, chip `#2b251d`), text `#f3ede0`, body text `#c4b9a6`, muted/faint text `#9a907b`, border `#3a3327` (strong `#4a4234`).
+- **Contrast floor: every text/background pair must clear WCAG AA (4.5:1).** The muted values above were darkened/lightened in Jul 2026 for exactly this reason (the old `#8d8271` was 3.53:1 on paper). `footerTextMuted` is `#a49a85` in light mode because the light footer sits on the dark `#241f19` block. **Before changing any text colour, compute the ratio against `bg`, `bgAlt`, `bgChip`, `bgCard` and `footerBg`.**
 - Primary accent: light `#3568a0` / hover `#244f78`; dark `#87aed6` / hover `#a6c5e6`. This is the default `accentColor`; Homepage supports alternate accent keys via `accentThemes` (e.g. green `#4a7a43`, orange `#c1703f`) used for milestone category coloring, not for switching the whole site's identity color.
 - Milestone/category colors (solid, used for filter chips and dots): `career #3568a0`, `education #5b4a9e`, `talk #c1703f`, `publication #4a7a43`, `patent #a34a82`, `award #b8892e` (dark-mode variants are lighter tints defined alongside).
 - Buttons: `btnBg`/`btnText` invert relative to the page background (dark button on light bg and vice versa) — it's the highest-contrast neutral, not the accent color.
@@ -119,6 +126,23 @@ A plain ES class named `Component extends DCLogic`, no imports, no TypeScript. T
 **Dark mode**: toggled by a floating button (bottom-right, `toggleDark`), persisted to `localStorage["ayush-theme"]`. A tiny inline `<script>` in `<helmet>` reads that key before paint and sets `html.dark-init` + inline background so there's no white flash. This exists in every page — don't remove it when editing a `<helmet>` block.
 
 **Animation**: minimal and functional only, no decorative motion. The one recurring pattern is a fade/rise-in on list entries — `@keyframes fadeInUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }` (defined once in `<helmet><style>`), applied inline per-item as `animation:fadeInUp 0.4s ease both; animation-delay:{{ item.delay }};` with a small computed stagger (e.g. Homepage milestones, `renderVals()` assigns each visible item an increasing `delay`). Reuse this exact pattern for any new staggered-list animation rather than inventing a new easing/duration.
+
+**Every page's `<helmet><style>` ends with two required blocks** — copy them verbatim into any new page:
+1. `@media (prefers-reduced-motion: reduce)` — neutralises all animation/transition durations and forces `.reveal-card` visible.
+2. `@media print` — kills animations, un-fixes the nav, hides the dark-mode toggle and anything marked `[data-print-hide]`, and overrides the CSS custom properties on `div[style*="--bg:"]` to a light ink-on-white palette so both light and dark mode print identically. Do not add `@page` rules or print CSS anywhere else.
+
+**Images**: every `<img>` carries `loading="lazy" decoding="async"` and a meaningful `alt` (logos read "<Org> logo"). Source files are capped at the size they're actually displayed at — portfolio covers ≤1400px, talk/article photos ≤1000–1300px, logos ≤240px, hero ≤760px. **Do not commit a 1800px, 400 KB image for a 280px thumbnail.**
+
+**Tap targets**: nav links, footer links and filter chips are padded to ≥40–44px tall. Keep new controls at that floor.
+
+**Minimum type size is 11px — nothing on the site may be smaller.** That covers mono chrome (labels, dates, tags, badges, pills, chips, legends, figure captions) as well as body copy; article table cells sit at 12px. When auditing this, search for the *pattern* `font-size:N px` and compare numerically — a literal search for `font-size:10px` misses `10.5px`, `9.5px` and `8.5px`, which is exactly how sub-11px text survived one cleanup pass. SVG labels size via a `fontSize="11"` **attribute**, not CSS — sweep that pattern too.
+
+**Two runtime gotchas that silently swallow markup** (both found in the Jul 2026 audit, both fixed):
+
+1. **`<colgroup>` is dropped by the DC runtime.** Authored `<col style="width:30%">` elements never reach the DOM, so with `table-layout:fixed` every column rendered equal-width and long cell text broke mid-word. Put column widths on the **`<th>`** in the first `<thead>` row instead (`<th style="border-bottom:none; width:30%;">`) — under `table-layout:fixed` those are authoritative and survive. Never re-add a `<colgroup>`.
+2. **A `{{ hole }}` inside an SVG `<text>` renders nothing.** The runtime wraps interpolated content in an HTML `<span>`, which SVG cannot paint — the iPhone and Wearable chart x-axis tick labels were invisible from the day they were written. Build SVG text nodes in `renderVals()` with `React.createElement("text", {…}, label)` and drop the array in through one hole (see `deprChart.xAxis` / `utilityChart.xAxis`). Static text inside SVG `<text>` is fine; interpolated text is not.
+
+**Known-benign console warnings — do not "fix" these.** Every essay page with a data table logs one `[dc-runtime] {{ row.x }} never resolved — rendered as empty` warning per distinct hole inside a `<sc-for>` that sits in a `<tbody>` (15 on iPhone, similar on the others). Cause: the HTML parser does not allow a custom element inside table context, so `<sc-for>` is foster-parented out of the table at parse time and the runtime evaluates the row's holes once with no loop variable in scope. **The tables themselves render 100% correctly** — verified 0 empty cells — and the warning fires once per page load, never on re-render. Proven with an isolated probe: the same loop inside a `<div>` produces no warning; inside `<tbody>` it always does. `hint-placeholder-count="0"` and `<sc-if>` gating do **not** suppress it. The only real fixes are (a) replace `<table>` with `role="table"` divs, which costs the working sticky `thead` and real table semantics, or (b) build rows via `React.createElement`, which makes every cell uneditable in the editor. Both are worse than the warning — leave it alone.
 
 ## 6. Content/data schemas
 
@@ -161,6 +185,9 @@ Repository, thesis (Major Project Thesis = KTH/SocketSense; Minor Project Thesis
 ## 8. Site-wide rules (non-negotiable — see also `CLAUDE.md`)
 
 - **`site-deploy/` must be kept byte-identical to the root copy of every file it mirrors.** After editing any root file, copy the same change into `site-deploy/<same filename>` in the same turn — diff (`readFile` both, compare) if unsure what drifted. This is what ships in the downloadable zip.
+- **Clean-URL mirrors must stay byte-identical to their `.dc.html` working copy in the same folder**: `work/index.html` ↔ `work/Work.dc.html`, `publications/index.html` ↔ `publications/Publications.dc.html`, `talks/index.html` ↔ `talks/Talks.dc.html`, `writing/index.html` ↔ `writing/Articles.dc.html`, `cv/index.html` ↔ `cv/CV.dc.html`. Edit the `.dc.html`, then copy it over `index.html` in the same turn.
+- **All internal links use explicit `index.html` paths** — `href="work/index.html"` from the root, `href="../cv/index.html"` from a subfolder, `href="../index.html"` for the homepage. **Do not "clean" these to `href="work/"`.** GitHub Pages resolves a folder URL to its `index.html`, but a plain static file server (including the Claude design preview) does **not** — it returns 404 and every nav link breaks. The explicit path works on both. The section `.dc.html` files are working copies, never link targets. Essay pages keep their `.dc.html` filenames and are hyphenated (no spaces) — `writing/Kudremukh-Trek.dc.html`.
+- **`sitemap.xml` and the `canonical`/`og:url` tags DO use the clean form** (`https://…/work/`) — those are only read by crawlers hitting the live GitHub Pages host, which resolves them correctly. Keep that split: clean URLs in metadata, explicit `index.html` in `href`s.
 - **`index.html` and `Homepage.dc.html` must stay byte-identical.** `index.html` is what GitHub Pages serves at `/`; `Homepage.dc.html` is the editable working copy. **Every edit to one must be applied to the other in the same change.** If unsure, diff them (e.g. read both and compare) before finishing.
 - Thesis naming is fixed: **"Major Project Thesis"** = the KTH/SocketSense bachelor's thesis, **"Minor Project Thesis"** = the FGM cylinder project — used verbatim everywhere except the CV's SocketSense title line, which uses "(Bachelor's Thesis)" in the bracket instead.
 - Inline styles only — never introduce a `<link rel="stylesheet">`, a CSS class-based rule, or a shared tokens/CSS file. Repeat literal style strings per element/per page as the existing code does.
@@ -213,10 +240,16 @@ Repository, thesis (Major Project Thesis = KTH/SocketSense; Minor Project Thesis
 - Trailing/double commas in a data array → blank page; check console.
 - Editing `Homepage.dc.html` and forgetting `index.html` (or vice versa) → the two drift apart, violating the byte-identical rule.
 - Re-introducing a stylesheet or CSS class where inline styles are the rule.
+- Editing a section `.dc.html` and forgetting to copy it over the sibling `index.html` → the clean URL serves a stale page.
+- Adding a page without a `<title>`, `description`, canonical link and og/twitter tags → shared links render bare (this happened to all five essay pages once).
+- Hardcoding a fixed-px grid (`grid-template-columns:150px 1fr 60px`) with no mobile branch → the text column collapses on phones. Drive every multi-column grid from an `isMobile` branch in `renderVals()`, like `awardRowStyle` in `CV.dc.html`.
+- Dropping a large source image straight into `assets/` without resizing it to its display size.
 
 ## 12. Lessons learned — read before editing (mistakes already made once; don't repeat them)
 
 - **Thesis-name capitalization drifted.** `Work.dc.html` twice used lowercase "major project thesis" (a role line and an abstract sentence) despite §7/CLAUDE.md requiring the verbatim "Major Project Thesis" / "Minor Project Thesis" everywhere outside the CV's "(Bachelor's Thesis)" exception. Fixed 2026-07 — but after touching any thesis mention, `grep`-check case-sensitively (`major project thesis`, `minor project thesis`) that no lowercase copy crept back in.
 - **`site-deploy/` silently goes stale.** It's a full mirror, not a symlink — editing a root file does not update it. Confirmed 2026-07 that only files actually edited that session had drifted; everything else stayed in sync. Always copy changed root files into `site-deploy/` (or diff the two trees) before finishing a turn that touches content.
 - **CV bullets should read like a person describing their work, not a job posting.** Avoid gerund-stacked fragments ("Owns X, defining Y, leading Z…"). Write short, direct, present-tense sentences — one clear action per bullet, plain phrasing over compressed HR-speak.
+- **Site-wide audit, Jul 2026 — what was fixed and must not regress.** `lang="en"` + canonical + full social metadata on all 12 pages; muted text darkened/lightened for WCAG AA; CV award rows made responsive (`awardRowStyle`/`awardRowStyleLast`/`awardYearStyle`, CV breakpoint raised to 1000px); CV education logo chips unified at 42px box / 36px logo; Work project cards given `role="button" tabIndex="0" aria-label` + Enter/Space handling + a focus ring, and Esc/←/→ wired for the detail view and lightbox; essay tables raised from 10px to 12px with sticky headers and `min-width` so they scroll instead of crushing; all images lazy-loaded, alt-texted and downscaled (total assets ~7 MB → ~4 MB); the duplicated 218 KB `.image-slots.state.json` sidecars replaced by real figure files; clean folder URLs + `robots.txt` + `sitemap.xml` + `.gitignore` added; print styles added to every page.
+- **Never delete a whole asset folder to "swap in" optimised copies.** During the Jul 2026 optimisation pass `assets/logos/` and `assets/img/writing/` were deleted and refilled from an `_opt/` staging folder — but two files had been *skipped* by the compressor (already small enough) so they had no `_opt` copy, and were destroyed: `volvo.png` and `kudremukh-summit-fog.jpg`. Both have since been restored from originals the user re-supplied (`assets/logos/volvo.png` is the official Volvo Group iron mark, background knocked out to alpha, mark 204px inside a 240px frame; `kudremukh-summit-fog.jpg` is the user's own frame at 960×1280). **When optimising images, overwrite files in place or stage a complete copy — never delete the source directory first.**
 - **"Archived" articles are commented out, not deleted.** `Articles.dc.html`'s `allArticles` array hides an entry by wrapping its whole line in `/* … */` (see the comment right above the array). Before telling the user what's live/archived on the Writing page, actually read the array for `/* */`-wrapped lines — don't assume everything present is showing.

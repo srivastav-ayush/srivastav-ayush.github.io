@@ -1,8 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GMAT vs GRE: Which One Actually Fits How You Think — Ayush Srivastav</title>
+<meta name="description" content="A full structural, syllabus, and difficulty comparison of the GMAT Focus Edition and the GRE General Test — and how to pick the one that suits you.">
+<link rel="canonical" href="https://srivastav-ayush.github.io/writing/GMAT-vs-GRE-Decision.dc.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GMAT vs GRE: Which One Actually Fits How You Think — Ayush Srivastav">
+<meta property="og:description" content="A full structural, syllabus, and difficulty comparison of the GMAT Focus Edition and the GRE General Test — and how to pick the one that suits you.">
+<meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
+<meta property="og:url" content="https://srivastav-ayush.github.io/writing/GMAT-vs-GRE-Decision.dc.html">
+<meta name="twitter:card" content="summary_large_image">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XML0VEY6NS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -30,17 +39,36 @@
     .nav-links::-webkit-scrollbar { display:none; }
     ::selection { background:var(--selection-bg); color:var(--selection-text); }
     @keyframes fadeInUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
-    .art-table { width:100%; border-collapse:collapse; font-family:'Archivo',sans-serif; font-size:13px; }
+    .art-table { width:100%; border-collapse:collapse; font-family:'Archivo',sans-serif; font-size:13.5px; }
+    .art-table thead th { position:sticky; top:0; z-index:2; background:var(--text); color:var(--bg); }
     .art-table th, .art-table td { padding:10px 12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--border); }
     .art-table-compact { table-layout:fixed; }
-    .art-table-compact th, .art-table-compact td { padding:6px 6px; font-size:10px; line-height:1.35; word-break:break-word; white-space:normal; }
+    .art-table-compact th, .art-table-compact td { padding:8px 9px; font-size:12px; line-height:1.4; word-break:break-word; white-space:normal; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration:0.001ms !important; animation-delay:0ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+      .reveal-card { opacity:1 !important; transform:none !important; }
+    }
+    @media print {
+      @page { margin:14mm; }
+      html, body { background:#ffffff !important; }
+      *, *::before, *::after { animation:none !important; transition:none !important; box-shadow:none !important; }
+      .reveal-card { opacity:1 !important; transform:none !important; }
+      div[style*="--bg:"] { --bg:#ffffff !important; --bg-alt:#ffffff !important; --bg-card:#ffffff !important; --bg-chip:#f2f0eb !important; --text:#14110d !important; --text-body:#33302a !important; --text-muted:#4d483f !important; --text-faint:#4d483f !important; --border:#c9c4b8 !important; --border-strong:#b3ada0 !important; --accent:#134a80 !important; --accent-hover:#134a80 !important; --btn-bg:#14110d !important; --btn-text:#ffffff !important; --footer-bg:#ffffff !important; --footer-text:#14110d !important; --footer-text-muted:#4d483f !important; --footer-border:#c9c4b8 !important; --nav-bg:#ffffff !important; }
+      nav { position:static !important; background:#ffffff !important; backdrop-filter:none !important; }
+      button[aria-label="Toggle dark mode"], [data-print-hide] { display:none !important; }
+      a { text-decoration:none !important; }
+      footer { margin-top:16px !important; border-top:1px solid #c9c4b8 !important; }
+      section, article, table, tr, .reveal-card { break-inside:avoid; page-break-inside:avoid; }
+      h1, h2, h3 { break-after:avoid; page-break-after:avoid; }
+    }
   </style>
 </helmet>
 
 <div style="{{ rootStyle }}">
   <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
     <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
-      <a href="../Homepage.dc.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
+      <a href="../index.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
         <div style="display:flex; align-items:baseline;">
           <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text); letter-spacing:-1px;">A</span>
           <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--accent); letter-spacing:-1px; margin-left:-4px;">S</span><span style="font-family:'Instrument Serif',serif; font-size:30px; line-height:1; color:var(--accent); margin-left:1px;">.</span>
@@ -48,27 +76,27 @@
         <div style="width:32px; height:1.5px; background:var(--accent);"></div>
       </a>
       <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
-        <a href="../work/Work.dc.html" class="nav-link" style="color:var(--text-faint);">Work</a>
-        <a href="../publications/Publications.dc.html" class="nav-link" style="color:var(--text-faint);">Publications</a>
-        <a href="../talks/Talks.dc.html" class="nav-link" style="color:var(--text-faint);">Talks</a>
-        <a href="../writing/Articles.dc.html" class="nav-link" style="color:var(--accent);">Writing</a>
-        <a href="../cv/CV.dc.html" class="nav-link" style="color:var(--text-faint);">CV ↗</a>
+        <a href="../work/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
+        <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
+        <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
+        <a href="../writing/index.html" class="nav-link" style="color:var(--accent);">Writing</a>
+        <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV ↗</a>
       </div>
     </div>
   </nav>
   <div style="height:84px;"></div>
 
   <article style="max-width:740px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 100px;">
-    <a href="../writing/Articles.dc.html" onClick="{{ handleBack }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; margin-bottom:28px;">← Back to Writing</a>
+    <a href="../writing/index.html" onClick="{{ handleBack }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; margin-bottom:28px;">← Back to Writing</a>
 
     <div ref="{{ titleRef }}">
-    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:14px;">Education</div>
+    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--tag); margin-bottom:14px;">Education</div>
     <h1 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(30px,5vw,46px); line-height:1.15; margin:0 0 18px; color:var(--text);">GMAT vs GRE: Which One Actually Fits How You Think</h1>
     <p style="font-size:18px; line-height:1.6; color:var(--text-body); margin:0;">A full structural, syllabus, and difficulty comparison of the GMAT Focus Edition and the GRE — and a framework for matching the right exam to your strengths, not the other way around.</p>
     </div>
 
     <div style="display:flex; align-items:center; gap:14px; margin-top:26px; padding-top:20px; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); animation:fadeInUp 0.4s ease both;">
-      <span>By Ayush</span><span>·</span><span>9 min read</span><span>·</span><span>January 2026</span>
+      <span>By Ayush</span><span>·</span><span>9 min read</span><span>·</span><span>August 2025</span>
     </div>
 
     <div style="font-size:17px; line-height:1.8; color:var(--text-body); margin-top:40px; animation:fadeInUp 0.4s ease 0.05s both;">
@@ -77,22 +105,22 @@
 
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:34px;">
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Vocabulary in GRE Verbal</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Vocabulary in GRE Verbal</div>
           <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--accent); line-height:1;">~40%</div>
           <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Text Completion + Sentence Equivalence — pure vocabulary, no GMAT equivalent.</div>
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Vocabulary in GMAT Verbal</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Vocabulary in GMAT Verbal</div>
           <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">0%</div>
           <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Verbal is Reading Comprehension + Critical Reasoning only — logic, not word lists.</div>
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Geometry on GMAT Focus</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Geometry on GMAT Focus</div>
           <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">Removed</div>
           <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">GRE still tests it — roughly a quarter of Quant.</div>
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Programs accepting both</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Programs accepting both</div>
           <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">7,700+</div>
           <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Most business schools now accept either at parity.</div>
         </div>
@@ -100,15 +128,14 @@
 
       <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">How the two exams are actually built</h2>
       <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
-        <table class="art-table art-table-compact">
-          <colgroup><col style="width:26%;"><col style="width:37%;"><col style="width:37%;"></colgroup>
+        <table class="art-table art-table-compact" style="min-width:470px;">
           <thead>
             <tr style="background:var(--text); color:var(--bg);">
-              <th style="border-bottom:none;">Factor</th><th style="border-bottom:none;">GMAT Focus Edition</th><th style="border-bottom:none;">GRE General Test</th>
+              <th style="border-bottom:none; width:26%;">Factor</th><th style="border-bottom:none; width:37%;">GMAT Focus Edition</th><th style="border-bottom:none; width:37%;">GRE General Test</th>
             </tr>
           </thead>
           <tbody>
-            <sc-for list="{{ structureRows }}" as="r" hint-placeholder-count="13">
+            <sc-for list="{{ structureRows }}" as="r" hint-placeholder-count="0">
               <tr>
                 <td style="font-weight:600; color:var(--text);">{{ r.factor }}</td>
                 <td style="color:var(--text-body);">{{ r.gmat }}</td>
@@ -144,7 +171,7 @@
 
       <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Which exam fits which kind of person</h2>
       <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:34px;">
-        <sc-for list="{{ personaRows }}" as="p" hint-placeholder-count="8">
+        <sc-for list="{{ personaRows }}" as="p" hint-placeholder-count="0">
           <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
             <div style="flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:{{ p.color }}; text-transform:uppercase; letter-spacing:0.04em; width:100px; padding-top:2px;">{{ p.pick }}</div>
             <div style="flex:1; min-width:0;">
@@ -157,15 +184,14 @@
 
       <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Full syllabus comparison — math</h2>
       <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
-        <table class="art-table art-table-compact">
-          <colgroup><col style="width:24%;"><col style="width:14%;"><col style="width:14%;"><col style="width:48%;"></colgroup>
+        <table class="art-table art-table-compact" style="min-width:470px;">
           <thead>
             <tr style="background:var(--text); color:var(--bg);">
-              <th style="border-bottom:none;">Topic</th><th style="border-bottom:none;">GMAT</th><th style="border-bottom:none;">GRE</th><th style="border-bottom:none;">Notes</th>
+              <th style="border-bottom:none; width:24%;">Topic</th><th style="border-bottom:none; width:14%;">GMAT</th><th style="border-bottom:none; width:14%;">GRE</th><th style="border-bottom:none; width:48%;">Notes</th>
             </tr>
           </thead>
           <tbody>
-            <sc-for list="{{ mathRows }}" as="m" hint-placeholder-count="10">
+            <sc-for list="{{ mathRows }}" as="m" hint-placeholder-count="0">
               <tr>
                 <td style="font-weight:600; color:var(--text);">{{ m.topic }}</td>
                 <td style="color:{{ m.gmatColor }}; font-weight:600;">{{ m.gmat }}</td>
@@ -179,15 +205,14 @@
 
       <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Full syllabus comparison — verbal</h2>
       <div style="overflow-x:auto; margin:0 0 34px; border:1px solid var(--border); border-radius:10px;">
-        <table class="art-table art-table-compact">
-          <colgroup><col style="width:26%;"><col style="width:14%;"><col style="width:14%;"><col style="width:46%;"></colgroup>
+        <table class="art-table art-table-compact" style="min-width:470px;">
           <thead>
             <tr style="background:var(--text); color:var(--bg);">
-              <th style="border-bottom:none;">Question type</th><th style="border-bottom:none;">GMAT</th><th style="border-bottom:none;">GRE</th><th style="border-bottom:none;">Notes</th>
+              <th style="border-bottom:none; width:26%;">Question type</th><th style="border-bottom:none; width:14%;">GMAT</th><th style="border-bottom:none; width:14%;">GRE</th><th style="border-bottom:none; width:46%;">Notes</th>
             </tr>
           </thead>
           <tbody>
-            <sc-for list="{{ verbalRows }}" as="v" hint-placeholder-count="5">
+            <sc-for list="{{ verbalRows }}" as="v" hint-placeholder-count="0">
               <tr>
                 <td style="font-weight:600; color:var(--text);">{{ v.topic }}</td>
                 <td style="color:{{ v.gmatColor }}; font-weight:600;">{{ v.gmat }}</td>
@@ -203,22 +228,22 @@
       <p style="margin:0 0 16px;">Score yourself honestly on two independent axes — comfort with a large vocabulary, and comfort with school-level geometry — and the decision mostly makes itself.</p>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:34px;">
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Weak vocab · Weak geometry</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Weak vocab · Weak geometry</div>
           <div style="font-weight:700; color:var(--accent); font-size:15px; margin-bottom:6px;">GMAT Focus</div>
           <div style="font-size:13px; color:var(--text-body); line-height:1.6;">Avoids both weaknesses entirely — the clearest case for GMAT of the four.</div>
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Weak vocab · Strong geometry</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Weak vocab · Strong geometry</div>
           <div style="font-weight:700; color:var(--accent); font-size:15px; margin-bottom:6px;">GMAT Focus</div>
           <div style="font-size:13px; color:var(--text-body); line-height:1.6;">Your geometry strength goes unused, but there's no vocabulary downside to offset it on GRE.</div>
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Strong vocab · Weak geometry</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Strong vocab · Weak geometry</div>
           <div style="font-weight:700; color:var(--text); font-size:15px; margin-bottom:6px;">Toss-up, lean GMAT</div>
           <div style="font-size:13px; color:var(--text-body); line-height:1.6;">GMAT avoids your geometry gap; GRE would reward your vocabulary. Let program preference break the tie.</div>
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Strong vocab · Strong geometry</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Strong vocab · Strong geometry</div>
           <div style="font-weight:700; color:#6a4d9c; font-size:15px; margin-bottom:6px;">GRE</div>
           <div style="font-size:13px; color:var(--text-body); line-height:1.6;">Plays directly to both strengths — plus a calculator throughout Quant.</div>
         </div>
@@ -226,7 +251,7 @@
 
       <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">How to actually decide — a 20-minute checklist</h2>
       <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:34px;">
-        <sc-for list="{{ actionSteps }}" as="a" hint-placeholder-count="5">
+        <sc-for list="{{ actionSteps }}" as="a" hint-placeholder-count="0">
           <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:18px 20px; display:flex; gap:16px; align-items:flex-start;">
             <div style="flex-shrink:0; width:32px; height:32px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">{{ a.n }}</div>
             <div>
@@ -257,14 +282,14 @@
       </div>
       <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
         <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
-          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
-          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
-          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
+          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
+          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
         </div>
         <div style="display:flex; gap:22px; font-size:13px; font-weight:500; flex-wrap:wrap; justify-content:flex-end; color:var(--footer-text-muted);">
-          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">X</a>
-          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Strava</a>
-          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
+          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">X</a>
+          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Strava</a>
+          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
         </div>
       </div>
     </div>
@@ -351,22 +376,22 @@ class Component extends DCLogic {
   theme(dark) {
     return dark ? {
       bg: "#181410", bgAlt: "#1d1712", bgCard: "#231e18", bgChip: "#2b251d",
-      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#8f8571", textFaint: "#8f8571",
+      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#9a907b", textFaint: "#9a907b",
       border: "#3a3327", borderStrong: "#4a4234", dotMuted: "#4a4234",
       accent: "#87aed6", accentHover: "#a6c5e6",
       btnBg: "#f3ede0", btnText: "#181410",
       footerAccent: "#87aed6",
-      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#8f8571", footerBorder: "#2a2419",
+      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#9a907b", footerBorder: "#2a2419",
       navBg: "rgba(24,20,16,.88)",
       selectionBg: "#87aed6", selectionText: "#181410"
     } : {
       bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
-      text: "#241f19", textBody: "#57503f", textMuted: "#8d8271", textFaint: "#8d8271",
+      text: "#241f19", textBody: "#57503f", textMuted: "#6f6656", textFaint: "#6f6656",
       border: "#e4dbca", borderStrong: "#d8cfc0", dotMuted: "#c9bfa9",
       accent: "#3568a0", accentHover: "#244f78",
       btnBg: "#241f19", btnText: "#faf7f0",
       footerAccent: "#87aed6",
-      footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#8d8271", footerBorder: "#3a3327",
+      footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#a49a85", footerBorder: "#3a3327",
       navBg: "rgba(250,247,240,.92)",
       selectionBg: "#2e4a6b", selectionText: "#faf7f0"
     };
@@ -378,7 +403,7 @@ class Component extends DCLogic {
     const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
       `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
       `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
-      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText};`;
+      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText}; --tag:${this.state.dark ? "#a692d9" : "#5b4a9e"};`;
 
     const structureRows = [
       { factor: "Total duration", gmat: "2h 15m", gre: "≈1h 58m" },
