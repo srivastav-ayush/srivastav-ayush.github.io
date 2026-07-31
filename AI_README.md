@@ -10,19 +10,22 @@ A static personal website for Ayush Srivastav (mechanical/systems engineer). Six
 
 ## 2. File inventory
 
+Pages are grouped into per-section folders; only the homepage and shared runtime/assets live at the root. Every internal link/asset path already accounts for this (root files use plain relative paths, files one folder deep use `../` to reach shared assets and to cross into a sibling section folder).
+
 | File | Role |
 |---|---|
 | `index.html` | Homepage, served at `/`. **Must stay byte-identical to `Homepage.dc.html`** — see §8. |
 | `Homepage.dc.html` | Working copy of the homepage (hero, milestones log, experience timeline). |
-| `Work.dc.html` | Project portfolio — list + detail view in one file. |
-| `Publications.dc.html` | Journal papers, book chapters, conference papers, patents. |
-| `Talks.dc.html` | Conference talks timeline. |
-| `Articles.dc.html` | Writing/blog index — lists the long-form decision essays below (data array `allArticles`, each linking to its own page). |
-| `Wearable Watch Decision.dc.html` | Long-form essay page (Writing) — data-array-driven tables/charts, links back to `Articles.dc.html`. |
-| `Himalayan Trek Planner.dc.html` | Long-form essay page (Writing) — same structure. |
-| `iPhone Ownership Strategy.dc.html` | Long-form essay page (Writing) — same structure. |
-| `GMAT vs GRE Decision.dc.html` | Long-form essay page (Writing) — same structure. |
-| `CV.dc.html` | Full CV — mostly hand-written HTML in the template, not data-array-driven. |
+| `work/Work.dc.html` | Project portfolio — list + detail view in one file. |
+| `publications/Publications.dc.html` | Journal papers, book chapters, conference papers, patents. |
+| `talks/Talks.dc.html` | Conference talks timeline. |
+| `writing/Articles.dc.html` | Writing/blog index — lists the long-form decision essays below (data array `allArticles`, each linking to its own page in the same `writing/` folder). |
+| `writing/Wearable Watch Decision.dc.html` | Long-form essay page (Writing) — data-array-driven tables/charts, links back to `Articles.dc.html`. |
+| `writing/Himalayan Trek Planner.dc.html` | Long-form essay page (Writing) — same structure. |
+| `writing/iPhone Ownership Strategy.dc.html` | Long-form essay page (Writing) — same structure. |
+| `writing/GMAT vs GRE Decision.dc.html` | Long-form essay page (Writing) — same structure. |
+| `writing/Kudremukh Trek.dc.html` | Long-form essay page (Writing) — personal trip narrative (not data-array-driven; prose + `image-slot` photo placeholders written directly in the template), unlike the decision-framework essays above. |
+| `cv/CV.dc.html` | Full CV — mostly hand-written HTML in the template, not data-array-driven. |
 | `support.js` | The template-rendering runtime (turns `{{ }}` holes, `<sc-for>`, `<sc-if>` into a live page). **Never edit.** |
 | `image-slot.js` | Drag-and-drop image placeholder web component (`<image-slot>` / `<x-import component-from-global-scope="image-slot">`). **Never edit.** |
 | `.image-slots.state.json` | Persisted state for images dropped into `image-slot` components (hero photo, publication/patent figures). **Never delete** — figures silently disappear without it. |
@@ -34,6 +37,7 @@ A static personal website for Ayush Srivastav (mechanical/systems engineer). Six
 | `assets/img/portfolio/` | Work page project images. |
 | `assets/logos/` | Company/institution/award logos used on the CV and homepage (transparent-safe, square-ish, referenced at 36–67px). |
 | `assets/talks/` | Talk event photos, referenced via `customImage` in `Talks.dc.html`. |
+| `site-deploy/` | A full **deployment mirror** of every root file (same filenames, same content) plus `.nojekyll`/`.image-slots.state.json`. Exists so the downloadable zip already contains a ready-to-push copy. **Must be kept byte-identical to root on every content change** — see §8. |
 
 ## 3. Anatomy of a `.dc.html` page
 
@@ -114,6 +118,8 @@ A plain ES class named `Component extends DCLogic`, no imports, no TypeScript. T
 
 **Dark mode**: toggled by a floating button (bottom-right, `toggleDark`), persisted to `localStorage["ayush-theme"]`. A tiny inline `<script>` in `<helmet>` reads that key before paint and sets `html.dark-init` + inline background so there's no white flash. This exists in every page — don't remove it when editing a `<helmet>` block.
 
+**Animation**: minimal and functional only, no decorative motion. The one recurring pattern is a fade/rise-in on list entries — `@keyframes fadeInUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }` (defined once in `<helmet><style>`), applied inline per-item as `animation:fadeInUp 0.4s ease both; animation-delay:{{ item.delay }};` with a small computed stagger (e.g. Homepage milestones, `renderVals()` assigns each visible item an increasing `delay`). Reuse this exact pattern for any new staggered-list animation rather than inventing a new easing/duration.
+
 ## 6. Content/data schemas
 
 Copy an existing object and edit fields — don't invent new field names casually, since `renderVals()` reads specific keys.
@@ -154,6 +160,7 @@ Repository, thesis (Major Project Thesis = KTH/SocketSense; Minor Project Thesis
 
 ## 8. Site-wide rules (non-negotiable — see also `CLAUDE.md`)
 
+- **`site-deploy/` must be kept byte-identical to the root copy of every file it mirrors.** After editing any root file, copy the same change into `site-deploy/<same filename>` in the same turn — diff (`readFile` both, compare) if unsure what drifted. This is what ships in the downloadable zip.
 - **`index.html` and `Homepage.dc.html` must stay byte-identical.** `index.html` is what GitHub Pages serves at `/`; `Homepage.dc.html` is the editable working copy. **Every edit to one must be applied to the other in the same change.** If unsure, diff them (e.g. read both and compare) before finishing.
 - Thesis naming is fixed: **"Major Project Thesis"** = the KTH/SocketSense bachelor's thesis, **"Minor Project Thesis"** = the FGM cylinder project — used verbatim everywhere except the CV's SocketSense title line, which uses "(Bachelor's Thesis)" in the bracket instead.
 - Inline styles only — never introduce a `<link rel="stylesheet">`, a CSS class-based rule, or a shared tokens/CSS file. Repeat literal style strings per element/per page as the existing code does.
@@ -206,3 +213,10 @@ Repository, thesis (Major Project Thesis = KTH/SocketSense; Minor Project Thesis
 - Trailing/double commas in a data array → blank page; check console.
 - Editing `Homepage.dc.html` and forgetting `index.html` (or vice versa) → the two drift apart, violating the byte-identical rule.
 - Re-introducing a stylesheet or CSS class where inline styles are the rule.
+
+## 12. Lessons learned — read before editing (mistakes already made once; don't repeat them)
+
+- **Thesis-name capitalization drifted.** `Work.dc.html` twice used lowercase "major project thesis" (a role line and an abstract sentence) despite §7/CLAUDE.md requiring the verbatim "Major Project Thesis" / "Minor Project Thesis" everywhere outside the CV's "(Bachelor's Thesis)" exception. Fixed 2026-07 — but after touching any thesis mention, `grep`-check case-sensitively (`major project thesis`, `minor project thesis`) that no lowercase copy crept back in.
+- **`site-deploy/` silently goes stale.** It's a full mirror, not a symlink — editing a root file does not update it. Confirmed 2026-07 that only files actually edited that session had drifted; everything else stayed in sync. Always copy changed root files into `site-deploy/` (or diff the two trees) before finishing a turn that touches content.
+- **CV bullets should read like a person describing their work, not a job posting.** Avoid gerund-stacked fragments ("Owns X, defining Y, leading Z…"). Write short, direct, present-tense sentences — one clear action per bullet, plain phrasing over compressed HR-speak.
+- **"Archived" articles are commented out, not deleted.** `Articles.dc.html`'s `allArticles` array hides an entry by wrapping its whole line in `/* … */` (see the comment right above the array). Before telling the user what's live/archived on the Writing page, actually read the array for `/* */`-wrapped lines — don't assume everything present is showing.

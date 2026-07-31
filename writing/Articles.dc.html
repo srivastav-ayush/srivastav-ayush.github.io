@@ -8,8 +8,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Writing — Ayush Srivastav">
 <meta property="og:description" content="Writing by Ayush Srivastav — reflections on running, travel, and life outside engineering.">
-<meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
-<meta property="og:url" content="https://srivastav-ayush.github.io/Articles.dc.html">
+<meta property="og:image" content="https://srivastav-ayush.github.io/../assets/img/og-card.png">
+<meta property="og:url" content="https://srivastav-ayush.github.io/writing/Articles.dc.html">
 <meta name="twitter:card" content="summary_large_image">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XML0VEY6NS"></script>
 <script>
@@ -18,16 +18,16 @@
   gtag('js', new Date());
   gtag('config', 'G-XML0VEY6NS');
 </script>
-<script src="./support.js"></script>
+<script src="../support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" id="favicon-icon" href="./assets/img/favicon-light.png">
-  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
-  <script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}var __f=document.getElementById("favicon-icon");function __setFav(m){if(__f)__f.setAttribute("href",m?"./assets/img/favicon-dark.png":"./assets/img/favicon-light.png");}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});}catch(e){}</script>
+  <link rel="icon" type="image/png" id="favicon-icon" href="../assets/img/favicon-light.png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}var __f=document.getElementById("favicon-icon");function __setFav(m){if(__f)__f.setAttribute("href",m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png");}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});}catch(e){}</script>
   <style>
     html { background:#faf7f0; }
     html.dark-init { background:#181410; }
@@ -43,7 +43,7 @@
 <div style="{{ rootStyle }}">
   <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
     <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
-      <a href="Homepage.dc.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
+      <a href="../Homepage.dc.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
         <div style="display:flex; align-items:baseline;">
           <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text); letter-spacing:-1px;">A</span>
           <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--accent); letter-spacing:-1px; margin-left:-4px;">S</span><span style="font-family:'Instrument Serif',serif; font-size:30px; line-height:1; color:var(--accent); margin-left:1px;">.</span>
@@ -51,11 +51,11 @@
         <div style="width:32px; height:1.5px; background:var(--accent);"></div>
       </a>
       <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
-        <a href="Work.dc.html" class="nav-link" style="color:var(--text-faint);">Work</a>
-        <a href="Publications.dc.html" class="nav-link" style="color:var(--text-faint);">Publications</a>
-        <a href="Talks.dc.html" class="nav-link" style="color:var(--text-faint);">Talks</a>
-        <a href="Articles.dc.html" class="nav-link" style="color:var(--accent);">Writing</a>
-        <a href="CV.dc.html" class="nav-link" style="color:var(--text-faint);">CV ↗</a>
+        <a href="../work/Work.dc.html" class="nav-link" style="color:var(--text-faint);">Work</a>
+        <a href="../publications/Publications.dc.html" class="nav-link" style="color:var(--text-faint);">Publications</a>
+        <a href="../talks/Talks.dc.html" class="nav-link" style="color:var(--text-faint);">Talks</a>
+        <a href="../writing/Articles.dc.html" class="nav-link" style="color:var(--accent);">Writing</a>
+        <a href="../cv/CV.dc.html" class="nav-link" style="color:var(--text-faint);">CV ↗</a>
       </div>
     </div>
   </nav>
@@ -77,7 +77,7 @@
     <sc-for list="{{ articles }}" as="art" hint-placeholder-count="4">
       <a href="{{ art.href }}" ref="{{ art.cardRef }}" onClick="{{ art.open }}" style="display:block; border:1px solid var(--border); border-radius:14px; padding:32px clamp(20px,4vw,36px); margin-top:20px; transition:border-color 0.15s, background 0.15s, transform 0.2s ease, box-shadow 0.2s ease;" style-hover="border-color:var(--accent) !important; background:var(--bg-card) !important; transform:translateY(-4px) !important; box-shadow:0 14px 30px rgba(0,0,0,0.10) !important;">
         <div>
-        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:12px;">{{ art.tag }}</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:{{ art.tagColor }}; margin-bottom:12px;">{{ art.tag }}</div>
         <h2 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(24px,3.2vw,30px); line-height:1.25; margin:0 0 12px; color:var(--text);">{{ art.title }}</h2>
         <p style="font-size:15.5px; line-height:1.6; color:var(--text-body); margin:0 0 18px; max-width:640px;">{{ art.summary }}</p>
         </div>
@@ -94,7 +94,7 @@
       <div>
         <div style="font-family:'Instrument Serif',serif; font-size:21px; color:var(--footer-text); margin-bottom:8px;">Ayush Srivastav</div>
         <div style="font-size:14px; color:var(--footer-text-muted); margin-bottom:20px;">Bengaluru, India</div>
-        <a href="mailto:nitb.ayush@gmail.com" style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--footer-text); color:var(--footer-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">Get in touch</a>
+        <a href="mailto:srvstv.aysh@gmail.com" style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--footer-text); color:var(--footer-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">Get in touch</a>
       </div>
       <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
         <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
@@ -155,10 +155,11 @@ class Component extends DCLogic {
   // To RESTORE an article: delete the  /*  right before it and the  */  right after it.
   // (A line is "live" — showing on the site — whenever it is NOT wrapped in /* */.)
   allArticles = [
-    { key: "wearable", href: "Wearable Watch Decision.dc.html", tag: "Wearables", title: "The Watch Isn't the Decision. Your Training Structure Is.", summary: "Why Apple Watch, Coros, Whoop, and two different Garmins all lose to each other in different ways — and the full sensor, insight, and feature matrix behind the call.", readTime: "10 min read", date: "July 2026", sortDate: new Date(2026, 6, 1) },
+    { key: "kudremukh", href: "Kudremukh Trek.dc.html", tag: "Travel", title: "Kudremukh in a Day: 22km in Total", summary: "A dawn-to-dusk climb up Karnataka's horse-faced peak with Tripbae — stream crossings, a summit storm, and a fellow trekker on his 31st year running.", readTime: "7 min read", date: "July 26, 2026", sortDate: new Date(2026, 6, 26) },
+    { key: "wearable", href: "Wearable Watch Decision.dc.html", tag: "Tech", title: "The Watch Isn't the Decision. Your Training Structure Is.", summary: "Why Apple Watch, Coros, Whoop, and two different Garmins all lose to each other in different ways — and the full sensor, insight, and feature matrix behind the call.", readTime: "10 min read", date: "August 2026", sortDate: new Date(2026, 7, 1) },
     { key: "trek", href: "Himalayan Trek Planner.dc.html", tag: "Travel", title: "The Himalayan Trek Calendar: Which Trek, Which Month, Which Year", summary: "Four quarters, 65 treks, one decision framework — which trek to do, in which month, and in what order across a multi-year progression.", readTime: "11 min read", date: "May 2026", sortDate: new Date(2026, 4, 1) },
-    /* { key: "iphone", href: "iPhone Ownership Strategy.dc.html", tag: "Finance", title: "iPhone Ownership in India: When to Buy, When to Sell", summary: "A complete, numbers-grounded framework covering the value case for iPhone, the Base vs Pro decision, and the financially optimal ownership strategy for every Indian income bracket.", readTime: "12 min read", date: "March 2026", sortDate: new Date(2026, 2, 1) }, */
-    /* { key: "gmat", href: "GMAT vs GRE Decision.dc.html", tag: "Education", title: "GMAT vs GRE: Which One Actually Fits How You Think", summary: "A full structural, syllabus, and difficulty comparison of the GMAT Focus Edition and the GRE — plus a framework for matching the right exam to your strengths.", readTime: "9 min read", date: "January 2026", sortDate: new Date(2026, 0, 1) }, */
+    { key: "iphone", href: "iPhone Ownership Strategy.dc.html", tag: "Tech", title: "iPhone Ownership in India: When to Buy, When to Sell", summary: "A complete, numbers-grounded framework covering the value case for iPhone, the Base vs Pro decision, and the financially optimal ownership strategy for every Indian income bracket.", readTime: "12 min read", date: "March 2026", sortDate: new Date(2026, 2, 1) },
+    { key: "gmat", href: "GMAT vs GRE Decision.dc.html", tag: "Education", title: "GMAT vs GRE: Which One Actually Fits How You Think", summary: "A full structural, syllabus, and difficulty comparison of the GMAT Focus Edition and the GRE — plus a framework for matching the right exam to your strengths.", readTime: "9 min read", date: "January 2026", sortDate: new Date(2026, 0, 1) },
   ];
 
   captureOpen(e, key) {
@@ -231,7 +232,8 @@ class Component extends DCLogic {
       footerAccent: "#87aed6",
       footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#8f8571", footerBorder: "#2a2419",
       navBg: "rgba(24,20,16,.88)",
-      selectionBg: "#87aed6", selectionText: "#181410"
+      selectionBg: "#87aed6", selectionText: "#181410",
+      tagColors: { Travel: "#c1703f", Tech: "#87aed6", Education: "#a692d9" }
     } : {
       bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
       text: "#241f19", textBody: "#57503f", textMuted: "#8d8271", textFaint: "#8d8271",
@@ -241,7 +243,8 @@ class Component extends DCLogic {
       footerAccent: "#87aed6",
       footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#8d8271", footerBorder: "#3a3327",
       navBg: "rgba(250,247,240,.92)",
-      selectionBg: "#2e4a6b", selectionText: "#faf7f0"
+      selectionBg: "#2e4a6b", selectionText: "#faf7f0",
+      tagColors: { Travel: "#c1703f", Tech: "#3568a0", Education: "#5b4a9e" }
     };
   }
 
@@ -261,7 +264,8 @@ class Component extends DCLogic {
       scrollToTop: this.scrollToTop,
       currentYear: new Date().getFullYear(),
       articles: this.allArticles.slice().sort((a, b) => this.state.sortAsc ? a.sortDate - b.sortDate : b.sortDate - a.sortDate)
-        .map(a => ({ ...a, open: (e) => this.captureOpen(e, a.key), cardRef: (el) => this.setupCardRef(el, a.key) })),
+        .map(a => ({ ...a, open: (e) => this.captureOpen(e, a.key), cardRef: (el) => this.setupCardRef(el, a.key),
+          tagColor: t.tagColors[a.tag] || t.accent })),
       toggleSort: this.toggleSort,
       sortLabel: this.state.sortAsc ? "Oldest first" : "Newest first",
       sortIconStyle: this.state.sortAsc ? "transform:scaleY(-1);" : "",

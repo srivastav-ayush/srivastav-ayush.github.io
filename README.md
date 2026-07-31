@@ -9,11 +9,13 @@ A static personal website — homepage, project portfolio, publications, talks, 
 | Page | File |
 |---|---|
 | Home | `index.html` |
-| Work / Projects | `Work.dc.html` |
-| Publications & Patents | `Publications.dc.html` |
-| Talks | `Talks.dc.html` |
-| Writing | `Articles.dc.html` |
-| CV | `CV.dc.html` |
+| Work / Projects | `work/Work.dc.html` |
+| Publications & Patents | `publications/Publications.dc.html` |
+| Talks | `talks/Talks.dc.html` |
+| Writing | `writing/Articles.dc.html` (essays in the same folder: Wearables, Himalayan Trek Calendar, Kudremukh Trek, iPhone Ownership, GMAT vs GRE) |
+| CV | `cv/CV.dc.html` |
+
+Pages are grouped into folders by section (`work/`, `writing/`, `publications/`, `talks/`, `cv/`); only the homepage and shared assets (`assets/`, `support.js`, `image-slot.js`) live at the root.
 
 ## Editing this site
 
@@ -31,4 +33,4 @@ This repo is already set up for GitHub Pages: push to the `main` branch of a rep
 
 ## Contact
 
-Ayush Srivastav — [nitb.ayush@gmail.com](mailto:nitb.ayush@gmail.com) · [LinkedIn](https://www.linkedin.com/in/srivastav-ayush/) · [GitHub](https://github.com/srivastav-ayush)
+Ayush Srivastav — [srvstv.aysh@gmail.com](mailto:srvstv.aysh@gmail.com) · [LinkedIn](https://www.linkedin.com/in/srivastav-ayush/) · [GitHub](https://github.com/srivastav-ayush)

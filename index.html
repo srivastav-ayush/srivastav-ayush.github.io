@@ -59,11 +59,11 @@
         <div style="width:32px; height:1.5px; background:var(--accent);"></div>
       </div>
       <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
-        <a href="Work.dc.html" class="nav-link" style="color:var(--text-faint);">Work</a>
-        <a href="Publications.dc.html" class="nav-link" style="color:var(--text-faint);">Publications</a>
-        <a href="Talks.dc.html" class="nav-link" style="color:var(--text-faint);">Talks</a>
-        <a href="Articles.dc.html" class="nav-link" style="color:var(--text-faint);">Writing</a>
-        <a href="CV.dc.html" class="nav-link" style="color:var(--text-faint);">CV ↗</a>
+        <a href="work/Work.dc.html" class="nav-link" style="color:var(--text-faint);">Work</a>
+        <a href="publications/Publications.dc.html" class="nav-link" style="color:var(--text-faint);">Publications</a>
+        <a href="talks/Talks.dc.html" class="nav-link" style="color:var(--text-faint);">Talks</a>
+        <a href="writing/Articles.dc.html" class="nav-link" style="color:var(--text-faint);">Writing</a>
+        <a href="cv/CV.dc.html" class="nav-link" style="color:var(--text-faint);">CV ↗</a>
       </div>
     </div>
   </nav>
@@ -84,8 +84,8 @@
       </h1>
       <p style="font-size:18.5px; line-height:1.65; color:var(--text-body); max-width:580px; margin:0 0 38px;">I take care of systems engineering for ECU cooling at Volvo&nbsp;Group — full-vehicle digital twins across battery, motor, and charging systems built along the way at Ola Electric.</p>
       <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:44px;">
-        <a href="Work.dc.html" style="display:inline-flex; align-items:center; gap:10px; background:var(--btn-bg); color:var(--btn-text); padding:16px 30px; border-radius:8px; font-weight:700; font-size:15px; transition:background 0.15s,color 0.15s,transform 0.15s;" style-hover="background:var(--accent) !important; color:var(--btn-text) !important; transform:translateY(-2px) !important;">See my Work <span style="display:inline-flex; align-items:center; line-height:1;">→</span></a>
-        <a href="mailto:nitb.ayush@gmail.com" style="font-weight:600; font-size:15px; color:var(--text-muted); transition:color 0.15s;" style-hover="color:var(--accent) !important;">Contact Me</a>
+        <a href="work/Work.dc.html" style="display:inline-flex; align-items:center; gap:10px; background:var(--btn-bg); color:var(--btn-text); padding:16px 30px; border-radius:8px; font-weight:700; font-size:15px; transition:background 0.15s,color 0.15s,transform 0.15s;" style-hover="background:var(--accent) !important; color:var(--btn-text) !important; transform:translateY(-2px) !important;">See my Work <span style="display:inline-flex; align-items:center; line-height:1;">→</span></a>
+        <a href="mailto:srvstv.aysh@gmail.com" style="font-weight:600; font-size:15px; color:var(--text-muted); transition:color 0.15s;" style-hover="color:var(--accent) !important;">Contact Me</a>
       </div>
       <div style="display:flex; align-items:stretch; gap:0; flex-wrap:wrap; padding-top:28px; border-top:1px solid var(--border); max-width:560px;">
         <sc-for list="{{ heroStats }}" as="hs" hint-placeholder-count="3">
@@ -103,7 +103,7 @@
           <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-photo" shape="rect" src="assets/img/ayush.jpg" placeholder="Drop your photo" style="width:100%; height:100%;" hint-size="100%,100%"></x-import>
         </div>
       </div>
-      <a href="mailto:nitb.ayush@gmail.com" style="font-size:14.5px; color:var(--text-muted); margin:24px 0 16px; display:inline-block; transition:color 0.15s;" style-hover="color:var(--accent) !important;">nitb.ayush@gmail.com</a>
+      <a href="mailto:srvstv.aysh@gmail.com" style="font-size:14.5px; color:var(--text-muted); margin:24px 0 16px; display:inline-block; transition:color 0.15s;" style-hover="color:var(--accent) !important;">srvstv.aysh@gmail.com</a>
       <div style="display:flex; gap:12px;">
         <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="width:36px; height:36px; border-radius:50%; border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; color:var(--text); transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"></path></svg></a>
         <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="width:36px; height:36px; border-radius:50%; border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; color:var(--text); transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"></path><path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"></path></svg></a>
@@ -238,7 +238,7 @@
       <div>
         <div style="font-family:'Instrument Serif',serif; font-size:21px; color:var(--footer-text); margin-bottom:8px;">Ayush Srivastav</div>
         <div style="font-size:14px; color:var(--footer-text-muted); margin-bottom:20px;">Bengaluru, India</div>
-        <a href="mailto:nitb.ayush@gmail.com" style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--footer-text); color:var(--footer-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">Get in touch</a>
+        <a href="mailto:srvstv.aysh@gmail.com" style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--footer-text); color:var(--footer-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">Get in touch</a>
       </div>
       <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
         <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
@@ -338,9 +338,9 @@ class Component extends DCLogic {
   }
 
   linkFor(category) {
-    if (category === "talk") return "Talks.dc.html";
-    if (category === "publication" || category === "patent") return "Publications.dc.html";
-    return "CV.dc.html";
+    if (category === "talk") return "talks/Talks.dc.html";
+    if (category === "publication" || category === "patent") return "publications/Publications.dc.html";
+    return "cv/CV.dc.html";
   }
 
   accentThemes = {
@@ -424,7 +424,7 @@ class Component extends DCLogic {
         { step: "What I Did", text: "Built an FE simulation of the socket–stump interface, driven by inverse gait dynamics, to map pressure and contact forces across a full walking cycle — the team was measuring the same thing with embedded pressure sensors, so my FEA had a real benchmark to match against." },
         { step: "When I Left", text: "Left with FE-predicted pressure maps that matched the team's sensor recordings, and fed directly into redesigning the socket for a more comfortable, tailored fit." }
       ] },
-    { role: "Undergraduate Researcher", org: "All India Institute of Medical Sciences (AIIMS), Bhopal, India", date: "Aug 2020 – Jul 2021 (11 months)", website: "https://www.aiimsbhopal.edu.in/", logo: "assets/logos/aiims-bhopal-cropped.png",
+    { role: "Undergraduate Researcher", org: "All India Institute of Medical Sciences (AIIMS), Bhopal, India", date: "Aug 2020 – Jul 2021 (11 months)", website: "https://aiimsbhopal.edu.in/", logo: "assets/logos/aiims-bhopal-cropped.png",
       statBoxLabel: "Collaboration Project",
       statBoxLines: ["Surgery × Engineering"],
       pillColumns: 1,
@@ -497,7 +497,7 @@ class Component extends DCLogic {
     { year: 2022, month: 4, dateLabel: "Apr 2022", category: "publication", text: "Published \u201cModelling and FEM simulation of a rotating hyperelastic spherical balloon actuator\u201d in the Australian Journal of Mechanical Engineering." },
     { year: 2022, month: 1, dateLabel: "Jan 2022", category: "publication", text: "Published \u201cDetermination of Material-Dependent Parameters and Friction in Ultrasonic-Vibration-Assisted Turning\u201d in the Journal of The Institution of Engineers (India)." },
     { year: 2021, month: 5, dateLabel: "May 2021", category: "education", text: "Began a remote research internship at KTH Royal Institute of Technology, Sweden, on prosthetic socket biomechanics (Socket Sense)." },
-    { year: 2021, month: 4, dateLabel: "Apr 2021", category: "award", text: "Ranked 2nd among 176 students in the 3rd year of B.Tech Mechanical Engineering at MANIT Bhopal, earning the Academic Excellence Award." },
+    { year: 2021, month: 4, dateLabel: "Apr 2021", category: "award", text: "Ranked 2nd among 174 students in the 3rd year of B.Tech Mechanical Engineering at MANIT Bhopal, earning the Academic Excellence Award." },
     { year: 2021, month: 6, dateLabel: "Jun 2021", category: "education", text: "Began a remote research internship at KU Leuven, Belgium, on articular cartilage repair for osteochondral defects." },
     { year: 2021, month: 8, dateLabel: "Aug 2021", category: "award", text: "Selected for the International Youth Exchange Programme to represent India at the VII BRICS Youth Summit — one of just 15 students chosen nationwide, publicly recognized by MANIT's director." },
     { year: 2021, month: 2, dateLabel: "Feb 2021", category: "award", text: "Selected as a remote delegate for HCONF 2021 under the Harvard Project for Asian and International Relations (HPAIR)." },
