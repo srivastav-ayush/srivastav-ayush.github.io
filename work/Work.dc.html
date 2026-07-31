@@ -80,7 +80,7 @@
         <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
         <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
         <a href="../writing/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
-        <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV ↗</a>
+        <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
       </div>
     </div>
   </nav>
@@ -119,7 +119,7 @@
                 <div style="{{ p.orgBoxStyle }}"><img loading="lazy" decoding="async" src="{{ p.orgLogo }}" alt="{{ p.orgName }}" style="{{ p.orgImgStyle }}"></div>
               </sc-if>
             </div>
-            <div class="tag-chip" style="position:absolute; bottom:20px; right:24px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; color:{{ p.tagColor }}; text-transform:uppercase; letter-spacing:0.04em; background:{{ p.tagBg }}; padding:4px 11px; border-radius:20px; transition:transform 0.2s ease;">{{ p.tag }}</div>
+            <div class="tag-chip" style="{{ p.tagChipPos }} font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; color:{{ p.tagColor }}; text-transform:uppercase; letter-spacing:0.04em; background:{{ p.tagBg }}; padding:4px 11px; border-radius:20px; transition:transform 0.2s ease;">{{ p.tag }}</div>
             <div style="font-weight:700; font-size:19px; line-height:1.3; padding-right:{{ p.metaPad }}px;">{{ p.title }}</div>
             <div style="font-size:14.5px; line-height:1.5; color:var(--text-muted); padding-right:{{ p.metaPad }}px;">{{ p.summary }}</div>
             <sc-if value="{{ p.hasLinks }}">
@@ -339,6 +339,7 @@ class Component extends DCLogic {
 
   componentWillUnmount() {
     if (this.onKeyDown && typeof window !== "undefined") window.removeEventListener("keydown", this.onKeyDown);
+    if (this.onPopState && typeof window !== "undefined") window.removeEventListener("popstate", this.onPopState);
     this.clearSlideTimer();
     if (this.__observer) this.__observer.disconnect();
     if (typeof window !== "undefined" && this.onResize) window.removeEventListener("resize", this.onResize);
@@ -354,6 +355,25 @@ class Component extends DCLogic {
         } else if (this.state.selectedId && e.key === "Escape") { e.preventDefault(); this.closeDetail(); }
       };
       window.addEventListener("keydown", this.onKeyDown);
+      this.onPopState = (e) => {
+        const st = (e && e.state) || {};
+        const hash = window.location.hash ? window.location.hash.slice(1) : "";
+        const target = st.awProject || (this.allProjects.some(p => p.id === hash) ? hash : null);
+        if (target) {
+          if (target !== this.state.selectedId) {
+            this.clearSlideTimer();
+            this.__originRect = null;
+            this.__originScrollY = null;
+            this.setState({ selectedId: target, slideIndex: 0, lightboxOpen: false, closing: false });
+          }
+        } else if (this.state.selectedId) {
+          this.__pushedForDetail = false;
+          this.runCloseDetail();
+        }
+      };
+      window.addEventListener("popstate", this.onPopState);
+      const initialHash = window.location.hash ? window.location.hash.slice(1) : "";
+      if (initialHash && this.allProjects.some(p => p.id === initialHash)) this.openProject(initialHash, null, true);
     }
     this.setupObserver();
     setTimeout(() => this.setupObserver(), 300);
@@ -403,7 +423,7 @@ class Component extends DCLogic {
   lightboxPrev = (e) => { e.stopPropagation(); this.prevSlide(); };
   lightboxNext = (e) => { e.stopPropagation(); this.nextSlide(); };
 
-  openProject = (id, rect) => {
+  openProject = (id, rect, replace) => {
     this.clearSlideTimer();
     if (rect && typeof window !== "undefined") {
       this.__originRect = { top: rect.top + window.scrollY, left: rect.left, width: rect.width, height: rect.height };
@@ -413,7 +433,19 @@ class Component extends DCLogic {
       this.__originScrollY = null;
     }
     this.setState({ selectedId: id, slideIndex: 0, lightboxOpen: false, closing: false });
+    this.syncHistory(id, replace);
     if (!this.__originRect && typeof window !== "undefined") window.scrollTo(0, 0);
+  };
+
+  syncHistory(id, replace) {
+    if (typeof window === "undefined" || !window.history || !window.history.pushState) return;
+    const url = window.location.pathname + window.location.search + "#" + id;
+    if (replace || this.__pushedForDetail) {
+      window.history.replaceState({ awProject: id }, "", url);
+    } else {
+      window.history.pushState({ awProject: id }, "", url);
+      this.__pushedForDetail = true;
+    }
   };
 
   detailRef = (el) => {
@@ -458,6 +490,16 @@ class Component extends DCLogic {
   };
 
   closeDetail = () => {
+    if (typeof window !== "undefined" && window.history) {
+      if (this.__pushedForDetail) { this.__pushedForDetail = false; window.history.back(); return; }
+      if (window.history.replaceState && window.location.hash) {
+        window.history.replaceState({}, "", window.location.pathname + window.location.search);
+      }
+    }
+    this.runCloseDetail();
+  };
+
+  runCloseDetail = () => {
     this.clearSlideTimer();
     if (this.__closing) return;
     const origin = this.__originRect;
@@ -817,6 +859,7 @@ class Component extends DCLogic {
   renderVals() {
     const filter = this.state.filter;
     const isMobile = this.state.width < 640;
+    const narrowCard = this.state.width < 900;
     const cardLayout = isMobile ? "display:flex; flex-direction:column;" : "display:grid; grid-template-columns:280px 1fr;";
     const cardStyle = `${cardLayout} background:var(--bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; cursor:pointer; transition:box-shadow 0.15s, transform 0.15s, border-color 0.15s;`;
     const placeholderCardStyle = `${cardLayout} background:var(--bg-chip); border:1.5px dashed var(--border-strong); border-radius:12px; overflow:hidden; cursor:pointer; transition:box-shadow 0.15s, transform 0.15s, border-color 0.15s;`;
@@ -830,6 +873,7 @@ class Component extends DCLogic {
       })
       .map(p => ({ ...p, cardStyle: p.id === "passion-placeholder" ? placeholderCardStyle : cardStyle, tagColor: catColors[p.category].color, tagBg: catColors[p.category].bg,
         metaPad: isMobile ? 105 : 130,
+        tagChipPos: narrowCard ? "position:static; align-self:flex-start; white-space:nowrap; margin-bottom:2px;" : "position:absolute; bottom:20px; right:24px;",
         orgBoxStyle: this.orgBoxStyle(p.logoShape || "square", "list"), orgImgStyle: this.orgImgStyle(p.logoShape || "square", "list"),
         links: this.enrichLinks(p.links), hasLinks: (p.links || []).length > 0,
         cardLabel: "Open project: " + p.title,
@@ -853,8 +897,8 @@ class Component extends DCLogic {
       const idx = chronological.findIndex(p => p.id === rawSelected.id);
       const prevP = chronological[(idx - 1 + chronological.length) % chronological.length];
       const nextP = chronological[(idx + 1) % chronological.length];
-      prevProjectNav = { title: prevP.title, img: prevP.img, onClick: () => this.openProject(prevP.id) };
-      nextProjectNav = { title: nextP.title, img: nextP.img, onClick: () => this.openProject(nextP.id) };
+      prevProjectNav = { title: prevP.title, img: prevP.img, onClick: () => this.openProject(prevP.id, null, true) };
+      nextProjectNav = { title: nextP.title, img: nextP.img, onClick: () => this.openProject(nextP.id, null, true) };
     }
 
     const orgMeta = rawSelected && rawSelected.orgName ? [{ label: rawSelected.category === "work" ? "Organization" : "Institution", value: rawSelected.orgName }] : [];
