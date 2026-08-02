@@ -19,6 +19,10 @@
   gtag('js', new Date());
   gtag('config', 'G-XML0VEY6NS');
 </script>
+<link rel="icon" type="image/png" href="../assets/img/favicon-light.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<style>html{background:#faf7f0}html.dark-init{background:#181410}body{margin:0;background:inherit}</style>
+<script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}function __setFav(m){var h=m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png",l=document.querySelectorAll('link[rel="icon"]');for(var i=l.length-1;i>0;i--)l[i].parentNode.removeChild(l[i]);if(l[0])l[0].setAttribute("href",h);}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});document.addEventListener("DOMContentLoaded",function(){__setFav(__mq.matches);});if(window.MutationObserver&&document.head){new MutationObserver(function(){__setFav(__mq.matches);}).observe(document.head,{childList:true});}}catch(e){}</script>
 <script src="../support.js"></script>
 </head>
 <body>
@@ -26,15 +30,11 @@
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" id="favicon-icon" href="../assets/img/favicon-light.png">
-  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-  <script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}var __f=document.getElementById("favicon-icon");function __setFav(m){if(__f)__f.setAttribute("href",m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png");}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});}catch(e){}</script>
   <style>
-    html { background:#faf7f0; }
-    html.dark-init { background:#181410; }
-    body { margin:0; background:inherit; }
     a { color:inherit; text-decoration:none; }
     a:hover { color:var(--accent-hover); }
+    .skip-link { position:absolute; left:-9999px; top:0; z-index:900; }
+    .skip-link:focus { left:0; outline:3px solid var(--text); outline-offset:-3px; }
     .nav-link:hover { color:var(--accent-hover) !important; }
     .nav-links::-webkit-scrollbar { display:none; }
     ::selection { background:var(--selection-bg); color:var(--selection-text); }
@@ -66,6 +66,7 @@
 </helmet>
 
 <div style="{{ rootStyle }}" ref="{{ rootRef }}">
+  <a href="#main" class="skip-link" style="background:var(--accent); color:var(--bg); padding:12px 20px; border-radius:0 0 8px 0; font-size:14px; font-weight:600;">Skip to content</a>
   <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
     <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
       <a href="../index.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
@@ -76,7 +77,7 @@
         <div style="width:32px; height:1.5px; background:var(--accent);"></div>
       </a>
       <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
-        <a href="../work/index.html" class="nav-link" style="color:var(--accent);">Work</a>
+        <a href="../work/index.html" class="nav-link" aria-current="page" style="color:var(--accent); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
         <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
         <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
         <a href="../writing/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
@@ -86,19 +87,21 @@
   </nav>
   <div style="height:84px;"></div>
 
+  <main id="main">
+
   <sc-if value="{{ isListView }}">
     <section style="max-width:1200px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 24px;">
       <h1 style="font-family:'Instrument Serif',serif; font-size:46px; font-weight:400; margin:0 0 16px;">Work &amp; projects</h1>
       <p style="font-size:17px; line-height:1.6; color:var(--text-muted); max-width:640px; margin:0 0 28px;">Systems Engineering at Volvo Group and Simulation Modeling at Ola Electric, alongside research and academic projects. Click any project for details.</p>
       <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;">
         <div style="display:inline-flex; background:var(--bg-chip); border-radius:8px; padding:4px; gap:4px; flex-wrap:wrap;">
-          <button onClick="{{ setAll }}" style="border:none; cursor:pointer; padding:8px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ allBg }}; color:{{ allColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">All</button>
-          <button onClick="{{ setWork }}" style="border:none; cursor:pointer; padding:8px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ workBg }}; color:{{ workColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Work</button>
-          <button onClick="{{ setResearch }}" style="border:none; cursor:pointer; padding:8px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ researchBg }}; color:{{ researchColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Research</button>
-          <button onClick="{{ setAcademic }}" style="border:none; cursor:pointer; padding:8px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ academicBg }}; color:{{ academicColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Academic</button>
-          <button onClick="{{ setPassion }}" style="border:none; cursor:pointer; padding:8px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ passionBg }}; color:{{ passionColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Passion</button>
+          <button onClick="{{ setAll }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ allBg }}; color:{{ allColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">All</button>
+          <button onClick="{{ setWork }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ workBg }}; color:{{ workColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Work</button>
+          <button onClick="{{ setResearch }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ researchBg }}; color:{{ researchColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Research</button>
+          <button onClick="{{ setAcademic }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ academicBg }}; color:{{ academicColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Academic</button>
+          <button onClick="{{ setPassion }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ passionBg }}; color:{{ passionColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Passion</button>
         </div>
-        <button onClick="{{ toggleSort }}" style="border:1px solid var(--border-strong); background:none; cursor:pointer; padding:8px 16px; border-radius:8px; font-size:12.5px; font-weight:600; font-family:'JetBrains Mono',monospace; color:var(--text-muted); display:flex; align-items:center; gap:7px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+        <button onClick="{{ toggleSort }}" style="border:1px solid var(--border-strong); background:none; cursor:pointer; padding:11px 16px; border-radius:8px; font-size:12.5px; font-weight:600; font-family:'JetBrains Mono',monospace; color:var(--text-muted); display:flex; align-items:center; gap:7px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{ sortIconStyle }}"><path d="M3 6h18M6 12h12M10 18h4"></path></svg>
           {{ sortLabel }}
         </button>
@@ -116,7 +119,7 @@
             <div style="position:absolute; top:20px; right:24px; display:flex; flex-direction:column; align-items:flex-end; gap:9px;">
               <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-faint);">{{ p.year }}</div>
               <sc-if value="{{ p.orgName }}" hint-placeholder-val="{{ true }}">
-                <div style="{{ p.orgBoxStyle }}"><img loading="lazy" decoding="async" src="{{ p.orgLogo }}" alt="{{ p.orgName }}" style="{{ p.orgImgStyle }}"></div>
+                <div style="{{ p.orgBoxStyle }}"><img loading="lazy" decoding="async" src="{{ p.orgLogo }}" alt="{{ p.orgName }}" width="{{ p.orgImgW }}" height="{{ p.orgImgH }}" style="{{ p.orgImgStyle }}"></div>
               </sc-if>
             </div>
             <div class="tag-chip" style="{{ p.tagChipPos }} font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; color:{{ p.tagColor }}; text-transform:uppercase; letter-spacing:0.04em; background:{{ p.tagBg }}; padding:4px 11px; border-radius:20px; transition:transform 0.2s ease;">{{ p.tag }}</div>
@@ -175,7 +178,7 @@
           <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:{{ selectedProject.tagColor }}; text-transform:uppercase; letter-spacing:0.04em; background:{{ selectedProject.tagBg }}; padding:5px 12px; border-radius:20px; white-space:nowrap; align-self:flex-start;">{{ selectedProject.tag }}</div>
         </div>
         <sc-if value="{{ selectedProject.orgName }}" hint-placeholder-val="{{ true }}">
-          <div style="{{ selectedProject.orgBoxStyle }}"><img loading="lazy" decoding="async" src="{{ selectedProject.orgLogo }}" alt="{{ selectedProject.orgName }}" style="{{ selectedProject.orgImgStyle }}"></div>
+          <div style="{{ selectedProject.orgBoxStyle }}"><img loading="lazy" decoding="async" src="{{ selectedProject.orgLogo }}" alt="{{ selectedProject.orgName }}" width="{{ selectedProject.orgImgW }}" height="{{ selectedProject.orgImgH }}" style="{{ selectedProject.orgImgStyle }}"></div>
         </sc-if>
       </div>
 
@@ -273,6 +276,8 @@
   </sc-if>
 
   <!-- FOOTER / CONTACT -->
+  </main>
+
   <footer style="background:var(--footer-bg); color:var(--footer-text); border-top:1px solid var(--footer-border);">
     <div style="max-width:1200px; margin:0 auto; padding:56px clamp(16px,5vw,64px) 32px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
       <div>
@@ -614,16 +619,16 @@ class Component extends DCLogic {
   categoryColors(dark) {
     const hues = {
       work: dark ? "#87aed6" : "#3568a0",
-      research: dark ? "#8ebd82" : "#4a7a43",
-      academic: dark ? "#e0a37c" : "#c1703f",
-      passion: dark ? "#d391bd" : "#a34a82"
+      research: dark ? "#8ebd82" : "#3f6839",
+      academic: dark ? "#e0a37c" : "#89502d",
+      passion: dark ? "#d493be" : "#914274"
     };
     const out = {};
     for (const k in hues) out[k] = { color: hues[k], bg: this.hexToRgba(hues[k], dark ? 0.18 : 0.12) };
     return out;
   }
 
-  solidCategoryColors = { work: "#3568a0", research: "#4a7a43", academic: "#c1703f", passion: "#a34a82" };
+  solidCategoryColors = { work: "#3568a0", research: "#4a7a43", academic: "#ac6438", passion: "#a34a82" };
 
   orgBoxStyle(shape, size) {
     const sizes = size === "detail" ? { square: 68, wideH: 42, wideHLg: 58, pad: 10 } : { square: 70, wideH: 38, wideHLg: 55, pad: 10 };
@@ -634,6 +639,13 @@ class Component extends DCLogic {
       return `background:#fff; border-radius:6px; height:${sizes.wideH}px; box-sizing:border-box; padding:0 ${sizes.pad}px; display:flex; align-items:center; justify-content:center;`;
     }
     return `background:#fff; border-radius:8px; width:${sizes.square}px; height:${sizes.square}px; box-sizing:border-box; padding:3px; display:flex; align-items:center; justify-content:center;`;
+  }
+
+  orgImgDims(shape, size) {
+    if (shape === "wide-lg") return { w: size === "detail" ? 220 : 213, h: size === "detail" ? 48 : 43 };
+    if (shape === "wide") return { w: size === "detail" ? 130 : 125, h: size === "detail" ? 32 : 28 };
+    const s = size === "detail" ? 62 : 64;
+    return { w: s, h: s };
   }
 
   orgImgStyle(shape, size) {
@@ -875,6 +887,7 @@ class Component extends DCLogic {
         metaPad: isMobile ? 105 : 130,
         tagChipPos: narrowCard ? "position:static; align-self:flex-start; white-space:nowrap; margin-bottom:2px;" : "position:absolute; bottom:20px; right:24px;",
         orgBoxStyle: this.orgBoxStyle(p.logoShape || "square", "list"), orgImgStyle: this.orgImgStyle(p.logoShape || "square", "list"),
+        orgImgW: this.orgImgDims(p.logoShape || "square", "list").w, orgImgH: this.orgImgDims(p.logoShape || "square", "list").h,
         links: this.enrichLinks(p.links), hasLinks: (p.links || []).length > 0,
         cardLabel: "Open project: " + p.title,
         openKey: (e) => { if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") { e.preventDefault(); this.openProject(p.id, e.currentTarget.firstElementChild.getBoundingClientRect()); } },
@@ -921,6 +934,8 @@ class Component extends DCLogic {
       tagBg: catColors[rawSelected.category].bg,
       orgBoxStyle: this.orgBoxStyle(rawSelected.logoShape || "square", "detail"),
       orgImgStyle: this.orgImgStyle(rawSelected.logoShape || "square", "detail"),
+      orgImgW: this.orgImgDims(rawSelected.logoShape || "square", "detail").w,
+      orgImgH: this.orgImgDims(rawSelected.logoShape || "square", "detail").h,
       links: this.enrichLinks(rawSelected.links),
       hasLinks: (rawSelected.links || []).length > 0,
       hasTitleUrl: !!rawSelected.titleUrl,

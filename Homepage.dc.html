@@ -19,6 +19,10 @@
   gtag('js', new Date());
   gtag('config', 'G-XML0VEY6NS');
 </script>
+<link rel="icon" type="image/png" href="./assets/img/favicon-light.png">
+<link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+<style>html{background:#faf7f0}html.dark-init{background:#181410}body{margin:0;background:inherit}</style>
+<script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}function __setFav(m){var h=m?"./assets/img/favicon-dark.png":"./assets/img/favicon-light.png",l=document.querySelectorAll('link[rel="icon"]');for(var i=l.length-1;i>0;i--)l[i].parentNode.removeChild(l[i]);if(l[0])l[0].setAttribute("href",h);}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});document.addEventListener("DOMContentLoaded",function(){__setFav(__mq.matches);});if(window.MutationObserver&&document.head){new MutationObserver(function(){__setFav(__mq.matches);}).observe(document.head,{childList:true});}}catch(e){}</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -27,15 +31,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="./image-slot.js"></script>
-  <link rel="icon" type="image/png" id="favicon-icon" href="./assets/img/favicon-light.png">
-  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
-  <script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}var __f=document.getElementById("favicon-icon");function __setFav(m){if(__f)__f.setAttribute("href",m?"./assets/img/favicon-dark.png":"./assets/img/favicon-light.png");}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});}catch(e){}</script>
   <style>
-    html { background:#faf7f0; }
-    html.dark-init { background:#181410; }
-    body { margin:0; background:inherit; }
     a { color:inherit; text-decoration:none; }
     a:hover { color:var(--accent-hover); }
+    .skip-link { position:absolute; left:-9999px; top:0; z-index:900; }
+    .skip-link:focus { left:0; outline:3px solid var(--text); outline-offset:-3px; }
     .nav-link:hover { color:var(--accent-hover) !important; }
     .nav-links::-webkit-scrollbar { display:none; }
     ::selection { background:var(--selection-bg); color:var(--selection-text); }
@@ -68,6 +68,7 @@
 <div style="{{ rootStyle }}">
 
   <!-- NAV -->
+  <a href="#main" class="skip-link" style="background:var(--accent); color:var(--bg); padding:12px 20px; border-radius:0 0 8px 0; font-size:14px; font-weight:600;">Skip to content</a>
   <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
     <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
       <div style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
@@ -88,31 +89,22 @@
   </nav>
   <div style="height:84px;"></div>
 
+  <main id="main">
+
   <!-- HERO -->
   <section style="position:relative; max-width:1200px; margin:0 auto; padding:{{ heroPaddingStyle }} clamp(16px,5vw,64px) 80px; overflow:hidden; {{ heroGridStyle }}">
     <div aria-hidden="true" style="position:absolute; top:-64px; right:-8px; font-family:'Instrument Serif',serif; font-style:italic; font-size:min(46vw,380px); line-height:1; color:var(--border); opacity:0.55; pointer-events:none; z-index:0; user-select:none;">S</div>
 
     <div style="{{ heroTextStyle }} position:relative; z-index:1;">
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:24px;">
-        <span style="width:7px; height:7px; border-radius:50%; background:var(--accent); flex:none;"></span>
-        <span style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">System Engineer, ECU Cooling · Volvo Group</span>
-      </div>
       <h1 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(52px,7.4vw,100px); line-height:0.96; letter-spacing:-0.02em; margin:0 0 30px;">
         <span style="color:var(--text); display:block;">Ayush</span>
         <span style="color:var(--accent); font-style:italic; display:block;">Srivastav</span>
       </h1>
-      <p style="font-size:18.5px; line-height:1.65; color:var(--text-body); max-width:580px; margin:0 0 38px;">I take care of systems engineering for ECU cooling at Volvo&nbsp;Group — full-vehicle digital twins across battery, motor, and charging systems built along the way at Ola Electric.</p>
+      <p style="font-size:18.5px; line-height:1.65; color:var(--text-body); max-width:580px; margin:0 0 14px; text-wrap:pretty;">I take care of systems engineering for ECU cooling at Volvo&nbsp;Group — full-vehicle digital twins across battery, motor, and charging systems, most of it learned at Ola&nbsp;Electric.</p>
+      <p style="font-size:17px; line-height:1.6; color:var(--text-muted); max-width:580px; margin:0 0 38px; text-wrap:pretty;">Off the clock, I run, swim, walk up mountains, and keep restaurant and reading lists that grow faster than I can get through them.</p>
       <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:44px;">
         <a href="work/index.html" style="display:inline-flex; align-items:center; gap:10px; background:var(--btn-bg); color:var(--btn-text); padding:16px 30px; border-radius:8px; font-weight:700; font-size:15px; transition:background 0.15s,color 0.15s,transform 0.15s;" style-hover="background:var(--accent) !important; color:var(--btn-text) !important; transform:translateY(-2px) !important;">See my Work <span style="display:inline-flex; align-items:center; line-height:1;">→</span></a>
         <a href="mailto:srvstv.aysh@gmail.com" style="font-weight:600; font-size:15px; color:var(--text-muted); transition:color 0.15s;" style-hover="color:var(--accent) !important;">Contact Me</a>
-      </div>
-      <div style="display:flex; align-items:stretch; gap:0; flex-wrap:wrap; padding-top:28px; border-top:1px solid var(--border); max-width:560px;">
-        <sc-for list="{{ heroStats }}" as="hs" hint-placeholder-count="3">
-          <div style="{{ hs.wrapStyle }}">
-            <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:32px; color:var(--accent); line-height:1;">{{ hs.value }}</div>
-            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-top:6px;">{{ hs.label }}</div>
-          </div>
-        </sc-for>
       </div>
     </div>
     <div style="{{ heroPhotoStyle }} position:relative; z-index:1;">
@@ -214,7 +206,7 @@
                   </div>
                 </div>
                 <sc-if value="{{ e.hasStats }}">
-                  <div style="flex:none; display:flex; align-items:stretch; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
+                  <div style="{{ e.statsRowStyle }}">
                     <sc-if value="{{ e.hasPills }}">
                       <div style="{{ e.pillsGridStyle }}">
                         <sc-for list="{{ e.pills }}" as="p" hint-placeholder-count="3">
@@ -223,10 +215,10 @@
                       </div>
                     </sc-if>
                     <sc-if value="{{ e.hasStatBox }}">
-                      <div style="background:var(--accent-faint); border:1px solid var(--accent); border-radius:10px; padding:8px 16px; display:flex; flex-direction:column; justify-content:center;">
+                      <div style="{{ e.statBoxStyle }}">
                         <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); margin-bottom:3px;">{{ e.statBoxLabel }}</div>
                         <sc-for list="{{ e.statBoxLines }}" as="line" hint-placeholder-count="1">
-                          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:16px; color:var(--accent); line-height:1.35; white-space:nowrap;"><sc-if value="{{ e.hasStatBoxLink }}"><a href="{{ e.statBoxUrl }}" target="_blank" style="color:inherit;">{{ line }}</a></sc-if><sc-if value="{{ e.noStatBoxLink }}">{{ line }}</sc-if></div>
+                          <div style="{{ e.statBoxLineStyle }}"><sc-if value="{{ e.hasStatBoxLink }}"><a href="{{ e.statBoxUrl }}" target="_blank" style="color:inherit;">{{ line }}</a></sc-if><sc-if value="{{ e.noStatBoxLink }}">{{ line }}</sc-if></div>
                         </sc-for>
                       </div>
                     </sc-if>
@@ -252,6 +244,8 @@
   </section>
 
   <!-- FOOTER / CONTACT -->
+  </main>
+
   <footer style="background:var(--footer-bg); color:var(--footer-text); margin-top:40px; border-top:1px solid var(--footer-border);">
     <div style="max-width:1200px; margin:0 auto; padding:56px clamp(16px,5vw,64px) 32px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
       <div>
@@ -340,16 +334,16 @@ class Component extends DCLogic {
   setMilestoneFilter = (cat) => this.setState({ milestoneFilter: cat });
 
   categoryLabels = { career: "Career", education: "Education", talk: "Talk", publication: "Publication", patent: "Patent", award: "Award" };
-  solidMilestoneColors = { career: "#3568a0", education: "#5b4a9e", talk: "#c1703f", publication: "#4a7a43", patent: "#a34a82", award: "#b8892e" };
+  solidMilestoneColors = { career: "#3568a0", education: "#5b4a9e", talk: "#ac6438", publication: "#4a7a43", patent: "#a34a82", award: "#956f25" };
 
   categoryColors(dark) {
     const hues = {
       career: dark ? "#87aed6" : "#3568a0",
       education: dark ? "#ab9fe8" : "#5b4a9e",
-      talk: dark ? "#e0a37c" : "#c1703f",
-      publication: dark ? "#8ebd82" : "#4a7a43",
-      patent: dark ? "#d391bd" : "#a34a82",
-      award: dark ? "#e0b34a" : "#b8892e"
+      talk: dark ? "#e0a37c" : "#89502d",
+      publication: dark ? "#8ebd82" : "#3f6839",
+      patent: dark ? "#d493be" : "#914274",
+      award: dark ? "#e0b34a" : "#78591e"
     };
     const out = {};
     for (const k in hues) out[k] = { color: hues[k], bg: this.hexToRgba(hues[k], dark ? 0.18 : 0.12) };
@@ -364,8 +358,8 @@ class Component extends DCLogic {
 
   accentThemes = {
     "#3568a0": { light: "#3568a0", lightHover: "#244f78", dark: "#87aed6", darkHover: "#a6c5e6" },
-    "#4a7a43": { light: "#4a7a43", lightHover: "#375c31", dark: "#8ebd82", darkHover: "#a8d49c" },
-    "#c1703f": { light: "#c1703f", lightHover: "#9c5730", dark: "#e0a37c", darkHover: "#eab896" },
+    "#4a7a43": { light: "#3f6839", lightHover: "#2f4f2a", dark: "#8ebd82", darkHover: "#a8d49c" },
+    "#c1703f": { light: "#9c5024", lightHover: "#7d3f1c", dark: "#e0a37c", darkHover: "#eab896" },
     "#2f8a7d": { light: "#2f8a7d", lightHover: "#236a5f", dark: "#7fd4c4", darkHover: "#9fe0d3" }
   };
 
@@ -557,19 +551,6 @@ class Component extends DCLogic {
         : "display:flex; justify-content:space-between; align-items:flex-start; gap:clamp(32px,5vw,72px); flex-wrap:nowrap;",
       heroTextStyle: (isMobile ? "width:100%; " : "flex:1 1 560px; min-width:280px; ") + "animation:fadeInUp 0.6s ease both;",
       heroPhotoStyle: (isMobile ? "width:100%; max-width:280px; " : "flex:0 0 auto; width:clamp(260px,28vw,340px); min-width:0; ") + "display:flex; flex-direction:column; align-items:center; text-align:center; animation:fadeInUp 0.6s ease both; animation-delay:0.12s;",
-      heroStats: (() => {
-        const counts = [
-          { value: "4+", label: "Years Experience" },
-          { value: this.allMilestones.filter(m => m.category === "patent").length, label: "Patents" },
-          { value: this.allMilestones.filter(m => m.category === "publication").length, label: "Publications" },
-          { value: this.allMilestones.filter(m => m.category === "talk" && !m.upcoming).length, label: "Talks" }
-        ];
-        const statPad = isMobile ? 14 : 22;
-        return counts.map((c, i) => ({
-          ...c,
-          wrapStyle: `padding:0 ${statPad}px; ${i === 0 ? "padding-left:0;" : ""} ${i < counts.length - 1 ? "border-right:1px solid var(--border);" : ""}`
-        }));
-      })(),
       isDarkMode: this.state.dark,
       isLightMode: !this.state.dark,
       toggleDark: this.toggleDark,
@@ -606,7 +587,14 @@ class Component extends DCLogic {
         noStatBoxLink: !e.statBoxUrl,
         hasPills: !!(e.pills && e.pills.length),
         hasStats: !!(e.statBoxLines && e.statBoxLines.length) || !!(e.pills && e.pills.length),
-        pillsGridStyle: `display:grid; grid-template-columns:repeat(${Math.min(e.pillColumns || 2, (e.pills || []).length || 1)}, max-content); gap:6px; align-content:start;`,
+        statsRowStyle: isMobile
+          ? "width:100%; min-width:0; display:flex; align-items:stretch; gap:8px; flex-wrap:wrap; justify-content:flex-start;"
+          : "flex:none; display:flex; align-items:stretch; gap:10px; flex-wrap:wrap; justify-content:flex-end;",
+        statBoxStyle: `background:var(--accent-faint); border:1px solid var(--accent); border-radius:10px; padding:8px 16px; min-width:0; display:flex; flex-direction:column; justify-content:center;`,
+        statBoxLineStyle: `font-family:'Instrument Serif',serif; font-style:italic; font-size:16px; color:var(--accent); line-height:1.35; white-space:${isMobile ? "normal" : "nowrap"}; overflow-wrap:anywhere;`,
+        pillsGridStyle: isMobile
+          ? "display:flex; flex-wrap:wrap; gap:6px; align-content:start; min-width:0;"
+          : `display:grid; grid-template-columns:repeat(${Math.min(e.pillColumns || 2, (e.pills || []).length || 1)}, max-content); gap:6px; align-content:start;`,
         pills: (e.pills || []).map((p, pi, arr) => {
           const cols = e.pillColumns || 2;
           const isLastOdd = cols === 2 && pi === arr.length - 1 && arr.length % 2 === 1 && arr.length > 1;

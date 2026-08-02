@@ -19,6 +19,10 @@
   gtag('js', new Date());
   gtag('config', 'G-XML0VEY6NS');
 </script>
+<link rel="icon" type="image/png" href="../assets/img/favicon-light.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<style>html{background:#faf7f0}html.dark-init{background:#181410}body{margin:0;background:inherit}</style>
+<script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}function __setFav(m){var h=m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png",l=document.querySelectorAll('link[rel="icon"]');for(var i=l.length-1;i>0;i--)l[i].parentNode.removeChild(l[i]);if(l[0])l[0].setAttribute("href",h);}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});document.addEventListener("DOMContentLoaded",function(){__setFav(__mq.matches);});if(window.MutationObserver&&document.head){new MutationObserver(function(){__setFav(__mq.matches);}).observe(document.head,{childList:true});}}catch(e){}</script>
 <script src="../support.js"></script>
 </head>
 <body>
@@ -26,15 +30,11 @@
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" id="favicon-icon" href="../assets/img/favicon-light.png">
-  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-  <script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}var __f=document.getElementById("favicon-icon");function __setFav(m){if(__f)__f.setAttribute("href",m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png");}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});}catch(e){}</script>
   <style>
-    html { background:#faf7f0; }
-    html.dark-init { background:#181410; }
-    body { margin:0; background:inherit; }
     a { color:inherit; text-decoration:none; }
     a:hover { color:var(--accent-hover); }
+    .skip-link { position:absolute; left:-9999px; top:0; z-index:900; }
+    .skip-link:focus { left:0; outline:3px solid var(--text); outline-offset:-3px; }
     .nav-link:hover { color:var(--accent-hover) !important; }
     .nav-links::-webkit-scrollbar { display:none; }
     ::selection { background:var(--selection-bg); color:var(--selection-text); }
@@ -66,6 +66,7 @@
 </helmet>
 
 <div style="{{ rootStyle }}">
+  <a href="#main" class="skip-link" style="background:var(--accent); color:var(--bg); padding:12px 20px; border-radius:0 0 8px 0; font-size:14px; font-weight:600;">Skip to content</a>
   <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
     <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
       <a href="../index.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
@@ -79,12 +80,14 @@
         <a href="../work/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
         <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
         <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
-        <a href="../writing/index.html" class="nav-link" style="color:var(--accent);">Writing</a>
+        <a href="../writing/index.html" class="nav-link" aria-current="true" style="color:var(--accent); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
         <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
       </div>
     </div>
   </nav>
   <div style="height:84px;"></div>
+
+  <main id="main">
 
   <article style="max-width:740px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 100px;">
     <a href="../writing/index.html" onClick="{{ handleBack }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; margin-bottom:28px;">← Back to Writing</a>
@@ -244,7 +247,7 @@
         </div>
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
           <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:6px;">Strong vocab · Strong geometry</div>
-          <div style="font-weight:700; color:#6a4d9c; font-size:15px; margin-bottom:6px;">GRE</div>
+          <div style="font-weight:700; color:var(--sem-purple); font-size:15px; margin-bottom:6px;">GRE</div>
           <div style="font-size:13px; color:var(--text-body); line-height:1.6;">Plays directly to both strengths — plus a calculator throughout Quant.</div>
         </div>
       </div>
@@ -253,7 +256,7 @@
       <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:34px;">
         <sc-for list="{{ actionSteps }}" as="a" hint-placeholder-count="0">
           <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:18px 20px; display:flex; gap:16px; align-items:flex-start;">
-            <div style="flex-shrink:0; width:32px; height:32px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">{{ a.n }}</div>
+            <div style="flex-shrink:0; width:32px; height:32px; border-radius:50%; background:var(--accent); color:var(--on-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;">{{ a.n }}</div>
             <div>
               <div style="font-weight:600; color:var(--text); font-size:15px; margin-bottom:6px;">{{ a.title }}</div>
               <div style="font-size:14px; color:var(--text-body); line-height:1.65;">{{ a.body }}</div>
@@ -272,6 +275,8 @@
       </div>
     </div>
   </article>
+
+  </main>
 
   <footer style="background:var(--footer-bg); color:var(--footer-text); border-top:1px solid var(--footer-border);">
     <div style="max-width:1200px; margin:0 auto; padding:56px clamp(16px,5vw,64px) 32px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
@@ -383,7 +388,10 @@ class Component extends DCLogic {
       footerAccent: "#87aed6",
       footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#9a907b", footerBorder: "#2a2419",
       navBg: "rgba(24,20,16,.88)",
-      selectionBg: "#87aed6", selectionText: "#181410"
+      selectionBg: "#87aed6", selectionText: "#181410",
+      sem: { green: "#8ebd82", amber: "#e0b34a", red: "#e0847c", purple: "#ab9fe8", blue: "#87aed6" },
+      fill: { green: "#4a7a43", amber: "#a46829", red: "#b3453a", purple: "#6a4d9c", blue: "#3568a0", neutral: "#57503f" },
+      onAccent: "#181410"
     } : {
       bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
       text: "#241f19", textBody: "#57503f", textMuted: "#6f6656", textFaint: "#6f6656",
@@ -393,7 +401,10 @@ class Component extends DCLogic {
       footerAccent: "#87aed6",
       footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#a49a85", footerBorder: "#3a3327",
       navBg: "rgba(250,247,240,.92)",
-      selectionBg: "#2e4a6b", selectionText: "#faf7f0"
+      selectionBg: "#2e4a6b", selectionText: "#faf7f0",
+      sem: { green: "#3f6839", amber: "#835321", red: "#9f3d34", purple: "#6a4d9c", blue: "#3568a0" },
+      fill: { green: "#4a7a43", amber: "#a46829", red: "#b3453a", purple: "#6a4d9c", blue: "#3568a0", neutral: "#57503f" },
+      onAccent: "#ffffff"
     };
   }
 
@@ -403,7 +414,7 @@ class Component extends DCLogic {
     const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
       `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
       `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
-      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText}; --tag:${this.state.dark ? "#a692d9" : "#5b4a9e"};`;
+      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText}; --sem-green:${t.sem.green}; --sem-amber:${t.sem.amber}; --sem-red:${t.sem.red}; --sem-purple:${t.sem.purple}; --fill-green:${t.fill.green}; --fill-amber:${t.fill.amber}; --fill-red:${t.fill.red}; --fill-purple:${t.fill.purple}; --fill-blue:${t.fill.blue}; --on-accent:${t.onAccent}; --tag:${this.state.dark ? "#a692d9" : "#5b4a9e"};`;
 
     const structureRows = [
       { factor: "Total duration", gmat: "2h 15m", gre: "≈1h 58m" },
@@ -423,17 +434,17 @@ class Component extends DCLogic {
 
     const personaRows = [
       { profile: "Strong at quant, want to avoid memorizing vocabulary", pick: "GMAT Focus", color: t.accent, why: "Verbal is 100% logic-based (Reading Comprehension + Critical Reasoning) — there isn't a single vocabulary question anywhere on the exam." },
-      { profile: "Strong reader/writer, comfortable building a vocabulary list", pick: "GRE", color: "#6a4d9c", why: "Text Completion and Sentence Equivalence directly reward vocabulary depth, and the essay plays to strong writers." },
+      { profile: "Strong reader/writer, comfortable building a vocabulary list", pick: "GRE", color: t.sem.purple, why: "Text Completion and Sentence Equivalence directly reward vocabulary depth, and the essay plays to strong writers." },
       { profile: "Geometry is rusty or was never a strength", pick: "GMAT Focus", color: t.accent, why: "Geometry was removed entirely in the Focus Edition — no triangles, circles, or coordinate geometry anywhere." },
-      { profile: "Comfortable with geometry and want calculator access", pick: "GRE", color: "#6a4d9c", why: "A full on-screen calculator runs through all of Quant, and geometry is tested rather than avoided." },
+      { profile: "Comfortable with geometry and want calculator access", pick: "GRE", color: t.sem.purple, why: "A full on-screen calculator runs through all of Quant, and geometry is tested rather than avoided." },
       { profile: "Applying only to MBA / business programs", pick: "Either works", color: t.text, why: "Nearly every business school now accepts both exams at parity — pick whichever plays to your strengths." },
-      { profile: "Keeping options open across business, engineering, or other grad programs", pick: "GRE", color: "#6a4d9c", why: "A much wider range of non-business graduate programs accept GRE than GMAT." },
+      { profile: "Keeping options open across business, engineering, or other grad programs", pick: "GRE", color: t.sem.purple, why: "A much wider range of non-business graduate programs accept GRE than GMAT." },
       { profile: "Want the shorter, more flexible test day", pick: "GMAT Focus", color: t.accent, why: "2h15m total, you pick the section order, and you can edit a few answers per section after submitting." },
-      { profile: "Prefer comparing two quantities over solving from scratch", pick: "GRE", color: "#6a4d9c", why: "Quantitative Comparison rewards smart estimation and elimination — a question type that doesn't exist on GMAT." }
+      { profile: "Prefer comparing two quantities over solving from scratch", pick: "GRE", color: t.sem.purple, why: "Quantitative Comparison rewards smart estimation and elimination — a question type that doesn't exist on GMAT." }
     ];
 
-    const green = this.state.dark ? "#8ebd82" : "#4a7a43";
-    const red = this.state.dark ? "#e0847c" : "#b3453a";
+    const green = t.sem.green;
+    const red = t.sem.red;
     const mathRows = [
       { topic: "Arithmetic", gmat: "✓ ~33%", gre: "✓ ~25%", gmatColor: green, greColor: green, note: "Core for both — percentages, ratios, fractions, exponents." },
       { topic: "Number theory / integers", gmat: "✓ ~10%", gre: "✓ ~10%", gmatColor: green, greColor: green, note: "Similar weight on both — primes, divisibility, factors." },
@@ -449,10 +460,10 @@ class Component extends DCLogic {
 
     const verbalRows = [
       { topic: "Reading Comprehension", gmat: "✓ ~43%", gre: "✓ ~50%", gmatColor: green, greColor: green, note: "Passage-based; main idea, inference, detail, tone. No vocabulary needed on either exam." },
-      { topic: "Critical Reasoning", gmat: "✓ ~57%", gre: "Minimal", gmatColor: green, greColor: this.state.dark ? "#c9a15a" : "#b8752e", note: "Strengthen, Weaken, Assumption, Inference — GMAT's core logic format." },
+      { topic: "Critical Reasoning", gmat: "✓ ~57%", gre: "Minimal", gmatColor: green, greColor: t.sem.amber, note: "Strengthen, Weaken, Assumption, Inference — GMAT's core logic format." },
       { topic: "Text Completion", gmat: "✗ not tested", gre: "✓ ~25%", gmatColor: red, greColor: red, note: "Fill in 1–3 blanks with the correct word — pure vocabulary, no logic shortcut." },
       { topic: "Sentence Equivalence", gmat: "✗ not tested", gre: "✓ ~15%", gmatColor: red, greColor: red, note: "Pick 2 of 6 words that create equivalent meaning — also pure vocabulary." },
-      { topic: "Analytical Writing (essay)", gmat: "✗ removed", gre: "✓ 30-min essay", gmatColor: red, greColor: this.state.dark ? "#c9a15a" : "#b8752e", note: "A formulaic, learnable structure — not primarily a test of literary skill." }
+      { topic: "Analytical Writing (essay)", gmat: "✗ removed", gre: "✓ 30-min essay", gmatColor: red, greColor: t.sem.amber, note: "A formulaic, learnable structure — not primarily a test of literary skill." }
     ];
 
     const actionSteps = [

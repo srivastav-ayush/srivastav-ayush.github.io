@@ -19,6 +19,10 @@
   gtag('js', new Date());
   gtag('config', 'G-XML0VEY6NS');
 </script>
+<link rel="icon" type="image/png" href="../assets/img/favicon-light.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<style>html{background:#faf7f0}html.dark-init{background:#181410}body{margin:0;background:inherit}</style>
+<script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}function __setFav(m){var h=m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png",l=document.querySelectorAll('link[rel="icon"]');for(var i=l.length-1;i>0;i--)l[i].parentNode.removeChild(l[i]);if(l[0])l[0].setAttribute("href",h);}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});document.addEventListener("DOMContentLoaded",function(){__setFav(__mq.matches);});if(window.MutationObserver&&document.head){new MutationObserver(function(){__setFav(__mq.matches);}).observe(document.head,{childList:true});}}catch(e){}</script>
 <script src="../support.js"></script>
 </head>
 <body>
@@ -26,15 +30,11 @@
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" id="favicon-icon" href="../assets/img/favicon-light.png">
-  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-  <script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}var __f=document.getElementById("favicon-icon");function __setFav(m){if(__f)__f.setAttribute("href",m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png");}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});}catch(e){}</script>
   <style>
-    html { background:#faf7f0; }
-    html.dark-init { background:#181410; }
-    body { margin:0; background:inherit; }
     a { color:inherit; text-decoration:none; }
     a:hover { color:var(--accent-hover); }
+    .skip-link { position:absolute; left:-9999px; top:0; z-index:900; }
+    .skip-link:focus { left:0; outline:3px solid var(--text); outline-offset:-3px; }
     .nav-link:hover { color:var(--accent-hover) !important; }
     .nav-links::-webkit-scrollbar { display:none; }
     ::selection { background:var(--selection-bg); color:var(--selection-text); }
@@ -60,6 +60,7 @@
 </helmet>
 
 <div style="{{ rootStyle }}">
+  <a href="#main" class="skip-link" style="background:var(--accent); color:var(--bg); padding:12px 20px; border-radius:0 0 8px 0; font-size:14px; font-weight:600;">Skip to content</a>
   <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
     <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
       <a href="../index.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
@@ -73,12 +74,14 @@
         <a href="../work/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
         <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
         <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
-        <a href="../writing/index.html" class="nav-link" style="color:var(--accent);">Writing</a>
+        <a href="../writing/index.html" class="nav-link" aria-current="page" style="color:var(--accent); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
         <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
       </div>
     </div>
   </nav>
   <div style="height:84px;"></div>
+
+  <main id="main">
 
   <section style="max-width:900px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 24px;">
     <h1 style="font-family:'Instrument Serif',serif; font-size:46px; font-weight:400; margin:0 0 16px;">Writing</h1>
@@ -86,7 +89,7 @@
   </section>
 
   <section style="max-width:900px; margin:0 auto; padding:0 clamp(16px,5vw,64px) 12px; display:flex; justify-content:flex-end;">
-    <button onClick="{{ toggleSort }}" style="border:1px solid var(--border-strong); background:none; cursor:pointer; padding:8px 16px; border-radius:8px; font-size:12.5px; font-weight:600; font-family:'JetBrains Mono',monospace; color:var(--text-muted); display:flex; align-items:center; gap:7px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+    <button onClick="{{ toggleSort }}" style="border:1px solid var(--border-strong); background:none; cursor:pointer; padding:11px 16px; border-radius:8px; font-size:12.5px; font-weight:600; font-family:'JetBrains Mono',monospace; color:var(--text-muted); display:flex; align-items:center; gap:7px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{ sortIconStyle }}"><path d="M3 6h18M6 12h12M10 18h4"></path></svg>
       {{ sortLabel }}
     </button>
@@ -108,6 +111,8 @@
   </section>
 
   <!-- FOOTER / CONTACT -->
+  </main>
+
   <footer style="background:var(--footer-bg); color:var(--footer-text); border-top:1px solid var(--footer-border);">
     <div style="max-width:1200px; margin:0 auto; padding:56px clamp(16px,5vw,64px) 32px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
       <div>
