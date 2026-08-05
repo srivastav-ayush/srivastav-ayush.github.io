@@ -1,0 +1,5 @@
+# Source material for the site — not part of the deployed build.
+uploads/
+site-deploy/
+.thumbnail
+.DS_Store

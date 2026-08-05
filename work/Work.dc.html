@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work & Projects — Ayush Srivastav</title>
-<meta name="description" content="Vehicle thermal and performance simulation projects at Volvo Group and Ola Electric, plus research in biomechanics, actuators, and materials.">
+<meta name="description" content="Vehicle thermal and performance simulation projects at Ola Electric, ECU cooling systems engineering at Volvo Group, and research in biomechanics, actuators, and materials.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Work & Projects — Ayush Srivastav">
-<meta property="og:description" content="Vehicle thermal and performance simulation projects at Volvo Group and Ola Electric, plus research in biomechanics, actuators, and materials.">
+<meta property="og:description" content="Vehicle thermal and performance simulation projects at Ola Electric, ECU cooling systems engineering at Volvo Group, and research in biomechanics, actuators, and materials.">
 <meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
 <meta property="og:url" content="https://srivastav-ayush.github.io/work/">
 <meta name="twitter:card" content="summary_large_image">
@@ -709,33 +709,33 @@ class Component extends DCLogic {
       orgName: "Ola Electric", orgLogo: "../assets/logos/ola-cropped.png",
       summary: "Predicting how far a vehicle can drive before thermal deration kicks in, across drive cycles.",
       role: "Built and owned the thermal deration prediction model",
-      stat: { value: "S1 platform", label: "full range modeled for thermal deration limits" },
+      stat: { value: "2", label: "vehicle platforms modeled for thermal deration (S1 and M1)" },
       process: [
         { step: "Problem", text: "Predict how far a rider can go before heat forces the vehicle to derate performance." },
         { step: "Approach", text: "Lumped-parameter and FE thermal models of battery, motor, MCU, and charger, integrated with the vehicle model." },
-        { step: "Result", text: "Defined how hard every vehicle in the S1 platform can run before heat forces it to pull back power — distance-to-deration numbers used to set product limits across ambient conditions and drive cycles." }
+        { step: "Result", text: "Defined how hard every vehicle in the S1 and M1 platforms can run before heat forces battery current deration — quantifying the hit to performance, range, and charging time across ambient conditions and drive cycles." }
       ],
-      meta: [{ label: "Product", value: "S1 platform" }, { label: "Timeline", value: "'22 – '23" }],
+      meta: [{ label: "Product", value: "S1 platform and M1 platform" }, { label: "Timeline", value: "'22 – '23" }],
       abstractSegments: [
         { text: "Push an EV hard enough and heat builds up in the ", kind: "plain" }, { text: "battery, motor, MCU, and charger", kind: "bold" },
-        { text: " faster than it can dissipate — forcing the vehicle to derate performance to protect the components, and leaving the rider wondering how much farther they can actually go. I built the thermal models behind that limit for Ola's entire ", kind: "plain" }, { text: "S1 platform", kind: "bold" },
-        { text: ", defining how hard each vehicle could run before heat pulled its performance back.", kind: "plain" }
+        { text: " faster than it can dissipate — forcing the vehicle to derate performance to protect the components, and leaving the rider wondering how much farther they can actually go. I built the thermal models behind that limit for Ola's ", kind: "plain" }, { text: "S1 and M1 platforms", kind: "bold" },
+        { text: ", quantifying how much of a hit performance, range, and charging time took as heat forced each vehicle to pull back power.", kind: "plain" }
       ],
       skills: [{ name: "GT Suite", note: "vehicle + thermal integration" }, { name: "MATLAB", note: "lumped-parameter thermal models" }], links: [] },
     { id: "battery-cht", logoShape: "wide", category: "work", tag: "Work Project", title: "Battery Thermal Management", year: 2024, img: "../assets/img/portfolio/batteryCHT-2.jpg", images: ["../assets/img/portfolio/batteryCHT-2.jpg","../assets/img/portfolio/batteryCHT-1.jpg","../assets/img/portfolio/batteryCHT-3.jpg","../assets/img/portfolio/batteryCHT-4.jpg","../assets/img/portfolio/batteryCHT-5.jpg"],
       orgName: "Ola Electric", orgLogo: "../assets/logos/ola-cropped.png",
       summary: "Cell-to-vehicle battery cooling: CFD-derived heat transfer coefficients feeding a 1D thermal model.",
       role: "Designed the cooling concept and led the CFD-to-1D handoff",
-      stat: { value: "M1 platform", label: "cell-to-vehicle cooling validated" },
+      stat: { value: "2", label: "vehicle platforms with cell-to-vehicle cooling validated (S1 and M1)" },
       process: [
         { step: "Problem", text: "Keep cell temperatures safe across the pack under varying coolant flow." },
         { step: "Approach", text: "Conjugate heat transfer CFD in StarCCM+ to derive heat transfer coefficients, fed into a 1D battery thermal model with a radiator circuit." },
-        { step: "Result", text: "Cold-plate cooling concept validated cell-to-vehicle for the M1 platform, and sized against real drive cycles." }
+        { step: "Result", text: "Cold-plate cooling concept validated cell-to-vehicle for the S1 and M1 platforms, and sized against real drive cycles." }
       ],
-      meta: [{ label: "Product", value: "M1 platform" }, { label: "Timeline", value: "'23 – '24" }],
+      meta: [{ label: "Product", value: "S1 platform and M1 platform" }, { label: "Timeline", value: "'23 – '24" }],
       abstractSegments: [
         { text: "Li-ion cells have a narrow safe operating temperature band — run them too hot and they degrade faster, and uneven coolant flow across the pack means some cells age faster than others. I validated a ", kind: "plain" }, { text: "cold-plate cooling", kind: "bold" },
-        { text: " concept from cell to vehicle level for Ola's ", kind: "plain" }, { text: "M1 platform", kind: "bold" }, { text: ".", kind: "plain" }
+        { text: " concept from cell to vehicle level across Ola's ", kind: "plain" }, { text: "S1 and M1 platforms", kind: "bold" }, { text: ".", kind: "plain" }
       ],
       skills: [{ name: "StarCCM+", note: "CFD heat transfer coefficients" }, { name: "GT Suite", note: "1D thermal + radiator circuit" }], links: [] },
     { id: "cartilage", logoShape: "wide-lg", category: "research", tag: "Research Project", title: "Articular cartilage regeneration", year: 2022, img: "../assets/img/portfolio/cartilage-1.jpg", images: ["../assets/img/portfolio/cartilage-1.jpg","../assets/img/portfolio/cartilage-2.jpg"],
@@ -745,46 +745,46 @@ class Component extends DCLogic {
       stat: { value: "2-way", label: "custom Abaqus–MATLAB co-simulation interface" },
       process: [
         { step: "Problem", text: "Simulate how cartilage regenerates inside a mechanically stimulated hydrogel scaffold." },
-        { step: "Approach", text: "Mechano-regulation algorithm for stem cell differentiation inside a poro-hyperelastic FE model, with a custom interface recalculating tissue properties as regeneration progressed." },
-        { step: "Result", text: "A working regeneration model supporting osteochondral defect repair research." }
+        { step: "Approach", text: "Mechano-regulation algorithm in MATLAB mapping local mechanical stimuli (shear strain and fluid velocity from Abaqus) to stem cell differentiation phenotype, with a Fortran poro-hyperelastic subroutine and a full Abaqus–MATLAB loop recalculating tissue properties every cycle." },
+        { step: "Result", text: "Found that mechanical loading drives differentiation toward fibrous tissue rather than hyaline cartilage at the joint surface — the outcome the Kelly–Prendergast mechano-regulation framework predicts for low-stiffness scaffolds — making the case for tuning scaffold stiffness in cartilage repair." }
       ],
       meta: [{ label: "Guide", value: "Dr. Satanik Mukherjee & Prof. Liesbet Geris" }, { label: "Timeline", value: "Jun '21 – Jan '22" }],
       abstractSegments: [
         { text: "Cartilage has ", kind: "plain" }, { text: "almost no capacity to heal itself", kind: "bold" },
         { text: " once damaged, which is why osteochondral defects are hard to treat — one proposed fix is a mechanically stimulated ", kind: "plain" }, { text: "hydrogel scaffold", kind: "bold" },
-        { text: " that encourages stem cells to differentiate and regenerate the tissue. As the sole developer of the simulation pipeline, I built the model connecting that regeneration process to the scaffold's changing material behavior.", kind: "plain" }
+        { text: " that encourages stem cells to differentiate and regenerate the tissue. As the sole developer of the simulation pipeline, I found that mechanical loading on the scaffold pushes differentiation toward fibrous tissue instead of hyaline cartilage — evidence for tuning scaffold stiffness rather than assuming stimulation alone is enough.", kind: "plain" }
       ],
-      skills: [{ name: "Abaqus", note: "poro-hyperelastic FE model" }, { name: "MATLAB", note: "co-simulation + property updates" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/Cartilage_hydrogel_regeneration", type: "github" }] },
+      skills: [{ name: "Abaqus", note: "poro-hyperelastic FE model" }, { name: "MATLAB", note: "co-simulation + property updates" }, { name: "Fortran", note: "poro-hyperelastic constitutive subroutine" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/Cartilage_hydrogel_regeneration", type: "github" }] },
     { id: "socketsense", category: "research", tag: "Research Project", title: "Socket Sense", titleUrl: "https://www.socketsense.eu/", year: 2021, img: "../assets/img/portfolio/socketsense-1.jpg", images: ["../assets/img/portfolio/socketsense-1.jpg","../assets/img/portfolio/socketsense-2.jpg","../assets/img/portfolio/socketsense-3.jpeg","../assets/img/portfolio/socketsense-4.jpg","../assets/img/portfolio/socketsense-5.jpg","../assets/img/portfolio/socketsense-6.jpg"],
       orgName: "KTH Royal Institute of Technology", orgLogo: "../assets/logos/kth.png",
       summary: "Pressure-distribution FEA of a transfemoral amputee's stump-socket interface.",
       role: "Remote Intern — Major Project Thesis; led the simulation and analysis",
-      stat: { value: "Full gait cycle", label: "pressure & contact force mapped across the cycle" },
+      stat: { value: "~35 kPa", label: "peak socket–stump interface pressure under combined donning and standing loads" },
       process: [
         { step: "Problem", text: "Understand pressure and load on a transfemoral amputee's stump inside a prosthetic socket." },
-        { step: "Approach", text: "Donning and dynamic-loading FE simulation of the socket–stump interface, driven by joint moments and forces from inverse gait dynamics." },
-        { step: "Result", text: "Pressure, contact force, and displacement maps across the gait cycle for the Socket Sense project." }
+        { step: "Approach", text: "Built an OpenSim transfemoral amputee model, ran inverse kinematics and dynamics on real gait-capture data, and fed the resulting joint forces into an ANSYS Workbench FE model of the socket–stump–femur assembly." },
+        { step: "Result", text: "Peak interface pressure of ~35 kPa and frictional stress of ~36 kPa mapped across donning and standing loads — quantifying pressure that had previously only been assumed." }
       ],
-      meta: [{ label: "Guide", value: "Dr. Suranjan Ottikkutti & Prof. Dejiu Chen" }, { label: "Timeline", value: "May '21 – Aug '21" }],
+      meta: [{ label: "Guide", value: "Dr. Suranjan Ram Ottikkutti & Prof. Dejiu Chen" }, { label: "Timeline", value: "May '21 – Aug '21" }],
       abstractSegments: [
         { text: "SocketSense is an ", kind: "plain" }, { text: "EU Horizon 2020", kind: "bold" },
-        { text: " project building sensor-embedded prosthetic sockets that read a residual limb's tissue changes in real time, aiming for a comfortable, tailored-fit socket within a single day. Within it, KTH's role was to model the biomechanics of the ", kind: "plain" }, { text: "socket–stump interface", kind: "bold" },
+        { text: " project building sensor-embedded prosthetic sockets that read a residual limb's tissue changes in real time — motivated by rejection rates as high as 60% among lower-limb prosthetic users — aiming for a comfortable, tailored-fit socket within a single day. Within it, KTH's role was to model the biomechanics of the ", kind: "plain" }, { text: "socket–stump interface", kind: "bold" },
         { text: " — the work behind my ", kind: "plain" }, { text: "Major Project Thesis", kind: "bold" }, { text: ".", kind: "plain" }
       ],
-      skills: [{ name: "ANSYS", note: "FE socket–stump simulation" }, { name: "OpenSim", note: "inverse dynamics of gait" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/socket-sense", type: "github" }, { label: "Major Project Thesis", url: "https://drive.google.com/file/d/1Iq8iHG-aLJQCsMoNtcDTl3kaXE3R4Z-n/view?usp=drive_link", type: "paper" }, { label: "White Paper", url: "https://www.socketsense.eu/publications/", type: "paper" }] },
+      skills: [{ name: "ANSYS", note: "socket–stump–femur FE model, frictional contact" }, { name: "OpenSim", note: "inverse kinematics & dynamics from gait data" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/socket-sense", type: "github" }, { label: "Major Project Thesis", url: "https://drive.google.com/file/d/1Iq8iHG-aLJQCsMoNtcDTl3kaXE3R4Z-n/view?usp=drive_link", type: "paper" }, { label: "White Paper", url: "https://www.socketsense.eu/publications/", type: "paper" }] },
     { id: "hyper-sphere", category: "research", tag: "Research Project", title: "Hyperelastic spherical actuator", year: 2021, img: "../assets/img/portfolio/hyper_sphere-1.jpg", images: ["../assets/img/portfolio/hyper_sphere-1.jpg","../assets/img/portfolio/hyper_sphere-2.jpg"],
       orgName: "MANIT Bhopal", orgLogo: "../assets/logos/manit.png",
       summary: "FEA of a hyperelastic spherical actuator for soft robotics and haptic feedback.",
       role: "Undergraduate researcher — built the analytical and FE model",
       stat: { value: "UHYPER", label: "custom Fortran subroutine for an Augmented Gent model" },
       process: [
-        { step: "Problem", text: "Model large hyperelastic deformation of a spherical balloon actuator for soft robotics." },
+        { step: "Problem", text: "Prior balloon-actuator models ignored rotation, despite it dominating motion in soft robotic arms." },
         { step: "Approach", text: "Analytical model under pressure and rotation, verified against FE simulation using a custom UHYPER Fortran subroutine in Abaqus." },
-        { step: "Result", text: "A validated actuator model applicable to haptic feedback for robot-assisted surgery." }
+        { step: "Result", text: "Increasing rotational speed from 0 to 240 rpm lowers the critical inflation pressure and amplifies stress at the inner periphery — analytical and FE results agreed closely across all cases." }
       ],
       meta: [{ label: "Guide", value: "Dr. Deepak Kumar & Dr. Vinod Yadav" }, { label: "Timeline", value: "Dec '20 – Apr '21" }],
       abstractSegments: [
-        { text: "Soft robotics and haptic feedback systems", kind: "bold" }, { text: " increasingly rely on hyperelastic actuators that can undergo huge, reversible deformation — but modeling that large deformation accurately, especially for a pressurized, rotating spherical shape, is difficult with standard material models. I built and verified an actuator model that holds up under both, with an eye toward ", kind: "plain" }, { text: "haptic feedback for robot-assisted surgery", kind: "bold" }, { text: ".", kind: "plain" }
+        { text: "Soft robotics and haptic feedback systems", kind: "bold" }, { text: " increasingly rely on hyperelastic actuators that can undergo huge, reversible deformation, but prior balloon-actuator models ignored rotation despite it dominating motion in soft robotic arms. I built an analytical model and verified it against FE simulation, showing that increasing rotational speed from ", kind: "plain" }, { text: "0 to 240 rpm", kind: "bold" }, { text: " lowers the critical inflation pressure and amplifies stress at the inner periphery.", kind: "plain" }
       ],
       skills: [{ name: "Abaqus CAE", note: "FE verification" }, { name: "MATLAB", note: "analytical model" }, { name: "Fortran", note: "UHYPER material subroutine" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/hyperelastic-spherical-actuator", type: "github" }, { label: "Journal Article (DOI)", url: "https://doi.org/10.1080/14484846.2022.2062882", type: "paper" }] },
     { id: "scaphoid", category: "research", tag: "Research Project", title: "Scaphoid Analysis", year: 2021, img: "../assets/img/portfolio/scaphoid-1.jpg", images: ["../assets/img/portfolio/scaphoid-1.jpg","../assets/img/portfolio/scaphoid-2.jpg","../assets/img/portfolio/scaphoid-3.jpg","../assets/img/portfolio/scaphoid-4.jpg","../assets/img/portfolio/scaphoid-5.jpg","../assets/img/portfolio/scaphoid-6.jpg"],
@@ -794,10 +794,10 @@ class Component extends DCLogic {
       stat: { value: "18", label: "fixation configurations analyzed" },
       process: [
         { step: "Problem", text: "Find the most stable K-wire / Herbert's-screw fixation for scaphoid fractures." },
-        { step: "Approach", text: "STL reconstruction from wrist CT DICOM data, then FEA across single-screw, screw+wire, and wire+wire configurations." },
-        { step: "Result", text: "Identified the configuration with maximum post-surgery stability across 18 fixation setups." }
+        { step: "Approach", text: "Built patient-specific FE models from CT scans of 12 wrists, reproduced the fracture mechanism at the scaphotrapeziotrapezoid joint, then compared 18 postoperative fixation configurations — single-screw, screw+wire, and wire+wire — under compression, distraction, and screw pre-load." },
+        { step: "Result", text: "Posteriorly directed single screws, parallel screw-and-K-wire, and proximally divergent two-K-wire configurations gave the best combined deformation and factor of safety — intraoperative guidance for surgeons when implant placement deviates from plan." }
       ],
-      meta: [{ label: "Guide", value: "Dr. John A. Santoshi & Prof. R.K. Dwivedi" }, { label: "Timeline", value: "Aug '20 – Jun '21" }],
+      meta: [{ label: "Guide", value: "Dr. John A. Santoshi & Prof. R.K. Dwivedi" }, { label: "Timeline", value: "Aug '20 – Jul '21" }],
       abstractSegments: [
         { text: "The scaphoid is the ", kind: "plain" }, { text: "most fractured bone in the wrist", kind: "bold" },
         { text: ", and one of the hardest to fix — its ", kind: "plain" }, { text: "blood supply runs backwards", kind: "bold" },
@@ -807,17 +807,17 @@ class Component extends DCLogic {
     { id: "ebaja", category: "academic", tag: "Academic Project", title: "eBAJA — All-Terrain Electric Vehicle", year: 2020, img: "../assets/img/portfolio/ebaja-1.jpg", images: ["../assets/img/portfolio/ebaja-1.jpg","../assets/img/portfolio/ebaja-2.jpg","../assets/img/portfolio/ebaja-3.jpg","../assets/img/portfolio/ebaja-4.jpg","../assets/img/portfolio/ebaja-5.jpg"],
       orgName: "MANIT Bhopal", orgLogo: "../assets/logos/manit.png",
       summary: "All-terrain EV design — steering geometry optimized for a tight turning radius.",
-      role: "Steering Design Head, SAE student chapter — designed the steering system",
+      role: "Steering Head, SAE student chapter — designed the steering system",
       stat: { value: "94%", label: "Ackermann percentage achieved" },
       process: [
         { step: "Problem", text: "Design a steering system for a tight 1.5 m turning radius without bump-steer or tie-rod buckling." },
-        { step: "Approach", text: "Reverse-Ackermann geometry optimized in Python, at a 128 mm/rev steering ratio." },
-        { step: "Result", text: "94% Ackermann percentage; All-India Rank 10 in the Virtuals round of SAEINDIA eBAJA 2020." }
+        { step: "Approach", text: "Reverse-Ackermann geometry with a leading-arm knuckle to keep tie rods in tension and prevent buckling, optimized in Python at a 128 mm/rev steering ratio; ANSYS-verified across rack, pinion, knuckle, and tie rods, and simulated in ADAMS Car to hold toe variation near zero across the bump/droop envelope." },
+        { step: "Result", text: "94% Ackermann percentage and 81.56 N parking steering effort; All-India Rank 10 among 55 teams nationally in the Virtuals round of SAEINDIA eBAJA 2020." }
       ],
       meta: [{ label: "Guide", value: "Prof. R.K. Mandloi" }, { label: "Timeline", value: "Mar '19 – Jan '20" }],
       abstractSegments: [
         { text: "SAE India's BAJA program", kind: "bold" }, { text: " challenges student teams to design, build, and race a single-seat, off-road all-terrain vehicle (ATV) to a strict rulebook, judged on both engineering design and performance over rough terrain. As Steering Design Head for MANIT's eBAJA team, I designed the steering system for our entry — a ", kind: "plain" }, { text: "reverse-Ackermann geometry", kind: "bold" },
-        { text: " that helped the vehicle secure All-India Rank 10 in the Virtuals round of SAEINDIA eBAJA 2020.", kind: "plain" }
+        { text: " with a leading-arm knuckle to keep the tie rods in tension — that helped the vehicle secure All-India Rank 10 among 55 teams nationally in the Virtuals round of SAEINDIA eBAJA 2020.", kind: "plain" }
       ],
       skills: [{ name: "ANSYS", note: "structural checks" }, { name: "SolidWorks", note: "steering assembly CAD" }, { name: "MSC Adams (Car)", note: "kinematic simulation" }, { name: "Python", note: "Ackermann optimization" }], links: [{ label: "Ackerman Optimization", url: "https://github.com/srivastav-ayush/Ackerman-Optimization", type: "github" }, { label: "Steering Report", url: "https://drive.google.com/file/d/1_FXMnYLBdtmolq2vrURyv_HLNYWm70AB/view?usp=drive_link", type: "paper" }] },
     { id: "fgm-cyl", category: "academic", tag: "Academic Project", title: "FEA of FGM Cylinder", year: 2021, img: "../assets/img/portfolio/fgm_cyl-1.jpeg", images: ["../assets/img/portfolio/fgm_cyl-1.jpeg","../assets/img/portfolio/fgm_cyl-2.jpg","../assets/img/portfolio/fgm_cyl-3.jpeg"],
@@ -826,9 +826,9 @@ class Component extends DCLogic {
       role: "Undergraduate researcher — led the comparative FGM study, published as a journal article",
       stat: { value: "2", label: "grading functions compared (power vs. exponential)" },
       process: [
-        { step: "Problem", text: "Reduce stress concentration in pressurized, rotating cylinders." },
+        { step: "Problem", text: "Reduce stress concentration in cylinders under combined pressure and rotation — a loading case prior FGM studies had only modeled separately." },
         { step: "Approach", text: "FEA of functionally graded material cylinders under power-function vs. exponential-function property grading." },
-        { step: "Result", text: "Exponential grading handles stress better; published in Advances in Materials and Processing Technologies." }
+        { step: "Result", text: "Exponential grading inverted the circumferential stress distribution relative to an isotropic cylinder, cut overall radial stress, and gave the lowest hoop stress of the three material definitions; published in Advances in Materials and Processing Technologies." }
       ],
       meta: [{ label: "Guide", value: "Dr. Vinod Yadav" }, { label: "Timeline", value: "May '20 – Jul '20" }],
       abstractSegments: [
@@ -837,7 +837,7 @@ class Component extends DCLogic {
         { text: "functionally graded material (FGM)", kind: "bold" },
         { text: " cylinder handle that stress more efficiently than an isotropic one. I compared two ways of defining that grading \u2014 power function and ", kind: "plain" },
         { text: "exponential function", kind: "bold" },
-        { text: " \u2014 under combined pressure and rotation, with the exponential function found to handle stress better.", kind: "plain" }
+        { text: " \u2014 under combined pressure and rotation, with the exponential function inverting the circumferential stress distribution relative to an isotropic cylinder and giving the lowest hoop stress of the three.", kind: "plain" }
       ],
       skills: [{ name: "Abaqus CAE", note: "FE cylinder model" }, { name: "MATLAB", note: "grading function definitions" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/fgm-cylinder", type: "github" }, { label: "Minor Project Thesis", url: "https://drive.google.com/file/d/18li0QySujtvvRewaTtC9c4skQOUFHiYL/view?usp=drive_link", type: "paper" }, { label: "Journal Article (DOI)", url: "https://doi.org/10.1080/2374068X.2021.1945274", type: "paper" }] },
     { id: "passion-placeholder", category: "passion", tag: "Passion Project", title: "Your next passion project", year: 2026, img: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='400' height='300' fill='%23f2e2ec'/><text x='200' y='158' font-family='Arial,sans-serif' font-size='20' fill='%23a34a82' text-anchor='middle'>Add project image</text></svg>",
@@ -849,17 +849,17 @@ class Component extends DCLogic {
       orgName: "MANIT Bhopal", orgLogo: "../assets/logos/manit.png",
       summary: "Inverse estimation of cutting forces in ultrasonic vibration-assisted turning.",
       role: "Undergraduate researcher — built the inverse model and optimization routine",
-      stat: { value: "SQP", label: "optimization method used to fit experimental data" },
+      stat: { value: "<2%", label: "agreement recovering all three parameters across three independent optimization approaches" },
       process: [
         { step: "Problem", text: "Estimate material-dependent parameters and friction in ultrasonic vibration-assisted turning without direct measurement." },
         { step: "Approach", text: "Inverse method using normal force, friction force, and tool-chip contact length from conventional turning, optimized via sequential quadratic programming." },
-        { step: "Result", text: "Parametric model fit to experimental data; published in the Journal of The Institution of Engineers (India)." }
+        { step: "Result", text: "Recovered all three parameters within 2% agreement across three independent optimization approaches; friction coefficient rose monotonically with vibration frequency, more sharply at low amplitudes than high." }
       ],
       meta: [{ label: "Guide", value: "Dr. Vinod Yadav" }, { label: "Timeline", value: "Feb '20 – May '20" }],
       abstractSegments: [
         { text: "Ultrasonic vibration-assisted turning (UVAT)", kind: "bold" },
-        { text: " overlays high-frequency vibration on a conventional turning tool, cutting tool wear and improving surface finish compared to conventional turning — but predicting how much a given material benefits from it requires material-dependent parameters and friction coefficients that can't be measured directly during machining. I developed an inverse method, optimized via ", kind: "plain" }, { text: "sequential quadratic programming (SQP)", kind: "bold" },
-        { text: ", to back those parameters out from measurable turning data.", kind: "plain" }
+        { text: " overlays high-frequency vibration on a conventional turning tool, cutting tool wear and improving surface finish compared to conventional turning — but predicting how much a given material benefits from it requires material-dependent parameters and friction coefficients that can't be measured directly during machining, and prior work had only estimated friction alone. I developed an inverse method, optimized via ", kind: "plain" }, { text: "sequential quadratic programming (SQP)", kind: "bold" },
+        { text: ", to recover all three parameters simultaneously from measurable turning data.", kind: "plain" }
       ],
       skills: [{ name: "MATLAB", note: "inverse modeling + SQP optimization" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/inverse-uvat", type: "github" }, { label: "Journal Article (DOI)", url: "https://doi.org/10.1007/s40032-022-00813-z", type: "paper" }] }
   ];

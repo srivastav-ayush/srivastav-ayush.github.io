@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISB vs IIM A/B/C: The Salary Where the Cheaper Option Flips — Ayush Srivastav</title>
+<meta name="description" content="A full fee, opportunity-cost, and loan-financed comparison of ISB's one-year MBA against IIM Ahmedabad, Bangalore, and Calcutta's two-year programs — with interactive sliders for your salary, raises, loan, and payback timeline.">
+<link rel="canonical" href="https://srivastav-ayush.github.io/writing/ISB-vs-IIM-Cost-Comparison.dc.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ISB vs IIM A/B/C: The Salary Where the Cheaper Option Flips — Ayush Srivastav">
+<meta property="og:description" content="A full fee, opportunity-cost, and loan-financed comparison of ISB's one-year MBA against IIM Ahmedabad, Bangalore, and Calcutta's two-year programs — with interactive sliders for your salary, raises, loan, and payback timeline.">
+<meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
+<meta property="og:url" content="https://srivastav-ayush.github.io/writing/ISB-vs-IIM-Cost-Comparison.dc.html">
+<meta name="twitter:card" content="summary_large_image">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XML0VEY6NS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XML0VEY6NS');
+</script>
+<link rel="icon" type="image/png" href="../assets/img/favicon-light.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<style>html{background:#faf7f0}html.dark-init{background:#181410}body{margin:0;background:inherit}</style>
+<script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}function __setFav(m){var h=m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png",l=document.querySelectorAll('link[rel="icon"]');for(var i=l.length-1;i>0;i--)l[i].parentNode.removeChild(l[i]);if(l[0])l[0].setAttribute("href",h);}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});document.addEventListener("DOMContentLoaded",function(){__setFav(__mq.matches);});if(window.MutationObserver&&document.head){new MutationObserver(function(){__setFav(__mq.matches);}).observe(document.head,{childList:true});}}catch(e){}</script>
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    a { color:inherit; text-decoration:none; }
+    a:hover { color:var(--accent-hover); }
+    .skip-link { position:absolute; left:-9999px; top:0; z-index:900; }
+    .skip-link:focus { left:0; outline:3px solid var(--text); outline-offset:-3px; }
+    .nav-link:hover { color:var(--accent-hover) !important; }
+    .nav-links::-webkit-scrollbar { display:none; }
+    ::selection { background:var(--selection-bg); color:var(--selection-text); }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+    .art-table { width:100%; border-collapse:collapse; font-family:'Archivo',sans-serif; font-size:13.5px; }
+    .art-table thead th { position:sticky; top:0; z-index:2; background:var(--text); color:var(--bg); }
+    .art-table th, .art-table td { padding:10px 12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--border); }
+    .art-table-compact { table-layout:fixed; }
+    .art-table-compact th, .art-table-compact td { padding:8px 9px; font-size:12px; line-height:1.4; word-break:break-word; white-space:normal; }
+    .art-slider { -webkit-appearance:none; appearance:none; width:100%; height:5px; border-radius:3px; background:var(--border-strong); outline:none; margin:0; }
+    .art-slider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%; background:var(--accent); cursor:pointer; border:3px solid var(--bg-card); box-shadow:0 1px 4px rgba(0,0,0,.3); }
+    .art-slider::-moz-range-thumb { width:20px; height:20px; border-radius:50%; background:var(--accent); cursor:pointer; border:3px solid var(--bg-card); box-shadow:0 1px 4px rgba(0,0,0,.3); }
+    .fee-card { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+    .fee-card-hdr { padding:14px 18px; border-bottom:1px solid var(--border); }
+    .fee-row { display:flex; justify-content:space-between; gap:10px; padding:6px 0; border-bottom:1px solid var(--border); font-size:12.5px; }
+    .fee-row:last-child { border-bottom:none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration:0.001ms !important; animation-delay:0ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+      .reveal-card { opacity:1 !important; transform:none !important; }
+    }
+    @media print {
+      @page { margin:14mm; }
+      html, body { background:#ffffff !important; }
+      *, *::before, *::after { animation:none !important; transition:none !important; box-shadow:none !important; }
+      .reveal-card { opacity:1 !important; transform:none !important; }
+      div[style*="--bg:"] { --bg:#ffffff !important; --bg-alt:#ffffff !important; --bg-card:#ffffff !important; --bg-chip:#f2f0eb !important; --text:#14110d !important; --text-body:#33302a !important; --text-muted:#4d483f !important; --text-faint:#4d483f !important; --border:#c9c4b8 !important; --border-strong:#b3ada0 !important; --accent:#134a80 !important; --accent-hover:#134a80 !important; --btn-bg:#14110d !important; --btn-text:#ffffff !important; --footer-bg:#ffffff !important; --footer-text:#14110d !important; --footer-text-muted:#4d483f !important; --footer-border:#c9c4b8 !important; --nav-bg:#ffffff !important; }
+      nav { position:static !important; background:#ffffff !important; backdrop-filter:none !important; }
+      button[aria-label="Toggle dark mode"], input[type="range"], [data-print-hide] { display:none !important; }
+      a { text-decoration:none !important; }
+      footer { margin-top:16px !important; border-top:1px solid #c9c4b8 !important; }
+      section, article, table, tr, .reveal-card { break-inside:avoid; page-break-inside:avoid; }
+      h1, h2, h3 { break-after:avoid; page-break-after:avoid; }
+    }
+  </style>
+</helmet>
+
+<div style="{{ rootStyle }}">
+  <a href="#main" class="skip-link" style="background:var(--accent); color:var(--bg); padding:12px 20px; border-radius:0 0 8px 0; font-size:14px; font-weight:600;">Skip to content</a>
+  <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
+      <a href="../index.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
+        <div style="display:flex; align-items:baseline;">
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text); letter-spacing:-1px;">A</span>
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--accent); letter-spacing:-1px; margin-left:-4px;">S</span><span style="font-family:'Instrument Serif',serif; font-size:30px; line-height:1; color:var(--accent); margin-left:1px;">.</span>
+        </div>
+        <div style="width:32px; height:1.5px; background:var(--accent);"></div>
+      </a>
+      <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
+        <a href="../work/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
+        <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
+        <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
+        <a href="../writing/index.html" class="nav-link" aria-current="true" style="color:var(--accent); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
+        <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
+      </div>
+    </div>
+  </nav>
+  <div style="height:84px;"></div>
+
+  <main id="main">
+
+  <article style="max-width:760px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 100px;">
+    <a href="../writing/index.html" onClick="{{ handleBack }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; margin-bottom:28px;">← Back to Writing</a>
+
+    <div ref="{{ titleRef }}">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--tag); margin-bottom:14px;">Education</div>
+    <h1 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(30px,5vw,46px); line-height:1.15; margin:0 0 18px; color:var(--text);">ISB vs IIM A/B/C: The Salary Where the Cheaper Option Flips</h1>
+    <p style="font-size:18px; line-height:1.6; color:var(--text-body); margin:0;">A full fee, opportunity-cost, and loan-financed comparison of ISB's one-year MBA against IIM Ahmedabad, Bangalore, and Calcutta's two-year programs — with interactive sliders for your salary, your assumed raises, your loan, and how long until you're ahead of where you'd have been anyway.</p>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:14px; margin-top:26px; padding-top:20px; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); animation:fadeInUp 0.4s ease both;">
+      <span>By Ayush</span><span>·</span><span>14 min read</span><span>·</span><span>August 2026</span>
+    </div>
+
+    <div style="font-size:17px; line-height:1.8; color:var(--text-body); margin-top:40px; animation:fadeInUp 0.4s ease 0.05s both;">
+
+      <p style="margin:0 0 22px;">Most comparisons between ISB and the IIMs start and end with admission difficulty or brand pull. Cost is the one variable that actually has a computable answer: what a program costs once you add its fees to the salary you give up to attend it, and at what income that math tips in favour of one over the other. <strong style="color:var(--text);">That crossover isn't fixed.</strong> ISB packs its MBA into one year; IIM Ahmedabad, Bangalore, and Calcutta spread theirs across two. A shorter program with a higher fee trades against a longer one with a lower fee — and which side wins depends on the salary being given up, the raise you assume you'd otherwise have gotten, and how much of the fee you borrow.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:16px;">
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">ISB total programme cost</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">₹45.1L</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Fees plus living costs for the one-year PGP — the highest sticker price of the four.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">IIM A/B/C total cost</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--accent); line-height:1;">₹31–32L</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">₹13–14L below ISB in fees, and nearly identical across all three institutes.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Crossover salary</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">≈₹12–13L</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">In cash terms, at a 10% assumed annual raise — the default below. Adjust it to see your own.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Placement gap, 2024–25</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:var(--text); line-height:1;">&lt;₹1.5L</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Average outcomes across all four are close enough that cost, not salary premium, decides.</div>
+        </div>
+      </div>
+      <p style="font-size:13.5px; color:var(--text-faint); font-style:italic; margin:0 0 34px; text-align:center;">Every chart and table below is interactive — drag the sliders to run the numbers on your own salary, raises, loan, and expected post-MBA offer.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Why the sticker fee is the wrong comparison</h2>
+      <p style="margin:0 0 16px;">ISB compresses its MBA into twelve months; the IIMs spread theirs over twenty-four. Compared purely on fees, ISB's ₹45L looks far more expensive than any IIM's ₹31–32L — but that ₹45L buys one year on campus, not two. ISB is also a private institution and charges 18% GST on tuition and accommodation, a cost the IIMs, as government-classified institutes, don't carry at all.</p>
+
+      <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact" style="min-width:560px;">
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th style="border-bottom:none; width:20%;">Programme</th><th style="border-bottom:none; width:10%;">Duration</th><th style="border-bottom:none; width:24%;">Tuition & fees</th><th style="border-bottom:none; width:14%;">Mess</th><th style="border-bottom:none; width:14%;">Living (personal)</th><th style="border-bottom:none; width:18%;">Total programme cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ feeTableRows }}" as="f" hint-placeholder-count="4">
+              <tr>
+                <td style="font-weight:600; color:var(--text);">{{ f.name }}</td>
+                <td style="color:var(--text-body);">{{ f.duration }}</td>
+                <td style="color:var(--text-body);">{{ f.tuitionFees }}</td>
+                <td style="color:var(--text-body);">{{ f.mess }}</td>
+                <td style="color:var(--text-body);">{{ f.living }}</td>
+                <td style="color:{{ f.totalColor }}; font-weight:700;">{{ f.totalLabel }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> ISB's fee premium over any IIM is ₹13–14L, and roughly ₹5.3L of that is GST alone — a structural cost of being a private institution that none of the IIMs pay. On living costs: ISB's ₹6.45L figure is its own official estimate for a single year of personal expenses — food outside the mess, a laptop, travel between Hyderabad and Mohali, clothing, and networking — kept separate from accommodation, which is already inside its tuition & fees line. The IIMs' living figures (₹3.5–4.5L) cover the same kind of spending, but over two years, with hostel already bundled into their fee. Per year, ISB's living estimate is genuinely higher than any IIM's — that's what each school's own numbers say a year there costs, not a calculation error.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The other half of the bill: foregone salary</h2>
+      <p style="margin:0 0 16px;">A year spent studying is a year of salary not earned. For ISB's one-year programme, that's one year of your current pay. For a two-year IIM programme, it's two years — and the second of those would typically have paid more, had you stayed employed and kept getting raises. Set the annual raise you'd assume for that alternate path below; it feeds every calculation from here on.</p>
+
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px 22px; margin-bottom:16px;">
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:6px 0;">
+          <label for="preIncSlider" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:190px; flex-shrink:0;">Assumed annual raise, had you stayed</label>
+          <input id="preIncSlider" type="range" class="art-slider" min="0" max="20" step="1" value="{{ preIncrement }}" onChange="{{ setPreIncrement }}" style="flex:1; min-width:120px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:800; color:var(--text); width:52px; text-align:right; flex-shrink:0;">{{ preIncrement }}%</div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-body); line-height:1.9; margin-top:10px; background:var(--bg-chip); border-radius:8px; padding:14px 16px;">
+          Foregone salary (ISB) = 1 × current salary<br>
+          Foregone salary (IIM) = current salary + current salary × (1 + {{ preIncrement }}%) = {{ oppFactorLabel }} × current salary
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:34px;">
+        <sc-for list="{{ crossoverCards }}" as="c" hint-placeholder-count="3">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px; text-align:center;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Crossover vs {{ c.name }}</div>
+            <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:22px; color:var(--text);">{{ c.value }}</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-top:4px;">ISB cheaper above this salary</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">See it for your own salary</h2>
+      <p style="margin:0 0 16px;">Every number below is <strong style="color:var(--text);">total cost</strong> — programme fee plus the salary given up while studying — not the fee alone. That's why the ISB and IIM figures shift as you move the slider: they're recalculated for that salary each time, using the {{ preIncrement }}% raise assumption set above.</p>
+
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:22px 24px; margin-bottom:16px;">
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:6px 0;">
+          <label for="salarySlider" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:140px; flex-shrink:0;">Current salary</label>
+          <input id="salarySlider" type="range" class="art-slider" min="6" max="40" step="1" value="{{ salary }}" onChange="{{ setSalary }}" style="flex:1; min-width:120px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:800; color:var(--text); width:62px; text-align:right; flex-shrink:0;">₹{{ salary }}L</div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(100px,1fr)); gap:10px; margin:16px 0 4px;">
+          <sc-for list="{{ cashCards }}" as="c" hint-placeholder-count="4">
+            <div style="background:var(--bg-chip); border-radius:8px; padding:12px 10px; text-align:center; border:2px solid {{ c.borderColor }};">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">{{ c.name }}</div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:800; color:{{ c.valueColor }};">₹{{ c.value }}L</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin-top:10px; padding:12px 16px; border-radius:8px; background:var(--bg-chip); border-left:4px solid {{ cashCmp.color }}; font-weight:700; font-size:14.5px; color:{{ cashCmp.color }};">{{ cashCmp.label }}</div>
+        <div style="margin-top:20px;">
+          <svg viewBox="{{ cashChart.viewBox }}" style="width:100%; height:190px; display:block;">
+            {{ cashChart.xAxis }}
+            {{ cashChart.yAxis }}
+            <line x1="{{ cashChart.markerX }}" y1="{{ cashChart.top }}" x2="{{ cashChart.markerX }}" y2="{{ cashChart.bottom }}" stroke="var(--text-faint)" strokeWidth="1.5" strokeDasharray="3,3"></line>
+            <polyline points="{{ cashChart.lines.iima }}" fill="none" stroke="var(--text-faint)" strokeWidth="2" strokeDasharray="5,4"></polyline>
+            <polyline points="{{ cashChart.lines.iimb }}" fill="none" stroke="var(--text-muted)" strokeWidth="2"></polyline>
+            <polyline points="{{ cashChart.lines.iimc }}" fill="none" stroke="var(--sem-green)" strokeWidth="2.5"></polyline>
+            <polyline points="{{ cashChart.lines.isb }}" fill="none" stroke="var(--accent)" strokeWidth="3"></polyline>
+          </svg>
+          <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:6px; padding:0 4px;">
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:10px; height:10px; border-radius:50%; background:var(--accent); display:inline-block;"></span>ISB</span>
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:10px; height:10px; border-radius:50%; background:var(--text-faint); display:inline-block;"></span>IIM A</span>
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:10px; height:10px; border-radius:50%; background:var(--text-muted); display:inline-block;"></span>IIM B</span>
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:10px; height:10px; border-radius:50%; background:var(--sem-green); display:inline-block;"></span>IIM C</span>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin:0 0 16px;">Or scan the full range of salaries at once, at the {{ preIncrement }}% raise assumption:</p>
+      <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact" style="min-width:560px;">
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th style="border-bottom:none; width:14%;">Current salary</th><th style="border-bottom:none; width:14%;">ISB total cost</th><th style="border-bottom:none; width:14%;">IIM A total cost</th><th style="border-bottom:none; width:14%;">IIM B total cost</th><th style="border-bottom:none; width:14%;">IIM C total cost</th><th style="border-bottom:none; width:30%;">Cheaper option, and by how much</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ costRows }}" as="c" hint-placeholder-count="0">
+              <tr>
+                <td style="font-weight:700; color:var(--text);">{{ c.salLabel }}</td>
+                <td style="color:var(--text-body); font-family:'JetBrains Mono',monospace;">₹{{ c.isb }}L</td>
+                <td style="color:var(--text-body); font-family:'JetBrains Mono',monospace;">₹{{ c.iima }}L</td>
+                <td style="color:var(--text-body); font-family:'JetBrains Mono',monospace;">₹{{ c.iimb }}L</td>
+                <td style="color:var(--text-body); font-family:'JetBrains Mono',monospace;">₹{{ c.iimc }}L</td>
+                <td style="color:{{ c.color }}; font-weight:700;">{{ c.label }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Each column is the fee plus that row's salary times the opportunity-cost multiplier — not the fee alone, which is why every cell in a column changes as salary changes. Below the crossover point an IIM is cheaper; above it, ISB is; the exact number depends on the raise assumption you set above.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Financing with a loan pushes the crossover higher</h2>
+      <p style="margin:0 0 16px;">Set the actual rupee amount you'd borrow — not a percentage of the fee, since ISB and the IIMs have different total costs, so the same loan covers a different share of each. If the amount you enter is more than a school's total cost, it's capped there (you can't borrow more than the program costs). Moratorium is assumed to match each program's length — one year for ISB, two for the IIMs — before EMI repayment begins; set it to ₹0 to see the cash-only picture.</p>
+
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:22px 24px; margin-bottom:16px;">
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:6px 0;">
+          <label for="loanAmtSlider" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:140px; flex-shrink:0;">Loan amount</label>
+          <input id="loanAmtSlider" type="range" class="art-slider" min="0" max="46" step="1" value="{{ loanAmount }}" onChange="{{ setLoanAmount }}" style="flex:1; min-width:120px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:800; color:var(--text); width:62px; text-align:right; flex-shrink:0;">₹{{ loanAmount }}L</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:6px 0;">
+          <label for="loanRateSlider" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:140px; flex-shrink:0;">Interest rate, p.a.</label>
+          <input id="loanRateSlider" type="range" class="art-slider" min="6" max="15" step="0.5" value="{{ loanRate }}" onChange="{{ setLoanRate }}" style="flex:1; min-width:120px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:800; color:var(--text); width:62px; text-align:right; flex-shrink:0;">{{ loanRate }}%</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:6px 0;">
+          <label for="loanYearsSlider" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:140px; flex-shrink:0;">Repayment years</label>
+          <input id="loanYearsSlider" type="range" class="art-slider" min="1" max="10" step="1" value="{{ loanYears }}" onChange="{{ setLoanYears }}" style="flex:1; min-width:120px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:800; color:var(--text); width:62px; text-align:right; flex-shrink:0;">{{ loanYears }} yr</div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(100px,1fr)); gap:10px; margin:16px 0 4px;">
+          <sc-for list="{{ loanCards }}" as="c" hint-placeholder-count="4">
+            <div style="background:var(--bg-chip); border-radius:8px; padding:12px 10px; text-align:center; border:2px solid {{ c.borderColor }};">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">{{ c.name }}</div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:800; color:{{ c.valueColor }};">₹{{ c.value }}L</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin-top:10px; padding:12px 16px; border-radius:8px; background:var(--bg-chip); border-left:4px solid {{ loanCmp.color }}; font-weight:700; font-size:14.5px; color:{{ loanCmp.color }};">{{ loanCmp.label }}</div>
+        <div style="margin-top:20px;">
+          <svg viewBox="{{ loanChart.viewBox }}" style="width:100%; height:190px; display:block;">
+            {{ loanChart.xAxis }}
+            {{ loanChart.yAxis }}
+            <line x1="{{ loanChart.markerX }}" y1="{{ loanChart.top }}" x2="{{ loanChart.markerX }}" y2="{{ loanChart.bottom }}" stroke="var(--text-faint)" strokeWidth="1.5" strokeDasharray="3,3"></line>
+            <polyline points="{{ loanChart.lines.iima }}" fill="none" stroke="var(--text-faint)" strokeWidth="2" strokeDasharray="5,4"></polyline>
+            <polyline points="{{ loanChart.lines.iimb }}" fill="none" stroke="var(--text-muted)" strokeWidth="2"></polyline>
+            <polyline points="{{ loanChart.lines.iimc }}" fill="none" stroke="var(--sem-green)" strokeWidth="2.5"></polyline>
+            <polyline points="{{ loanChart.lines.isb }}" fill="none" stroke="var(--accent)" strokeWidth="3"></polyline>
+          </svg>
+          <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:6px; padding:0 4px;">
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:10px; height:10px; border-radius:50%; background:var(--accent); display:inline-block;"></span>ISB</span>
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:10px; height:10px; border-radius:50%; background:var(--text-faint); display:inline-block;"></span>IIM A</span>
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:10px; height:10px; border-radius:50%; background:var(--text-muted); display:inline-block;"></span>IIM B</span>
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:10px; height:10px; border-radius:50%; background:var(--sem-green); display:inline-block;"></span>IIM C</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact" style="min-width:560px;">
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th style="border-bottom:none; width:22%;">Programme</th><th style="border-bottom:none; width:16%;">Loan principal</th><th style="border-bottom:none; width:16%;">Interest paid</th><th style="border-bottom:none; width:16%;">All-in cost, ₹{{ salary }}L salary</th><th style="border-bottom:none; width:30%;">Cash-only total cost (no loan), same salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ loanRows }}" as="l" hint-placeholder-count="0">
+              <tr>
+                <td style="font-weight:600; color:var(--text);">{{ l.name }}</td>
+                <td style="color:var(--text-body);">{{ l.principal }}</td>
+                <td style="color:var(--text-body);">{{ l.interest }}</td>
+                <td style="color:{{ l.allinColor }}; font-weight:700;">{{ l.allin }}</td>
+                <td style="color:var(--text-faint);">{{ l.cashOnly }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Because ISB's fee is larger, the same rupee loan amount leaves a smaller cash balance to pay upfront — but it also compounds over one year of moratorium instead of two, which partly offsets its larger principal. Compare the "all-in cost" column against "cash-only" to see exactly what the loan adds for each school at your salary. Note this table, like the sections above it, compares pre-tax CTC figures — the way salaries are usually quoted. Section 80E lets borrowers deduct education-loan interest from taxable income for eight years, but only under the old tax regime; it isn't available under the new regime used in the post-tax section below, so it isn't factored in anywhere on this page.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">How long until you're actually ahead</h2>
+      <p style="font-size:14px; color:var(--text-faint); font-style:italic; margin:0 0 16px;">Everything above this point compares pre-tax CTC. From here on, figures are post-tax take-home — a different and more literal question: how much money is actually in your hand.</p>
+      <p style="margin:0 0 16px;">This tracks two running pools of money from the day the MBA would start. <strong style="color:var(--text);">Stay-employed pool:</strong> every month's post-tax salary, growing at the raise you set above, simply accumulates — nothing is ever spent from it in this comparison. <strong style="color:var(--text);">MBA pool:</strong> starts negative, down by the cash you pay upfront (the fee minus whatever you loan). During the programme itself you earn nothing, so it stays flat while the stay-employed pool keeps growing — the gap is widest right at graduation. After graduating, your post-tax post-MBA salary (growing at the raise you set below) starts adding in, minus the EMI for as long as you're repaying it. The question below is: after how many years does the MBA pool catch up to and overtake the stay-employed pool?</p>
+
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:22px 24px; margin-bottom:16px;">
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:6px 0;">
+          <label for="postSalarySlider" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:190px; flex-shrink:0;">Post-MBA starting salary</label>
+          <input id="postSalarySlider" type="range" class="art-slider" min="15" max="60" step="1" value="{{ postSalary }}" onChange="{{ setPostSalary }}" style="flex:1; min-width:120px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:800; color:var(--text); width:62px; text-align:right; flex-shrink:0;">₹{{ postSalary }}L</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:6px 0;">
+          <label for="postIncSlider" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:190px; flex-shrink:0;">Post-MBA annual raise</label>
+          <input id="postIncSlider" type="range" class="art-slider" min="0" max="20" step="1" value="{{ postIncrement }}" onChange="{{ setPostIncrement }}" style="flex:1; min-width:120px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:800; color:var(--text); width:62px; text-align:right; flex-shrink:0;">{{ postIncrement }}%</div>
+        </div>
+        <p style="font-size:12px; color:var(--text-faint); font-family:'JetBrains Mono',monospace; margin:8px 0 4px;">Using your ₹{{ salary }}L current salary at a {{ preIncrement }}% raise, and a ₹{{ loanAmount }}L loan at {{ loanRate }}% over {{ loanYears }} years, all set above. All figures post-tax (new regime).</p>
+
+        <div style="margin-top:16px; overflow-x:auto;">
+          <table class="art-table art-table-compact" style="min-width:520px;">
+            <thead>
+              <tr style="background:var(--text); color:var(--bg);">
+                <th style="border-bottom:none; width:16%;">Programme</th><th style="border-bottom:none; width:17%;">Total fee</th><th style="border-bottom:none; width:17%;">Loan amount</th><th style="border-bottom:none; width:17%;">Cash paid upfront</th><th style="border-bottom:none; width:16%;">Monthly EMI</th><th style="border-bottom:none; width:17%;">Behind by, at graduation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{ wealthRows }}" as="n" hint-placeholder-count="0">
+                <tr>
+                  <td style="font-weight:600; color:var(--text);">{{ n.name }}</td>
+                  <td style="color:var(--text-body);">{{ n.totalFee }}</td>
+                  <td style="color:var(--text-body);">{{ n.loanUsed }}</td>
+                  <td style="color:var(--text-body);">{{ n.cashUpfront }}</td>
+                  <td style="color:var(--text-body);">{{ n.emiMonthly }}</td>
+                  <td style="color:{{ n.gapAtGradColor }}; font-weight:700;">{{ n.gapAtGrad }}</td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:10px; overflow-x:auto;">
+          <table class="art-table art-table-compact" style="min-width:420px;">
+            <thead>
+              <tr style="background:var(--text); color:var(--bg);">
+                <th style="border-bottom:none; width:20%;">Programme</th><th style="border-bottom:none; width:27%;">Pre-MBA in-hand/mo</th><th style="border-bottom:none; width:27%;">Post-MBA gross/mo</th><th style="border-bottom:none; width:26%;">Post-MBA in-hand after EMI/mo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{ wealthRows }}" as="n" hint-placeholder-count="0">
+                <tr>
+                  <td style="font-weight:600; color:var(--text);">{{ n.name }}</td>
+                  <td style="color:var(--text-body);">{{ n.preInHand }}</td>
+                  <td style="color:var(--text-body);">{{ n.postGross }}</td>
+                  <td style="color:{{ n.postInHandColor }}; font-weight:700;">{{ n.postInHand }}</td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:20px;">
+          <svg viewBox="{{ wealthChart.viewBox }}" style="width:100%; height:250px; display:block;">
+            {{ wealthChart.xAxis }}
+            {{ wealthChart.yAxis }}
+            {{ wealthChart.zeroLine }}
+            <polyline points="{{ wealthChart.lines.noMba }}" fill="none" stroke="var(--text-faint)" strokeWidth="2" strokeDasharray="5,4"></polyline>
+            <polyline points="{{ wealthChart.lines.iima }}" fill="none" stroke="var(--text-faint)" strokeWidth="1.5"></polyline>
+            <polyline points="{{ wealthChart.lines.iimb }}" fill="none" stroke="var(--text-muted)" strokeWidth="1.5"></polyline>
+            <polyline points="{{ wealthChart.lines.iimc }}" fill="none" stroke="var(--sem-green)" strokeWidth="2"></polyline>
+            <polyline points="{{ wealthChart.lines.isb }}" fill="none" stroke="var(--accent)" strokeWidth="2.5"></polyline>
+            {{ wealthChart.markers }}
+          </svg>
+          <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:6px; padding:0 4px;">
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:16px; height:2px; background:var(--text-faint); display:inline-block;"></span>Stay employed</span>
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:10px; height:10px; border-radius:50%; background:var(--accent); display:inline-block;"></span>ISB</span>
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:10px; height:10px; border-radius:50%; background:var(--text-faint); display:inline-block;"></span>IIM A</span>
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:10px; height:10px; border-radius:50%; background:var(--text-muted); display:inline-block;"></span>IIM B</span>
+            <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;"><span style="width:10px; height:10px; border-radius:50%; background:var(--sem-green); display:inline-block;"></span>IIM C</span>
+          </div>
+        </div>
+
+        <div style="margin-top:16px; display:flex; flex-direction:column; gap:6px;">
+          <sc-for list="{{ wealthRows }}" as="p" hint-placeholder-count="4">
+            <div style="display:flex; align-items:center; gap:8px; font-size:12.5px;">
+              <span style="width:8px; height:8px; border-radius:50%; background:{{ p.dotColor }}; flex-shrink:0;"></span>
+              <span style="font-family:'JetBrains Mono',monospace; color:var(--text-muted); width:56px; flex-shrink:0;">{{ p.name }}</span>
+              <span style="color:var(--text); font-weight:600;">{{ p.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> The IIMs dig a deeper hole before graduation — two years of zero income against the stay-employed pool's raises, versus ISB's one — so even at identical post-MBA offers and loan terms, they typically take longer to cross over. A bigger loan, a smaller post-MBA jump, or a slower post-MBA raise all push the crossover further out for every school; a smaller loan or bigger jump pulls it in. This crossover point is the honest answer to "when am I actually ahead" — it accounts for the fee, the loan interest, the income given up during the programme, and every year of raises on both sides, not just a monthly snapshot.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Placements are close enough not to matter</h2>
+      <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact" style="min-width:420px;">
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th style="border-bottom:none; width:40%;">Programme</th><th style="border-bottom:none; width:30%;">Avg. placement, 2024–25</th><th style="border-bottom:none; width:30%;">3-year trend</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ placeRows }}" as="p" hint-placeholder-count="0">
+              <tr>
+                <td style="font-weight:600; color:var(--text);">{{ p.name }}</td>
+                <td style="color:var(--text-body); font-family:'JetBrains Mono',monospace;">{{ p.avg }}</td>
+                <td style="color:var(--text-body);">{{ p.trend }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> The widest gap is about ₹1L a year, between IIM Ahmedabad and IIM Calcutta. That's a rounding error next to the cost swings above. If a placement premium were going to justify the more expensive option, it would need to be far larger than anything these four schools actually show.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:28px; font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Which one is cheaper, by salary band</h2>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:34px;">
+        <sc-for list="{{ bandRows }}" as="b" hint-placeholder-count="0">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
+            <div style="flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:{{ b.color }}; text-transform:uppercase; letter-spacing:0.04em; width:100px; padding-top:2px;">{{ b.pick }}</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-weight:600; color:var(--text); font-size:14.5px;">{{ b.profile }}</div>
+              <div style="font-size:13.5px; color:var(--text-body); margin-top:4px; line-height:1.6;">{{ b.why }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:var(--btn-bg); color:var(--btn-text); text-align:center; padding:44px 30px; border-radius:16px; margin:50px 0 20px;">
+        <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:22px; margin:0 0 12px;">The cheaper school isn't fixed. It's a function of the salary you're giving up, the raises you assume, and the loan you take.</div>
+        <p style="font-size:15px; opacity:0.85; margin:0; line-height:1.6;">Run your own numbers above before assuming either programme is the "expensive" one.</p>
+      </div>
+
+      <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:36px; padding-top:20px; border-top:1px solid var(--border);">
+        <strong style="color:var(--text-muted);">Data sources:</strong> ISB (isb.edu) 2026-27 fee schedule; IIM Ahmedabad, Bangalore, and Calcutta official 2025-27 fee pages; placement reports published by each institute for 2022-23 through 2024-25. <strong style="color:var(--text-muted);">Methodology:</strong> the fee, opportunity-cost, and loan sections compare pre-tax CTC. Loan moratorium is modelled as matching each programme's length (one year for ISB, two years for the IIMs), with interest capitalising annually over that period before standard EMI amortisation begins on the chosen repayment term. The "how long until you're actually ahead" section switches to post-tax take-home under India's new income tax regime (FY 2025-26 slabs, ₹75,000 standard deduction, Section 87A rebate zeroing out tax up to ₹12L taxable income) and models two cumulative pools of money from the day the MBA would start: a stay-employed pool that simply accumulates post-tax salary at the raise assumed, and an MBA pool that starts negative by the cash paid upfront, earns nothing during the programme, then accumulates post-tax post-MBA salary minus EMI after graduating. All fees are subject to annual revision — verify current figures against official sources before making a financial decision.
+      </div>
+    </div>
+  </article>
+
+  </main>
+
+  <footer style="background:var(--footer-bg); color:var(--footer-text); border-top:1px solid var(--footer-border);">
+    <div style="max-width:1200px; margin:0 auto; padding:56px clamp(16px,5vw,64px) 32px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
+      <div>
+        <div style="font-family:'Instrument Serif',serif; font-size:21px; color:var(--footer-text); margin-bottom:8px;">Ayush Srivastav</div>
+        <div style="font-size:14px; color:var(--footer-text-muted); margin-bottom:20px;">Bengaluru, India</div>
+        <a href="mailto:srvstv.aysh@gmail.com" style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--footer-text); color:var(--footer-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">Get in touch</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
+        <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
+          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
+          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
+        </div>
+        <div style="display:flex; gap:22px; font-size:13px; font-weight:500; flex-wrap:wrap; justify-content:flex-end; color:var(--footer-text-muted);">
+          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">X</a>
+          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Strava</a>
+          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px; margin:0 auto; padding:20px clamp(16px,5vw,64px) 32px; border-top:1px solid var(--footer-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div style="font-size:13px; color:var(--footer-text-muted);">© {{ currentYear }} Ayush Srivastav</div>
+      <a href="#top" onClick="{{ scrollToTop }}" style="font-size:13px; color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <button onClick="{{ toggleDark }}" aria-label="Toggle dark mode" style="position:fixed; bottom:24px; right:24px; z-index:1000; width:52px; height:52px; border-radius:50%; border:1px solid var(--border-strong); background:var(--bg-card); box-shadow:0 6px 20px rgba(0,0,0,0.18); cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; overflow:hidden;">
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ sunOpacity }}; transform:{{ sunTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="5" fill="#f2b134"></circle>
+        <g stroke="#f2b134" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="1.5" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22.5"></line>
+          <line x1="1.5" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22.5" y2="12"></line>
+          <line x1="4.4" y1="4.4" x2="6.1" y2="6.1"></line>
+          <line x1="17.9" y1="17.9" x2="19.6" y2="19.6"></line>
+          <line x1="4.4" y1="19.6" x2="6.1" y2="17.9"></line>
+          <line x1="17.9" y1="6.1" x2="19.6" y2="4.4"></line>
+        </g>
+      </svg>
+    </div>
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ moonOpacity }}; transform:{{ moonTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M9.5 2.5a7.2 7.2 0 1 0 8.6 9.6A7.8 7.8 0 0 1 9.5 2.5Z" fill="#fdfaf3"></path>
+        <path d="M5.8 21c-1.7 0-3.05-1.36-3.05-3.03 0-1.5 1.1-2.75 2.55-2.98a4.3 4.3 0 0 1 8.15-1.62 3.65 3.65 0 0 1 3.75 3.63c0 .38-.06.75-.17 1.1a2.9 2.9 0 0 1-1.03 2.9H5.8Z" fill="#4a4234" stroke="#2a2419" stroke-width="0.6"></path>
+      </svg>
+    </div>
+  </button>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark"),
+    salary: 12,
+    preIncrement: 10,
+    loanAmount: 20,
+    loanRate: 10.5,
+    loanYears: 7,
+    postSalary: 34,
+    postIncrement: 10
+  };
+
+  schools = [
+    { key: "isb", name: "ISB", shortName: "ISB", fee: 45.12, twoYear: false },
+    { key: "iima", name: "IIM Ahmedabad", shortName: "IIM A", fee: 32.00, twoYear: true },
+    { key: "iimb", name: "IIM Bangalore", shortName: "IIM B", fee: 31.30, twoYear: true },
+    { key: "iimc", name: "IIM Calcutta", shortName: "IIM C", fee: 31.00, twoYear: true }
+  ];
+
+  scrollToTop = (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  setSalary = (e) => this.setState({ salary: +e.target.value });
+  setPreIncrement = (e) => this.setState({ preIncrement: +e.target.value });
+  setLoanAmount = (e) => this.setState({ loanAmount: +e.target.value });
+  setLoanRate = (e) => this.setState({ loanRate: +e.target.value });
+  setLoanYears = (e) => this.setState({ loanYears: +e.target.value });
+  setPostSalary = (e) => this.setState({ postSalary: +e.target.value });
+  setPostIncrement = (e) => this.setState({ postIncrement: +e.target.value });
+
+  toggleDark = () => {
+    this.setState(s => {
+      const next = !s.dark;
+      try { localStorage.setItem("ayush-theme", next ? "dark" : "light"); } catch (e) {}
+      return { dark: next };
+    });
+  };
+
+  titleRef = (el) => {
+    if (!el) return;
+    this.__titleEl = el;
+    if (this.__titleDone) return;
+    this.__titleDone = true;
+    if (typeof window === "undefined") return;
+    let origin = null;
+    try {
+      const raw = sessionStorage.getItem("art-open");
+      if (raw) { const data = JSON.parse(raw); if (data && data.key === "isbiim") origin = data.rect; }
+    } catch (e) {}
+    if (!origin) return;
+    try { sessionStorage.removeItem("art-open"); } catch (e) {}
+    const rect = el.getBoundingClientRect();
+    const dx = origin.left - rect.left, dy = origin.top - rect.top;
+    const sx = origin.width / rect.width, sy = origin.height / rect.height;
+    el.style.transformOrigin = "top left";
+    if (typeof el.animate === "function") {
+      el.animate([
+        { transform: `translate(${dx}px,${dy}px) scale(${sx},${sy})`, opacity: 0.55 },
+        { transform: "translate(0px,0px) scale(1,1)", opacity: 1 }
+      ], { duration: 400, easing: "cubic-bezier(.16,1,.3,1)", fill: "forwards" });
+    }
+  };
+  handleBack = () => {
+    if (typeof window === "undefined" || !this.__titleEl) return;
+    try {
+      const rect = this.__titleEl.getBoundingClientRect();
+      sessionStorage.setItem("art-close", JSON.stringify({ key: "isbiim", rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height } }));
+    } catch (err) {}
+  };
+
+  theme(dark) {
+    return dark ? {
+      bg: "#181410", bgAlt: "#1d1712", bgCard: "#231e18", bgChip: "#2b251d",
+      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#9a907b", textFaint: "#9a907b",
+      border: "#3a3327", borderStrong: "#4a4234", dotMuted: "#4a4234",
+      accent: "#87aed6", accentHover: "#a6c5e6",
+      btnBg: "#f3ede0", btnText: "#181410",
+      footerAccent: "#87aed6",
+      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#9a907b", footerBorder: "#2a2419",
+      navBg: "rgba(24,20,16,.88)",
+      selectionBg: "#87aed6", selectionText: "#181410",
+      sem: { green: "#8ebd82", amber: "#e0b34a", red: "#e0847c", purple: "#ab9fe8", blue: "#87aed6" },
+      fill: { green: "#4a7a43", amber: "#a46829", red: "#b3453a", purple: "#6a4d9c", blue: "#3568a0", neutral: "#57503f" },
+      onAccent: "#181410"
+    } : {
+      bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
+      text: "#241f19", textBody: "#57503f", textMuted: "#6f6656", textFaint: "#6f6656",
+      border: "#e4dbca", borderStrong: "#d8cfc0", dotMuted: "#c9bfa9",
+      accent: "#3568a0", accentHover: "#244f78",
+      btnBg: "#241f19", btnText: "#faf7f0",
+      footerAccent: "#87aed6",
+      footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#a49a85", footerBorder: "#3a3327",
+      navBg: "rgba(250,247,240,.92)",
+      selectionBg: "#2e4a6b", selectionText: "#faf7f0",
+      sem: { green: "#3f6839", amber: "#835321", red: "#9f3d34", purple: "#6a4d9c", blue: "#3568a0" },
+      fill: { green: "#4a7a43", amber: "#a46829", red: "#b3453a", purple: "#6a4d9c", blue: "#3568a0", neutral: "#57503f" },
+      onAccent: "#ffffff"
+    };
+  }
+
+  oppFactor(twoYear, incPct) { return twoYear ? (2 + incPct / 100) : 1; }
+
+  taxNewRegime(grossL) {
+    const taxable = Math.max(0, grossL - 0.75);
+    const brackets = [[0, 4, 0], [4, 8, 5], [8, 12, 10], [12, 16, 15], [16, 20, 20], [20, 24, 25], [24, Infinity, 30]];
+    let tax = 0;
+    for (const [lo, hi, rate] of brackets) { if (taxable > lo) tax += (Math.min(taxable, hi) - lo) * rate / 100; }
+    if (taxable <= 12) tax = 0;
+    else { const excess = taxable - 12; if (tax > excess) tax = excess; }
+    return tax * 1.04;
+  }
+  netAnnual(grossL) { return grossL - this.taxNewRegime(grossL); }
+  fmtINR(lakhs) { return "₹" + Math.round(lakhs * 100000).toLocaleString("en-IN"); }
+
+  emi(principal, ratePct, years) {
+    if (principal <= 0) return 0;
+    const r = ratePct / 100 / 12, n = years * 12;
+    if (r === 0) return principal / n;
+    return principal * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+  }
+
+  loanFixedCost(fee, loanAmount, ratePct, years, twoYear) {
+    const principal = Math.min(loanAmount, fee);
+    const cashUpfront = fee - principal;
+    const moratoriumYears = twoYear ? 2 : 1;
+    const capitalized = principal * Math.pow(1 + ratePct / 100, moratoriumYears);
+    const monthlyEmi = this.emi(capitalized, ratePct, years);
+    const totalRepaid = monthlyEmi * years * 12;
+    return { principal, cashUpfront, capitalized, monthlyEmi, totalRepaid, interest: totalRepaid - capitalized, fixed: cashUpfront + totalRepaid };
+  }
+
+  cashTotal(school, salary, incPct) { return school.fee + this.oppFactor(school.twoYear, incPct) * salary; }
+  loanTotal(school, salary, incPct, loanAmount, rate, years) {
+    return this.loanFixedCost(school.fee, loanAmount, rate, years, school.twoYear).fixed + this.oppFactor(school.twoYear, incPct) * salary;
+  }
+
+  computeVals(valueFn, x) {
+    const o = {};
+    this.schools.forEach(s => { o[s.key] = valueFn(s, x); });
+    return o;
+  }
+
+  compareCost(o, t) {
+    const bestIim = Math.min(o.iima, o.iimb, o.iimc);
+    const bestIimName = bestIim === o.iimc ? "IIM Calcutta" : (bestIim === o.iimb ? "IIM Bangalore" : "IIM Ahmedabad");
+    const margin = Math.abs(o.isb - bestIim);
+    if (margin < 1) return { color: t.sem.amber, label: `Within ₹${margin.toFixed(1)}L of each other — a tie` };
+    if (o.isb < bestIim) return { color: t.accent, label: `ISB is cheaper, by ₹${margin.toFixed(1)}L` };
+    return { color: t.sem.green, label: `${bestIimName} is cheaper, by ₹${margin.toFixed(1)}L` };
+  }
+
+  cardsFor(o, t) {
+    const min = Math.min(o.isb, o.iima, o.iimb, o.iimc);
+    return this.schools.map(s => {
+      const isBest = Math.abs(o[s.key] - min) < 0.05;
+      return { name: s.shortName, value: o[s.key].toFixed(1), valueColor: isBest ? t.sem.green : t.text, borderColor: isBest ? t.sem.green : "transparent" };
+    });
+  }
+
+  buildLinearChart(valueFn, currentSalary) {
+    const xMin = 6, xMax = 40;
+    const W = 440, H = 210, padL = 50, padR = 14, padT = 24, padB = 30;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+    const v0 = {}, v1 = {};
+    let yMin = Infinity, yMax = -Infinity;
+    this.schools.forEach(s => {
+      v0[s.key] = valueFn(s, xMin);
+      v1[s.key] = valueFn(s, xMax);
+      yMin = Math.min(yMin, v0[s.key], v1[s.key]);
+      yMax = Math.max(yMax, v0[s.key], v1[s.key]);
+    });
+    const pad = (yMax - yMin) * 0.1 || 5;
+    yMin -= pad; yMax += pad;
+    const xToPx = x => padL + (x - xMin) / (xMax - xMin) * plotW;
+    const yToPx = y => (padT + plotH) - (y - yMin) / (yMax - yMin) * plotH;
+    const lines = {};
+    this.schools.forEach(s => { lines[s.key] = `${xToPx(xMin)},${yToPx(v0[s.key])} ${xToPx(xMax)},${yToPx(v1[s.key])}`; });
+    const clampedSalary = Math.max(xMin, Math.min(xMax, currentSalary));
+    const markerX = xToPx(clampedSalary);
+    const xTicks = [6, 12, 20, 30, 40];
+    const xAxis = xTicks.map(v => React.createElement("text", {
+      key: "x" + v, x: xToPx(v), y: padT + plotH + 20, textAnchor: "middle", fontSize: 11,
+      fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace"
+    }, `₹${v}L`));
+    const yTicks = [yMin + pad, (yMin + yMax) / 2, yMax - pad];
+    const yAxis = yTicks.map((v, i) => React.createElement("text", {
+      key: "y" + i, x: padL - 8, y: yToPx(v) + 4, textAnchor: "end", fontSize: 10.5,
+      fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace"
+    }, `₹${Math.round(v)}L`));
+    return { viewBox: `0 0 ${W} ${H}`, lines, markerX, top: padT, bottom: padT + plotH, xAxis, yAxis };
+  }
+
+  buildLoanRows(t) {
+    const { salary, preIncrement, loanAmount, loanRate, loanYears } = this.state;
+    const computed = this.schools.map(s => {
+      const lf = this.loanFixedCost(s.fee, loanAmount, loanRate, loanYears, s.twoYear);
+      const allin = lf.fixed + this.oppFactor(s.twoYear, preIncrement) * salary;
+      const cashOnly = this.cashTotal(s, salary, preIncrement);
+      return { s, lf, allin, cashOnly };
+    });
+    const minAllin = Math.min(...computed.map(c => c.allin));
+    return computed.map(c => ({
+      name: c.s.name,
+      principal: `₹${c.lf.principal.toFixed(2)}L`,
+      interest: `₹${c.lf.interest.toFixed(2)}L`,
+      allin: `₹${c.allin.toFixed(1)}L`,
+      allinColor: Math.abs(c.allin - minAllin) < 0.05 ? t.sem.green : t.text,
+      cashOnly: `₹${c.cashOnly.toFixed(1)}L`
+    }));
+  }
+
+  gapAtGraduation(s, salary, preIncrement, cashUpfront) {
+    const D = s.twoYear ? 2 : 1;
+    let sum = 0;
+    for (let m = 0; m < D * 12; m++) {
+      const yearIdxPre = Math.floor(m / 12);
+      sum += this.netAnnual(salary * Math.pow(1 + preIncrement / 100, yearIdxPre)) / 12;
+    }
+    return sum + cashUpfront;
+  }
+
+  buildWealthRows(t) {
+    const { salary, preIncrement, postSalary, postIncrement, loanAmount, loanRate, loanYears } = this.state;
+    const maxMonths = 40 * 12, maxYearsBar = 20;
+    const computed = this.schools.map(s => {
+      const D = s.twoYear ? 2 : 1;
+      const lf = this.loanFixedCost(s.fee, loanAmount, loanRate, loanYears, s.twoYear);
+      const emiMonthly = lf.monthlyEmi;
+      const cashUpfront = lf.cashUpfront;
+      const gapAtGrad = this.gapAtGraduation(s, salary, preIncrement, cashUpfront);
+      let poolNoMba = 0, poolMba = -cashUpfront;
+      let crossoverMonth = poolMba >= poolNoMba ? 0 : null;
+      for (let m = 0; m < maxMonths && crossoverMonth === null; m++) {
+        const yearIdxPre = Math.floor(m / 12);
+        poolNoMba += this.netAnnual(salary * Math.pow(1 + preIncrement / 100, yearIdxPre)) / 12;
+        if (m >= D * 12) {
+          const kPost = m - D * 12;
+          const yearIdxPost = Math.floor(kPost / 12);
+          const postMonthlyGross = this.netAnnual(postSalary * Math.pow(1 + postIncrement / 100, yearIdxPost)) / 12;
+          const emiThisMonth = kPost < loanYears * 12 ? emiMonthly : 0;
+          poolMba += (postMonthlyGross - emiThisMonth);
+        }
+        if (poolMba >= poolNoMba) crossoverMonth = m + 1;
+      }
+      const crossoverYears = crossoverMonth !== null ? crossoverMonth / 12 : null;
+      const preInHandMonthly = this.netAnnual(salary) / 12;
+      const postGrossMonthly = this.netAnnual(postSalary) / 12;
+      const postInHandMonthly = postGrossMonthly - (loanYears >= 1 ? emiMonthly : 0);
+      return { s, lf, emiMonthly, cashUpfront, gapAtGrad, crossoverMonth, crossoverYears, maxYearsBar, preInHandMonthly, postGrossMonthly, postInHandMonthly };
+    });
+    const minGap = Math.min(...computed.map(c => c.gapAtGrad));
+    return computed.map(c => {
+      const { s, lf, emiMonthly, cashUpfront, gapAtGrad, crossoverMonth, crossoverYears, postInHandMonthly, preInHandMonthly, postGrossMonthly } = c;
+      const displayYears = crossoverYears !== null ? Math.min(crossoverYears, maxYearsBar) : maxYearsBar;
+      const pct = (displayYears / maxYearsBar) * 100;
+      let color;
+      if (crossoverYears === null || crossoverYears > 15) color = t.sem.red;
+      else if (crossoverYears > 7) color = t.sem.amber;
+      else color = t.sem.green;
+      const label = crossoverMonth === 0
+        ? "Ahead from month 0"
+        : (crossoverMonth === null ? "Beyond 40 yrs" : `${crossoverYears.toFixed(1)} yrs after MBA starts`);
+      return {
+        name: s.shortName,
+        totalFee: `₹${s.fee.toFixed(2)}L`,
+        loanUsed: `₹${lf.principal.toFixed(2)}L`,
+        cashUpfront: `₹${cashUpfront.toFixed(1)}L`,
+        emiMonthly: emiMonthly > 0 ? this.fmtINR(emiMonthly) + "/mo" : "No loan",
+        gapAtGrad: `₹${gapAtGrad.toFixed(1)}L`,
+        gapAtGradColor: Math.abs(gapAtGrad - minGap) < 0.3 ? t.sem.green : t.sem.red,
+        preInHand: this.fmtINR(preInHandMonthly) + "/mo",
+        postGross: this.fmtINR(postGrossMonthly) + "/mo",
+        postInHand: this.fmtINR(postInHandMonthly) + "/mo",
+        postInHandColor: postInHandMonthly >= preInHandMonthly ? t.sem.green : t.sem.red,
+        crossoverYears,
+        dotColor: color,
+        label,
+        barStyle: `width:${pct}%; height:100%; background:${color}; border-radius:6px;`
+      };
+    });
+  }
+
+  buildWealthChart(t, crossoverYearsArr) {
+    const { salary, preIncrement, postSalary, postIncrement, loanAmount, loanRate, loanYears } = this.state;
+    const maxCY = Math.max(...crossoverYearsArr.map(v => v || 15));
+    const chartYears = Math.min(15, Math.max(5, Math.ceil(maxCY) + 1));
+    const noMbaSeries = [0];
+    let poolNoMba = 0;
+    for (let m = 0; m < chartYears * 12; m++) {
+      const yearIdx = Math.floor(m / 12);
+      poolNoMba += this.netAnnual(salary * Math.pow(1 + preIncrement / 100, yearIdx)) / 12;
+      if ((m + 1) % 12 === 0) noMbaSeries.push(poolNoMba);
+    }
+    const mbaSeries = {};
+    this.schools.forEach(s => {
+      const D = s.twoYear ? 2 : 1;
+      const lf = this.loanFixedCost(s.fee, loanAmount, loanRate, loanYears, s.twoYear);
+      let poolMba = -lf.cashUpfront;
+      const series = [poolMba];
+      for (let m = 0; m < chartYears * 12; m++) {
+        if (m >= D * 12) {
+          const kPost = m - D * 12;
+          const yearIdxPost = Math.floor(kPost / 12);
+          const postMonthlyGross = this.netAnnual(postSalary * Math.pow(1 + postIncrement / 100, yearIdxPost)) / 12;
+          const emiThisMonth = kPost < loanYears * 12 ? lf.monthlyEmi : 0;
+          poolMba += (postMonthlyGross - emiThisMonth);
+        }
+        if ((m + 1) % 12 === 0) series.push(poolMba);
+      }
+      mbaSeries[s.key] = series;
+    });
+    const W = 520, H = 260, padL = 56, padR = 14, padT = 20, padB = 32;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+    const allVals = [...noMbaSeries, ...Object.values(mbaSeries).flat()];
+    let yMin = Math.min(...allVals), yMax = Math.max(...allVals);
+    const pad = (yMax - yMin) * 0.08 || 5;
+    yMin -= pad; yMax += pad;
+    const xToPx = yr => padL + yr / chartYears * plotW;
+    const yToPx = v => (padT + plotH) - (v - yMin) / (yMax - yMin) * plotH;
+    const toPoints = arr => arr.map((v, i) => `${xToPx(i)},${yToPx(v)}`).join(" ");
+    const colorFor = { isb: "var(--accent)", iima: "var(--text-faint)", iimb: "var(--text-muted)", iimc: "var(--sem-green)" };
+    const lines = { noMba: toPoints(noMbaSeries) };
+    this.schools.forEach(s => { lines[s.key] = toPoints(mbaSeries[s.key]); });
+    const markers = [];
+    noMbaSeries.forEach((v, i) => markers.push(React.createElement("circle", { key: "n" + i, cx: xToPx(i), cy: yToPx(v), r: 2.4, fill: "var(--text-faint)" })));
+    this.schools.forEach(s => { mbaSeries[s.key].forEach((v, i) => markers.push(React.createElement("circle", { key: s.key + i, cx: xToPx(i), cy: yToPx(v), r: 2.8, fill: colorFor[s.key] }))); });
+    const xTicks = [];
+    const step = Math.max(1, Math.round(chartYears / 6));
+    for (let yr = 0; yr <= chartYears; yr += step) xTicks.push(yr);
+    if (xTicks[xTicks.length - 1] !== chartYears) xTicks.push(chartYears);
+    const xAxis = xTicks.map(yr => React.createElement("text", { key: "x" + yr, x: xToPx(yr), y: padT + plotH + 20, textAnchor: "middle", fontSize: 10.5, fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace" }, `${yr}y`));
+    const rawMin = yMin + pad, rawMax = yMax - pad, tickCount = 5;
+    const yTicksVals = [];
+    for (let i = 0; i < tickCount; i++) yTicksVals.push(rawMin + (rawMax - rawMin) * i / (tickCount - 1));
+    if (rawMin <= 0 && rawMax >= 0) {
+      let closestIdx = 0, closestDist = Infinity;
+      yTicksVals.forEach((v, i) => { const d = Math.abs(v); if (d < closestDist) { closestDist = d; closestIdx = i; } });
+      yTicksVals[closestIdx] = 0;
+    }
+    const yAxis = yTicksVals.map((v, i) => React.createElement("text", { key: "y" + i, x: padL - 8, y: yToPx(v) + 4, textAnchor: "end", fontSize: 10, fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace" }, `₹${Math.round(v)}L`));
+    const zeroLine = (rawMin <= 0 && rawMax >= 0) ? React.createElement("line", { x1: padL, y1: yToPx(0), x2: padL + plotW, y2: yToPx(0), stroke: "var(--border-strong)", strokeWidth: 1 }) : null;
+    return { viewBox: `0 0 ${W} ${H}`, lines, markers, xAxis, yAxis, zeroLine };
+  }
+
+  renderVals() {
+    const t = this.theme(this.state.dark);
+    if (typeof document !== "undefined") { const ds = document.documentElement.style; ds.background = t.bg; ds.colorScheme = this.state.dark ? "dark" : "light"; document.body.style.background = t.bg; }
+    const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
+      `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
+      `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
+      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText}; --sem-green:${t.sem.green}; --sem-amber:${t.sem.amber}; --sem-red:${t.sem.red}; --sem-purple:${t.sem.purple}; --fill-green:${t.fill.green}; --fill-amber:${t.fill.amber}; --fill-red:${t.fill.red}; --fill-purple:${t.fill.purple}; --fill-blue:${t.fill.blue}; --on-accent:${t.onAccent}; --tag:${this.state.dark ? "#a692d9" : "#5b4a9e"};`;
+
+    const { salary, preIncrement, loanAmount, loanRate, loanYears, postSalary, postIncrement } = this.state;
+
+    const feeTableData = [
+      { name: "ISB PGP", duration: "1 yr", tuitionFees: "₹35.78L (incl. 18% GST)", mess: "—", living: "₹6.45L", total: 45.12 },
+      { name: "IIM Ahmedabad PGP", duration: "2 yr", tuitionFees: "₹24.30L (no GST)", mess: "₹3.20L", living: "₹4.50L", total: 32.00 },
+      { name: "IIM Bangalore PGP", duration: "2 yr", tuitionFees: "₹26.00L (no GST)", mess: "₹1.80L", living: "₹3.50L", total: 31.30 },
+      { name: "IIM Calcutta PGDM", duration: "2 yr", tuitionFees: "₹27.00L (no GST)", mess: "Included", living: "₹4.00L", total: 31.00 }
+    ];
+    const minFeeTotal = Math.min(...feeTableData.map(f => f.total));
+    const feeTableRows = feeTableData.map(f => ({
+      ...f, totalLabel: `₹${f.total.toFixed(2)}L`,
+      totalColor: f.total === minFeeTotal ? t.sem.green : t.text
+    }));
+
+    const oppFactorLabel = (2 + preIncrement / 100).toFixed(2);
+    const crossoverCards = this.schools.filter(s => s.key !== "isb").map(s => {
+      const isb = this.schools[0];
+      const val = (isb.fee - s.fee) / (1 + preIncrement / 100);
+      return { name: s.shortName, value: `₹${val.toFixed(1)}L` };
+    });
+
+    const cashValsAtSalary = this.computeVals((s, x) => this.cashTotal(s, x, preIncrement), salary);
+    const cashCmp = this.compareCost(cashValsAtSalary, t);
+    const cashCards = this.cardsFor(cashValsAtSalary, t);
+    const cashChart = this.buildLinearChart((s, x) => this.cashTotal(s, x, preIncrement), salary);
+
+    const loanValsAtSalary = this.computeVals((s, x) => this.loanTotal(s, x, preIncrement, loanAmount, loanRate, loanYears), salary);
+    const loanCmp = this.compareCost(loanValsAtSalary, t);
+    const loanCards = this.cardsFor(loanValsAtSalary, t);
+    const loanChart = this.buildLinearChart((s, x) => this.loanTotal(s, x, preIncrement, loanAmount, loanRate, loanYears), salary);
+    const loanRows = this.buildLoanRows(t);
+    const wealthRows = this.buildWealthRows(t);
+    const wealthChart = this.buildWealthChart(t, wealthRows.map(r => r.crossoverYears));
+
+    const salaryPoints = [6, 8, 10, 12, 13, 15, 18, 20, 25, 30, 40];
+    const costRows = salaryPoints.map(s => {
+      const vals = this.computeVals((sc, x) => this.cashTotal(sc, x, preIncrement), s);
+      const cmp = this.compareCost(vals, t);
+      return { salLabel: `₹${s}L`, isb: vals.isb.toFixed(1), iima: vals.iima.toFixed(1), iimb: vals.iimb.toFixed(1), iimc: vals.iimc.toFixed(1), color: cmp.color, label: cmp.label };
+    });
+
+    const placeRows = [
+      { name: "ISB", avg: "₹34.21L", trend: "Up from ₹33.70L in 2022-23" },
+      { name: "IIM Ahmedabad", avg: "₹35.22L", trend: "Up from ₹33.20L in 2022-23" },
+      { name: "IIM Bangalore", avg: "₹34.88L", trend: "Up from ₹33.25L in 2022-23" },
+      { name: "IIM Calcutta", avg: "₹34.23L", trend: "Up from ₹31.10L in 2022-23" }
+    ];
+
+    const bandRows = [
+      { pick: "An IIM", color: t.sem.green, profile: "Current salary below ₹10L", why: "An IIM is cheaper by ₹3–8L, depending on exact salary — the fee gap outweighs one extra year of foregone salary at this income." },
+      { pick: "Toss-up", color: t.sem.amber, profile: "Current salary ₹10–13L (the crossover zone)", why: "All four programmes land within about ₹1L of each other in cash terms. Cost isn't the deciding factor here — admission odds and programme fit are." },
+      { pick: "ISB", color: t.accent, profile: "Current salary ₹13–20L", why: "The one-year format's smaller foregone-salary bill starts to outweigh ISB's higher fee, by roughly ₹1–8L." },
+      { pick: "ISB", color: t.accent, profile: "Current salary above ₹20L", why: "ISB's advantage keeps compounding — ₹13L cheaper at a ₹25L salary, ₹30L cheaper at ₹40L." },
+      { pick: "Recalculate", color: t.text, profile: "Financing a large loan amount, or assuming different raises", why: "Use the loan-amount and raise sliders above — they shift every crossover in this section. A bigger loan or a lower assumed raise both push ISB's break-even salary higher." }
+    ];
+
+    return {
+      rootStyle,
+      toggleDark: this.toggleDark,
+      titleRef: this.titleRef, handleBack: this.handleBack,
+      scrollToTop: this.scrollToTop,
+      currentYear: new Date().getFullYear(),
+      sunOpacity: this.state.dark ? 0 : 1,
+      sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
+      moonOpacity: this.state.dark ? 1 : 0,
+      moonTransform: this.state.dark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.4)",
+      salary, preIncrement, loanAmount, loanRate, loanYears, postSalary, postIncrement,
+      setSalary: this.setSalary, setPreIncrement: this.setPreIncrement,
+      setLoanAmount: this.setLoanAmount, setLoanRate: this.setLoanRate, setLoanYears: this.setLoanYears,
+      setPostSalary: this.setPostSalary, setPostIncrement: this.setPostIncrement,
+      feeTableRows, oppFactorLabel, crossoverCards,
+      cashCards, cashCmp, cashChart, loanCards, loanCmp, loanChart, loanRows, wealthRows, wealthChart, costRows, placeRows, bandRows
+    };
+  }
+}
+
+</script>
+</body>
+</html>
