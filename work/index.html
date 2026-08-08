@@ -688,7 +688,7 @@ class Component extends DCLogic {
   }
 
   allProjects = [
-    { id: "gt-vehicle", logoShape: "wide", category: "work", tag: "Work Project", title: "Vehicle sizing", year: 2024, img: "../assets/img/portfolio/GT-vehicle-1.jpg", images: ["../assets/img/portfolio/GT-vehicle-1.jpg","../assets/img/portfolio/GT-vehicle-2.jpg","../assets/img/portfolio/GT-vehicle-3.jpg","../assets/img/portfolio/GT-vehicle-4.jpg"],
+    { id: "gt-vehicle", logoShape: "wide", category: "work", tag: "Work Project", title: "Vehicle sizing", year: 2023, img: "../assets/img/portfolio/GT-vehicle-1.jpg", images: ["../assets/img/portfolio/GT-vehicle-1.jpg","../assets/img/portfolio/GT-vehicle-2.jpg","../assets/img/portfolio/GT-vehicle-3.jpg","../assets/img/portfolio/GT-vehicle-4.jpg"],
       orgName: "Ola Electric", orgLogo: "../assets/logos/ola-cropped.png",
       summary: "Defining vehicle-level specs — battery, motor, gearing — to hit performance and range targets.",
       role: "Owned vehicle-level spec definition across the platform lineup",
@@ -705,7 +705,7 @@ class Component extends DCLogic {
         { text: "S1 scooter platform", kind: "bold" }, { text: " and an all-new ", kind: "plain" }, { text: "M1 motorcycle platform", kind: "bold" }, { text: " — I owned spec definition across both.", kind: "plain" }
       ],
       skills: [{ name: "GT Suite", note: "1D vehicle performance model" }], links: [] },
-    { id: "gt-thermal", logoShape: "wide", category: "work", tag: "Work Project", title: "Temperature based deration", year: 2023, img: "../assets/img/portfolio/GT-thermal-2.jpg", images: ["../assets/img/portfolio/GT-thermal-2.jpg","../assets/img/portfolio/GT-thermal-1.jpg","../assets/img/portfolio/GT-thermal-3.jpg","../assets/img/portfolio/GT-thermal-4.jpg"],
+    { id: "gt-thermal", logoShape: "wide", category: "work", tag: "Work Project", title: "Temperature based deration", year: 2024, img: "../assets/img/portfolio/GT-thermal-2.jpg", images: ["../assets/img/portfolio/GT-thermal-2.jpg","../assets/img/portfolio/GT-thermal-1.jpg","../assets/img/portfolio/GT-thermal-3.jpg","../assets/img/portfolio/GT-thermal-4.jpg"],
       orgName: "Ola Electric", orgLogo: "../assets/logos/ola-cropped.png",
       summary: "Predicting how far a vehicle can drive before thermal deration kicks in, across drive cycles.",
       role: "Built and owned the thermal deration prediction model",
@@ -722,7 +722,7 @@ class Component extends DCLogic {
         { text: ", quantifying how much of a hit performance, range, and charging time took as heat forced each vehicle to pull back power.", kind: "plain" }
       ],
       skills: [{ name: "GT Suite", note: "vehicle + thermal integration" }, { name: "MATLAB", note: "lumped-parameter thermal models" }], links: [] },
-    { id: "battery-cht", logoShape: "wide", category: "work", tag: "Work Project", title: "Battery Thermal Management", year: 2024, img: "../assets/img/portfolio/batteryCHT-2.jpg", images: ["../assets/img/portfolio/batteryCHT-2.jpg","../assets/img/portfolio/batteryCHT-1.jpg","../assets/img/portfolio/batteryCHT-3.jpg","../assets/img/portfolio/batteryCHT-4.jpg","../assets/img/portfolio/batteryCHT-5.jpg"],
+    { id: "battery-cht", logoShape: "wide", category: "work", tag: "Work Project", title: "Battery Thermal Management", year: 2025, img: "../assets/img/portfolio/batteryCHT-2.jpg", images: ["../assets/img/portfolio/batteryCHT-2.jpg","../assets/img/portfolio/batteryCHT-1.jpg","../assets/img/portfolio/batteryCHT-3.jpg","../assets/img/portfolio/batteryCHT-4.jpg","../assets/img/portfolio/batteryCHT-5.jpg"],
       orgName: "Ola Electric", orgLogo: "../assets/logos/ola-cropped.png",
       summary: "Cell-to-vehicle battery cooling: CFD-derived heat transfer coefficients feeding a 1D thermal model.",
       role: "Designed the cooling concept and led the CFD-to-1D handoff",
@@ -840,11 +840,47 @@ class Component extends DCLogic {
         { text: " \u2014 under combined pressure and rotation, with the exponential function inverting the circumferential stress distribution relative to an isotropic cylinder and giving the lowest hoop stress of the three.", kind: "plain" }
       ],
       skills: [{ name: "Abaqus CAE", note: "FE cylinder model" }, { name: "MATLAB", note: "grading function definitions" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/fgm-cylinder", type: "github" }, { label: "Minor Project Thesis", url: "https://drive.google.com/file/d/18li0QySujtvvRewaTtC9c4skQOUFHiYL/view?usp=drive_link", type: "paper" }, { label: "Journal Article (DOI)", url: "https://doi.org/10.1080/2374068X.2021.1945274", type: "paper" }] },
-    { id: "passion-placeholder", category: "passion", tag: "Passion Project", title: "Your next passion project", year: 2026, img: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><rect width='400' height='300' fill='%23f2e2ec'/><text x='200' y='158' font-family='Arial,sans-serif' font-size='20' fill='%23a34a82' text-anchor='middle'>Add project image</text></svg>",
-      summary: "Placeholder — add a personal project here once it's ready.",
-      meta: [{ label: "Status", value: "Coming soon" }],
-      abstract: "This is a placeholder card for a future passion project — a personal build outside of work or academia. Replace this image, summary, and description once you have one to add.",
-      skills: [], links: [] },
+    { id: "tap-to-track", category: "passion", tag: "Passion Project", title: "Daily expense tracker: Tap-to-Track", year: 2025,
+      img: "../assets/img/portfolio/tap-to-track-1.png",
+      summary: "Log an expense to Google Sheets in about eight seconds by double-tapping the back of an iPhone — no app, no subscription, no third party.",
+      role: "Sole developer — designed and built the backend, spreadsheet, and iOS Shortcut end to end",
+      stat: { value: "~8s", label: "to log an expense — one gesture, three taps" },
+      process: [
+        { step: "Problem", text: "Expense tracking fails at the moment of spending: unlock phone, find app, wait for load, tap through four screens. Commercial apps remove that friction by taking bank credentials, showing ads, or charging a subscription." },
+        { step: "Approach", text: "A Back Tap gesture opens an iOS Shortcut that collects the amount, category, and remark, then posts to a Google Apps Script web app running under my own Google account. The script discovers spreadsheet columns by header text rather than fixed position, and parses arithmetic with a hand-written recursive-descent parser instead of eval()." },
+        { step: "Result", text: "An entry costs one gesture and three taps, about eight seconds, and never leaves a spreadsheet I own — no bank credentials, no third-party server, no subscription." }
+      ],
+      meta: [{ label: "Built with", value: "iOS Shortcuts, Google Apps Script, Google Sheets" }, { label: "Timeline", value: "2025" }],
+      abstractSegments: [
+        { text: "Expense tracking apps usually fix the friction of logging a purchase by taking your bank credentials, showing you ads, or charging a subscription — and your spending history becomes their asset. ", kind: "plain" }, { text: "Tap-to-Track", kind: "bold" },
+        { text: " does it differently: double-tap the back of an iPhone, type an amount, tap a category, and the entry lands in a ", kind: "plain" }, { text: "Google Sheet you own", kind: "bold" },
+        { text: ", written by a script running under your own Google account. ", kind: "plain" }, { text: "The amount field takes arithmetic", kind: "bold" },
+        { text: " — split a bill as ", kind: "plain" }, { text: "=500/3", kind: "bold" }, { text: " or add GST as ", kind: "plain" }, { text: "=1200*18%", kind: "bold" },
+        { text: " — evaluated by a hand-written parser rather than ", kind: "plain" }, { text: "eval()", kind: "bold" },
+        { text: ", since the endpoint runs under a personal Google account and a stray letter could otherwise execute arbitrary code. The backend never assumes the spreadsheet's layout: it rediscovers each category's column by its header text on every request, and refuses to write rather than guess if the sheet has changed shape.", kind: "plain" }
+      ],
+      skills: [{ name: "Claude", note: "AI pair-programmer — used to help build the backend, shortcut, and documentation" }, { name: "Google Apps Script", note: "header-driven column discovery, bounds-checked writes, undo snapshots, script-lock concurrency" }, { name: "iOS Shortcuts", note: "Back Tap trigger, arithmetic-aware amount entry, category picker" }, { name: "JavaScript", note: "recursive-descent arithmetic parser with a character whitelist, no eval()" }],
+      links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/tap-to-track", type: "github" }] },
+    { id: "timeplan-dashboard", category: "passion", tag: "Passion Project", title: "Master Time Plan Dashboard", year: 2026,
+      img: "../assets/img/portfolio/timeplan-dashboard-1.png",
+      summary: "Twelve people keep their own Excel timeplan. One offline HTML file reads all of them, draws a single master Gantt, and writes the changes back.",
+      role: "Sole developer \u2014 data model, .xlsx parse and rebuild, dependency resolution, and the whole interface",
+      stat: { value: "12 \u2192 1", label: "separate Excel timeplans read into one master Gantt" },
+      process: [
+        { step: "Problem", text: "A programme plan is split across levels and owners: one programme master plan, one plan per workstream, one per supplier. Each owner works in their own Excel file, which is right \u2014 they own their dates. Nobody has the whole picture, and by the time it has been copied into one deck by hand it is a week old and wrong." },
+        { step: "Approach", text: "A single self-contained HTML file, no install and no server. It reads one .xlsx per timeplan straight out of a shared folder, stacks them L1 at the top to L5 at the bottom, and resolves the dependencies people wrote in their own files. Saving rebuilds each changed workbook from its own bytes, so formulas, conditional formatting and sheet protection survive and an edit in one plan can never touch another." },
+        { step: "Result", text: "One master Gantt that is current the moment an owner saves their file, plus the four things separate files hide: what is stale, what is broken, what has moved since the last review, and what else has to move because of it." }
+      ],
+      meta: [{ label: "Built with", value: "HTML, JavaScript, Excel (.xlsx)" }, { label: "Timeline", value: "2026" }],
+      abstractSegments: [
+        { text: "Twelve timeplans, twelve owners, twelve Excel files \u2014 and no shared view of the programme. This dashboard leaves every owner's file exactly where it is and reads them all into ", kind: "plain" }, { text: "one master Gantt", kind: "bold" },
+        { text: ", L1 at the top and L5 at the bottom. It runs from a single HTML file: no install, no server, no account, and no network call of any kind, so it works from a USB stick or a network drive and nothing is uploaded anywhere. Dependencies are written in plain text in each file \u2014 ", kind: "plain" }, { text: "L1_Programme-14; L3_Tooling-7", kind: "bold" },
+        { text: " \u2014 and anything that doesn't match is listed as a warning rather than silently dropped. ", kind: "plain" }, { text: "Capture a baseline", kind: "bold" },
+        { text: " and the plan shows a dashed outline where each activity used to sit with a badge for how far it moved, so \u201cwhat changed between the June and the August review\u201d is one question instead of an afternoon. The ", kind: "plain" }, { text: "knock-on view", kind: "bold" },
+        { text: " then follows those moves downstream and flags every activity whose dates have become impossible, and every one left with two weeks of float or less, with the owner of each. Nothing moves automatically. Saving writes only the changed files, verifies every rebuilt workbook by re-parsing it before anything is written, and copies the version being replaced into a dated archive first.", kind: "plain" }
+      ],
+      skills: [{ name: "JavaScript", note: ".xlsx parse and rebuild, dependency resolution, Gantt rendering \u2014 no build step, no libraries" }, { name: "Claude", note: "AI pair-programmer \u2014 used to help build the app and its documentation" }, { name: "Excel", note: "L1\u2013L5 templates with formula-drawn per-plan Gantts and a single typed input sheet" }, { name: "File System Access API", note: "reads and writes the shared folder in place, with dated archive copies" }],
+      links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/timeplan-dashboard", type: "github" }] },
     { id: "uvat", category: "academic", tag: "Academic Project", title: "Inverse modelling of UVAT", year: 2020, img: "../assets/img/portfolio/uvat-1.jpg",
       orgName: "MANIT Bhopal", orgLogo: "../assets/logos/manit.png",
       summary: "Inverse estimation of cutting forces in ultrasonic vibration-assisted turning.",
@@ -878,11 +914,7 @@ class Component extends DCLogic {
     const catColors = this.categoryColors(this.state.dark);
     const sortAsc = this.state.sortAsc;
     const filteredProjects = (filter === "all" ? this.allProjects : this.allProjects.filter(p => p.category === filter))
-      .slice().sort((a, b) => {
-        if (a.id === "passion-placeholder") return 1;
-        if (b.id === "passion-placeholder") return -1;
-        return sortAsc ? a.year - b.year : b.year - a.year;
-      })
+      .slice().sort((a, b) => sortAsc ? a.year - b.year : b.year - a.year)
       .map(p => ({ ...p, cardStyle: p.id === "passion-placeholder" ? placeholderCardStyle : cardStyle, tagColor: catColors[p.category].color, tagBg: catColors[p.category].bg,
         metaPad: isMobile ? 105 : 130,
         tagChipPos: narrowCard ? "position:static; align-self:flex-start; white-space:nowrap; margin-bottom:2px;" : "position:absolute; bottom:20px; right:24px;",
@@ -900,11 +932,7 @@ class Component extends DCLogic {
     const selImages = rawSelected ? (rawSelected.images && rawSelected.images.length ? rawSelected.images : [rawSelected.img]) : [];
     const curIdx = selImages.length ? this.state.slideIndex % selImages.length : 0;
 
-    const chronological = this.allProjects.slice().sort((a, b) => {
-      if (a.id === "passion-placeholder") return 1;
-      if (b.id === "passion-placeholder") return -1;
-      return b.year - a.year || a.title.localeCompare(b.title);
-    });
+    const chronological = this.allProjects.slice().sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
     let prevProjectNav = { title: "", img: "", onClick: () => {} }, nextProjectNav = { title: "", img: "", onClick: () => {} };
     if (rawSelected) {
       const idx = chronological.findIndex(p => p.id === rawSelected.id);
