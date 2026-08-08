@@ -21,7 +21,7 @@
 </script>
 <link rel="icon" type="image/png" href="../assets/img/favicon-light.png">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-<style>html{background:#faf7f0}html.dark-init{background:#181410}body{margin:0;background:inherit}</style>
+<style>html{background:#faf7f0;-webkit-text-size-adjust:100%;text-size-adjust:100%}html.dark-init{background:#181410}body{margin:0;background:inherit}</style>
 <script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}function __setFav(m){var h=m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png",l=document.querySelectorAll('link[rel="icon"]');for(var i=l.length-1;i>0;i--)l[i].parentNode.removeChild(l[i]);if(l[0])l[0].setAttribute("href",h);}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});document.addEventListener("DOMContentLoaded",function(){__setFav(__mq.matches);});if(window.MutationObserver&&document.head){new MutationObserver(function(){__setFav(__mq.matches);}).observe(document.head,{childList:true});}}catch(e){}</script>
 <script src="../support.js"></script>
 </head>
@@ -92,7 +92,7 @@
 
     <div ref="{{ titleRef }}">
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--tag); margin-bottom:14px;">Travel</div>
-    <h1 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(28px,4.6vw,44px); line-height:1.15; margin:0 0 18px; color:var(--text);">Kudremukh in a Day: 22 Km, and a Man Coming Back for His 31st Year Running</h1>
+    <h1 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(28px,4.6vw,44px); line-height:1.15; margin:0 0 18px; color:var(--text);">Kudremukh in a Day: 22km in Total</h1>
     <p style="font-size:18px; line-height:1.6; color:var(--text-body); margin:0;">A dawn-to-dusk climb up Karnataka's horse-faced peak with Tripbae — shola forest, stream crossings, a summit storm, and a fellow trekker who's returned every single year for 31 years, summit or not.</p>
     </div>
 
@@ -343,7 +343,7 @@ class Component extends DCLogic {
       titleRef: this.titleRef, handleBack: this.handleBack,
       scrollToTop: this.scrollToTop,
       currentYear: new Date().getFullYear(),
-      pubDate: "July 26, 2026",
+      pubDate: "June 26, 2026",
       sunOpacity: this.state.dark ? 0 : 1,
       sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
       moonOpacity: this.state.dark ? 1 : 0,
