@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Writing — Ayush Srivastav</title>
-<meta name="description" content="Writing by Ayush Srivastav — reflections on running, travel, and life outside engineering.">
+<meta name="description" content="Writing by Ayush Srivastav — decision essays and build notes, filed under Travel, Tech, Education, and Tools.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Writing — Ayush Srivastav">
-<meta property="og:description" content="Writing by Ayush Srivastav — reflections on running, travel, and life outside engineering.">
+<meta property="og:description" content="Writing by Ayush Srivastav — decision essays and build notes, filed under Travel, Tech, Education, and Tools.">
 <meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
 <meta property="og:url" content="https://srivastav-ayush.github.io/writing/">
 <meta name="twitter:card" content="summary_large_image">
@@ -38,6 +38,7 @@
     .nav-link:hover { color:var(--accent-hover) !important; }
     .nav-links::-webkit-scrollbar { display:none; }
     ::selection { background:var(--selection-bg); color:var(--selection-text); }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration:0.001ms !important; animation-delay:0ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
@@ -83,9 +84,43 @@
 
   <main id="main">
 
-  <section style="max-width:900px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 24px;">
-    <h1 style="font-family:'Instrument Serif',serif; font-size:46px; font-weight:400; margin:0 0 16px;">Writing</h1>
-    <p style="font-size:17px; line-height:1.6; color:var(--text-muted); margin:0;">Notes on choices I over-thought — watches, phones, exams, mountain trails — worked through in full, numbers and all.</p>
+  <sc-if value="{{ isHub }}">
+  <section style="max-width:1000px; margin:0 auto; padding:clamp(30px,5vw,48px) clamp(16px,5vw,64px) 20px;">
+    <h1 style="font-family:'Instrument Serif',serif; font-size:clamp(34px,6vw,46px); line-height:1.1; font-weight:400; margin:0 0 16px;">Writing</h1>
+    <p style="font-size:17px; line-height:1.6; color:var(--text-muted); margin:0; max-width:640px; text-wrap:pretty;">Notes on choices I over-thought — watches, phones, exams, mountain trails — worked through in full, numbers and all. Pick a shelf to start on.</p>
+  </section>
+
+  <section style="max-width:1000px; margin:0 auto; padding:16px clamp(16px,5vw,64px) 120px;">
+    <div style="{{ hubGridStyle }}">
+      <sc-for list="{{ categories }}" as="cat" hint-placeholder-count="4">
+        <a href="{{ cat.href }}" onClick="{{ cat.open }}" ref="{{ cat.cardRef }}" style="display:flex; flex-direction:column; border:1px solid var(--border); border-radius:16px; padding:clamp(22px,3vw,26px) clamp(18px,3vw,28px); background:var(--bg); transition:border-color 0.15s, background 0.15s, transform 0.2s ease, box-shadow 0.2s ease; animation:fadeInUp 0.4s ease both; animation-delay:{{ cat.delay }};" style-hover="border-color:var(--accent) !important; background:var(--bg-card) !important; transform:translateY(-4px) !important; box-shadow:0 14px 30px rgba(0,0,0,0.10) !important;">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:14px;">
+            <h2 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(26px,3.6vw,32px); line-height:1.1; margin:0; color:{{ cat.color }};">{{ cat.name }}</h2>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); flex-shrink:0;">{{ cat.countLabel }}</span>
+          </div>
+          <div style="width:44px; height:2px; background:{{ cat.color }}; margin:12px 0 14px;"></div>
+          <p style="font-size:15px; line-height:1.6; color:var(--text-body); margin:0 0 16px; text-wrap:pretty;">{{ cat.blurb }}</p>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <sc-for list="{{ cat.titles }}" as="ti" hint-placeholder-count="2">
+              <div style="display:flex; gap:10px; align-items:flex-start; font-size:13.5px; line-height:1.45; color:var(--text-muted);">
+                <span style="color:{{ cat.color }}; flex-shrink:0;">—</span><span>{{ ti.title }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ isCategory }}">
+  <section style="max-width:900px; margin:0 auto; padding:clamp(30px,5vw,48px) clamp(16px,5vw,64px) 20px;">
+    <a href="index.html" onClick="{{ goHub }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; min-height:44px;" style-hover="color:var(--accent) !important;">← All writing</a>
+    <div ref="{{ catHeaderRef }}" style="display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; margin-top:8px;">
+      <h1 style="font-family:'Instrument Serif',serif; font-size:clamp(34px,6vw,46px); line-height:1.1; font-weight:400; margin:0; color:{{ activeColor }};">{{ activeName }}</h1>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint);">{{ activeCount }}</span>
+    </div>
+    <p style="font-size:17px; line-height:1.6; color:var(--text-muted); margin:16px 0 0; max-width:640px; text-wrap:pretty;">{{ activeBlurb }}</p>
   </section>
 
   <section style="max-width:900px; margin:0 auto; padding:0 clamp(16px,5vw,64px) 12px; display:flex; justify-content:flex-end;">
@@ -95,8 +130,8 @@
     </button>
   </section>
 
-  <section style="max-width:900px; margin:0 auto; padding:12px clamp(16px,5vw,64px) 120px;">
-    <sc-for list="{{ articles }}" as="art" hint-placeholder-count="4">
+  <section style="max-width:900px; margin:0 auto; padding:12px clamp(16px,5vw,64px) 60px;">
+    <sc-for list="{{ articles }}" as="art" hint-placeholder-count="2">
       <a href="{{ art.href }}" ref="{{ art.cardRef }}" onClick="{{ art.open }}" style="display:block; border:1px solid var(--border); border-radius:14px; padding:32px clamp(20px,4vw,36px); margin-top:20px; transition:border-color 0.15s, background 0.15s, transform 0.2s ease, box-shadow 0.2s ease;" style-hover="border-color:var(--accent) !important; background:var(--bg-card) !important; transform:translateY(-4px) !important; box-shadow:0 14px 30px rgba(0,0,0,0.10) !important;">
         <div>
         <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:{{ art.tagColor }}; margin-bottom:12px;">{{ art.tag }}</div>
@@ -109,6 +144,20 @@
       </a>
     </sc-for>
   </section>
+
+  <section style="max-width:900px; margin:0 auto; padding:0 clamp(16px,5vw,64px) 120px;">
+    <div style="border-top:1px solid var(--border); padding-top:28px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-faint); margin-bottom:14px;">Other categories</div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <sc-for list="{{ otherCategories }}" as="oc" hint-placeholder-count="3">
+          <a href="{{ oc.href }}" onClick="{{ oc.open }}" style="display:inline-flex; align-items:center; gap:9px; min-height:44px; padding:0 18px; border:1px solid var(--border); border-radius:999px; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-muted); transition:border-color 0.15s, color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+            <span style="width:7px; height:7px; border-radius:50%; background:{{ oc.color }};"></span>{{ oc.name }}
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  </sc-if>
 
   <!-- FOOTER / CONTACT -->
   </main>
@@ -169,22 +218,129 @@
 class Component extends DCLogic {
   state = {
     dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark"),
-    sortAsc: false
+    sortAsc: false,
+    category: (typeof location !== "undefined" && location.hash ? decodeURIComponent(location.hash.slice(1)).toLowerCase() : "")
   };
 
   toggleSort = () => this.setState(s => ({ sortAsc: !s.sortAsc }));
+
+  // The Writing index is a two-level view: a category hub, and one list per category.
+  // The open category lives in the URL hash (#tools) so a category view can be linked and bookmarked.
+  categoryMeta = [
+    { name: "Travel", blurb: "Trails and trips — where to go, in which month, and what the day actually looks like." },
+    { name: "Tech", blurb: "Devices priced out properly before buying: what they cost to own, not what they cost to buy." },
+    { name: "Education", blurb: "Exams and programmes, compared on fees, opportunity cost, and what changes the answer." },
+    { name: "Tools", blurb: "Small software I built for myself — what each one does, why it works that way, and how to run it." }
+  ];
+
+  slug(name) { return name.toLowerCase(); }
+
+  // The prefers-reduced-motion CSS block cannot touch Web Animations API calls — gate them here instead.
+  reduceMotion() { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } }
+
+  openCategoryFromHub = (slug) => (e) => {
+    if (e) {
+      e.preventDefault();
+      try {
+        const rect = e.currentTarget.getBoundingClientRect();
+        this.__catOpenOrigin = { slug, rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height } };
+      } catch (err) {}
+    }
+    try { history.pushState({ cat: slug }, "", "#" + slug); } catch (err) {}
+    this.setState({ category: slug });
+    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "auto" });
+  };
+
+  switchCategory = (slug) => (e) => {
+    if (e) e.preventDefault();
+    try { history.pushState({ cat: slug }, "", "#" + slug); } catch (err) {}
+    this.setState({ category: slug });
+    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "auto" });
+  };
+
+  closeCategory = (e) => {
+    if (e) e.preventDefault();
+    try {
+      if (this.__catHeaderEl) {
+        const rect = this.__catHeaderEl.getBoundingClientRect();
+        this.__hubReturnOrigin = { slug: this.state.category, rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height } };
+      }
+    } catch (err) {}
+    try { history.pushState({}, "", location.pathname); } catch (err) {}
+    this.setState({ category: "" });
+    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "auto" });
+  };
+
+  catHeaderRef = (el) => {
+    if (!el) return;
+    this.__catHeaderEl = el;
+    if (el.__flipDone) return;
+    el.__flipDone = true;
+    if (typeof window === "undefined") return;
+    const origin = this.__catOpenOrigin;
+    this.__catOpenOrigin = null;
+    if (!origin || origin.slug !== this.state.category) return;
+    const rect = el.getBoundingClientRect();
+    const dx = origin.rect.left - rect.left, dy = origin.rect.top - rect.top;
+    const sx = origin.rect.width / rect.width, sy = origin.rect.height / rect.height;
+    el.style.transformOrigin = "top left";
+    if (typeof el.animate === "function" && !this.reduceMotion()) {
+      el.animate([
+        { transform: `translate(${dx}px,${dy}px) scale(${sx},${sy})`, opacity: 0.55 },
+        { transform: "translate(0px,0px) scale(1,1)", opacity: 1 }
+      ], { duration: 400, easing: "cubic-bezier(.16,1,.3,1)", fill: "forwards" });
+    }
+  };
+
+  hubCardRef = (el, slug) => {
+    if (!el) return;
+    if (el.__flipDone) return;
+    el.__flipDone = true;
+    if (typeof window === "undefined") return;
+    const origin = this.__hubReturnOrigin;
+    if (!origin || origin.slug !== slug) return;
+    this.__hubReturnOrigin = null;
+    const rect = el.getBoundingClientRect();
+    const dx = origin.rect.left - rect.left, dy = origin.rect.top - rect.top;
+    const sx = origin.rect.width / rect.width, sy = origin.rect.height / rect.height;
+    el.style.animation = "none";
+    el.style.transformOrigin = "top left";
+    if (typeof el.animate === "function" && !this.reduceMotion()) {
+      el.animate([
+        { transform: `translate(${dx}px,${dy}px) scale(${sx},${sy})`, opacity: 0.7 },
+        { transform: "translate(0px,0px) scale(1,1)", opacity: 1 }
+      ], { duration: 300, easing: "cubic-bezier(.4,0,.2,1)", fill: "forwards" });
+    }
+  };
+
+  componentDidMount() {
+    if (typeof window === "undefined") return;
+    this.__onPop = () => {
+      const h = location.hash ? decodeURIComponent(location.hash.slice(1)).toLowerCase() : "";
+      this.setState({ category: h });
+    };
+    window.addEventListener("popstate", this.__onPop);
+    window.addEventListener("hashchange", this.__onPop);
+  }
+  componentWillUnmount() {
+    if (typeof window === "undefined" || !this.__onPop) return;
+    window.removeEventListener("popstate", this.__onPop);
+    window.removeEventListener("hashchange", this.__onPop);
+  }
 
   // ARCHIVE TOGGLE — each article below can be hidden from the Writing page without deleting its content.
   // To ARCHIVE an article: wrap its entire line in  /*  and  */  so it becomes a comment.
   // To RESTORE an article: delete the  /*  right before it and the  */  right after it.
   // (A line is "live" — showing on the site — whenever it is NOT wrapped in /* */.)
   allArticles = [
-    { key: "isbiim", href: "ISB-vs-IIM-Cost-Comparison.dc.html", tag: "Education", title: "ISB vs IIM A/B/C: The Salary Where the Cheaper Option Flips", summary: "A full fee, opportunity-cost, and loan-financed comparison of ISB's one-year MBA against IIM Ahmedabad, Bangalore, and Calcutta's two-year programs — and the exact salary at which the cheaper option changes.", readTime: "10 min read", date: "August 2025", sortDate: new Date(2025, 7, 5) },
-    { key: "kudremukh", href: "Kudremukh-Trek.dc.html", tag: "Travel", title: "Kudremukh in a Day: 22km in Total", summary: "A dawn-to-dusk climb up Karnataka's horse-faced peak with Tripbae — stream crossings, a summit storm, and a fellow trekker on his 31st year running.", readTime: "7 min read", date: "June 26, 2026", sortDate: new Date(2026, 5, 26) },
-    { key: "wearable", href: "Wearable-Watch-Decision.dc.html", tag: "Tech", title: "The Watch Isn't the Decision. Your Training Structure Is.", summary: "Why Apple Watch, Coros, Whoop, and two different Garmins all lose to each other in different ways — and the full sensor, insight, and feature matrix behind the call.", readTime: "10 min read", date: "July 2026", sortDate: new Date(2026, 6, 1) },
-    { key: "trek", href: "Himalayan-Trek-Planner.dc.html", tag: "Travel", title: "The Himalayan Trek Calendar: Which Trek, Which Month, Which Year", summary: "Four quarters, 65 treks, one decision framework — which trek to do, in which month, and in what order across a multi-year progression.", readTime: "11 min read", date: "April 2026", sortDate: new Date(2026, 3, 1) },
-    { key: "iphone", href: "iPhone-Ownership-Strategy.dc.html", tag: "Tech", title: "iPhone Ownership in India: When to Buy, When to Sell", summary: "A complete, numbers-grounded framework covering the value case for iPhone, the Base vs Pro decision, and the financially optimal ownership strategy for every Indian income bracket.", readTime: "12 min read", date: "February 2026", sortDate: new Date(2026, 1, 1) },
-    { key: "gmat", href: "GMAT-vs-GRE-Decision.dc.html", tag: "Education", title: "GMAT vs GRE: Which One Actually Fits How You Think", summary: "A full structural, syllabus, and difficulty comparison of the GMAT Focus Edition and the GRE — plus a framework for matching the right exam to your strengths.", readTime: "9 min read", date: "July 2025", sortDate: new Date(2025, 6, 1) },
+    { key: "isbiim", href: "ISB-vs-IIM-Cost-Comparison.dc.html", tag: "Education", title: "ISB vs IIM A/B/C: The Salary Where the Cheaper Option Flips", summary: "Fees, foregone salary, and loan interest for ISB's one-year MBA set against the two-year programmes at Ahmedabad, Bangalore, and Calcutta. Sliders for your salary, your assumed raise, and your loan recompute every table, and an appendix shows the full working — including the month you finally break even.", readTime: "10 min read", date: "August 2025", sortDate: new Date(2025, 7, 5) },
+    { key: "kudremukh", href: "Kudremukh-Trek.dc.html", tag: "Travel", title: "Kudremukh in a Day: 22 Kilometres Up Karnataka's Horse-Faced Peak", summary: "A dawn-to-dusk climb with Tripbae, told in order: the night bus out of Bengaluru, shola forest and three stream crossings, grassland that never stops tilting upward, and a summit that arrived inside a storm. Photographs from the day, and the man walking it for the thirty-first year running.", readTime: "7 min read", date: "June 26, 2026", sortDate: new Date(2026, 5, 26) },
+    { key: "wearable", href: "Wearable-Watch-Decision.dc.html", tag: "Tech", title: "Running Watches Compared: The Watch Isn't the Decision, Your Training Structure Is", summary: "Apple Watch, Whoop, Coros, and two Garmins put through the same sensor, metric, and battery matrix. Each one wins somewhere and loses somewhere else, so the comparison ends where it should — with the kind of training you actually do deciding which set of compromises belongs to you.", readTime: "10 min read", date: "July 2026", sortDate: new Date(2026, 6, 1) },
+    { key: "trek", href: "Himalayan-Trek-Planner.dc.html", tag: "Travel", title: "The Himalayan Trek Calendar: Which Trek, Which Month, Which Year", summary: "Sixty-five Himalayan treks sorted by season, altitude, and difficulty into a four-quarter calendar. Which trail is safe in which month, what each one asks of you physically, and the order to attempt them in so that every year builds on the one before it.", readTime: "11 min read", date: "April 2026", sortDate: new Date(2026, 3, 1) },
+    { key: "iphone", href: "iPhone-Ownership-Strategy.dc.html", tag: "Tech", title: "iPhone Ownership in India: When to Buy, and the Year You Should Sell", summary: "Depreciation modelled from resale data, the Pro premium priced against the one feature that justifies it, and affordability tested against your own income. Sliders set the price, the resale market, and the hold length; the appendix shows every formula, filled in with the numbers you chose.", readTime: "12 min read", date: "February 2026", sortDate: new Date(2026, 1, 1) },
+    { key: "gmat", href: "GMAT-vs-GRE-Decision.dc.html", tag: "Education", title: "GMAT vs GRE: The Same Score Comes Easier on One of Them", summary: "Section by section through the GMAT Focus Edition and the GRE — scoring, adaptive design, question types, and where each exam punishes a different weakness. Ends with a framework for matching the paper to your own strengths rather than to what a school nominally prefers.", readTime: "9 min read", date: "July 2025", sortDate: new Date(2025, 6, 1) },
+    { key: "taptrack", href: "Tap-to-Track.dc.html", tag: "Tools", title: "Tap-to-Track: Eight Seconds From Purchase to Spreadsheet", summary: "Double-tap the back of an iPhone and a purchase lands in a Google Sheet you own. How the shortcut is wired, why the amount field does arithmetic without eval(), what the AI actually contributed to the build, and how to set the whole thing up for yourself.", readTime: "14 min read", date: "December 2025", sortDate: new Date(2025, 11, 10) },
+    { key: "timeplan", href: "Timeplan-Dashboard.dc.html", tag: "Tools", title: "Twelve Excel Timeplans, One Gantt: Everyone Keeps Their Own File", summary: "A single offline HTML file that opens every owner's own .xlsx, draws one master programme Gantt, resolves the dependencies they wrote in their own rows, and writes changes back to each source file without touching anyone else's. Built because merging them by hand kept losing edits.", readTime: "15 min read", date: "March 2026", sortDate: new Date(2026, 2, 12) },
   ];
 
   captureOpen(e, key) {
@@ -226,7 +382,7 @@ class Component extends DCLogic {
     const dx = origin.left - rect.left, dy = origin.top - rect.top;
     const sx = origin.width / rect.width, sy = origin.height / rect.height;
     target.style.transformOrigin = "top left";
-    if (typeof target.animate === "function") {
+    if (typeof target.animate === "function" && !this.reduceMotion()) {
       target.animate([
         { transform: `translate(${dx}px,${dy}px) scale(${sx},${sy})`, opacity: 0.7 },
         { transform: "translate(0px,0px) scale(1,1)", opacity: 1 }
@@ -258,7 +414,7 @@ class Component extends DCLogic {
       footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#9a907b", footerBorder: "#2a2419",
       navBg: "rgba(24,20,16,.88)",
       selectionBg: "#87aed6", selectionText: "#181410",
-      tagColors: { Travel: "#cd7d4b", Tech: "#87aed6", Education: "#a692d9" }
+      tagColors: { Travel: "#cd7d4b", Tech: "#87aed6", Education: "#a692d9", Tools: "#8ebd82" }
     } : {
       bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
       text: "#241f19", textBody: "#57503f", textMuted: "#6f6656", textFaint: "#6f6656",
@@ -269,7 +425,7 @@ class Component extends DCLogic {
       footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#a49a85", footerBorder: "#3a3327",
       navBg: "rgba(250,247,240,.92)",
       selectionBg: "#2e4a6b", selectionText: "#faf7f0",
-      tagColors: { Travel: "#9c5024", Tech: "#3568a0", Education: "#5b4a9e" }
+      tagColors: { Travel: "#9c5024", Tech: "#3568a0", Education: "#5b4a9e", Tools: "#3f6839" }
     };
   }
 
@@ -281,6 +437,45 @@ class Component extends DCLogic {
       `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
       `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText};`;
 
+    const cat = this.state.category;
+    const known = this.categoryMeta.map(c => this.slug(c.name));
+    const active = known.indexOf(cat) >= 0 ? cat : "";
+    const byCat = {};
+    this.allArticles.forEach(a => { const k = this.slug(a.tag); (byCat[k] = byCat[k] || []).push(a); });
+    const sorter = (a, b) => this.state.sortAsc ? a.sortDate - b.sortDate : b.sortDate - a.sortDate;
+
+    const categories = this.categoryMeta.map((c, i) => {
+      const k = this.slug(c.name);
+      const list = (byCat[k] || []).slice().sort((x, y) => y.sortDate - x.sortDate);
+      return {
+        name: c.name, blurb: c.blurb, href: "#" + k, color: t.tagColors[c.name] || t.accent,
+        countLabel: list.length === 1 ? "1 piece" : list.length + " pieces",
+        titles: list.slice(0, 2).map(a => ({ title: a.title })),
+        delay: (i * 0.06).toFixed(2) + "s",
+        open: this.openCategoryFromHub(k),
+        switchTo: this.switchCategory(k),
+        cardRef: (el) => this.hubCardRef(el, k)
+      };
+    });
+
+    const activeMeta = this.categoryMeta.find(c => this.slug(c.name) === active);
+    const activeList = active ? (byCat[active] || []).slice().sort(sorter) : [];
+
+    const hubVals = {
+      isHub: !active,
+      isCategory: !!active,
+      categories,
+      hubGridStyle: "display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr)); gap:20px; align-items:start;",
+      goHub: this.closeCategory,
+      catHeaderRef: this.catHeaderRef,
+      activeName: activeMeta ? activeMeta.name : "",
+      activeBlurb: activeMeta ? activeMeta.blurb : "",
+      activeColor: activeMeta ? (t.tagColors[activeMeta.name] || t.accent) : t.text,
+      activeCount: activeList.length === 1 ? "1 piece" : activeList.length + " pieces",
+      otherCategories: categories.filter(c => c.href !== "#" + active).map(c => ({ name: c.name, href: c.href, color: c.color, open: c.switchTo })),
+      articles: activeList.map(a => ({ ...a, open: (e) => this.captureOpen(e, a.key), cardRef: (el) => this.setupCardRef(el, a.key), tagColor: t.tagColors[a.tag] || t.accent }))
+    };
+
     return {
       rootStyle,
       isDarkMode: this.state.dark,
@@ -288,9 +483,7 @@ class Component extends DCLogic {
       toggleDark: this.toggleDark,
       scrollToTop: this.scrollToTop,
       currentYear: new Date().getFullYear(),
-      articles: this.allArticles.slice().sort((a, b) => this.state.sortAsc ? a.sortDate - b.sortDate : b.sortDate - a.sortDate)
-        .map(a => ({ ...a, open: (e) => this.captureOpen(e, a.key), cardRef: (el) => this.setupCardRef(el, a.key),
-          tagColor: t.tagColors[a.tag] || t.accent })),
+      ...hubVals,
       toggleSort: this.toggleSort,
       sortLabel: this.state.sortAsc ? "Oldest first" : "Newest first",
       sortIconStyle: this.state.sortAsc ? "transform:scaleY(-1);" : "",

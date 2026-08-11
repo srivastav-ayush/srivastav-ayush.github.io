@@ -99,7 +99,6 @@
           <button onClick="{{ setWork }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ workBg }}; color:{{ workColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Work</button>
           <button onClick="{{ setResearch }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ researchBg }}; color:{{ researchColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Research</button>
           <button onClick="{{ setAcademic }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ academicBg }}; color:{{ academicColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Academic</button>
-          <button onClick="{{ setPassion }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ passionBg }}; color:{{ passionColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Passion</button>
         </div>
         <button onClick="{{ toggleSort }}" style="border:1px solid var(--border-strong); background:none; cursor:pointer; padding:11px 16px; border-radius:8px; font-size:12.5px; font-weight:600; font-family:'JetBrains Mono',monospace; color:var(--text-muted); display:flex; align-items:center; gap:7px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{ sortIconStyle }}"><path d="M3 6h18M6 12h12M10 18h4"></path></svg>
@@ -620,15 +619,14 @@ class Component extends DCLogic {
     const hues = {
       work: dark ? "#87aed6" : "#3568a0",
       research: dark ? "#8ebd82" : "#3f6839",
-      academic: dark ? "#e0a37c" : "#89502d",
-      passion: dark ? "#d493be" : "#914274"
+      academic: dark ? "#e0a37c" : "#89502d"
     };
     const out = {};
     for (const k in hues) out[k] = { color: hues[k], bg: this.hexToRgba(hues[k], dark ? 0.18 : 0.12) };
     return out;
   }
 
-  solidCategoryColors = { work: "#3568a0", research: "#4a7a43", academic: "#ac6438", passion: "#a34a82" };
+  solidCategoryColors = { work: "#3568a0", research: "#4a7a43", academic: "#ac6438" };
 
   orgBoxStyle(shape, size) {
     const sizes = size === "detail" ? { square: 68, wideH: 42, wideHLg: 58, pad: 10 } : { square: 70, wideH: 38, wideHLg: 55, pad: 10 };
@@ -840,47 +838,6 @@ class Component extends DCLogic {
         { text: " \u2014 under combined pressure and rotation, with the exponential function inverting the circumferential stress distribution relative to an isotropic cylinder and giving the lowest hoop stress of the three.", kind: "plain" }
       ],
       skills: [{ name: "Abaqus CAE", note: "FE cylinder model" }, { name: "MATLAB", note: "grading function definitions" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/fgm-cylinder", type: "github" }, { label: "Minor Project Thesis", url: "https://drive.google.com/file/d/18li0QySujtvvRewaTtC9c4skQOUFHiYL/view?usp=drive_link", type: "paper" }, { label: "Journal Article (DOI)", url: "https://doi.org/10.1080/2374068X.2021.1945274", type: "paper" }] },
-    { id: "tap-to-track", category: "passion", tag: "Passion Project", title: "Daily expense tracker: Tap-to-Track", year: 2025,
-      img: "../assets/img/portfolio/tap-to-track-1.png",
-      summary: "Log an expense to Google Sheets in about eight seconds by double-tapping the back of an iPhone — no app, no subscription, no third party.",
-      role: "Sole developer — designed and built the backend, spreadsheet, and iOS Shortcut end to end",
-      stat: { value: "~8s", label: "to log an expense — one gesture, three taps" },
-      process: [
-        { step: "Problem", text: "Expense tracking fails at the moment of spending: unlock phone, find app, wait for load, tap through four screens. Commercial apps remove that friction by taking bank credentials, showing ads, or charging a subscription." },
-        { step: "Approach", text: "A Back Tap gesture opens an iOS Shortcut that collects the amount, category, and remark, then posts to a Google Apps Script web app running under my own Google account. The script discovers spreadsheet columns by header text rather than fixed position, and parses arithmetic with a hand-written recursive-descent parser instead of eval()." },
-        { step: "Result", text: "An entry costs one gesture and three taps, about eight seconds, and never leaves a spreadsheet I own — no bank credentials, no third-party server, no subscription." }
-      ],
-      meta: [{ label: "Built with", value: "iOS Shortcuts, Google Apps Script, Google Sheets" }, { label: "Timeline", value: "2025" }],
-      abstractSegments: [
-        { text: "Expense tracking apps usually fix the friction of logging a purchase by taking your bank credentials, showing you ads, or charging a subscription — and your spending history becomes their asset. ", kind: "plain" }, { text: "Tap-to-Track", kind: "bold" },
-        { text: " does it differently: double-tap the back of an iPhone, type an amount, tap a category, and the entry lands in a ", kind: "plain" }, { text: "Google Sheet you own", kind: "bold" },
-        { text: ", written by a script running under your own Google account. ", kind: "plain" }, { text: "The amount field takes arithmetic", kind: "bold" },
-        { text: " — split a bill as ", kind: "plain" }, { text: "=500/3", kind: "bold" }, { text: " or add GST as ", kind: "plain" }, { text: "=1200*18%", kind: "bold" },
-        { text: " — evaluated by a hand-written parser rather than ", kind: "plain" }, { text: "eval()", kind: "bold" },
-        { text: ", since the endpoint runs under a personal Google account and a stray letter could otherwise execute arbitrary code. The backend never assumes the spreadsheet's layout: it rediscovers each category's column by its header text on every request, and refuses to write rather than guess if the sheet has changed shape.", kind: "plain" }
-      ],
-      skills: [{ name: "Claude", note: "AI pair-programmer — used to help build the backend, shortcut, and documentation" }, { name: "Google Apps Script", note: "header-driven column discovery, bounds-checked writes, undo snapshots, script-lock concurrency" }, { name: "iOS Shortcuts", note: "Back Tap trigger, arithmetic-aware amount entry, category picker" }, { name: "JavaScript", note: "recursive-descent arithmetic parser with a character whitelist, no eval()" }],
-      links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/tap-to-track", type: "github" }] },
-    { id: "timeplan-dashboard", category: "passion", tag: "Passion Project", title: "Master Time Plan Dashboard", year: 2026,
-      img: "../assets/img/portfolio/timeplan-dashboard-1.png",
-      summary: "Twelve people keep their own Excel timeplan. One offline HTML file reads all of them, draws a single master Gantt, and writes the changes back.",
-      role: "Sole developer \u2014 data model, .xlsx parse and rebuild, dependency resolution, and the whole interface",
-      stat: { value: "12 \u2192 1", label: "separate Excel timeplans read into one master Gantt" },
-      process: [
-        { step: "Problem", text: "A programme plan is split across levels and owners: one programme master plan, one plan per workstream, one per supplier. Each owner works in their own Excel file, which is right \u2014 they own their dates. Nobody has the whole picture, and by the time it has been copied into one deck by hand it is a week old and wrong." },
-        { step: "Approach", text: "A single self-contained HTML file, no install and no server. It reads one .xlsx per timeplan straight out of a shared folder, stacks them L1 at the top to L5 at the bottom, and resolves the dependencies people wrote in their own files. Saving rebuilds each changed workbook from its own bytes, so formulas, conditional formatting and sheet protection survive and an edit in one plan can never touch another." },
-        { step: "Result", text: "One master Gantt that is current the moment an owner saves their file, plus the four things separate files hide: what is stale, what is broken, what has moved since the last review, and what else has to move because of it." }
-      ],
-      meta: [{ label: "Built with", value: "HTML, JavaScript, Excel (.xlsx)" }, { label: "Timeline", value: "2026" }],
-      abstractSegments: [
-        { text: "Twelve timeplans, twelve owners, twelve Excel files \u2014 and no shared view of the programme. This dashboard leaves every owner's file exactly where it is and reads them all into ", kind: "plain" }, { text: "one master Gantt", kind: "bold" },
-        { text: ", L1 at the top and L5 at the bottom. It runs from a single HTML file: no install, no server, no account, and no network call of any kind, so it works from a USB stick or a network drive and nothing is uploaded anywhere. Dependencies are written in plain text in each file \u2014 ", kind: "plain" }, { text: "L1_Programme-14; L3_Tooling-7", kind: "bold" },
-        { text: " \u2014 and anything that doesn't match is listed as a warning rather than silently dropped. ", kind: "plain" }, { text: "Capture a baseline", kind: "bold" },
-        { text: " and the plan shows a dashed outline where each activity used to sit with a badge for how far it moved, so \u201cwhat changed between the June and the August review\u201d is one question instead of an afternoon. The ", kind: "plain" }, { text: "knock-on view", kind: "bold" },
-        { text: " then follows those moves downstream and flags every activity whose dates have become impossible, and every one left with two weeks of float or less, with the owner of each. Nothing moves automatically. Saving writes only the changed files, verifies every rebuilt workbook by re-parsing it before anything is written, and copies the version being replaced into a dated archive first.", kind: "plain" }
-      ],
-      skills: [{ name: "JavaScript", note: ".xlsx parse and rebuild, dependency resolution, Gantt rendering \u2014 no build step, no libraries" }, { name: "Claude", note: "AI pair-programmer \u2014 used to help build the app and its documentation" }, { name: "Excel", note: "L1\u2013L5 templates with formula-drawn per-plan Gantts and a single typed input sheet" }, { name: "File System Access API", note: "reads and writes the shared folder in place, with dated archive copies" }],
-      links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/timeplan-dashboard", type: "github" }] },
     { id: "uvat", category: "academic", tag: "Academic Project", title: "Inverse modelling of UVAT", year: 2020, img: "../assets/img/portfolio/uvat-1.jpg",
       orgName: "MANIT Bhopal", orgLogo: "../assets/logos/manit.png",
       summary: "Inverse estimation of cutting forces in ultrasonic vibration-assisted turning.",
@@ -978,7 +935,7 @@ class Component extends DCLogic {
       if (name === "all") return { bg: "var(--btn-bg)", color: "var(--btn-text)" };
       return { bg: this.solidCategoryColors[name], color: "#ffffff" };
     };
-    const all = activeStyle("all"), academic = activeStyle("academic"), research = activeStyle("research"), work = activeStyle("work"), passion = activeStyle("passion");
+    const all = activeStyle("all"), academic = activeStyle("academic"), research = activeStyle("research"), work = activeStyle("work");
 
     const metaGridStyle = isMobile
       ? "display:grid; grid-template-columns:1fr; gap:16px; padding:20px 0; margin-bottom:28px; border-top:1px solid var(--border); border-bottom:1px solid var(--border);"
@@ -1028,15 +985,13 @@ class Component extends DCLogic {
       setAcademic: () => this.setState({ filter: "academic" }),
       setResearch: () => this.setState({ filter: "research" }),
       setWork: () => this.setState({ filter: "work" }),
-      setPassion: () => this.setState({ filter: "passion" }),
       toggleSort: this.toggleSort,
       sortLabel: sortAsc ? "Oldest first" : "Newest first",
       sortIconStyle: sortAsc ? "transform:scaleY(-1);" : "",
       allBg: all.bg, allColor: all.color,
       academicBg: academic.bg, academicColor: academic.color,
       researchBg: research.bg, researchColor: research.color,
-      workBg: work.bg, workColor: work.color,
-      passionBg: passion.bg, passionColor: passion.color
+      workBg: work.bg, workColor: work.color
     };
   }
 }

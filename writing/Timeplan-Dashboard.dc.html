@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twelve Excel Timeplans, One Gantt: Everyone Keeps Their Own File — Ayush Srivastav</title>
+<meta name="description" content="A single offline HTML file that opens every owner's own .xlsx, draws one master programme Gantt, resolves the dependencies they wrote in their own rows, and writes changes back to each source file without touching anyone else's. Built because merging them by hand kept losing edits.">
+<link rel="canonical" href="https://srivastav-ayush.github.io/writing/Timeplan-Dashboard.dc.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Twelve Excel Timeplans, One Gantt: Everyone Keeps Their Own File — Ayush Srivastav">
+<meta property="og:description" content="A single offline HTML file that opens every owner's own .xlsx, draws one master programme Gantt, resolves the dependencies they wrote in their own rows, and writes changes back to each source file without touching anyone else's. Built because merging them by hand kept losing edits.">
+<meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
+<meta property="og:url" content="https://srivastav-ayush.github.io/writing/Timeplan-Dashboard.dc.html">
+<meta name="twitter:card" content="summary_large_image">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XML0VEY6NS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XML0VEY6NS');
+</script>
+<link rel="icon" type="image/png" href="../assets/img/favicon-light.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<style>html{background:#faf7f0;-webkit-text-size-adjust:100%;text-size-adjust:100%}html.dark-init{background:#181410}body{margin:0;background:inherit}</style>
+<script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}function __setFav(m){var h=m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png",l=document.querySelectorAll('link[rel="icon"]');for(var i=l.length-1;i>0;i--)l[i].parentNode.removeChild(l[i]);if(l[0])l[0].setAttribute("href",h);}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});document.addEventListener("DOMContentLoaded",function(){__setFav(__mq.matches);});if(window.MutationObserver&&document.head){new MutationObserver(function(){__setFav(__mq.matches);}).observe(document.head,{childList:true});}}catch(e){}</script>
+<script src="../support.js"></script>
+</head>
+
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    a { color:inherit; text-decoration:none; }
+    a:hover { color:var(--accent-hover); }
+    .skip-link { position:absolute; left:-9999px; top:0; z-index:900; }
+    .skip-link:focus { left:0; outline:3px solid var(--text); outline-offset:-3px; }
+    .nav-link:hover { color:var(--accent-hover) !important; }
+    .nav-links::-webkit-scrollbar { display:none; }
+    ::selection { background:var(--selection-bg); color:var(--selection-text); }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+    .art-table { width:100%; border-collapse:collapse; font-family:'Archivo',sans-serif; font-size:13.5px; }
+    .art-table thead th { position:sticky; top:0; z-index:2; background:var(--text); color:var(--bg); }
+    .art-table th, .art-table td { padding:10px 12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--border); }
+    .art-table-compact { table-layout:fixed; }
+    .art-table-compact th, .art-table-compact td { padding:8px 9px; font-size:12px; line-height:1.4; word-break:break-word; white-space:normal; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration:0.001ms !important; animation-delay:0ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+      .reveal-card { opacity:1 !important; transform:none !important; }
+    }
+    @media print {
+      @page { margin:14mm; }
+      html, body { background:#ffffff !important; }
+      *, *::before, *::after { animation:none !important; transition:none !important; box-shadow:none !important; }
+      .reveal-card { opacity:1 !important; transform:none !important; }
+      div[style*="--bg:"] { --bg:#ffffff !important; --bg-alt:#ffffff !important; --bg-card:#ffffff !important; --bg-chip:#f2f0eb !important; --text:#14110d !important; --text-body:#33302a !important; --text-muted:#4d483f !important; --text-faint:#4d483f !important; --border:#c9c4b8 !important; --border-strong:#b3ada0 !important; --accent:#134a80 !important; --accent-hover:#134a80 !important; --btn-bg:#14110d !important; --btn-text:#ffffff !important; --footer-bg:#ffffff !important; --footer-text:#14110d !important; --footer-text-muted:#4d483f !important; --footer-border:#c9c4b8 !important; --nav-bg:#ffffff !important; }
+      nav { position:static !important; background:#ffffff !important; backdrop-filter:none !important; }
+      button[aria-label="Toggle dark mode"], [data-print-hide] { display:none !important; }
+      a { text-decoration:none !important; }
+      footer { margin-top:16px !important; border-top:1px solid #c9c4b8 !important; }
+      section, article, table, tr, .reveal-card { break-inside:avoid; page-break-inside:avoid; }
+      h1, h2, h3 { break-after:avoid; page-break-after:avoid; }
+    }
+  </style>
+</helmet>
+
+<div style="{{ rootStyle }}">
+  <a href="#main" class="skip-link" style="background:var(--accent); color:var(--bg); padding:12px 20px; border-radius:0 0 8px 0; font-size:14px; font-weight:600;">Skip to content</a>
+  <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
+    <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
+      <a href="../index.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
+        <div style="display:flex; align-items:baseline;">
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text); letter-spacing:-1px;">A</span>
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--accent); letter-spacing:-1px; margin-left:-4px;">S</span><span style="font-family:'Instrument Serif',serif; font-size:30px; line-height:1; color:var(--accent); margin-left:1px;">.</span>
+        </div>
+        <div style="width:32px; height:1.5px; background:var(--accent);"></div>
+      </a>
+      <div class="nav-links" style="display:flex; align-items:center; gap:clamp(10px,2.5vw,24px); font-weight:500; overflow-x:auto; white-space:nowrap; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; min-width:0;">
+        <a href="../work/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
+        <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
+        <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
+        <a href="../writing/index.html" class="nav-link" aria-current="true" style="color:var(--accent); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
+        <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
+      </div>
+    </div>
+  </nav>
+  <div style="height:84px;"></div>
+
+  <main id="main">
+
+  <article style="max-width:760px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 100px;">
+    <a href="index.html#tools" onClick="{{ handleBack }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; margin-bottom:28px; min-height:44px;">← Back to Writing</a>
+
+    <div ref="{{ titleRef }}">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--tag); margin-bottom:14px;">Tools</div>
+    <h1 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(30px,5vw,46px); line-height:1.15; margin:0 0 18px; color:var(--text);">Twelve Excel Timeplans, One Gantt: Everyone Keeps Their Own File</h1>
+    <p style="font-size:18px; line-height:1.6; color:var(--text-body); margin:0;">A programme plan is split across levels and owners, and each owner works in their own Excel file — which is correct, because they own their dates. Nobody has the whole picture. This is the file that reads all twelve of them at once.</p>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:14px; margin-top:26px; padding-top:20px; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); animation:fadeInUp 0.4s ease both;">
+      <span>By Ayush</span><span>·</span><span>15 min read</span><span>·</span><span>March 2026</span>
+    </div>
+
+    <div style="font-size:17px; line-height:1.8; color:var(--text-body); margin-top:40px; animation:fadeInUp 0.4s ease 0.05s both;">
+
+      <p style="margin:0 0 22px;">Every large programme is planned the same way. One master plan at the top, one plan per workstream below it, one per supplier below that. Each lives in a separate Excel file owned by a different person, and that is the right arrangement: the person who knows when the tooling arrives should be the person who types that date.</p>
+
+      <p style="margin:0 0 22px;">What goes wrong is the view. To see the whole programme somebody copies twelve files into one deck by hand, and by the time that deck is finished it is a week old. <strong style="color:var(--text);">The dashboard leaves every owner's file exactly where it is.</strong> It reads them all, draws them together, and reports the four things that are genuinely hard to see across separate files: what is stale, what is broken, what has moved since the last review, and what else has to move because of it.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:34px;">
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Files read</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(20px,2.9vw,24px); color:var(--text); line-height:1;">12 → 1</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">One .xlsx per timeplan, stacked L1 at the top to L5 at the bottom.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Install</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(20px,2.9vw,24px); color:var(--text); line-height:1;">None</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">One self-contained HTML file. No build step, no dependencies.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Network calls</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(20px,2.9vw,24px); color:var(--text); line-height:1;">Zero</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Works offline, from a USB stick or a network drive.</div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Capacity</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(20px,2.9vw,24px); color:var(--text); line-height:1;">~2400</div>
+          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.5;">Activities across twelve files, on a grid up to 700 weeks wide.</div>
+        </div>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The rule everything else follows from</h2>
+
+      <p style="margin:0 0 22px;">Every owner keeps their own file, and an edit made in one plan can never modify another. That single rule decides most of the design: why it reads a folder rather than importing into a database, why saving rebuilds each workbook separately from its own bytes, and why nothing on the plan ever moves on its own.</p>
+
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> A tool that quietly rewrites somebody else's dates gets switched off after the first review meeting. One that only ever shows them gets trusted.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">What is in the folder</h2>
+
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; line-height:1.75; color:var(--text); background:var(--bg-chip); border-radius:10px; padding:16px 18px; margin:0 0 24px; white-space:pre-wrap; overflow-x:auto;">01_Documentation/              the technical reference
+02_Templates/                  blank L1–L5 starter files
+03_Time_Plans/                 the live timeplans — this is what you load
+04_Exports/                    SVG / PNG / PDF exports
+05_Master_Time_Plan_Dashboard/ the dashboard itself — open this</div>
+
+      <p style="margin:0 0 22px;">Two more folders appear inside <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">03_Time_Plans</code> as you use it: <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">_baselines/</code> for the dated snapshots, and <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">04_Archived_Timeplans/</code> for the version each file replaced. Nothing in the code hardcodes any of these names — rename them freely. Twelve example timeplans ship with it, so it draws something the moment you open it.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">One file per timeplan</h2>
+
+      <p style="margin:0 0 22px;">Copy the matching template into the plans folder and rename it: <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">L3_TEMPLATE.xlsx</code> becomes <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">L3_Tooling.xlsx</code>. <strong style="color:var(--text);">The file name sets the level and the order</strong> — L1 to L5 places the plan in the stack, and the word after it orders plans sharing a level. Several files can share a level.</p>
+
+      <p style="margin:0 0 22px;">Each file has exactly two sheets. The <strong style="color:var(--text);">input sheet</strong> is where the owner types, and it is the only sheet the dashboard reads or writes. The <strong style="color:var(--text);">time plan sheet</strong> is that plan's own Gantt, drawn in Excel by formulas — nobody types in it. So each file is a usable timeplan on its own, with or without the dashboard, which is what makes it reasonable to ask twelve people to adopt the template.</p>
+
+      <p style="margin:0 0 22px;">Two header fields do more work than they look like they do. <strong style="color:var(--text);">Plan ID</strong> is set once and never changed, so dependencies and baseline comparisons keep working even after a file is renamed. <strong style="color:var(--text);">Last updated</strong> is the freshness stamp — the dashboard flags plans older than two weeks and stamps it for you when it saves.</p>
+
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> "Nobody has touched L4_Logistics for 49 days" is a fact no amount of staring at a Gantt will give you, and it is usually the most useful line on the screen.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Dependencies are written in plain text</h2>
+
+      <p style="margin:0 0 22px;">Nobody is going to learn a syntax to use a planning tool. So a dependency is the file name, a hyphen, and the number of the activity this one waits for, typed into a normal cell:</p>
+
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; line-height:1.75; color:var(--text); background:var(--bg-chip); border-radius:10px; padding:16px 18px; margin:0 0 24px; white-space:pre-wrap; overflow-x:auto;">L1_Programme-14; L3_Tooling-7</div>
+
+      <p style="margin:0 0 22px;">Separate several with a semicolon. The activity name works instead of the number (<code style="font-family:'JetBrains Mono',monospace; font-size:12px;">L1_Programme-Gate 2 review</code>), and a bare number or name means "in this same file". Use the number — it is matched first and can never be ambiguous. Every activity's exact reference is printed in the Ref column of its own tab, ready to copy.</p>
+
+      <p style="margin:0 0 22px;">Anything that does not match is listed under Warnings and drawn as a red chip, with the file and row it came from. It is never silently dropped. A typo in a dependency is a planning error, and the tool's job is to put it in front of a person.</p>
+
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Warnings that name the file and the row get fixed. "3 dependencies could not be resolved" gets ignored.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">What the dashboard gives you</h2>
+
+      <div style="overflow-x:auto; margin:0 0 26px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact" style="min-width:480px;">
+          <thead><tr style="background:var(--text); color:var(--bg);"><th style="border-bottom:none; width:26%;">Panel</th><th style="border-bottom:none; width:74%;">What it does</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600; color:var(--text);">Files</td><td style="color:var(--text-body);">Pick the source folder, reload after an owner updates their file, change folder, clear.</td></tr>
+            <tr><td style="font-weight:600; color:var(--text);">Save to Excel</td><td style="color:var(--text-body);">Lists exactly which timeplans changed and what changed in each, then writes only those.</td></tr>
+            <tr><td style="font-weight:600; color:var(--text);">Export</td><td style="color:var(--text-body);">SVG, PNG and PDF of the current view, plus printable A4 status sheets — one page per timeplan, with a sign-off line.</td></tr>
+            <tr><td style="font-weight:600; color:var(--text);">Warnings</td><td style="color:var(--text-body);">Everything wrong in the loaded files, filtered by Problems / To look at, or by one timeplan. Green when clean.</td></tr>
+            <tr><td style="font-weight:600; color:var(--text);">Baseline</td><td style="color:var(--text-body);">Freeze today's dates, then see what has moved since.</td></tr>
+            <tr><td style="font-weight:600; color:var(--text);">Knock-on</td><td style="color:var(--text-body);">What else has to move because something moved.</td></tr>
+            <tr><td style="font-weight:600; color:var(--text);">Timeplans</td><td style="color:var(--text-body);">One row per file: show/hide, rename, age in days since the owner last saved it, activity count, warning count.</td></tr>
+            <tr><td style="font-weight:600; color:var(--text);">View</td><td style="color:var(--text-body);">Compact timeline, which columns to show, and a snapshot window that crops the view and every export.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin:0 0 22px;">Double-click any bar or table row to change its start and end week and, optionally, its status, name, responsible or location. Pending changes show in red until you save.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Baselines, and what has moved</h2>
+
+      <p style="margin:0 0 22px;"><strong style="color:var(--text);">Capture</strong> freezes the start and end week of every activity in every loaded file, exactly as they are at that moment, and stores it as a dated snapshot. Nothing on the plan moves and nothing is written into the timeplans.</p>
+
+      <p style="margin:0 0 22px;">Switch Baseline view on afterwards and the difference is drawn in place: a dashed outline where the activity used to sit, and a badge for how far it moved — <strong style="color:var(--sem-red);">+3w</strong> is three weeks later, <strong style="color:var(--sem-green);">−2w</strong> is two weeks earlier. Every snapshot is kept and named by month, and two dropdowns set what is compared: from a capture, to today's live plan or to a second capture. "What moved between the June and the August review" becomes one question instead of an afternoon.</p>
+
+      <p style="margin:0 0 22px;">Activities are matched on Plan ID first, file name second, then activity number — so renaming a file or an activity does not break the comparison.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Knock-on effects</h2>
+
+      <p style="margin:0 0 22px;">Movement matters less than its consequences. The knock-on view takes every activity whose end date differs from before — an unsaved edit of yours, or a move away from the selected baseline — and follows the dependencies downstream, flagging two things:</p>
+
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:34px;">
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em; width:34px; padding-top:2px;">01</div>
+          <div style="flex:1; min-width:0;">
+            <div style="font-weight:600; color:var(--text); font-size:14.5px;">Must move Nw</div>
+            <div style="font-size:13.5px; color:var(--text-body); margin-top:4px; line-height:1.6;">That activity now starts on or before the thing it waits for finishes. Its dates are impossible as they stand.</div>
+          </div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em; width:34px; padding-top:2px;">02</div>
+          <div style="flex:1; min-width:0;">
+            <div style="font-weight:600; color:var(--text); font-size:14.5px;">Review — only Nw float left</div>
+            <div style="font-size:13.5px; color:var(--text-body); margin-top:4px; line-height:1.6;">It still fits, but with two weeks of slack or less.</div>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin:0 0 22px;">Each one is listed with the owner of the plan it lives in, because the next step is always a conversation with a specific person. <strong style="color:var(--text);">Print report</strong> and <strong style="color:var(--text);">Save report as file</strong> produce a two-part document — what changed, and what that affects — to take into the review. One four-week slip in the example data flags 49 downstream activities.</p>
+
+      <p style="margin:0 0 22px;">Nothing is changed automatically. The dashboard follows only the links people actually wrote down, and the decision to move a date stays with the owner of that date.</p>
+
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> The four questions separate files hide are the only four the master plan exists to answer. Everything else in the tool is in service of those.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Saving, and how old versions are kept</h2>
+
+      <p style="margin:0 0 22px;">Reading is easy. Writing back into twelve workbooks people rely on is not, so the save path is the most conservative part of the tool.</p>
+
+      <p style="margin:0 0 22px;">Each changed timeplan is rebuilt from that file's own bytes, so an edit in one plan can never touch another, and formulas, conditional formatting, colours and sheet protection all survive. Before anything is overwritten, the version being replaced is copied into the archive folder as <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">2026-08-08_1432_L2_Bodyshop.xlsx</code> — date, time, then the file name, so copies sort oldest to newest. Only then is the new version written. If the copy cannot be made, the save stops and the original is left alone.</p>
+
+      <p style="margin:0 0 22px;">Every rebuilt file is re-parsed and verified before anything is committed; if one value does not round-trip, the whole save aborts. And if any file changed on disk since you loaded it, the save stops and asks you to reload first — so you cannot overwrite somebody else's work by accident.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Using it</h2>
+
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:34px;">
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em; width:34px; padding-top:2px;">01</div>
+          <div style="flex:1; min-width:0;">
+            <div style="font-weight:600; color:var(--text); font-size:14.5px;">Put the plans in one folder</div>
+            <div style="font-size:13.5px; color:var(--text-body); margin-top:4px; line-height:1.6;">One .xlsx per timeplan, each copied from the L1–L5 templates and renamed to set its level and order.</div>
+          </div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em; width:34px; padding-top:2px;">02</div>
+          <div style="flex:1; min-width:0;">
+            <div style="font-weight:600; color:var(--text); font-size:14.5px;">Open the HTML file and press Load folder</div>
+            <div style="font-size:13.5px; color:var(--text-body); margin-top:4px; line-height:1.6;">Double-click the file, pick the plans folder. The browser asks once for access; nothing is uploaded.</div>
+          </div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em; width:34px; padding-top:2px;">03</div>
+          <div style="flex:1; min-width:0;">
+            <div style="font-weight:600; color:var(--text); font-size:14.5px;">Read the master Gantt</div>
+            <div style="font-size:13.5px; color:var(--text-body); margin-top:4px; line-height:1.6;">All plans stacked L1 to L5, with unresolved dependencies, stale files and warning counts listed alongside.</div>
+          </div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em; width:34px; padding-top:2px;">04</div>
+          <div style="flex:1; min-width:0;">
+            <div style="font-weight:600; color:var(--text); font-size:14.5px;">Capture a baseline before a review cycle</div>
+            <div style="font-size:13.5px; color:var(--text-body); margin-top:4px; line-height:1.6;">From then on every activity shows where it used to sit and how far it has moved.</div>
+          </div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em; width:34px; padding-top:2px;">05</div>
+          <div style="flex:1; min-width:0;">
+            <div style="font-weight:600; color:var(--text); font-size:14.5px;">Check the knock-on view before agreeing to a date</div>
+            <div style="font-size:13.5px; color:var(--text-body); margin-top:4px; line-height:1.6;">It lists the impossible dates and the activities down to their last two weeks of float, each with its owner.</div>
+          </div>
+        </div>
+        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em; width:34px; padding-top:2px;">06</div>
+          <div style="flex:1; min-width:0;">
+            <div style="font-weight:600; color:var(--text); font-size:14.5px;">Save</div>
+            <div style="font-size:13.5px; color:var(--text-body); margin-top:4px; line-height:1.6;">Only changed workbooks are rebuilt, each verified by re-parsing, with the previous version archived by date.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Limits</h2>
+
+      <p style="margin:0 0 22px;"><strong style="color:var(--text);">Chrome or Edge</strong> for folder loading and saving in place. Firefox and Safari can load files and will download the saved ones instead. The templates are formatted and formula-filled for about <strong style="color:var(--text);">200 activities per timeplan</strong> — past that the dashboard still reads up to 2000 rows, but Warnings tells you to copy the last row of that file's own time plan sheet down, or its Excel Gantt stops drawing at row 200. Twelve files of 200 activities is 2400 activities and is fine. The grid draws up to 700 weeks, about thirteen years.</p>
+
+      <p style="margin:0 0 22px;">And there is no scheduling engine: no resource levelling, no critical-path optimisation, nothing that reflows the plan for you. Those need a single shared source of truth and a single owner, which is exactly what this arrangement does not have.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Where the AI actually helped</h2>
+
+      <p style="margin:0 0 22px;">This one is a single HTML file with no build step and no libraries, which means every part of it — the .xlsx parse, the rebuild that preserves formulas and sheet protection, the dependency resolver, the Gantt renderer — is hand-written. That is a lot of surface for a tool built alongside a day job, and Claude was a pair-programmer on all of it.</p>
+
+      <p style="margin:0 0 22px;">The rebuild path is where it earned its place. Writing an .xlsx back so that formulas, conditional formatting and sheet protection survive means editing the parts of the package you changed and leaving the rest byte-identical, and getting that subtly wrong produces a file that opens with a repair prompt — which, in a shared folder, is how a tool loses everyone's trust in one afternoon. Working through that with a second party, and then adding the verify-by-re-parsing step and the dated archive before it, turned "probably fine" into something I was willing to point at other people's files.</p>
+
+      <p style="margin:0 0 22px;">The other half is the documentation. The repository carries a full technical reference — data model, the parse and rebuild path, dependency resolution, the baseline format — which exists because writing it was cheap. A tool that twelve people depend on and only one person understands is a liability, and the version of this project without an AI in it is the version where that reference never gets written.</p>
+
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> The pattern across both tools is the same: the AI did not build things I could not build. It made the careful version — the parser, the audit, the verify step, the documentation — cost about the same as the careless one.</p>
+
+      <div style="background:var(--btn-bg); color:var(--btn-text); padding:30px 30px 28px; border-radius:16px; margin:44px 0 34px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; opacity:0.7; margin-bottom:10px;">Repository</div>
+        <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(19px,2.7vw,22px); margin:0 0 10px;">srivastav-ayush/timeplan-dashboard</div>
+        <p style="font-size:14.5px; opacity:0.85; margin:0 0 20px; line-height:1.65;">The dashboard as one self-contained HTML file, the blank L1–L5 Excel templates, twelve example timeplans, and the full technical reference.</p>
+        <a href="https://github.com/srivastav-ayush/timeplan-dashboard" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 22px; border-radius:999px; background:var(--btn-text); color:var(--btn-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">github.com/srivastav-ayush/timeplan-dashboard ↗</a>
+      </div>
+
+      <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:36px; padding-top:20px; border-top:1px solid var(--border);"><strong style="color:var(--text-muted);">Built with:</strong> plain JavaScript — .xlsx parse and rebuild, dependency resolution and Gantt rendering, with no build step and no libraries — the File System Access API for reading and writing the shared folder in place, and Excel L1–L5 templates with formula-drawn per-plan Gantts over a single typed input sheet. Claude was used as a pair-programmer on the app and its documentation. <strong style="color:var(--text-muted);">Privacy:</strong> nothing is uploaded anywhere. There is no server, no analytics and no network call of any kind; all parsing, rendering and rebuilding happens in the browser, and the file works fully offline.</div>
+    </div>
+  </article>
+
+  </main>
+
+  <footer style="background:var(--footer-bg); color:var(--footer-text); border-top:1px solid var(--footer-border);">
+    <div style="max-width:1200px; margin:0 auto; padding:56px clamp(16px,5vw,64px) 32px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
+      <div>
+        <div style="font-family:'Instrument Serif',serif; font-size:21px; color:var(--footer-text); margin-bottom:8px;">Ayush Srivastav</div>
+        <div style="font-size:14px; color:var(--footer-text-muted); margin-bottom:20px;">Bengaluru, India</div>
+        <a href="mailto:srvstv.aysh@gmail.com" style="display:inline-block; padding:11px 22px; border-radius:999px; background:var(--footer-text); color:var(--footer-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">Get in touch</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
+        <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
+          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
+          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
+        </div>
+        <div style="display:flex; gap:22px; font-size:13px; font-weight:500; flex-wrap:wrap; justify-content:flex-end; color:var(--footer-text-muted);">
+          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">X</a>
+          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Strava</a>
+          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px; margin:0 auto; padding:20px clamp(16px,5vw,64px) 32px; border-top:1px solid var(--footer-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div style="font-size:13px; color:var(--footer-text-muted);">© {{ currentYear }} Ayush Srivastav</div>
+      <a href="#top" onClick="{{ scrollToTop }}" style="font-size:13px; color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <button onClick="{{ toggleDark }}" aria-label="Toggle dark mode" style="position:fixed; bottom:24px; right:24px; z-index:1000; width:52px; height:52px; border-radius:50%; border:1px solid var(--border-strong); background:var(--bg-card); box-shadow:0 6px 20px rgba(0,0,0,0.18); cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; overflow:hidden;">
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ sunOpacity }}; transform:{{ sunTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="5" fill="#f2b134"></circle>
+        <g stroke="#f2b134" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="1.5" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22.5"></line>
+          <line x1="1.5" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22.5" y2="12"></line>
+          <line x1="4.4" y1="4.4" x2="6.1" y2="6.1"></line>
+          <line x1="17.9" y1="17.9" x2="19.6" y2="19.6"></line>
+          <line x1="4.4" y1="19.6" x2="6.1" y2="17.9"></line>
+          <line x1="17.9" y1="6.1" x2="19.6" y2="4.4"></line>
+        </g>
+      </svg>
+    </div>
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:{{ moonOpacity }}; transform:{{ moonTransform }}; transition:opacity 0.3s ease, transform 0.35s ease;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M9.5 2.5a7.2 7.2 0 1 0 8.6 9.6A7.8 7.8 0 0 1 9.5 2.5Z" fill="#fdfaf3"></path>
+        <path d="M5.8 21c-1.7 0-3.05-1.36-3.05-3.03 0-1.5 1.1-2.75 2.55-2.98a4.3 4.3 0 0 1 8.15-1.62 3.65 3.65 0 0 1 3.75 3.63c0 .38-.06.75-.17 1.1a2.9 2.9 0 0 1-1.03 2.9H5.8Z" fill="#4a4234" stroke="#2a2419" stroke-width="0.6"></path>
+      </svg>
+    </div>
+  </button>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark") };
+
+  scrollToTop = (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); };
+
+  toggleDark = () => {
+    this.setState(s => {
+      const next = !s.dark;
+      try { localStorage.setItem("ayush-theme", next ? "dark" : "light"); } catch (e) {}
+      return { dark: next };
+    });
+  };
+
+  titleRef = (el) => {
+    if (!el) return;
+    this.__titleEl = el;
+    if (this.__titleDone) return;
+    this.__titleDone = true;
+    if (typeof window === "undefined") return;
+    let origin = null;
+    try {
+      const raw = sessionStorage.getItem("art-open");
+      if (raw) { const data = JSON.parse(raw); if (data && data.key === "timeplan") origin = data.rect; }
+    } catch (e) {}
+    if (!origin) return;
+    try { sessionStorage.removeItem("art-open"); } catch (e) {}
+    const rect = el.getBoundingClientRect();
+    const dx = origin.left - rect.left, dy = origin.top - rect.top;
+    const sx = origin.width / rect.width, sy = origin.height / rect.height;
+    el.style.transformOrigin = "top left";
+    if (typeof el.animate === "function") {
+      el.animate([
+        { transform: `translate(${dx}px,${dy}px) scale(${sx},${sy})`, opacity: 0.55 },
+        { transform: "translate(0px,0px) scale(1,1)", opacity: 1 }
+      ], { duration: 400, easing: "cubic-bezier(.16,1,.3,1)", fill: "forwards" });
+    }
+  };
+  handleBack = () => {
+    if (typeof window === "undefined" || !this.__titleEl) return;
+    try {
+      const rect = this.__titleEl.getBoundingClientRect();
+      sessionStorage.setItem("art-close", JSON.stringify({ key: "timeplan", rect: { top: rect.top, left: rect.left, width: rect.width, height: rect.height } }));
+    } catch (err) {}
+  };
+
+  theme(dark) {
+    return dark ? {
+      bg: "#181410", bgAlt: "#1d1712", bgCard: "#231e18", bgChip: "#2b251d",
+      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#9a907b", textFaint: "#9a907b",
+      border: "#3a3327", borderStrong: "#4a4234", dotMuted: "#4a4234",
+      accent: "#87aed6", accentHover: "#a6c5e6",
+      btnBg: "#f3ede0", btnText: "#181410",
+      footerAccent: "#87aed6",
+      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#9a907b", footerBorder: "#2a2419",
+      navBg: "rgba(24,20,16,.88)",
+      selectionBg: "#87aed6", selectionText: "#181410",
+      sem: { green: "#8ebd82", amber: "#e0b34a", red: "#e0847c", purple: "#ab9fe8", blue: "#87aed6" },
+      fill: { green: "#4a7a43", amber: "#a46829", red: "#b3453a", purple: "#6a4d9c", blue: "#3568a0", neutral: "#57503f" },
+      onAccent: "#181410"
+    } : {
+      bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
+      text: "#241f19", textBody: "#57503f", textMuted: "#6f6656", textFaint: "#6f6656",
+      border: "#e4dbca", borderStrong: "#d8cfc0", dotMuted: "#c9bfa9",
+      accent: "#3568a0", accentHover: "#244f78",
+      btnBg: "#241f19", btnText: "#faf7f0",
+      footerAccent: "#87aed6",
+      footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#a49a85", footerBorder: "#3a3327",
+      navBg: "rgba(250,247,240,.92)",
+      selectionBg: "#2e4a6b", selectionText: "#faf7f0",
+      sem: { green: "#3f6839", amber: "#835321", red: "#9f3d34", purple: "#6a4d9c", blue: "#3568a0" },
+      fill: { green: "#4a7a43", amber: "#a46829", red: "#b3453a", purple: "#6a4d9c", blue: "#3568a0", neutral: "#57503f" },
+      onAccent: "#ffffff"
+    };
+  }
+
+  renderVals() {
+    const t = this.theme(this.state.dark);
+    if (typeof document !== "undefined") { const ds = document.documentElement.style; ds.background = t.bg; ds.colorScheme = this.state.dark ? "dark" : "light"; document.body.style.background = t.bg; }
+    const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
+      `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
+      `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
+      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText}; --sem-green:${t.sem.green}; --sem-amber:${t.sem.amber}; --sem-red:${t.sem.red}; --sem-purple:${t.sem.purple}; --fill-green:${t.fill.green}; --fill-amber:${t.fill.amber}; --fill-red:${t.fill.red}; --fill-purple:${t.fill.purple}; --fill-blue:${t.fill.blue}; --on-accent:${t.onAccent}; --tag:${this.state.dark ? "#8ebd82" : "#3f6839"};`;
+
+    return {
+      rootStyle,
+      toggleDark: this.toggleDark,
+      titleRef: this.titleRef, handleBack: this.handleBack,
+      scrollToTop: this.scrollToTop,
+      currentYear: new Date().getFullYear(),
+      sunOpacity: this.state.dark ? 0 : 1,
+      sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
+      moonOpacity: this.state.dark ? 1 : 0,
+      moonTransform: this.state.dark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.4)"
+    };
+  }
+}
+
+</script>
+</body>
+</html>
