@@ -7,11 +7,16 @@
 <meta name="description" content="Depreciation modelled from resale data, the Pro premium priced against the one feature that justifies it, and affordability tested against your own income. Sliders set the price, the resale market, and the hold length; the appendix shows every formula, filled in with the numbers you chose.">
 <link rel="canonical" href="https://srivastav-ayush.github.io/writing/iPhone-Ownership-Strategy.dc.html">
 <meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-02-01">
+<meta property="article:author" content="https://srivastav-ayush.github.io/">
+<meta property="article:section" content="Tech">
+<meta name="author" content="Ayush Srivastav">
 <meta property="og:title" content="iPhone Ownership in India: When to Buy, and the Year You Should Sell — Ayush Srivastav">
 <meta property="og:description" content="Depreciation modelled from resale data, the Pro premium priced against the one feature that justifies it, and affordability tested against your own income. Sliders set the price, the resale market, and the hold length; the appendix shows every formula, filled in with the numbers you chose.">
 <meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
 <meta property="og:url" content="https://srivastav-ayush.github.io/writing/iPhone-Ownership-Strategy.dc.html">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Writing — Ayush Srivastav" href="https://srivastav-ayush.github.io/feed.xml">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XML0VEY6NS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -71,7 +76,7 @@
 <div style="{{ rootStyle }}">
   <a href="#main" class="skip-link" style="background:var(--accent); color:var(--bg); padding:12px 20px; border-radius:0 0 8px 0; font-size:14px; font-weight:600;">Skip to content</a>
   <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
-    <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
+    <div style="max-width:1200px; margin:0 auto; height:clamp(62px,9.5vh,84px); display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
       <a href="../index.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
         <div style="display:flex; align-items:baseline;">
           <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text); letter-spacing:-1px;">A</span>
@@ -88,7 +93,7 @@
       </div>
     </div>
   </nav>
-  <div style="height:84px;"></div>
+  <div style="height:clamp(62px,9.5vh,84px);"></div>
 
   <main id="main">
 
@@ -102,14 +107,16 @@
     </div>
 
     <div style="display:flex; align-items:center; gap:14px; margin-top:26px; padding-top:20px; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); animation:fadeInUp 0.4s ease both;">
-      <span>By Ayush</span><span>·</span><span>12 min read</span><span>·</span><span>February 2026</span>
+      <span>By Ayush</span><span>·</span><span>10 min read</span><span>·</span><span>February 2026</span>
     </div>
 
     <div style="font-size:17px; line-height:1.8; color:var(--text-body); margin-top:40px; animation:fadeInUp 0.4s ease 0.05s both;">
 
-      <p style="margin:0 0 22px;">Any Indian consumer facing an iPhone purchase encounters the same three decisions, in the same order: is it worth buying over Android, which model to buy, and how long to keep it. This isn't a review of features — it's a structured decision framework, resolved with financial modelling rather than opinion.</p>
+      <p style="margin:0 0 22px;">Three decisions sit inside any iPhone purchase in India, and they arrive in a fixed order: whether an iPhone is worth the Indian tax premium at all, which model to buy, and how long to hold it before selling. The third gets the least attention and decides the most money.</p>
 
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Executive summary</h2>
+      <p style="margin:0 0 22px;">I wanted an answer I could defend rather than a feature list, so this is a model instead of a review — depreciation fitted to Indian resale data, the Pro premium priced against the one feature that justifies it, affordability tested against income. It assumes you are buying new and unlocked in India, and that you would rather hold a phone for years than upgrade annually. If you upgrade every year, the answer is short: don't buy an iPhone.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The short answer</h2>
 
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:24px;">
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
@@ -140,7 +147,7 @@
       </div>
       <p style="font-size:13.5px; color:var(--text-faint); font-style:italic; margin:0 0 34px; text-align:center;">Every figure above and below is live — drag the sliders to run the numbers on your own phone, your own resale market, and your own income.</p>
 
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Why iPhone — the value case, quantified</h2>
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Is an iPhone worth the Indian premium?</h2>
       <p style="margin:0 0 22px;">India's iPhone pricing is among the highest globally — 15% customs duty + 18% IGST + 2% surcharge means an Indian buyer pays <strong style="color:var(--text);">37–55% more than a US buyer</strong> for the same device. Five quantifiable pillars make the case for paying it anyway.</p>
 
       <p style="margin:0 0 10px;"><strong style="color:var(--text);">1. Software support longevity — the clearest financial argument.</strong> Apple supports iPhones for 6+ years of full iOS feature updates, not just security patches. iPhone 6s (2015) reached iOS 15 (2021) — 6 years. Most Android OEMs outside Samsung's newer promise: 2–3 years.</p>
@@ -160,14 +167,14 @@
         </div>
       </div>
 
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Which iPhone — the Base vs Pro decision</h2>
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Which iPhone should you buy?</h2>
       <p style="margin:0 0 18px;">The iPhone 17 lineup reduces to one variable: <strong style="color:var(--text);">do you need a true optical telephoto camera?</strong> Apple moved 120Hz OLED, A19-class performance, 48MP main camera, and USB-C to the base model this year, eliminating most historical reasons to pay the Pro premium.</p>
 
       <div style="overflow-x:auto; margin:0 0 20px; border:1px solid var(--border); border-radius:10px;">
         <table class="art-table" style="min-width:470px;">
           <thead>
             <tr style="background:var(--text); color:var(--bg);">
-              <th style="border-bottom:none;">Model</th><th style="border-bottom:none;">Price</th><th style="border-bottom:none;">Best for</th><th style="border-bottom:none;">Verdict</th>
+              <th scope="col" style="border-bottom:none;">Model</th><th scope="col" style="border-bottom:none;">Price</th><th scope="col" style="border-bottom:none;">Best for</th><th scope="col" style="border-bottom:none;">Verdict</th>
             </tr>
           </thead>
           <tbody>
@@ -226,7 +233,7 @@
         </div>
         <div style="font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-body); line-height:1.9; margin-top:12px; background:var(--bg-chip); border-radius:8px; padding:14px 16px;">
           decay rate λ = −ln({{ resale3 }}%) ÷ 3 = {{ lambdaLabel }} per year<br>
-          resale value after t years = price × e<sup>−{{ lambdaLabel }}t</sup>
+          resale value after t years = price × e<sup style="font-size:11px;">−{{ lambdaLabel }}t</sup>
         </div>
       </div>
 
@@ -242,7 +249,7 @@
           </div>
         </sc-for>
       </div>
-      <p style="margin:0 0 34px; font-size:14.5px; color:var(--text-muted);"><strong style="color:var(--text);">Formula:</strong> net annual cost = (MRP − trade-in received + repair cost) ÷ cycle length. Depreciation is modelled as a negative exponential, V(t) = MRP × e<sup>−λt</sup>, with λ derived from the Year-3 resale figure you set above — {{ resale3 }}% gives λ = {{ lambdaLabel }}, so Year 5 lands at {{ y5Pct }}.</p>
+      <p style="margin:0 0 34px; font-size:14.5px; color:var(--text-muted);"><strong style="color:var(--text);">Formula:</strong> net annual cost = (MRP − trade-in received + repair cost) ÷ cycle length. Depreciation is modelled as a negative exponential, V(t) = MRP × e<sup style="font-size:11px;">−λt</sup>, with λ derived from the Year-3 resale figure you set above — {{ resale3 }}% gives λ = {{ lambdaLabel }}, so Year 5 lands at {{ y5Pct }}.</p>
 
       <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:26px 24px 8px; margin:34px 0;">
         <svg viewBox="{{ deprChart.viewBox }}" style="width:100%; height:190px; display:block;">
@@ -271,7 +278,7 @@
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:10px; margin:16px 0 4px;">
           <sc-for list="{{ holdCards }}" as="c" hint-placeholder-count="4">
             <div style="background:var(--bg-chip); border-radius:8px; padding:12px 10px; text-align:center; border:2px solid {{ c.borderColor }};">
-              <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">{{ c.name }}</div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">{{ c.name }}</div>
               <div style="font-family:'JetBrains Mono',monospace; font-size:15px; font-weight:800; color:{{ c.valueColor }};">{{ c.value }}</div>
             </div>
           </sc-for>
@@ -292,11 +299,12 @@
         </div>
       </div>
 
+      <p style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); margin:0 0 8px; letter-spacing:0.02em;">Wide table — scroll it sideways on a phone.</p>
       <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
         <table class="art-table art-table-compact" style="min-width:560px;">
           <thead>
             <tr style="background:var(--text); color:var(--bg);">
-              <th style="border-bottom:none; width:11%;">Hold</th><th style="border-bottom:none; width:14%;">Resale left</th><th style="border-bottom:none; width:17%;">Trade-in received</th><th style="border-bottom:none; width:15%;">Battery</th><th style="border-bottom:none; width:17%;">Annual net</th><th style="border-bottom:none; width:26%;">What the extra year saved</th>
+              <th scope="col" style="border-bottom:none; width:11%;">Hold</th><th scope="col" style="border-bottom:none; width:14%;">Resale left</th><th scope="col" style="border-bottom:none; width:17%;">Trade-in received</th><th scope="col" style="border-bottom:none; width:15%;">Battery</th><th scope="col" style="border-bottom:none; width:17%;">Annual net</th><th scope="col" style="border-bottom:none; width:26%;">What the extra year saved</th>
             </tr>
           </thead>
           <tbody>
@@ -315,7 +323,7 @@
       </div>
       <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> The savings from each extra year shrink fast, and the battery job at Year 4 wipes out most of one year's gain in a single payment. Past Year {{ hardStopYear }} you are holding a phone worth {{ hardStopPct }} of what you paid, for a saving of {{ lastYearSaving }} a year — which is the point at which the money stops being the argument.</p>
 
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The income–strategy matrix</h2>
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Which strategy your income can carry</h2>
       <p style="margin:0 0 16px;">A strategy is affordable if it fits inside the money left after needs and savings. Set your take-home and your essential monthly expenses; the discretionary figure and every percentage below recompute from them. A strategy under 25% of discretionary income is comfortable, 25–35% is a stretch, and above 35% it isn't viable.</p>
 
       <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:22px 24px; margin-bottom:16px;">
@@ -332,7 +340,7 @@
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:10px; margin:16px 0 4px;">
           <sc-for list="{{ incomeCards }}" as="c" hint-placeholder-count="4">
             <div style="background:var(--bg-chip); border-radius:8px; padding:12px 10px; text-align:center; border:2px solid {{ c.borderColor }};">
-              <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">{{ c.name }}</div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">{{ c.name }}</div>
               <div style="font-family:'JetBrains Mono',monospace; font-size:15px; font-weight:800; color:{{ c.valueColor }};">{{ c.value }}</div>
             </div>
           </sc-for>
@@ -359,11 +367,12 @@
       </div>
 
       <p style="margin:0 0 16px;">Or scan the whole income range at once, at a {{ floorLabel }} expense floor:</p>
+      <p style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); margin:0 0 8px; letter-spacing:0.02em;">Wide table — scroll it sideways on a phone.</p>
       <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
         <table class="art-table art-table-compact" style="min-width:660px;">
           <thead>
             <tr style="background:var(--text); color:var(--bg);">
-              <th style="border-bottom:none; width:15%;">Income/mo</th><th style="border-bottom:none; width:16%;">Discretionary</th><th style="border-bottom:none; width:12%;">S1</th><th style="border-bottom:none; width:12%;">S2</th><th style="border-bottom:none; width:12%;">S3</th><th style="border-bottom:none; width:20%;">Recommended</th><th style="border-bottom:none; width:13%;">Sell at</th>
+              <th scope="col" style="border-bottom:none; width:15%;">Income/mo</th><th scope="col" style="border-bottom:none; width:16%;">Discretionary</th><th scope="col" style="border-bottom:none; width:12%;">S1</th><th scope="col" style="border-bottom:none; width:12%;">S2</th><th scope="col" style="border-bottom:none; width:12%;">S3</th><th scope="col" style="border-bottom:none; width:20%;">Recommended</th><th scope="col" style="border-bottom:none; width:13%;">Sell at</th>
             </tr>
           </thead>
           <tbody>
@@ -393,7 +402,7 @@
         <p style="margin:0; font-size:14.5px; line-height:1.65; color:var(--text-body);">At Year {{ hardStopYear }}, residual value is {{ hardStopPct }} ({{ hardStopValue }}) — and the loss that year alone is {{ hardStopLossShare }} of what remains. iOS support for a 2026 iPhone ends around 2031–32. The technology gap reaches 5 chip generations. <strong style="color:var(--text);">No income group's financial case supports holding an iPhone past Year {{ hardStopYear }}.</strong></p>
       </div>
 
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Recommendations by income bracket</h2>
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">What this means at your income</h2>
 
       <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:34px;">
         <sc-for list="{{ recommendations }}" as="rec" hint-placeholder-count="4">
@@ -413,27 +422,6 @@
         <div style="margin-bottom:16px;"><strong style="color:var(--text); font-size:14.5px;">1. What is your monthly take-home?</strong><div style="font-size:14px; color:var(--text-body); margin-top:5px; line-height:1.6;">{{ q1Answer }}</div></div>
         <div style="margin-bottom:16px;"><strong style="color:var(--text); font-size:14.5px;">2. Do you actively shoot at optical distance on 3+ trips/year?</strong> <span style="font-size:13px; color:var(--text-faint);">(only relevant above {{ t3Label }})</span><div style="font-size:14px; color:var(--text-body); margin-top:5px; line-height:1.6;">Rarely → base iPhone, Strategy 2. Frequently → Pro, Strategy 3.</div></div>
         <div><strong style="color:var(--text); font-size:14.5px;">3. How old is your current iPhone?</strong><div style="font-size:14px; color:var(--text-body); margin-top:5px; line-height:1.6;">Year 0–2 → hold. Year 3–4 → window is open, check trade-in value now. Year {{ hardStopYear }}+ → universal hard stop, replace immediately.</div></div>
-      </div>
-
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Action plan — this week</h2>
-      <div style="overflow-x:auto; margin:0 0 34px; border:1px solid var(--border); border-radius:10px;">
-        <table class="art-table art-table-compact" style="min-width:470px;">
-          <thead>
-            <tr style="background:var(--text); color:var(--bg);">
-              <th style="border-bottom:none; width:20%;">If you are…</th><th style="border-bottom:none; width:32%;">Do this week</th><th style="border-bottom:none; width:24%;">Year 3 / 5</th><th style="border-bottom:none; width:24%;">Strategy</th>
-            </tr>
-          </thead>
-          <tbody>
-            <sc-for list="{{ actionPlan }}" as="item" hint-placeholder-count="5">
-              <tr>
-                <td style="font-weight:600; color:var(--text);">{{ item.who }}</td>
-                <td style="color:var(--text-body);">{{ item.thisWeek }}</td>
-                <td style="color:var(--text-body);">{{ item.later }}</td>
-                <td><span style="display:inline-block; font-size:11.5px; font-weight:700; padding:3px 8px; border-radius:20px; color:#fff; background:{{ item.strategyColor }}; white-space:nowrap;">{{ item.strategy }}</span></td>
-              </tr>
-            </sc-for>
-          </tbody>
-        </table>
       </div>
 
       <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:34px;">
@@ -533,8 +521,26 @@
       </div>
       </sc-if>
 
+      <div style="margin-top:44px; padding-top:24px; border-top:1px solid var(--border);">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-faint); margin-bottom:14px;">Read next</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:12px;">
+          <a href="Wearable-Watch-Decision.dc.html" style="display:flex; flex-direction:column; gap:8px; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:var(--bg-card); transition:border-color 0.15s, transform 0.2s ease;" style-hover="border-color:var(--accent) !important; transform:translateY(-3px) !important;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent);">Tech</span>
+            <span style="font-size:15px; line-height:1.45; font-weight:600; color:var(--text); text-wrap:pretty;">Rings, Bands, Smartwatches, Sport Watches: Which Fitness Wearable Is Actually Yours</span>
+          </a>
+          <a href="Tap-to-Track.dc.html" style="display:flex; flex-direction:column; gap:8px; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:var(--bg-card); transition:border-color 0.15s, transform 0.2s ease;" style-hover="border-color:var(--accent) !important; transform:translateY(-3px) !important;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent);">Tools</span>
+            <span style="font-size:15px; line-height:1.45; font-weight:600; color:var(--text); text-wrap:pretty;">Tap-to-Track: Eight Seconds From Purchase to Spreadsheet</span>
+          </a>
+        </div>
+      </div>
+
       <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:36px; padding-top:20px; border-top:1px solid var(--border);">
-        <strong style="color:var(--text-muted);">Data sources:</strong> Apple India official pricing, Cashify and Apple Trade-In resale data (April 2026), Apple iOS support-lifecycle history, Google Project Zero patch-velocity data (2024), Geekbench 6 (Sept 2025), PLFS 2023–24 urban expenditure benchmarks. <strong style="color:var(--text-muted);">Methodology:</strong> depreciation is modelled as V(t) = MRP × e<sup>−λt</sup>, with λ derived from the Year-3 resale percentage set on the sliders (λ = −ln r₃ ÷ 3); the default 29% reproduces the observed Year-3 and Year-5 resale anchors within ±1 point. Net annual cost is (MRP − trade-in + repairs) ÷ hold length, with one battery replacement counted whenever the hold runs past Year 3. Discretionary income follows a 50/40/10 split with an essential-expense floor: any shortfall between 50% of income and that floor is taken out of the 10% wants bucket. Actual resale varies ±3% by condition and market timing. Not financial advice.
+        <strong style="color:var(--text-muted);">Data sources:</strong> <a href="https://www.apple.com/in/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Apple India</a> official pricing, <a href="https://www.cashify.in/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Cashify</a> and <a href="https://www.apple.com/in/trade-in" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Apple Trade In</a> resale data (April 2026), Apple iOS support-lifecycle history, <a href="https://googleprojectzero.blogspot.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Google Project Zero</a> patch-velocity data (2024), <a href="https://browser.geekbench.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Geekbench 6</a> (Sept 2025), <a href="https://www.mospi.gov.in/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">PLFS</a> 2023–24 urban expenditure benchmarks. <strong style="color:var(--text-muted);">Methodology:</strong> depreciation is modelled as V(t) = MRP × e<sup style="font-size:11px;">−λt</sup>, with λ derived from the Year-3 resale percentage set on the sliders (λ = −ln r₃ ÷ 3); the default 29% reproduces the observed Year-3 and Year-5 resale anchors within ±1 point. Net annual cost is (MRP − trade-in + repairs) ÷ hold length, with one battery replacement counted whenever the hold runs past Year 3. Discretionary income follows a 50/40/10 split with an essential-expense floor: any shortfall between 50% of income and that floor is taken out of the 10% wants bucket. Actual resale varies ±3% by condition and market timing. Not financial advice.
+      </div>
+
+      <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:14px;">
+        <strong style="color:var(--text-muted);">How this was written:</strong> researched and drafted with Claude, an AI assistant, working to my direction. I set the question, checked the numbers, and edited the argument.
       </div>
     </div>
   </article>
@@ -562,7 +568,7 @@
       </div>
     </div>
     <div style="max-width:1200px; margin:0 auto; padding:20px clamp(16px,5vw,64px) 32px; border-top:1px solid var(--footer-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-      <div style="font-size:13px; color:var(--footer-text-muted);">© {{ currentYear }} Ayush Srivastav</div>
+      <div style="font-size:13px; color:var(--footer-text-muted); white-space:nowrap;">© {{ currentYear }} Ayush Srivastav</div>
       <a href="#top" onClick="{{ scrollToTop }}" style="font-size:13px; color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Back to top ↑</a>
     </div>
   </footer>
@@ -625,6 +631,9 @@ class Component extends DCLogic {
     });
   };
 
+  // The prefers-reduced-motion CSS block cannot touch Web Animations API calls — gate them here instead.
+  reduceMotion() { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } }
+
   titleRef = (el) => {
     if (!el) return;
     this.__titleEl = el;
@@ -642,7 +651,7 @@ class Component extends DCLogic {
     const dx = origin.left - rect.left, dy = origin.top - rect.top;
     const sx = origin.width / rect.width, sy = origin.height / rect.height;
     el.style.transformOrigin = "top left";
-    if (typeof el.animate === "function") {
+    if (typeof el.animate === "function" && !this.reduceMotion()) {
       el.animate([
         { transform: `translate(${dx}px,${dy}px) scale(${sx},${sy})`, opacity: 0.55 },
         { transform: "translate(0px,0px) scale(1,1)", opacity: 1 }
@@ -730,7 +739,7 @@ class Component extends DCLogic {
       React.createElement("text", { key: "stop", x: xToPx(stop), y: yToPx(pcts[stop]) - 14, textAnchor: "end", fontSize: 11, fontWeight: 600, style: { fill: "var(--sem-red)" }, fontFamily: "Archivo, sans-serif" }, `Yr ${stop}: ${pcts[stop].toFixed(0)}% — hard stop`)
     ];
     const xAxis = years.map(y => React.createElement("text", { key: "x" + y, x: xToPx(y), y: padT + plotH + 20, textAnchor: "middle", fontSize: 11, fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace" }, "Yr " + y));
-    const yAxis = [0, 25, 50, 75, 100].map(p => React.createElement("text", { key: "y" + p, x: padL - 8, y: yToPx(p) + 4, textAnchor: "end", fontSize: 10.5, fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace" }, p + "%"));
+    const yAxis = [0, 25, 50, 75, 100].map(p => React.createElement("text", { key: "y" + p, x: padL - 8, y: yToPx(p) + 4, textAnchor: "end", fontSize: 11, fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace" }, p + "%"));
     return {
       viewBox: `0 0 ${W} ${H}`,
       linePoints: years.map(y => `${xToPx(y)},${yToPx(pcts[y])}`).join(" "),
@@ -754,7 +763,7 @@ class Component extends DCLogic {
     const toPoints = arr => arr.map((v, i) => `${xToPx(yrs[i])},${yToPx(v)}`).join(" ");
     const xAxis = yrs.map(t => React.createElement("text", { key: "x" + t, x: xToPx(t), y: padT + plotH + 20, textAnchor: "middle", fontSize: 11, fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace" }, t + "y"));
     const yTicks = [yMin + pad, (yMin + yMax) / 2, yMax - pad];
-    const yAxis = yTicks.map((v, i) => React.createElement("text", { key: "y" + i, x: padL - 8, y: yToPx(v) + 4, textAnchor: "end", fontSize: 10.5, fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace" }, "₹" + Math.round(v) + "K"));
+    const yAxis = yTicks.map((v, i) => React.createElement("text", { key: "y" + i, x: padL - 8, y: yToPx(v) + 4, textAnchor: "end", fontSize: 11, fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace" }, "₹" + Math.round(v) + "K"));
     return {
       viewBox: `0 0 ${W} ${H}`,
       lines: { base: toPoints(base), pro: toPoints(pro) },
@@ -776,7 +785,7 @@ class Component extends DCLogic {
     }).join(" ");
     const xTicks = [30, 60, 100, 150, 200];
     const xAxis = xTicks.map(I => React.createElement("text", { key: "x" + I, x: xToPx(I), y: padT + plotH + 20, textAnchor: "middle", fontSize: 11, fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace" }, this.fmtIncome(I)));
-    const yAxis = [0, 25, 50, 75, 100].map(p => React.createElement("text", { key: "y" + p, x: padL - 8, y: yToPx(p) + 4, textAnchor: "end", fontSize: 10.5, fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace" }, p + "%"));
+    const yAxis = [0, 25, 50, 75, 100].map(p => React.createElement("text", { key: "y" + p, x: padL - 8, y: yToPx(p) + 4, textAnchor: "end", fontSize: 11, fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace" }, p + "%"));
     return {
       viewBox: `0 0 ${W} ${H}`,
       lines: { s1: seriesFor(S1), s2: seriesFor(S2), s3: seriesFor(S3) },
@@ -976,19 +985,20 @@ class Component extends DCLogic {
     });
 
     const rNow1 = this.share(S1, income), rNow2 = this.share(S2, income), rNow3 = this.share(S3, income);
+    const incomeVerdict = rNow1 > 35
+      ? { color: t.sem.red, label: "At " + this.fmtIncome(income) + "/mo no strategy fits — buy refurbished or wait", highlight: [] }
+      : rNow2 > 35
+        ? { color: t.sem.amber, label: "Strategy 1 only — base iPhone on a 5-year cycle", highlight: [1] }
+        : rNow3 > 25
+          ? { color: t.accent, label: "Strategy 2 — base iPhone, replaced at Year 3", highlight: [2] }
+          : { color: t.sem.purple, label: "Strategy 2 or 3 — the Pro premium is affordable, if telephoto earns it", highlight: [2, 3] };
+    const lit = i => incomeVerdict.highlight.indexOf(i) >= 0 ? incomeVerdict.color : "transparent";
     const incomeCards = [
       { name: "Discretionary", value: this.fmtK(this.wants(income)) + "/mo", valueColor: t.text, borderColor: "transparent" },
-      { name: "S1 share", value: isFinite(rNow1) ? rNow1.toFixed(0) + "%" : "n/a", valueColor: this.shareColor(rNow1, t), borderColor: "transparent" },
-      { name: "S2 share", value: isFinite(rNow2) ? rNow2.toFixed(0) + "%" : "n/a", valueColor: this.shareColor(rNow2, t), borderColor: this.shareColor(rNow2, t) },
-      { name: "S3 share", value: isFinite(rNow3) ? rNow3.toFixed(0) + "%" : "n/a", valueColor: this.shareColor(rNow3, t), borderColor: "transparent" }
+      { name: "S1 share", value: isFinite(rNow1) ? rNow1.toFixed(0) + "%" : "n/a", valueColor: this.shareColor(rNow1, t), borderColor: lit(1) },
+      { name: "S2 share", value: isFinite(rNow2) ? rNow2.toFixed(0) + "%" : "n/a", valueColor: this.shareColor(rNow2, t), borderColor: lit(2) },
+      { name: "S3 share", value: isFinite(rNow3) ? rNow3.toFixed(0) + "%" : "n/a", valueColor: this.shareColor(rNow3, t), borderColor: lit(3) }
     ];
-    const incomeVerdict = rNow1 > 35
-      ? { color: t.sem.red, label: "At " + this.fmtIncome(income) + "/mo no strategy fits — buy refurbished or wait" }
-      : rNow2 > 35
-        ? { color: t.sem.amber, label: "Strategy 1 only — base iPhone on a 5-year cycle" }
-        : rNow3 > 25
-          ? { color: t.accent, label: "Strategy 2 — base iPhone, replaced at Year 3" }
-          : { color: t.sem.purple, label: "Strategy 2 or 3 — the Pro premium is affordable, if telephoto earns it" };
 
     const t2L = t2 ? this.fmtIncome(t2) : "—", t3L = t3 ? this.fmtIncome(t3) : "—", tMinL = tMin ? this.fmtIncome(tMin) : "—";
 
@@ -997,14 +1007,6 @@ class Component extends DCLogic {
       { badge: "1", badgeColor: t.fill.amber, title: tMinL + "–" + t2L + "/month — Strategy 1, base iPhone, 5-year cycle", body: "Strategy 1 costs " + this.fmtK(S1) + "/yr here, inside the 35% stretch band but not comfortable. Use 12-month No-Cost EMI. Replace the battery at Year 3 (" + this.fmtK(battery) + "), sell at Year " + hs + ", and apply the full trade-in as a downpayment on the next phone." },
       { badge: "2", badgeColor: t.fill.blue, title: t2L + "–" + t3L + "/month — Strategy 2, base iPhone every 3 years", body: "Strategy 2 costs " + this.fmtK(S2) + "/yr and clears the 25% line. Execute the trade-in within 30 days of the 3-year mark — resale value declines roughly " + this.fmtK(this.valueAt(price, 3) / 12) + " a month as newer models mature." },
       { badge: "3", badgeColor: t.fill.purple, title: t3L + "+/month — Strategy 2 or 3, Pro only if telephoto is used", body: "Both strategies sit under the 25% threshold. The choice is functional, not financial: the Pro premium costs " + this.fmtK(S3 - S2) + "/yr net of resale. If you rarely shoot at optical distance, buy the base and bank the " + this.fmtK(premium) + "." }
-    ];
-
-    const actionPlan = [
-      { who: "Below " + tMinL, thisWeek: "Check battery health (Settings → Battery). If <80% and phone is 3yr+, plan a replacement.", later: "Battery @ Yr3. Trade in @ Yr" + hs + ", expect " + this.fmtK(this.valueAt(price, hs)) + ".", strategy: "S1", strategyColor: t.fill.amber },
-      { who: tMinL + "–" + t2L, thisWeek: "Same as above, plus get a Cashify quote today.", later: "Battery @ Yr3, no upgrade. Upgrade @ Yr" + hs + " on NC-EMI.", strategy: "S1", strategyColor: t.fill.amber },
-      { who: t2L + "–" + t3L, thisWeek: "If within 6 months of Yr3, get a trade-in quote now — values decline about " + this.fmtK(this.valueAt(price, 3) / 12) + "/month.", later: "Sell + buy new base @ Yr3, same-day trade-in credit.", strategy: "S2", strategyColor: t.fill.blue },
-      { who: t3L + "+", thisWeek: "Answer the telephoto question honestly — Pro only if the answer is yes.", later: "Sell + buy Base or Pro @ Yr3.", strategy: "S2/S3", strategyColor: t.fill.purple },
-      { who: "First iPhone", thisWeek: "Apply your income bracket above. Buy from Apple.in (unlocked).", later: "Add AppleCare+ within 60 days if buying Pro or travelling often.", strategy: "Per bracket", strategyColor: t.fill.green }
     ];
 
     const y1Loss = price - this.valueAt(price, 1);
@@ -1051,7 +1053,7 @@ class Component extends DCLogic {
       q1Answer: "Below " + tMinL + " → don't buy new, consider refurbished. " + tMinL + "–" + t2L + " → Strategy 1. " + t2L + "–" + t3L + " → Strategy 2. " + t3L + "+ → go to Question 2.",
 
       iphoneModels, strategyCards, holdRows, holdCards, holdVerdict,
-      incomeMatrix, incomeCards, incomeVerdict, recommendations, actionPlan,
+      incomeMatrix, incomeCards, incomeVerdict, recommendations,
       deprChart: this.buildDeprChart(t),
       annualChart: this.buildAnnualChart(),
       shareChart: this.buildShareChart(S1, S2, S3),

@@ -3,15 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Running Watches Compared: The Watch Isn't the Decision, Your Training Structure Is — Ayush Srivastav</title>
-<meta name="description" content="Apple Watch, Whoop, Coros, and two Garmins put through the same sensor, metric, and battery matrix. Each one wins somewhere and loses somewhere else, so the comparison ends where it should — with the kind of training you actually do deciding which set of compromises belongs to you.">
+<title>Rings, Bands, Smartwatches, Sport Watches: Which Fitness Wearable Is Actually Yours — Ayush Srivastav</title>
+<meta name="description" content="Twenty-eight devices across four form factors, scored on the nine things a fitness wearable can be good at. Describe your training and your non-negotiables, and the page ranks the categories for you, then the devices inside the one that wins.">
 <link rel="canonical" href="https://srivastav-ayush.github.io/writing/Wearable-Watch-Decision.dc.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Running Watches Compared: The Watch Isn't the Decision, Your Training Structure Is — Ayush Srivastav">
-<meta property="og:description" content="Apple Watch, Whoop, Coros, and two Garmins put through the same sensor, metric, and battery matrix. Each one wins somewhere and loses somewhere else, so the comparison ends where it should — with the kind of training you actually do deciding which set of compromises belongs to you.">
+<meta property="article:published_time" content="2026-08-01">
+<meta property="article:author" content="https://srivastav-ayush.github.io/">
+<meta property="article:section" content="Tech">
+<meta name="author" content="Ayush Srivastav">
+<meta property="og:title" content="Rings, Bands, Smartwatches, Sport Watches: Which Fitness Wearable Is Actually Yours — Ayush Srivastav">
+<meta property="og:description" content="Twenty-eight devices across four form factors, scored on the nine things a fitness wearable can be good at. Describe your training and your non-negotiables, and the page ranks the categories for you, then the devices inside the one that wins.">
 <meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
 <meta property="og:url" content="https://srivastav-ayush.github.io/writing/Wearable-Watch-Decision.dc.html">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Writing — Ayush Srivastav" href="https://srivastav-ayush.github.io/feed.xml">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XML0VEY6NS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -44,6 +49,10 @@
     .art-table th, .art-table td { padding:10px 12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--border); }
     .art-table-compact { table-layout:fixed; }
     .art-table-compact th, .art-table-compact td { padding:8px 9px; font-size:12px; line-height:1.4; word-break:break-word; white-space:normal; }
+    .art-slider { -webkit-appearance:none; appearance:none; width:100%; height:5px; border-radius:3px; background:var(--border-strong); outline:none; margin:0; }
+    .art-slider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%; background:var(--accent); cursor:pointer; border:3px solid var(--bg-card); box-shadow:0 1px 4px rgba(0,0,0,.3); }
+    .art-slider::-moz-range-thumb { width:20px; height:20px; border-radius:50%; background:var(--accent); cursor:pointer; border:3px solid var(--bg-card); box-shadow:0 1px 4px rgba(0,0,0,.3); }
+    .art-slider:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration:0.001ms !important; animation-delay:0ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
@@ -68,7 +77,7 @@
 <div style="{{ rootStyle }}">
   <a href="#main" class="skip-link" style="background:var(--accent); color:var(--bg); padding:12px 20px; border-radius:0 0 8px 0; font-size:14px; font-weight:600;">Skip to content</a>
   <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
-    <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
+    <div style="max-width:1200px; margin:0 auto; height:clamp(62px,9.5vh,84px); display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
       <a href="../index.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
         <div style="display:flex; align-items:baseline;">
           <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text); letter-spacing:-1px;">A</span>
@@ -85,7 +94,7 @@
       </div>
     </div>
   </nav>
-  <div style="height:84px;"></div>
+  <div style="height:clamp(62px,9.5vh,84px);"></div>
 
   <main id="main">
 
@@ -94,144 +103,294 @@
 
     <div ref="{{ titleRef }}">
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--tag); margin-bottom:14px;">Tech</div>
-    <h1 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(34px,5.5vw,50px); line-height:1.1; margin:0 0 18px; color:var(--text);">Running Watches Compared: The Watch Isn't the Decision, Your Training Structure Is</h1>
-    <p style="font-size:18px; line-height:1.6; color:var(--text-body); margin:0;">Why Apple Watch, Coros, Whoop, and two different Garmins all lose to each other in different ways — and the full sensor, insight, and feature matrix behind the call.</p>
+    <h1 style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:clamp(32px,5.2vw,48px); line-height:1.1; margin:0 0 18px; color:var(--text);">Rings, Bands, Smartwatches, Sport Watches: Which Fitness Wearable Is Actually Yours</h1>
+    <p style="font-size:18px; line-height:1.6; color:var(--text-body); margin:0;">Twenty-eight devices across four form factors, scored on the nine things a fitness wearable can be good at. Describe your training week and your non-negotiables; the page ranks the four categories for you, then ranks the devices inside the one that wins.</p>
     </div>
 
     <div style="display:flex; align-items:center; gap:14px; margin-top:26px; padding-top:20px; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); animation:fadeInUp 0.4s ease both;">
-      <span>By Ayush</span><span>·</span><span>10 min read</span><span>·</span><span>July 2026</span>
+      <span>By Ayush</span><span>·</span><span>11 min read</span><span>·</span><span>August 2026</span>
     </div>
 
     <div style="font-size:17px; line-height:1.8; color:var(--text-body); margin-top:40px; animation:fadeInUp 0.4s ease 0.05s both;">
 
-      <p style="margin:0 0 22px;">Choosing a fitness watch looks like a five-minute decision. It deserves a proper evaluation — screening the field, weighing sensors against real-world accuracy, pricing out every buying strategy — because here's the uncomfortable finding once that work is actually done: for most people asking this exact question, <strong style="color:var(--text);">the device barely matters relative to training structure.</strong> But once you're past that filter, the specific device choice has real, well-documented answers. This piece covers both: the framework, and the device-by-device reasoning behind why a Garmin Forerunner 570 (42mm) comes out ahead of everything else.</p>
+      <p style="margin:0 0 22px;">Almost every fitness-wearable comparison starts in the wrong place: two devices from the same category, held side by side, argued over on sensor specs. The larger decision sits one level up. A screenless band, a smart ring, a smartwatch and a sport watch are not four versions of the same product — they are four different bets about what you want measured and what you are willing to give up to measure it. Pick the wrong category and the best device inside it is still the wrong device.</p>
 
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The insight nobody talks about</h2>
+      <p style="margin:0 0 22px;">So this runs in two stages. First it ranks the four form factors against the week you actually train, because that ranking changes more between people than any device comparison does. Then, inside your top category, it ranks the specific devices — with the price you would pay in India, what the money buys, and where a cheaper one in the same category does the same job.</p>
 
-      <p style="margin:0 0 22px;">Every wearable comparison on the internet ranks devices on sensors, battery life, and app ecosystem. Almost none of them ask the one question that actually determines whether a "premium" recovery-insight layer is worth paying for: <strong style="color:var(--text);">how structured is your training right now?</strong></p>
+      <p style="margin:0 0 22px;">Nine sliders describe your week and your preferences. A set of toggles marks the features you refuse to live without, and those work as hard gates: a ring that has to come off for a barbell set is not a compromise for a lifter, it is a disqualification. Everything below the controls — rankings, scores, charts, tables — recomputes as you move them. The defaults are my own profile: gym most days, a weekly swim, a monthly run, and a strong preference for recovery data over notifications.</p>
 
-      <p style="margin:0 0 22px;">Three device tiers were scored — a budget sports watch (Coros Pace 4 class), a mid-tier watch (Garmin Forerunner 265 class), and a premium watch (Garmin Forerunner 570 class) — on the practical recovery-readiness utility each one delivers at three levels of training structure.</p>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">Scope:</strong> devices available in India as of August 2026, priced in rupees at India retail unless a US import route is shown. It covers fitness and recovery capability, not medical use — none of these are diagnostic instruments, and every readiness or recovery figure any of them reports is a proprietary construct, not a clinical measurement.</p>
 
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The four form factors, and what each is built to do</h2>
+      <p style="margin:0 0 20px;">Each category is good at something structural — a property of the shape, not of the brand. Reading these four honestly resolves most of the decision before any device is named.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:12px; margin-bottom:20px;">
+        <sc-for list="{{ catIntro }}" as="c" hint-placeholder-count="4">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-left:3px solid {{ c.color }}; border-radius:10px; padding:18px 20px;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:{{ c.color }}; margin-bottom:6px;">{{ c.sub }}</div>
+            <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:21px; color:var(--text); margin-bottom:10px;">{{ c.name }}</div>
+            <p style="margin:0 0 8px; font-size:14px; line-height:1.6; color:var(--text-body);"><strong style="color:var(--sem-green);">Built for:</strong> {{ c.built }}</p>
+            <p style="margin:0; font-size:14px; line-height:1.6; color:var(--text-body);"><strong style="color:var(--sem-red);">Structurally gives up:</strong> {{ c.weak }}</p>
+          </div>
+        </sc-for>
+      </div>
+
+      <p style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); margin:0 0 8px; letter-spacing:0.02em;">Wide table — scroll it sideways on a phone.</p>
+      <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact" style="min-width:520px;">
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th scope="col" style="border-bottom:none; width:30%;">Capability</th><th scope="col" style="border-bottom:none;">Smartwatch</th><th scope="col" style="border-bottom:none;">Sport watch</th><th scope="col" style="border-bottom:none;">Band</th><th scope="col" style="border-bottom:none;">Ring</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ structRows }}" as="r" hint-placeholder-count="9">
+              <tr>
+                <td style="font-weight:600; color:var(--text);">{{ r.label }}</td>
+                <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="4">
+                  <td style="color:{{ c.color }};">{{ c.text }}</td>
+                </sc-for>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 22px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> No row is won by the same category twice in a row. That is the whole argument for choosing the shape before the brand — the four columns are not better and worse versions of one another, they are four different sets of things you will never get to have at once.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Step 1 — describe your week</h2>
+      <p style="margin:0 0 16px;">The first three sliders are counts, not opinions: how many times in a normal week you do each thing. The rest are how much you care. Start from a profile if one is close to yours, then adjust.</p>
+
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:clamp(18px,3vw,24px); margin-bottom:16px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:12px;">Start from a profile</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px;">
+          <sc-for list="{{ presets }}" as="p" hint-placeholder-count="6">
+            <button onClick="{{ p.apply }}" style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; padding:9px 13px; min-height:38px; border-radius:999px; cursor:pointer; border:1px solid {{ p.border }}; background:{{ p.bg }}; color:{{ p.fg }};">{{ p.name }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:5px 0;">
+          <label for="sGym" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:clamp(140px,42vw,208px); flex-shrink:0;">Gym / lifting per week</label>
+          <input id="sGym" type="range" class="art-slider" min="0" max="7" step="1" value="{{ gym }}" onChange="{{ setGym }}" style="flex:1; min-width:110px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; color:var(--text); width:92px; text-align:right; flex-shrink:0;">{{ gymLabel }}</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:5px 0;">
+          <label for="sRun" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:clamp(140px,42vw,208px); flex-shrink:0;">Runs per week</label>
+          <input id="sRun" type="range" class="art-slider" min="0" max="7" step="1" value="{{ run }}" onChange="{{ setRun }}" style="flex:1; min-width:110px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; color:var(--text); width:92px; text-align:right; flex-shrink:0;">{{ runLabel }}</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:5px 0;">
+          <label for="sSwim" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:clamp(140px,42vw,208px); flex-shrink:0;">Swims per week</label>
+          <input id="sSwim" type="range" class="art-slider" min="0" max="5" step="1" value="{{ swim }}" onChange="{{ setSwim }}" style="flex:1; min-width:110px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; color:var(--text); width:92px; text-align:right; flex-shrink:0;">{{ swimLabel }}</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:5px 0;">
+          <label for="sStr" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:clamp(140px,42vw,208px); flex-shrink:0;">Training structure</label>
+          <input id="sStr" type="range" class="art-slider" min="0" max="10" step="1" value="{{ structure }}" onChange="{{ setStructure }}" style="flex:1; min-width:110px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; color:var(--text); width:92px; text-align:right; flex-shrink:0;">{{ structureLabel }}</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:5px 0;">
+          <label for="sSleep" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:clamp(140px,42vw,208px); flex-shrink:0;">Sleep &amp; recovery depth</label>
+          <input id="sSleep" type="range" class="art-slider" min="0" max="10" step="1" value="{{ sleep }}" onChange="{{ setSleep }}" style="flex:1; min-width:110px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; color:var(--text); width:92px; text-align:right; flex-shrink:0;">{{ sleepLabel }}</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:5px 0;">
+          <label for="sSmart" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:clamp(140px,42vw,208px); flex-shrink:0;">Notifications, calls, pay</label>
+          <input id="sSmart" type="range" class="art-slider" min="0" max="10" step="1" value="{{ smart }}" onChange="{{ setSmart }}" style="flex:1; min-width:110px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; color:var(--text); width:92px; text-align:right; flex-shrink:0;">{{ smartLabel }}</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:5px 0;">
+          <label for="sBatt" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:clamp(140px,42vw,208px); flex-shrink:0;">Battery matters</label>
+          <input id="sBatt" type="range" class="art-slider" min="0" max="10" step="1" value="{{ battery }}" onChange="{{ setBattery }}" style="flex:1; min-width:110px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; color:var(--text); width:92px; text-align:right; flex-shrink:0;">{{ batteryLabel }}</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:5px 0;">
+          <label for="sComf" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:clamp(140px,42vw,208px); flex-shrink:0;">All-day and in-bed comfort</label>
+          <input id="sComf" type="range" class="art-slider" min="0" max="10" step="1" value="{{ comfort }}" onChange="{{ setComfort }}" style="flex:1; min-width:110px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; color:var(--text); width:92px; text-align:right; flex-shrink:0;">{{ comfortLabel }}</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:5px 0;">
+          <label for="sBud" style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-muted); width:clamp(140px,42vw,208px); flex-shrink:0;">Budget, one-time</label>
+          <input id="sBud" type="range" class="art-slider" min="10" max="150" step="5" value="{{ budget }}" onChange="{{ setBudget }}" style="flex:1; min-width:110px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; color:var(--text); width:92px; text-align:right; flex-shrink:0;">{{ budgetLabel }}</div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--text-body); line-height:1.8; margin-top:14px; background:var(--bg-chip); border-radius:8px; padding:13px 15px;">
+          Heaviest weights right now: {{ topWeights }}<br>
+          Budget gate: devices above {{ budgetCeilLabel }} are dropped entirely. Subscription devices are priced at their five-year total.
+        </div>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Step 2 — set your non-negotiables</h2>
+      <p style="margin:0 0 16px;">These are gates, not preferences. Anything you switch on here removes every category and device that cannot do it, however well it scores otherwise. Switch on nothing and nothing is excluded.</p>
+
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:clamp(18px,3vw,24px); margin-bottom:16px;">
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <sc-for list="{{ mustChips }}" as="m" hint-placeholder-count="13">
+            <button onClick="{{ m.toggle }}" aria-pressed="{{ m.pressed }}" style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; padding:9px 13px; min-height:38px; border-radius:8px; cursor:pointer; border:1px solid {{ m.border }}; background:{{ m.bg }}; color:{{ m.fg }};">{{ m.label }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:16px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--text-faint);">{{ mustSummary }}</div>
+          <button onClick="{{ clearMusts }}" style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; padding:8px 14px; min-height:38px; border-radius:999px; cursor:pointer; border:1px solid var(--border-strong); background:transparent; color:var(--text-muted);">Clear all</button>
+        </div>
+      </div>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Your category ranking</h2>
+      <p style="margin:0 0 16px;">Scored out of 10 on your weights. The gap between first and second matters more than the absolute numbers — a half-point spread means the two are interchangeable and you should decide on feel, while two points is a real answer.</p>
+
+      <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:16px;">
+        <sc-for list="{{ catRank }}" as="c" hint-placeholder-count="4">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-left:4px solid {{ c.accent }}; border-radius:10px; padding:16px 20px; opacity:{{ c.opacity }};">
+            <div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:17px; font-weight:800; color:{{ c.accent }}; width:34px; flex-shrink:0;">{{ c.rankLabel }}</div>
+              <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:20px; color:var(--text); flex:1; min-width:140px;">{{ c.name }}</div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:15px; font-weight:800; color:{{ c.accent }};">{{ c.scoreLabel }}</div>
+            </div>
+            <div style="height:8px; border-radius:5px; background:var(--bg-chip); overflow:hidden; margin:12px 0 10px;"><div style="{{ c.barStyle }}"></div></div>
+            <p style="margin:0; font-size:14px; line-height:1.6; color:var(--text-body);">{{ c.verdict }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 22px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">Reading it:</strong> {{ catSoWhat }}</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Your device ranking</h2>
+      <p style="margin:0 0 16px;">The top three inside {{ topCatName }}, on the same weights and after your gates and budget. Each card gives the price you would actually pay, what the money buys over the one below it, and what it costs you.</p>
+
+      <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:20px;">
+        <sc-for list="{{ devRank }}" as="d" hint-placeholder-count="3">
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-left:4px solid {{ d.accent }}; border-radius:10px; padding:18px 20px;">
+            <div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:6px;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:17px; font-weight:800; color:{{ d.accent }}; width:34px; flex-shrink:0;">{{ d.rankLabel }}</div>
+              <div style="font-weight:600; color:var(--text); font-size:16px; flex:1; min-width:150px;">{{ d.name }}</div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; color:var(--text);">{{ d.priceLabel }}</div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:800; color:{{ d.accent }};">{{ d.scoreLabel }}</div>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); margin-bottom:10px;">{{ d.spec }}</div>
+            <p style="margin:0 0 8px; font-size:14px; line-height:1.6; color:var(--text-body);"><strong style="color:var(--sem-green);">Buys you:</strong> {{ d.pro }}</p>
+            <p style="margin:0; font-size:14px; line-height:1.6; color:var(--text-body);"><strong style="color:var(--sem-amber);">Costs you:</strong> {{ d.con }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ hasDevBars }}" hint-placeholder-val="{{ true }}">
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:clamp(18px,3vw,24px); margin-bottom:16px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin:0 0 12px;">Every surviving device in {{ topCatName }}, scored</div>
+        <div style="display:flex; flex-direction:column; gap:9px;">
+          <sc-for list="{{ devBars }}" as="b" hint-placeholder-count="6">
+            <div style="display:grid; grid-template-columns:clamp(104px,30vw,196px) 1fr 46px; align-items:center; gap:10px;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ b.name }}</div>
+              <div style="height:9px; border-radius:5px; background:var(--bg-chip); overflow:hidden;"><div style="{{ b.barStyle }}"></div></div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text); text-align:right;">{{ b.scoreLabel }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 22px; border-left:3px solid var(--accent); padding-left:16px;">{{ devSoWhat }}</p>
+
+      <p style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); margin:0 0 8px; letter-spacing:0.02em;">Wide table — scroll it sideways on a phone.</p>
+      <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact" style="min-width:560px;">
+          <thead>
+            <tr style="background:var(--text); color:var(--bg);">
+              <th scope="col" style="border-bottom:none; width:26%;">Device</th><th scope="col" style="border-bottom:none; width:14%;">Category</th><th scope="col" style="border-bottom:none; width:14%;">Price</th><th scope="col" style="border-bottom:none; width:11%;">Score</th><th scope="col" style="border-bottom:none;">Status on your settings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ allDevRows }}" as="d" hint-placeholder-count="12">
+              <tr>
+                <td style="font-weight:600; color:{{ d.nameColor }};">{{ d.name }}</td>
+                <td style="color:var(--text-muted);">{{ d.cat }}</td>
+                <td style="color:var(--text-body); white-space:nowrap;">{{ d.priceLabel }}</td>
+                <td style="font-family:'JetBrains Mono',monospace; font-weight:700; color:{{ d.scoreColor }};">{{ d.scoreLabel }}</td>
+                <td style="color:{{ d.statusColor }};">{{ d.status }}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 22px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">Best in each surviving category:</strong> {{ bestPerCatLabel }}</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Why the ranking moves: training structure</h2>
+      <p style="margin:0 0 20px;">The single biggest driver of whether a premium device earns its price is not your budget. It is how structured your training is — because a recovery algorithm reading an unstructured week has almost nothing to work with, and every tier converges when that happens.</p>
+      <p style="margin:0 0 20px;">I scored three device tiers — a budget sport watch (Coros Pace 3 class), a mid tier (Garmin FR265 class), and a premium tier (Garmin FR570 class) — on how much useful readiness signal each delivers at three levels of structure: none or low (a few gym sessions and a swim, no plan), moderate (structured blocks), and high (a periodised plan).</p>
       <blockquote style="border-left:3px solid var(--accent); margin:30px 0; padding:2px 0 2px 22px; font-family:'Instrument Serif',serif; font-style:italic; font-size:21px; line-height:1.5; color:var(--text);">The three tiers converge to within half a point of each other at low training structure. At high structure, the premium tier pulls almost three full points ahead.</blockquote>
-
-      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:26px 24px 8px; margin:34px 0;">
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:26px 24px 20px; margin:34px 0;">
         <svg viewBox="0 0 440 170" style="width:100%; height:170px; display:block;">
           {{ utilityChart.xAxis }}
           <polyline points="{{ utilityChart.budgetPoints }}" fill="none" stroke="var(--text-faint)" strokeWidth="2.5"></polyline>
           <polyline points="{{ utilityChart.midPoints }}" fill="none" stroke="var(--text)" strokeWidth="2.5"></polyline>
           <polyline points="{{ utilityChart.premiumPoints }}" fill="none" stroke="var(--accent)" strokeWidth="3"></polyline>
-          <sc-for list="{{ utilityChart.dots }}" as="d" hint-placeholder-count="0">
+          <sc-for list="{{ utilityChart.dots }}" as="d" hint-placeholder-count="9">
             <circle cx="{{ d.cx }}" cy="{{ d.cy }}" r="4" fill="{{ d.color }}"></circle>
           </sc-for>
         </svg>
-        <div style="display:flex; gap:16px; justify-content:center; margin-top:4px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint);">
-          <span><span style="display:inline-block;width:8px;height:8px;background:var(--text-faint);border-radius:2px;margin-right:5px;"></span>Coros Pace 4</span>
-          <span><span style="display:inline-block;width:8px;height:8px;background:var(--text);border-radius:2px;margin-right:5px;"></span>Garmin FR265</span>
-          <span><span style="display:inline-block;width:8px;height:8px;background:var(--accent);border-radius:2px;margin-right:5px;"></span>Garmin FR570</span>
+        <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:4px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint);">
+          <span><span style="display:inline-block;width:8px;height:8px;background:var(--text-faint);border-radius:2px;margin-right:5px;"></span>Budget tier</span>
+          <span><span style="display:inline-block;width:8px;height:8px;background:var(--text);border-radius:2px;margin-right:5px;"></span>Mid tier</span>
+          <span><span style="display:inline-block;width:8px;height:8px;background:var(--accent);border-radius:2px;margin-right:5px;"></span>Premium tier</span>
         </div>
-        <div style="font-size:13px; color:var(--text-faint); text-align:center; margin-top:10px; padding-bottom:14px;">Fig. 1 — Recovery-readiness utility by training structure (0–10)</div>
+        <div style="font-size:13px; color:var(--text-faint); text-align:center; margin-top:14px;">Fig. 1 — Readiness-signal utility by training structure, 0–10</div>
       </div>
-      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 22px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> At low training structure, an expensive watch's "advanced" algorithm and a cheap watch's basic one are telling you almost the same thing. That doesn't make the premium tier a bad buy — it means it's a bet, not a need.</p>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 22px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Your training-structure slider is doing most of the work in the ranking above. Set it low and the model will keep steering you to the cheap end of whichever category wins, because at that level the expensive algorithm and the cheap one are telling you the same thing. That does not make the premium tier a bad buy — it makes it a bet on a version of your training that does not exist yet.</p>
 
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The framework: four ways to buy into this decision</h2>
-
-      <p style="margin:0 0 14px;"><strong style="color:var(--text);">1. Match Now</strong> — buy exactly what your current training structure justifies. Coros Pace 4 (₹33,000) or Garmin Forerunner 265 (₹35,990–41,000).</p>
-      <p style="margin:0 0 14px;"><strong style="color:var(--text);">2. Headroom Bet</strong> — buy above your current need because you have a specific, funded plan to grow into it. Garmin Forerunner 570 (42mm): ₹42,440 landed via US import, or ₹66,990 at India retail.</p>
-      <p style="margin:0 0 14px;"><strong style="color:var(--text);">3. Rental Education</strong> — a subscription band (Whoop-class) for a fixed, bounded learning period, then a hard exit. ₹23,000–29,000/year.</p>
-      <p style="margin:0 0 22px;"><strong style="color:var(--text);">4. Stack</strong> — a GPS watch plus a separate recovery ring, when cost genuinely isn't the constraint. Apple Watch Series 11 + Ultrahuman Ring, ~₹60,000–70,000 combined.</p>
-
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Device autopsy #1: Apple Watch — great ecosystem, thin fitness layer</h2>
-
-      <p style="margin:0 0 22px;">Apple Watch is not a bad product — it's a smartwatch that happens to track fitness, not a fitness watch that happens to be smart. Full calls, replies, apps, and music on your wrist; ECG and blood oxygen active out of the box; the tightest possible iPhone integration.</p>
-      <p style="margin:0 0 10px;"><strong style="color:var(--text);">Where it falls short for training:</strong></p>
-      <ul style="margin:0 0 22px; padding-left:20px;">
-        <li style="margin-bottom:10px;"><strong style="color:var(--text);">No native 24/7 recovery-readiness synthesis</strong> — needs a third-party app (commonly Athlytic) layered on top.</li>
-        <li style="margin-bottom:10px;"><strong style="color:var(--text);">Battery is a genuine constraint</strong> — 24 hours typical, ~38 hours in Low Power Mode, vs days on every dedicated sport watch here.</li>
-        <li style="margin-bottom:10px;"><strong style="color:var(--text);">The durability story is a documented failure mode, not a hypothetical.</strong> A drop that compromises the water-resistance seal, a swim, then charging while still damp is a specific, repeatable failure chain.</li>
-        <li style="margin-bottom:0;"><strong style="color:var(--text);">Ultra 3 (49mm) exceeds most people's comfortable case-size ceiling</strong> if you have a smaller wrist.</li>
-      </ul>
-      <div style="background:var(--bg-card); border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:14px 18px; margin-bottom:12px; font-size:14.5px; line-height:1.6; color:var(--text-body);"><strong style="color:var(--text);">Right for:</strong> someone who wants a single wrist-worn device for calls, notifications, and casual tracking, who doesn't lift heavy or swim seriously, and values ecosystem lock-in over data depth.</div>
-      <div style="background:var(--bg-card); border-left:3px solid var(--text-faint); border-radius:0 8px 8px 0; padding:14px 18px; margin-bottom:22px; font-size:14.5px; line-height:1.6; color:var(--text-body);"><strong style="color:var(--text);">Wrong for:</strong> anyone optimizing training/recovery insight specifically — not a worse product, a different problem.</div>
-
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Device autopsy #2: Garmin vs Coros — the sensor and insight gap, honestly</h2>
-
-      <p style="margin:0 0 10px;"><strong style="color:var(--text);">Where Coros wins outright:</strong></p>
-      <ul style="margin:0 0 22px; padding-left:20px;">
-        <li style="margin-bottom:10px;"><strong style="color:var(--text);">Battery life</strong> — 41–65 hours in GPS mode, weeks in daily mode.</li>
-        <li style="margin-bottom:10px;"><strong style="color:var(--text);">Race prediction and structured training load (EvoLab)</strong> — arguably the strongest running-specific training layer evaluated.</li>
-        <li style="margin-bottom:10px;"><strong style="color:var(--text);">GPS accuracy is a tie</strong>, not a Garmin advantage — differences as small as 0.01 miles over 8-mile runs in side-by-side testing.</li>
-        <li style="margin-bottom:0;"><strong style="color:var(--text);">Price-to-materials ratio</strong> — sapphire crystal and titanium at a lower price than Garmin's equivalent.</li>
-      </ul>
-      <p style="margin:0 0 10px;"><strong style="color:var(--text);">Where Garmin wins, and why it's the deciding factor for a non-runner:</strong></p>
-      <ul style="margin:0 0 22px; padding-left:20px;">
-        <li style="margin-bottom:10px;"><strong style="color:var(--text);">HR sensor maturity.</strong> Garmin's Elevate line has over a decade of iteration and is widely treated as the benchmark for wrist-based optical HR. Coros has years less runway on this exact problem.</li>
-        <li style="margin-bottom:10px;"><strong style="color:var(--text);">Swim heart-rate accuracy has documented inconsistency on Coros</strong> — flagged in at least two independent multi-week test reviews.</li>
-        <li style="margin-bottom:0;"><strong style="color:var(--text);">The 24/7 wellness layer is structurally different, not just less polished.</strong> Garmin's Body Battery, Sleep Coach, Training Status, and Recovery Time form a whole-day layer refined since 2017. Coros's EvoLab is a training-performance layer — strong on your next workout, thinner on a rest day.</li>
-      </ul>
-      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:18px 20px; margin-bottom:22px; font-size:14.5px; line-height:1.65; color:var(--text-body);"><strong style="color:var(--text);">The honest verdict:</strong> Garmin does the more thorough end-to-end job, but Coros wins outright on weight, price, and GPS battery life. If your primary volume is running, Coros is a legitimately better fit. If it's gym + swim + passive recovery with no running program, Garmin's whole-day layer wins — precisely why this decision landed on Garmin despite Coros being cheaper.</div>
-
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Device autopsy #3: Whoop — expensive, recovery-only, and structurally can't do the job</h2>
-
-      <p style="margin:0 0 22px;">Whoop's marketing story — "passive recovery tracking, no watch needed" — is genuinely appealing and genuinely misleading for anyone who trains across multiple modalities. What it does well is real: continuous HR, HRV, sleep staging, respiratory rate, and a recovery score, running 24/7 with zero logging effort.</p>
-      <p style="margin:0 0 10px;"><strong style="color:var(--text);">Why it cannot replace a sports watch — structural, not a preference:</strong></p>
-      <ul style="margin:0 0 22px; padding-left:20px;">
-        <li style="margin-bottom:10px;"><strong style="color:var(--text);">No GPS, no display, at all.</strong> Pace, distance, and route only exist if you separately carry your phone.</li>
-        <li style="margin-bottom:10px;"><strong style="color:var(--text);">Weight-training accuracy is specifically documented as weaker</strong> — flat readings around 110–120bpm during sets where a paired watch showed spikes to 160bpm.</li>
-        <li style="margin-bottom:10px;"><strong style="color:var(--text);">Swimming gets duration and Strain only</strong> — no lap count, stroke type, or SWOLF.</li>
-        <li style="margin-bottom:0;"><strong style="color:var(--text);">It's a subscription, permanently</strong> — a 5-year TCO if never cancelled runs to roughly ₹150,000, about 2.2x the one-time cost of the Forerunner 570.</li>
-      </ul>
-      <div style="background:var(--bg-card); border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:14px 18px; margin-bottom:12px; font-size:14.5px; line-height:1.6; color:var(--text-body);"><strong style="color:var(--text);">Right for:</strong> someone who already owns a separate GPS sports watch and wants a second, more granular overnight-recovery layer stacked on top.</div>
-      <div style="background:var(--bg-card); border-left:3px solid var(--text-faint); border-radius:0 8px 8px 0; padding:14px 18px; margin-bottom:22px; font-size:14.5px; line-height:1.6; color:var(--text-body);"><strong style="color:var(--text);">Wrong for:</strong> anyone whose primary need is tracking the workout itself — a recurring subscription for the metric that matters least, with zero pace data and no swim metrics.</div>
-
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Device autopsy #4: why the Forerunner 570 beats the Forerunner 265</h2>
-
-      <p style="margin:0 0 14px;"><strong style="color:var(--text);">1. Sensor generation is genuinely different, not a marketing refresh.</strong> The 70, 170, and 265 all carry Garmin's Elevate Gen 4 sensor — no ECG, no skin temperature. The 570 (and 970) carry Elevate Gen 5, Garmin's newest.</p>
-      <p style="margin:0 0 14px;"><strong style="color:var(--text);">2. The 570 ships with dormant ECG-capable hardware</strong> — physically present but not yet firmware-enabled, the clearest signal of a longer software runway. The 265's Gen 4 sensor has no equivalent unused capability.</p>
-      <p style="margin:0 0 14px;"><strong style="color:var(--text);">3. The core recovery metrics stay free on both.</strong> Garmin's optional $6.99/month Connect+ tier only gates AI-driven extras. Training Readiness, Sleep Coach, Body Battery, and HRV Status remain free on every Garmin evaluated.</p>
-      <p style="margin:0 0 22px;"><strong style="color:var(--text);">4. The 42mm case-size trap is the real reason the 265 lost.</strong> The 265's true 42mm variant carries a steep India premium north of ₹50,490. The 570, via US sale price and personal-baggage import, genuinely delivers 42mm without that penalty (₹42,440 landed vs ₹66,990 at India retail for the same size).</p>
-      <div style="background:var(--bg-card); border-left:3px solid var(--text-faint); border-radius:0 8px 8px 0; padding:14px 18px; margin-bottom:22px; font-size:14.5px; line-height:1.6; color:var(--text-body);"><strong style="color:var(--text);">The one real trade-off:</strong> the 570's AMOLED display is nicer day-to-day, but costs real battery life vs the 265 — a genuine regression, particularly pronounced in the 42mm variant.</div>
-
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Battery is a property of the shape, not a spec to negotiate</h2>
+      <p style="margin:0 0 20px;">This is the cleanest illustration of why form factor comes first. A smartwatch runs a full app layer on a bright always-on display and charges daily. A sport watch runs a stripped OS and charges weekly. A band or ring has almost no display to power at all. The spread is not a generation of engineering — it is roughly twenty to one.</p>
       <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:26px 24px 20px; margin:34px 0;">
-        <div style="display:flex; flex-direction:column; gap:16px;">
-          <sc-for list="{{ scorecardBars }}" as="d" hint-placeholder-count="0">
-            <div>
-              <div style="display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-muted); margin-bottom:5px;">
-                <span>{{ d.name }}</span><span style="color:var(--text); font-weight:600;">{{ d.score }} / 8.5</span>
-              </div>
-              <div style="height:10px; border-radius:5px; background:var(--bg-chip); overflow:hidden;">
-                <div style="{{ d.barStyle }}"></div>
-              </div>
+        <div style="display:flex; flex-direction:column; gap:9px;">
+          <sc-for list="{{ batteryBars }}" as="b" hint-placeholder-count="8">
+            <div style="display:grid; grid-template-columns:clamp(104px,30vw,196px) 1fr 78px; align-items:center; gap:10px;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ b.name }}</div>
+              <div style="height:9px; border-radius:5px; background:var(--bg-chip); overflow:hidden;"><div style="{{ b.barStyle }}"></div></div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text); text-align:right;">{{ b.valueLabel }}</div>
             </div>
           </sc-for>
         </div>
-        <div style="font-size:13px; color:var(--text-faint); text-align:center; margin-top:16px;">Fig. 2 — Final 8-criteria weighted scorecard, three GPS-watch finalists</div>
+        <div style="font-size:13px; color:var(--text-faint); text-align:center; margin-top:14px;">Fig. 2 — Days of typical use between charges. GPS-mode hours in the label where relevant.</div>
       </div>
-      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 22px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> The winning pick beat the runners-up by only 0.25–0.35 points out of 8.5. Not a landslide — a close call decided by a small, consistent edge across most axes, not one dominant feature.</p>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 22px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> If charging tolerance is low on your sliders, the smartwatch category cannot be rescued by picking a better smartwatch — the Ultra is Apple's longest-lived model at about 42 hours and still loses to the shortest-lived sport watch by a factor of five. Move the charging slider and watch which category leads.</p>
 
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The full comparison matrix</h2>
-      <p style="margin:0 0 14px;">This is the side-by-side that most comparisons skip.</p>
-      <div style="display:flex; gap:16px; font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--text-faint); margin-bottom:16px; align-items:center;">
-        <span><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--sem-green);margin-right:5px;"></span>strong</span>
-        <span><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--sem-amber);margin-right:5px;"></span>caveat</span>
-        <span><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--sem-red);margin-right:5px;"></span>weak / absent</span>
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The five-year cost nobody prices</h2>
+      <p style="margin:0 0 20px;">A subscription band advertises a monthly figure; a watch advertises a one-time one. Put both on a five-year horizon — the realistic life of a device you keep — and the ordering changes completely. Whoop bundles hardware into membership, which means the hardware stops working when the payments stop: you are renting, not buying.</p>
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:26px 24px 20px; margin:34px 0;">
+        <div style="display:flex; flex-direction:column; gap:9px;">
+          <sc-for list="{{ tcoBars }}" as="b" hint-placeholder-count="8">
+            <div style="display:grid; grid-template-columns:clamp(104px,30vw,196px) 1fr 62px; align-items:center; gap:10px;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ b.name }}</div>
+              <div style="height:9px; border-radius:5px; background:var(--bg-chip); overflow:hidden;"><div style="{{ b.barStyle }}"></div></div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text); text-align:right;">{{ b.valueLabel }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font-size:13px; color:var(--text-faint); text-align:center; margin-top:14px;">Fig. 3 — Five-year cost of ownership. Green: one-time purchase. Red: recurring, hardware inert if payments stop.</div>
       </div>
-      <div style="overflow-x:auto; margin:0 0 34px; border:1px solid var(--border); border-radius:10px;">
-        <table class="art-table art-table-compact" style="min-width:660px;">
+      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 22px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Whoop MG at roughly ₹1.6L over five years costs more than a Fenix 8 and about three and a half times a Coros Pace 4, for a device with no display, no GPS and no swim metrics. That is not an argument against the data it collects, which is genuinely good — it is an argument for knowing that you are buying one narrow capability at the highest price on this page.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Sensors and insight: what actually differs</h2>
+      <p style="margin:0 0 16px;">Six representative devices, one per tier that survives a serious look, across the things that separate them. The colour is the verdict: green means it does this well, amber means with caveats, red means it does not do it.</p>
+      <div style="display:flex; gap:16px; font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--text-faint); margin-bottom:14px; align-items:center; flex-wrap:wrap;">
+        <span><span style="display:inline-block;width:8px;height:8px;background:var(--sem-green);border-radius:50%;margin-right:5px;"></span>Strong</span>
+        <span><span style="display:inline-block;width:8px;height:8px;background:var(--sem-amber);border-radius:50%;margin-right:5px;"></span>Caveat</span>
+        <span><span style="display:inline-block;width:8px;height:8px;background:var(--sem-red);border-radius:50%;margin-right:5px;"></span>Absent</span>
+      </div>
+      <p style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); margin:0 0 8px; letter-spacing:0.02em;">Wide table — scroll it sideways on a phone.</p>
+      <div style="overflow-x:auto; margin:0 0 16px; border:1px solid var(--border); border-radius:10px;">
+        <table class="art-table art-table-compact" style="min-width:720px;">
           <thead>
             <tr style="background:var(--text); color:var(--bg);">
-              <th style="border-bottom:none; width:19%;">Metric</th><th style="border-bottom:none; width:13.5%;">Apple S11</th><th style="border-bottom:none; width:13.5%;">Coros P4</th><th style="border-bottom:none; width:13.5%;">Coros Apex4</th><th style="border-bottom:none; width:13.5%;">Garmin FR265</th><th style="border-bottom:none; width:13.5%;">Garmin FR570</th><th style="border-bottom:none; width:13.5%;">Whoop 5.0</th>
+              <th scope="col" style="border-bottom:none; width:20%;">Dimension</th>
+              <sc-for list="{{ matrixCols }}" as="c" hint-placeholder-count="6">
+                <th scope="col" style="border-bottom:none;">{{ c }}</th>
+              </sc-for>
             </tr>
           </thead>
           <tbody>
-            <sc-for list="{{ matrixGroups }}" as="grp" hint-placeholder-count="0">
-              <tr><td colspan="7" style="background:var(--bg-chip); font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">{{ grp.name }}</td></tr>
-              <sc-for list="{{ grp.rows }}" as="row" hint-placeholder-count="0">
+            <sc-for list="{{ matrixGroups }}" as="g" hint-placeholder-count="4">
+              <tr>
+                <td colSpan="7" style="background:var(--bg-chip); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted);">{{ g.name }}</td>
+              </tr>
+              <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="4">
                 <tr>
-                  <td style="font-weight:600; color:var(--text);">{{ row.label }}</td>
-                  <sc-for list="{{ row.cells }}" as="cell" hint-placeholder-count="0">
-                    <td style="color:var(--text-body);">
-                      <span style="display:{{ cell.dotDisplay }};width:6px;height:6px;border-radius:50%;background:{{ cell.dot }};margin-right:4px;flex-shrink:0;"></span><span>{{ cell.text }}</span>
-                    </td>
+                  <td style="font-weight:600; color:var(--text);">{{ r.label }}</td>
+                  <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="6">
+                    <td style="color:var(--text-body);"><span style="display:{{ c.dotDisplay }}; width:7px; height:7px; border-radius:50%; background:{{ c.dot }}; margin-right:5px; vertical-align:middle;"></span>{{ c.text }}</td>
                   </sc-for>
                 </tr>
               </sc-for>
@@ -239,78 +398,78 @@
           </tbody>
         </table>
       </div>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 22px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Three rows decide most real arguments. Garmin's whole-day wellness layer — Body Battery, Sleep Coach, Training Readiness — has no full equivalent on Coros, whose EvoLab is a training-performance layer that is thinner on a day you did not train. Coros wins battery and weight outright, and GPS accuracy is a tie, with differences of about 0.01 miles over eight-mile runs in side-by-side testing. And the claim that Garmin swims better than Coros did not survive checking: independent testing tilts the other way, with one comparison finding Garmin overtracked by 10–15%.</p>
 
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The persona matrix — match yourself to a device</h2>
-      <div style="overflow-x:auto; margin:0 0 34px; border:1px solid var(--border); border-radius:10px;">
-        <table class="art-table" style="min-width:640px;">
-          <thead>
-            <tr style="background:var(--text); color:var(--bg);">
-              <th style="border-bottom:none; width:36%;">Your use case</th><th style="border-bottom:none; width:22%;">Recommended</th><th style="border-bottom:none;">Why</th>
-            </tr>
-          </thead>
-          <tbody>
-            <sc-for list="{{ personaRows }}" as="p" hint-placeholder-count="0">
-              <tr>
-                <td style="color:var(--text-body); border-left:3px solid {{ p.color }};">{{ p.useCase }}</td>
-                <td><span style="display:inline-block; font-size:11.5px; font-weight:700; padding:4px 10px; border-radius:20px; color:#fff; white-space:nowrap; background:{{ p.color }};">{{ p.device }}</span></td>
-                <td style="color:var(--text-body);">{{ p.why }}</td>
-              </tr>
-            </sc-for>
-          </tbody>
-        </table>
-      </div>
-
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The decision trigger — when to actually act</h2>
-      <p style="margin:0 0 14px;"><strong style="color:var(--text);">Import math:</strong> only pursue cross-border buying if the landed-cost delta is ≥₹15,000–20,000 <strong style="color:var(--text);">and</strong> you have a personal-baggage travel window within roughly six months. Formal courier import erases the saving entirely — the effective all-in duty rate runs close to 42%.</p>
-      <p style="margin:0 0 14px;"><strong style="color:var(--text);">HR-under-load check:</strong> if gym/lifting is a meaningful share of your training, verify HR accuracy under load before trusting any device's recovery score during resistance work — this is precisely where Whoop's documented gap lives.</p>
-      <p style="margin:0 0 22px;"><strong style="color:var(--text);">Sale-price patience:</strong> premium-tier prices oscillate. The Forerunner 570's $449 US sale price recurred roughly every two months across an eight-month tracked window.</p>
-
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Where the same device costs a lot less</h2>
+      <p style="margin:0 0 20px;">India retail on premium sport watches carries an unusually steep markup, and it is not uniform — which means the import question has a different answer per device rather than one answer overall. Landed cost here is the US sale price converted at ₹94.5 with a 5–8% buffer for incidentals, carried in personal baggage.</p>
       <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:26px 24px 20px; margin:34px 0;">
-        <div style="display:flex; flex-direction:column; gap:9px;">
-          <sc-for list="{{ costBars }}" as="c" hint-placeholder-count="0">
-            <div style="display:grid; grid-template-columns:clamp(96px,26vw,170px) 1fr 74px; align-items:center; gap:10px;">
-              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ c.name }}</div>
-              <div style="height:9px; border-radius:5px; background:var(--bg-chip); overflow:hidden;"><div style="{{ c.barStyle }}"></div></div>
-              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text); text-align:right;">{{ c.priceLabel }}</div>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <sc-for list="{{ arbRows }}" as="a" hint-placeholder-count="5">
+            <div>
+              <div style="display:flex; justify-content:space-between; gap:10px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-muted); margin-bottom:6px;">
+                <span>{{ a.name }}</span><span style="color:{{ a.savingColor }}; font-weight:700;">{{ a.savingLabel }}</span>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:4px;">
+                <div style="height:8px; border-radius:4px; background:var(--bg-chip); overflow:hidden;"><div style="{{ a.indiaBar }}"></div></div>
+                <div style="height:8px; border-radius:4px; background:var(--bg-chip); overflow:hidden;"><div style="{{ a.landedBar }}"></div></div>
+              </div>
             </div>
           </sc-for>
         </div>
-        <div style="display:flex; gap:16px; margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint);">
-          <span><span style="display:inline-block;width:8px;height:8px;background:var(--sem-green);border-radius:2px;margin-right:5px;"></span>Match Now</span>
-          <span><span style="display:inline-block;width:8px;height:8px;background:var(--sem-amber);border-radius:2px;margin-right:5px;"></span>Headroom Bet</span>
-          <span><span style="display:inline-block;width:8px;height:8px;background:var(--sem-red);border-radius:2px;margin-right:5px;"></span>Reject zone</span>
+        <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint);">
+          <span><span style="display:inline-block;width:8px;height:8px;background:var(--text-faint);border-radius:2px;margin-right:5px;"></span>India retail</span>
+          <span><span style="display:inline-block;width:8px;height:8px;background:var(--accent);border-radius:2px;margin-right:5px;"></span>US price, landed via baggage</span>
         </div>
-        <div style="font-size:13px; color:var(--text-faint); text-align:center; margin-top:14px;">Fig. 3 — Landed cost across 11 screened devices, colour-coded by strategy zone</div>
+        <div style="font-size:13px; color:var(--text-faint); text-align:center; margin-top:14px;">Fig. 4 — India retail against US-baggage landed cost, five finalists</div>
       </div>
-      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 22px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> The FR570 only clears the Headroom Bet threshold via personal-baggage import. At India retail (₹66,990) it falls into the same reject zone as the Whoop 5-year TCO and the flagship tier.</p>
+      <p style="margin:0 0 14px;"><strong style="color:var(--text);">The gap is widest on the Forerunner 570</strong> — about ₹21,400, because its India premium is steepest relative to its US price. The FR265 and Coros Pace 4 save less but still save. The Coros Apex 4 is the exception that proves the point: at ₹42,299 in India it is cheaper here than landed, so importing it loses money.</p>
+      <p style="margin:0 0 14px;"><strong style="color:var(--text);">Courier import never wins.</strong> At roughly 42% all-in duty, the saving is erased on every device on this page. Personal baggage is the only route that works, and it is not guaranteed duty-free either.</p>
+      <p style="margin:0 0 22px;"><strong style="color:var(--text);">Watch the size-versus-price trap.</strong> The FR265 exists as a 42mm "265S", but that variant carries an India premium north of ₹50,490 while the 46mm sells for ₹31–41k. So the only sensible 265 to buy domestically is the larger case — which is the specific reason a small-wrist buyer ends up at the FR570 or the Coros Pace 4 instead.</p>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:-8px 0 22px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">On timing:</strong> the FR570's $449 US sale price was the fourth dip to that band in eight months of tracking, with an all-time low of $446.99 on Cyber Monday 2025. It is a recurring pattern, not a closing window — which means the sensible move is to wait for a dip that coincides with someone travelling, rather than to hurry.</p>
 
-      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Honest counterarguments</h2>
-      <p style="margin:0 0 22px;">If phone-free payments and notifications are a first-order need, this framework assumes you're willing to trade that away — if you're not, Apple Watch or the Stack strategy is the honest answer regardless of the scorecard. If your budget is real, not aspirational, the Headroom Bet isn't defensible. If you don't have a personal-baggage import channel, none of the import arithmetic applies — domestic retail price is your real price, full stop. And recovery-readiness scores are proprietary algorithmic constructs, not clinical diagnostics — treat every number as a trend indicator, not a fact.</p>
+      <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">What this model cannot see</h2>
+      <p style="margin:0 0 14px;"><strong style="color:var(--text);">Fit is unmodellable and it decides everything.</strong> A 42mm case on a 150mm wrist and on a 190mm wrist are different products. Optical heart rate depends on strap tension and skin contact, so a watch that fits badly measures badly — the scores above assume a device that sits properly, and no amount of sensor generation compensates if it does not.</p>
+      <p style="margin:0 0 14px;"><strong style="color:var(--text);">Readiness scores are constructs, not measurements.</strong> Every category here computes some daily number from HRV, resting HR, sleep and load. They are proprietary, unvalidated against each other, and not comparable across brands. Treat them as trend lines for your own body over weeks, not as facts, and never as clinical information.</p>
+      <p style="margin:0 0 14px;"><strong style="color:var(--text);">Durability is a habit, not a rating.</strong> The failure that started this whole evaluation was not a swim — it was a drop that compromised a water-resistance seal, then a swim, then charging while still damp. A 5 ATM rating is a static lab number that degrades with knocks. Whatever you buy, dry it fully before charging it.</p>
+      <p style="margin:0 0 14px;"><strong style="color:var(--text);">Two devices is a legitimate answer the ranking will never give you.</strong> A sport watch for training plus a ring for overnight recovery covers both ends properly, and it is a pattern serious athletes actually use. The model ranks single devices, so it structurally cannot recommend it. If your top two categories score within half a point of each other and budget is not the constraint, stacking them is worth considering.</p>
+      <p style="margin:0 0 22px;"><strong style="color:var(--text);">Scoring noise is real.</strong> This model resolves to about ±0.15. Any gap smaller than that is a tie dressed up as a decimal, and should be broken on fit, on what you can try on in a shop, or on price.</p>
 
       <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Three rules</h2>
       <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:34px;">
         <div style="background:var(--bg-card); border-left:4px solid var(--sem-green); border-radius:0 10px 10px 0; padding:16px 20px;">
           <div style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; color:var(--sem-green); font-size:16px; margin-bottom:6px;">Rule 01</div>
-          <p style="margin:0; font-size:15px; line-height:1.6; color:var(--text-body);">Buy for the training structure you have, not the one you plan to have — unless the plan has a funded date attached.</p>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:var(--text-body);">Choose the form factor before the brand. A ring and a sport watch are not competitors — they answer different questions, and only one of those questions is yours.</p>
         </div>
         <div style="background:var(--bg-card); border-left:4px solid var(--sem-amber); border-radius:0 10px 10px 0; padding:16px 20px;">
           <div style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; color:var(--sem-amber); font-size:16px; margin-bottom:6px;">Rule 02</div>
-          <p style="margin:0; font-size:15px; line-height:1.6; color:var(--text-body);">Subscription hardware is rented insight with a hard exit date, never a default state.</p>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:var(--text-body);">Buy for the training structure you have, not the one you intend to have — unless the intention has a funded date attached to it.</p>
         </div>
         <div style="background:var(--bg-card); border-left:4px solid var(--sem-red); border-radius:0 10px 10px 0; padding:16px 20px;">
           <div style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; color:var(--sem-red); font-size:16px; margin-bottom:6px;">Rule 03</div>
-          <p style="margin:0; font-size:15px; line-height:1.6; color:var(--text-body);">Cross-border savings only exist in personal baggage. Courier-and-duty math erases the arbitrage almost every time.</p>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:var(--text-body);">Price every subscription device over five years before comparing it to anything. Rented hardware that stops working when payments stop is a different purchase, not a cheaper one.</p>
         </div>
       </div>
 
-      <div style="background:var(--btn-bg); color:var(--btn-text); text-align:center; padding:44px 30px; border-radius:16px; margin:50px 0 20px;">
-        <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(21px,3vw,25px); margin:0 0 12px;">The real question was never "which watch"</div>
-        <p style="font-size:15px; opacity:0.85; margin:0 0 6px; line-height:1.6;">It was which specific gap in a real training routine each candidate actually closed, and which it didn't.</p>
-        <p style="margin-top:12px; font-weight:600; font-size:15px;">Garmin's 570 closed the most gaps that matter for gym + swim + passive recovery — as a documented, eyes-open bet, not a default.</p>
+      <div style="margin-top:44px; padding-top:24px; border-top:1px solid var(--border);">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-faint); margin-bottom:14px;">Read next</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:12px;">
+          <a href="iPhone-Ownership-Strategy.dc.html" style="display:flex; flex-direction:column; gap:8px; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:var(--bg-card); transition:border-color 0.15s, transform 0.2s ease;" style-hover="border-color:var(--accent) !important; transform:translateY(-3px) !important;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent);">Tech</span>
+            <span style="font-size:15px; line-height:1.45; font-weight:600; color:var(--text); text-wrap:pretty;">iPhone Ownership in India: When to Buy, and the Year You Should Sell</span>
+          </a>
+          <a href="Himalayan-Trek-Planner.dc.html" style="display:flex; flex-direction:column; gap:8px; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:var(--bg-card); transition:border-color 0.15s, transform 0.2s ease;" style-hover="border-color:var(--accent) !important; transform:translateY(-3px) !important;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent);">Travel</span>
+            <span style="font-size:15px; line-height:1.45; font-weight:600; color:var(--text); text-wrap:pretty;">The Himalayan Trek Calendar: Which Trek, Which Month, Which Year</span>
+          </a>
+        </div>
       </div>
 
       <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:36px; padding-top:20px; border-top:1px solid var(--border);">
-        <strong style="color:var(--text-muted);">Data sources:</strong> extensive multi-session wearable evaluation (June–July 2026), Garmin and Coros published training/recovery documentation, independent multi-week comparison testing (GPS accuracy, HR-under-load, swim tracking), Amazon US and India retail price tracking, Whoop Peak/Life India subscription pricing. All cost figures in Indian Rupees (₹) unless noted; USD conversions at ~₹94.5/USD.
+        <strong style="color:var(--text-muted);">Data sources:</strong> manufacturer specifications and India store pricing for <a href="https://www.apple.com/in/watch/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Apple</a>, <a href="https://www.garmin.co.in/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Garmin</a>, <a href="https://coros.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Coros</a>, <a href="https://www.polar.com/en" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Polar</a>, <a href="https://www.suunto.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Suunto</a>, <a href="https://www.whoop.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Whoop</a>, <a href="https://ouraring.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Oura</a>, <a href="https://www.ultrahuman.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Ultrahuman</a> and <a href="https://www.samsung.com/in/watches/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Samsung</a> (August 2026); independent long-term testing from <a href="https://www.dcrainmaker.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">DC Rainmaker</a> and multi-week comparison reviews for sensor accuracy, swim heart rate and lifting heart rate; tracked US sale pricing November 2025 – June 2026; FX at ₹94.5 per US dollar. Personal-baggage landed cost adds a 5–8% buffer over conversion and is not a guaranteed duty-free outcome; courier import is modelled at roughly 42% all-in duty. Category and device scores are structured judgements on published capability, not telemetry — they are a way of making a weighting explicit, not a measurement. Prices for rings and bands are indicative India street prices and move faster than the rest of the field.
+      </div>
+
+      <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:14px;">
+        <strong style="color:var(--text-muted);">How this was written:</strong> researched and drafted with Claude, an AI assistant, working to my direction. I set the question, checked the numbers, and edited the argument.
       </div>
     </div>
   </article>
@@ -338,7 +497,7 @@
       </div>
     </div>
     <div style="max-width:1200px; margin:0 auto; padding:20px clamp(16px,5vw,64px) 32px; border-top:1px solid var(--footer-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-      <div style="font-size:13px; color:var(--footer-text-muted);">© {{ currentYear }} Ayush Srivastav</div>
+      <div style="font-size:13px; color:var(--footer-text-muted); white-space:nowrap;">© {{ currentYear }} Ayush Srivastav</div>
       <a href="#top" onClick="{{ scrollToTop }}" style="font-size:13px; color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Back to top ↑</a>
     </div>
   </footer>
@@ -372,7 +531,9 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = {
-    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark")
+    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark"),
+    gym: 6, run: 1, swim: 1, structure: 3, sleep: 8, smart: 3, battery: 7, comfort: 5, budget: 45,
+    must: {}
   };
 
   scrollToTop = (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); };
@@ -384,6 +545,18 @@ class Component extends DCLogic {
       return { dark: next };
     });
   };
+
+  setNum = (k) => (e) => { const v = Number(e.target.value); this.setState(function (o) { const n = {}; n[k] = v; return n; }); };
+  toggleMust = (k) => () => this.setState(s => {
+    const m = Object.assign({}, s.must);
+    if (m[k]) { delete m[k]; } else { m[k] = true; }
+    return { must: m };
+  });
+  applyPreset = (v) => () => this.setState(Object.assign({}, v));
+  clearMusts = () => this.setState({ must: {} });
+
+  // The prefers-reduced-motion CSS block cannot touch Web Animations API calls — gate them here instead.
+  reduceMotion() { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } }
 
   titleRef = (el) => {
     if (!el) return;
@@ -402,9 +575,9 @@ class Component extends DCLogic {
     const dx = origin.left - rect.left, dy = origin.top - rect.top;
     const sx = origin.width / rect.width, sy = origin.height / rect.height;
     el.style.transformOrigin = "top left";
-    if (typeof el.animate === "function") {
+    if (typeof el.animate === "function" && !this.reduceMotion()) {
       el.animate([
-        { transform: `translate(${dx}px,${dy}px) scale(${sx},${sy})`, opacity: 0.55 },
+        { transform: "translate(" + dx + "px," + dy + "px) scale(" + sx + "," + sy + ")", opacity: 0.55 },
         { transform: "translate(0px,0px) scale(1,1)", opacity: 1 }
       ], { duration: 400, easing: "cubic-bezier(.16,1,.3,1)", fill: "forwards" });
     }
@@ -447,6 +620,1173 @@ class Component extends DCLogic {
     };
   }
 
+  MUSTS = [{"key":"display","label":"Time of day on it"},{"key":"gps","label":"Built-in GPS"},{"key":"lift","label":"Keep it on while lifting"},{"key":"swimm","label":"Lap / stroke / SWOLF"},{"key":"readiness","label":"Native readiness score"},{"key":"hrv","label":"Overnight HRV"},{"key":"nosub","label":"No subscription, ever"},{"key":"ecg","label":"ECG on board"},{"key":"pay","label":"Contactless pay"},{"key":"music","label":"Offline music"},{"key":"maps","label":"Onboard maps"},{"key":"small","label":"Case 46mm or under"},{"key":"iphone","label":"Works with iPhone"}];
+
+  CATS = [
+    {
+      "key": "sport",
+      "name": "Sport watch",
+      "sub": "Garmin · Coros · Polar · Suunto",
+      "dim": {
+        "gym": 7,
+        "run": 10,
+        "swim": 9,
+        "struct": 10,
+        "sleep": 8,
+        "smart": 5,
+        "batt": 9,
+        "comf": 6,
+        "val": 8
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 1,
+        "small": 1,
+        "iphone": 1
+      },
+      "built": "training and recovery as a single system — mature readiness algorithms, multi-week battery, real swim and run metrics, and no subscription to keep the data flowing.",
+      "weak": "the smart layer. Notifications arrive, replies are limited, and the app ecosystem is thin. Most models are chunkier than a smartwatch at the same case size.",
+      "verdict": "Purpose-built training instruments. This category wins whenever the workout itself is what you want measured, and it wins on battery by an order of magnitude."
+    },
+    {
+      "key": "smart",
+      "name": "Smartwatch",
+      "sub": "Apple Watch · Galaxy Watch · Pixel Watch",
+      "dim": {
+        "gym": 7,
+        "run": 5,
+        "swim": 6,
+        "struct": 5,
+        "sleep": 6,
+        "smart": 10,
+        "batt": 3,
+        "comf": 7,
+        "val": 6
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 0,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 1,
+        "pay": 1,
+        "music": 1,
+        "maps": 1,
+        "small": 1,
+        "iphone": 1
+      },
+      "built": "being the only thing on your wrist. Calls, replies, apps, payments, ECG active out of the box, and the tightest phone integration of anything here.",
+      "weak": "battery and training depth. It charges daily, and none of them compute a native daily readiness score — that needs a third-party app layered on top.",
+      "verdict": "A smartwatch that tracks fitness rather than a fitness device that happens to be smart. Right when convenience outranks depth; structurally behind when it does not."
+    },
+    {
+      "key": "band",
+      "name": "Screenless band",
+      "sub": "Whoop · Amazfit Helio · Polar Loop",
+      "dim": {
+        "gym": 4,
+        "run": 2,
+        "swim": 3,
+        "struct": 6,
+        "sleep": 10,
+        "smart": 0,
+        "batt": 7,
+        "comf": 10,
+        "val": 3
+      },
+      "f": {
+        "display": 0,
+        "gps": 0,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 0,
+        "iphone": 1
+      },
+      "built": "continuous physiology with zero effort — 24/7 heart rate, HRV, sleep staging and respiratory rate, on a strap comfortable enough to forget.",
+      "weak": "everything that requires a screen or a GPS chip. No time, no notifications, no pace, no route, and no swim metrics past duration. Lifting heart rate reads low.",
+      "verdict": "Best-in-class at one narrow thing. It replaces a watch's entire utility surface, which is a far bigger lifestyle change than any score sheet shows."
+    },
+    {
+      "key": "ring",
+      "name": "Smart ring",
+      "sub": "Oura · Ultrahuman · Galaxy Ring · RingConn",
+      "dim": {
+        "gym": 1,
+        "run": 1,
+        "swim": 2,
+        "struct": 4,
+        "sleep": 10,
+        "smart": 0,
+        "batt": 8,
+        "comf": 10,
+        "val": 5
+      },
+      "f": {
+        "display": 0,
+        "gps": 0,
+        "lift": 0,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 0,
+        "music": 0,
+        "maps": 0,
+        "small": 1,
+        "iphone": 1
+      },
+      "built": "overnight data and all-day comfort. A finger reads HRV and temperature well, weighs nothing, and is the only form factor you genuinely forget you are wearing in bed.",
+      "weak": "active training entirely. It comes off for a barbell, it has no GPS or display, and it cannot track a swim or a run as a session at all.",
+      "verdict": "The best sleep-and-recovery instrument per gram, and a non-starter for anyone who lifts. It pairs with a watch far better than it replaces one."
+    }
+  ];
+
+  PRESETS = [{"name":"Gym most days","v":{"gym":6,"run":1,"swim":1,"structure":3,"sleep":8,"smart":3,"battery":7,"comfort":5,"budget":45}},{"name":"Marathon build-up","v":{"gym":2,"run":5,"swim":0,"structure":9,"sleep":7,"smart":2,"battery":8,"comfort":4,"budget":45}},{"name":"Swimmer","v":{"gym":3,"run":1,"swim":4,"structure":6,"sleep":6,"smart":3,"battery":7,"comfort":5,"budget":40}},{"name":"Sleep & recovery first","v":{"gym":3,"run":1,"swim":0,"structure":2,"sleep":10,"smart":2,"battery":8,"comfort":10,"budget":40}},{"name":"One device for everything","v":{"gym":4,"run":2,"swim":1,"structure":4,"sleep":6,"smart":9,"battery":3,"comfort":7,"budget":50}},{"name":"Cheapest that works","v":{"gym":4,"run":2,"swim":1,"structure":3,"sleep":7,"smart":3,"battery":8,"comfort":6,"budget":25}}];
+
+  DEVS = [
+    {
+      "n": "Garmin Forerunner 570 (42mm)",
+      "cat": "sport",
+      "price": 45600,
+      "priceLabel": "₹45.6k landed",
+      "spec": "42/47mm · Elevate Gen 5 · AMOLED · ~10–11 days · 5 ATM · skin temp",
+      "dim": {
+        "gym": 7,
+        "run": 9,
+        "swim": 8,
+        "struct": 9,
+        "sleep": 9,
+        "smart": 5,
+        "batt": 6,
+        "comf": 6,
+        "val": 4
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "Garmin's newest optical sensor plus skin temperature, the full whole-day wellness layer, and dormant ECG hardware that signals an unusually long software runway.",
+      "con": "About ₹14k more than the Coros equivalent, half the battery life, and an import wait. India retail is ₹66,990 — buy it here and the case collapses."
+    },
+    {
+      "n": "Garmin Forerunner 265 (46mm)",
+      "cat": "sport",
+      "price": 35990,
+      "priceLabel": "₹31–41k",
+      "spec": "42/46mm · Elevate Gen 4 · AMOLED · 13–15 days · dual-band GPS · multisport",
+      "dim": {
+        "gym": 7,
+        "run": 9,
+        "swim": 8,
+        "struct": 9,
+        "sleep": 8,
+        "smart": 5,
+        "batt": 8,
+        "comf": 5,
+        "val": 8
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 1,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "The same free wellness stack as the 570 — Body Battery, Sleep Coach, Training Readiness, HRV Status — plus dual-band GPS and triathlon mode, with no import needed.",
+      "con": "One sensor generation behind, and the 42mm '265S' carries an India premium over ₹50,490 — so domestically this is a 46mm watch or nothing."
+    },
+    {
+      "n": "Garmin Forerunner 170 Music (43mm)",
+      "cat": "sport",
+      "price": 34000,
+      "priceLabel": "~₹34k (US $350)",
+      "spec": "43mm only · Elevate Gen 4 · AMOLED · ~10–11 days · altimeter · open water",
+      "dim": {
+        "gym": 7,
+        "run": 8,
+        "swim": 7,
+        "struct": 8,
+        "sleep": 8,
+        "smart": 5,
+        "batt": 8,
+        "comf": 7,
+        "val": 7
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "The complete physio stack at mid price, plus altimeter, compass, Garmin Pay, on-device music and open-water swim. Launched May 2026.",
+      "con": "Single-band GPS, no multisport mode, one case size only, and new enough that independent long-term accuracy testing is still thin."
+    },
+    {
+      "n": "Garmin Forerunner 70 (43mm)",
+      "cat": "sport",
+      "price": 25000,
+      "priceLabel": "~₹25k (US $250)",
+      "spec": "43mm · Elevate Gen 4 · AMOLED · ~11–13 days · pool swim only",
+      "dim": {
+        "gym": 6,
+        "run": 7,
+        "swim": 5,
+        "struct": 8,
+        "sleep": 8,
+        "smart": 3,
+        "batt": 8,
+        "comf": 7,
+        "val": 9
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 0,
+        "music": 0,
+        "maps": 0,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "The cheapest route to Garmin's full physio stack — VO2 max, HRV Status, Body Battery, Training Readiness — on the same screen and sensor as the 170.",
+      "con": "No Garmin Pay, no on-device music, no altimeter or barometer, and pool swimming only. Underspecified against the 170 for a ₹100 saving."
+    },
+    {
+      "n": "Garmin Forerunner 970 (47mm)",
+      "cat": "sport",
+      "price": 71000,
+      "priceLabel": "~₹71k (US $750)",
+      "spec": "47mm · Elevate Gen 5 · AMOLED · ~20 days · maps · running science",
+      "dim": {
+        "gym": 7,
+        "run": 10,
+        "swim": 9,
+        "struct": 10,
+        "sleep": 9,
+        "smart": 6,
+        "batt": 9,
+        "comf": 4,
+        "val": 3
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 1,
+        "small": 0,
+        "iphone": 1
+      },
+      "pro": "The deepest Garmin stack short of a Fenix: onboard maps, running-economy metrics, twenty days of battery and a speaker.",
+      "con": "47mm only, and roughly double the 265 for capability a non-racer will not touch."
+    },
+    {
+      "n": "Garmin Fenix 8 (43mm)",
+      "cat": "sport",
+      "price": 140000,
+      "priceLabel": "₹1.40L+",
+      "spec": "43–51mm · Elevate Gen 5 · maps · weeks of battery · titanium options",
+      "dim": {
+        "gym": 7,
+        "run": 10,
+        "swim": 10,
+        "struct": 10,
+        "sleep": 9,
+        "smart": 6,
+        "batt": 10,
+        "comf": 5,
+        "val": 1
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 1,
+        "small": 0,
+        "iphone": 1
+      },
+      "pro": "Everything Garmin makes, in one case: maps, multi-week battery, dive and expedition modes, the full training-science suite.",
+      "con": "Three to four times the price of a watch that covers a normal training week completely. Nothing here serves a casual runner."
+    },
+    {
+      "n": "Garmin Venu 4 (41/45mm)",
+      "cat": "sport",
+      "price": 45000,
+      "priceLabel": "₹45k+",
+      "spec": "41/45mm · Elevate Gen 5 · AMOLED · ~12 days · lifestyle-leaning",
+      "dim": {
+        "gym": 7,
+        "run": 6,
+        "swim": 6,
+        "struct": 6,
+        "sleep": 9,
+        "smart": 7,
+        "batt": 7,
+        "comf": 7,
+        "val": 5
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "Garmin's wellness layer in a lifestyle-first watch — the closest thing to a smartwatch feel without giving up Body Battery and Sleep Coach.",
+      "con": "Thinner on training depth than a Forerunner at the same money, so you pay for a look rather than a capability."
+    },
+    {
+      "n": "Garmin Vivoactive 6 (42mm)",
+      "cat": "sport",
+      "price": 39990,
+      "priceLabel": "₹39,990",
+      "spec": "42mm · Elevate Gen 4 · AMOLED · ~11 days · generalist",
+      "dim": {
+        "gym": 7,
+        "run": 6,
+        "swim": 6,
+        "struct": 6,
+        "sleep": 8,
+        "smart": 6,
+        "batt": 7,
+        "comf": 7,
+        "val": 6
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "A genuine all-rounder at 42mm with the wellness stack intact — good for someone who does a bit of everything and races nothing.",
+      "con": "Lighter on running-specific depth than the Forerunners, and priced close enough to them that the compromise is hard to justify."
+    },
+    {
+      "n": "Garmin Instinct 3 (40mm)",
+      "cat": "sport",
+      "price": 46990,
+      "priceLabel": "₹46,990",
+      "spec": "40/45/50mm · Elevate Gen 4 · solar options · weeks of battery · rugged",
+      "dim": {
+        "gym": 7,
+        "run": 8,
+        "swim": 7,
+        "struct": 8,
+        "sleep": 8,
+        "smart": 4,
+        "batt": 10,
+        "comf": 7,
+        "val": 5
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "The longest battery life of any watch here and a genuinely tough case, with the complete Body Battery and training stack.",
+      "con": "MIP display rather than AMOLED, and a deliberately utilitarian look that is not to every taste at ₹47k."
+    },
+    {
+      "n": "Coros Pace 4 (42mm)",
+      "cat": "sport",
+      "price": 31290,
+      "priceLabel": "₹31,290",
+      "spec": "42mm · 32g · AMOLED 1,500 nits · 19 days / 41h GPS · no subscription ever",
+      "dim": {
+        "gym": 6,
+        "run": 9,
+        "swim": 8,
+        "struct": 9,
+        "sleep": 7,
+        "smart": 4,
+        "batt": 10,
+        "comf": 9,
+        "val": 9
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 0,
+        "music": 1,
+        "maps": 0,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "The lightest and longest-lived watch on the page, with the strongest running-specific training layer — EvoLab load, recovery timer, race prediction — and a no-subscription-ever promise.",
+      "con": "EvoLab is a training layer, not a whole-day wellness layer, so it is thinner on a day you did not train. Swim heart rate has documented inconsistency in independent tests."
+    },
+    {
+      "n": "Coros Pace 3 (41.9mm)",
+      "cat": "sport",
+      "price": 25499,
+      "priceLabel": "₹25,499",
+      "spec": "41.9mm · MIP · ~15 days · full EvoLab · no subscription ever",
+      "dim": {
+        "gym": 6,
+        "run": 8,
+        "swim": 8,
+        "struct": 8,
+        "sleep": 6,
+        "smart": 3,
+        "batt": 10,
+        "comf": 9,
+        "val": 10
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 0,
+        "music": 1,
+        "maps": 0,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "The value pick of the whole field: the complete EvoLab training layer, fifteen days of battery, 41.9mm and under ₹26k.",
+      "con": "MIP display looks flat next to AMOLED, and the polymer build feels its price. Sleep analysis is the weakest of the sport watches."
+    },
+    {
+      "n": "Coros Apex 4 (42mm)",
+      "cat": "sport",
+      "price": 42299,
+      "priceLabel": "₹42,299",
+      "spec": "42/46mm · 3rd-gen MIP · titanium bezel, sapphire · weeks of battery · maps",
+      "dim": {
+        "gym": 6,
+        "run": 9,
+        "swim": 8,
+        "struct": 9,
+        "sleep": 7,
+        "smart": 4,
+        "batt": 10,
+        "comf": 7,
+        "val": 6
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 0,
+        "music": 1,
+        "maps": 1,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "Sapphire crystal and a titanium bezel at a price Garmin charges for aluminium, plus onboard maps and multi-week battery.",
+      "con": "The MIP display is superb in sunlight and noticeably less vivid day to day — which matters if the watch is also meant to look good. Cheaper in India than imported."
+    },
+    {
+      "n": "Coros Nomad (50mm)",
+      "cat": "sport",
+      "price": 33000,
+      "priceLabel": "~₹33k (US $349)",
+      "spec": "50mm · AMOLED · weeks of battery · maps · adventure-styled",
+      "dim": {
+        "gym": 6,
+        "run": 8,
+        "swim": 7,
+        "struct": 8,
+        "sleep": 7,
+        "smart": 4,
+        "batt": 10,
+        "comf": 5,
+        "val": 7
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 0,
+        "music": 1,
+        "maps": 1,
+        "small": 0,
+        "iphone": 1
+      },
+      "pro": "Coros's adventure watch: maps, AMOLED and weeks of battery for the price of a mid-range Forerunner.",
+      "con": "50mm is a large watch on any wrist and rules itself out of a size ceiling immediately."
+    },
+    {
+      "n": "Polar Vantage V3 (45mm)",
+      "cat": "sport",
+      "price": 45000,
+      "priceLabel": "~₹45k",
+      "spec": "45mm · AMOLED · ECG + skin temp · ~8 days · deep recovery science",
+      "dim": {
+        "gym": 6,
+        "run": 8,
+        "swim": 8,
+        "struct": 8,
+        "sleep": 9,
+        "smart": 4,
+        "batt": 8,
+        "comf": 5,
+        "val": 5
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 1,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "Polar's recovery-science heritage, an on-wrist ECG, and the strongest sleep and autonomic-recovery modelling outside Garmin.",
+      "con": "Never leads on any single criterion against Garmin or Coros, and India support and accessory availability are thin."
+    },
+    {
+      "n": "Suunto Race S (43mm)",
+      "cat": "sport",
+      "price": 32000,
+      "priceLabel": "~₹32k",
+      "spec": "43mm · AMOLED · ~8–10 days · maps · deliberately compact",
+      "dim": {
+        "gym": 6,
+        "run": 8,
+        "swim": 7,
+        "struct": 7,
+        "sleep": 6,
+        "smart": 4,
+        "batt": 8,
+        "comf": 7,
+        "val": 7
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 0,
+        "music": 1,
+        "maps": 1,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "A deliberately small AMOLED watch with maps at a mid price — one of the few compact options with real navigation.",
+      "con": "Recovery analytics are shallower than Garmin's or Coros's, and India service support is the weakest of the four sport brands."
+    },
+    {
+      "n": "Apple Watch Series 11 (42mm)",
+      "cat": "smart",
+      "price": 45900,
+      "priceLabel": "₹45,900",
+      "spec": "42/46mm · 24h (38h low power) · 5 ATM · ECG + blood oxygen",
+      "dim": {
+        "gym": 7,
+        "run": 5,
+        "swim": 6,
+        "struct": 5,
+        "sleep": 6,
+        "smart": 10,
+        "batt": 3,
+        "comf": 7,
+        "val": 6
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 0,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 1,
+        "pay": 1,
+        "music": 1,
+        "maps": 1,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "The only device here that does calls, replies, apps and payments properly, with ECG active out of the box and unmatched iPhone integration.",
+      "con": "No native readiness synthesis — that needs a third-party app such as Athlytic to approximate what Garmin computes on device. And it charges every day."
+    },
+    {
+      "n": "Apple Watch SE 3 (40/44mm)",
+      "cat": "smart",
+      "price": 25900,
+      "priceLabel": "₹25,900",
+      "spec": "40/44mm · ~18h · 5 ATM · no ECG",
+      "dim": {
+        "gym": 6,
+        "run": 4,
+        "swim": 5,
+        "struct": 3,
+        "sleep": 5,
+        "smart": 9,
+        "batt": 3,
+        "comf": 7,
+        "val": 8
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 0,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 1,
+        "pay": 0,
+        "music": 1,
+        "maps": 1,
+        "small": 1,
+        "iphone": 1
+      },
+      "pro": "The cheapest way into the Apple ecosystem on your wrist, with the same notification and app layer as the Series 11.",
+      "con": "No ECG, the shallowest fitness layer on the page, and eighteen hours of battery — a lifestyle watch that logs workouts, not a training device."
+    },
+    {
+      "n": "Apple Watch Ultra 3 (49mm)",
+      "cat": "smart",
+      "price": 89900,
+      "priceLabel": "₹89,900+",
+      "spec": "49mm · titanium · ~42h · 100m water rating · ECG",
+      "dim": {
+        "gym": 7,
+        "run": 7,
+        "swim": 8,
+        "struct": 6,
+        "sleep": 6,
+        "smart": 10,
+        "batt": 5,
+        "comf": 3,
+        "val": 2
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 0,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 1,
+        "pay": 1,
+        "music": 1,
+        "maps": 1,
+        "small": 0,
+        "iphone": 1
+      },
+      "pro": "Apple's only genuinely sport-grade watch: 100m rating, 42 hours, titanium, and the full smart layer intact.",
+      "con": "49mm is Apple's largest case and past most size ceilings, at nearly twice a Forerunner 265 for shallower training analytics."
+    },
+    {
+      "n": "Samsung Galaxy Watch 8 (44mm)",
+      "cat": "smart",
+      "price": 32000,
+      "priceLabel": "₹32,000+",
+      "spec": "40–47mm · Wear OS · ~30–40h · ECG · body composition",
+      "dim": {
+        "gym": 7,
+        "run": 6,
+        "swim": 6,
+        "struct": 6,
+        "sleep": 7,
+        "smart": 8,
+        "batt": 5,
+        "comf": 7,
+        "val": 7
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 0,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 1,
+        "pay": 1,
+        "music": 1,
+        "maps": 1,
+        "small": 1,
+        "iphone": 0
+      },
+      "pro": "The best-value full smartwatch on Android, with body-composition sensing Apple does not offer.",
+      "con": "Wear OS does not pair properly with an iPhone — a hard stop for anyone in the Apple ecosystem, whatever the specs say."
+    },
+    {
+      "n": "Google Pixel Watch 4 (45mm)",
+      "cat": "smart",
+      "price": 35000,
+      "priceLabel": "₹35,000+",
+      "spec": "41/45mm · Wear OS · ~24–40h · Fitbit health stack · ECG",
+      "dim": {
+        "gym": 6,
+        "run": 5,
+        "swim": 5,
+        "struct": 5,
+        "sleep": 8,
+        "smart": 8,
+        "batt": 5,
+        "comf": 7,
+        "val": 6
+      },
+      "f": {
+        "display": 1,
+        "gps": 1,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 0,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 1,
+        "pay": 1,
+        "music": 1,
+        "maps": 1,
+        "small": 1,
+        "iphone": 0
+      },
+      "pro": "Fitbit's sleep and readiness modelling — genuinely good — inside a clean Wear OS smartwatch.",
+      "con": "Wear OS again: no proper iPhone pairing, and the Fitbit layer's best features sit behind a Premium subscription."
+    },
+    {
+      "n": "Whoop 5.0",
+      "cat": "band",
+      "price": 110000,
+      "priceLabel": "₹1.10L / 5 yrs",
+      "spec": "No display · subscription only · ~14 days per charge · ₹23–29k per year",
+      "dim": {
+        "gym": 4,
+        "run": 2,
+        "swim": 3,
+        "struct": 6,
+        "sleep": 10,
+        "smart": 0,
+        "batt": 7,
+        "comf": 10,
+        "val": 2
+      },
+      "f": {
+        "display": 0,
+        "gps": 0,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 0,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 0,
+        "iphone": 1
+      },
+      "pro": "Continuous heart rate, HRV, sleep staging and respiratory rate running 24/7 with zero logging effort — for pure recovery detail it is genuinely best in class.",
+      "con": "No display, no GPS, and swim tracking is duration only. Lifting heart rate reads flat around 110–120bpm where a paired watch showed 160. The hardware stops working when payments stop."
+    },
+    {
+      "n": "Whoop MG",
+      "cat": "band",
+      "price": 160000,
+      "priceLabel": "₹1.60L / 5 yrs",
+      "spec": "No display · subscription only · adds ECG, AFib and blood-pressure insights",
+      "dim": {
+        "gym": 4,
+        "run": 2,
+        "swim": 3,
+        "struct": 6,
+        "sleep": 10,
+        "smart": 0,
+        "batt": 7,
+        "comf": 10,
+        "val": 1
+      },
+      "f": {
+        "display": 0,
+        "gps": 0,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 0,
+        "ecg": 1,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 0,
+        "iphone": 1
+      },
+      "pro": "Everything Whoop 5.0 does plus ECG, AFib detection and blood-pressure insights — the deepest passive physiology on the page.",
+      "con": "The most expensive option here over five years, at roughly ₹1.6L, for a device with no screen, no GPS and no swim metrics."
+    },
+    {
+      "n": "Amazfit Helio Strap",
+      "cat": "band",
+      "price": 16000,
+      "priceLabel": "~₹16k",
+      "spec": "No display · one-time purchase · optional subscription",
+      "dim": {
+        "gym": 4,
+        "run": 2,
+        "swim": 2,
+        "struct": 5,
+        "sleep": 8,
+        "smart": 0,
+        "batt": 8,
+        "comf": 9,
+        "val": 7
+      },
+      "f": {
+        "display": 0,
+        "gps": 0,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 0,
+        "iphone": 1
+      },
+      "pro": "Whoop's format without Whoop's subscription: continuous HR, HRV and sleep for a one-time ₹16k.",
+      "con": "The weakest build and shallowest analytics of the whole field, and the same screenless compromise as Whoop with less behind it."
+    },
+    {
+      "n": "Polar Loop",
+      "cat": "band",
+      "price": 16000,
+      "priceLabel": "~₹16k",
+      "spec": "No display · one-time purchase · Polar sleep and recovery models",
+      "dim": {
+        "gym": 4,
+        "run": 2,
+        "swim": 2,
+        "struct": 5,
+        "sleep": 8,
+        "smart": 0,
+        "batt": 8,
+        "comf": 9,
+        "val": 7
+      },
+      "f": {
+        "display": 0,
+        "gps": 0,
+        "lift": 1,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 0,
+        "iphone": 1
+      },
+      "pro": "Polar's respected sleep and autonomic-recovery science in a one-time-purchase band.",
+      "con": "Thin analytics next to Whoop's, and a screenless band still removes every practical watch function."
+    },
+    {
+      "n": "Oura Ring 4",
+      "cat": "ring",
+      "price": 46200,
+      "priceLabel": "~₹42k + ₹70/mo",
+      "spec": "Titanium ring · ~7 days · membership required for full data",
+      "dim": {
+        "gym": 1,
+        "run": 1,
+        "swim": 2,
+        "struct": 4,
+        "sleep": 10,
+        "smart": 0,
+        "batt": 8,
+        "comf": 10,
+        "val": 4
+      },
+      "f": {
+        "display": 0,
+        "gps": 0,
+        "lift": 0,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 0,
+        "iphone": 1
+      },
+      "pro": "The most refined sleep and readiness modelling of any wearable, in the only form factor that is genuinely invisible overnight.",
+      "con": "Comes off for lifting, has no GPS or display, and the full data set sits behind a monthly membership on top of the hardware."
+    },
+    {
+      "n": "Ultrahuman Ring Air",
+      "cat": "ring",
+      "price": 28000,
+      "priceLabel": "~₹28k",
+      "spec": "Titanium ring · ~6 days · no mandatory subscription",
+      "dim": {
+        "gym": 1,
+        "run": 1,
+        "swim": 2,
+        "struct": 4,
+        "sleep": 9,
+        "smart": 0,
+        "batt": 8,
+        "comf": 10,
+        "val": 7
+      },
+      "f": {
+        "display": 0,
+        "gps": 0,
+        "lift": 0,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 0,
+        "iphone": 1
+      },
+      "pro": "Oura's data model approached closely with no mandatory subscription, at two-thirds the five-year cost.",
+      "con": "Sleep-staging accuracy trails Oura slightly, and the same ring limits apply: off for the barbell, nothing for a session."
+    },
+    {
+      "n": "Samsung Galaxy Ring",
+      "cat": "ring",
+      "price": 38000,
+      "priceLabel": "~₹38k",
+      "spec": "Titanium ring · ~7 days · one-time purchase",
+      "dim": {
+        "gym": 1,
+        "run": 1,
+        "swim": 2,
+        "struct": 3,
+        "sleep": 8,
+        "smart": 0,
+        "batt": 8,
+        "comf": 10,
+        "val": 5
+      },
+      "f": {
+        "display": 0,
+        "gps": 0,
+        "lift": 0,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 0,
+        "iphone": 0
+      },
+      "pro": "A one-time-purchase ring with no subscription and tight Galaxy-phone integration.",
+      "con": "Features are tied to Samsung's ecosystem, which makes it a poor fit alongside an iPhone, and its analytics are the shallowest of the rings."
+    },
+    {
+      "n": "RingConn Gen 2",
+      "cat": "ring",
+      "price": 25000,
+      "priceLabel": "~₹25k",
+      "spec": "Titanium ring · ~10–12 days · one-time purchase",
+      "dim": {
+        "gym": 1,
+        "run": 1,
+        "swim": 2,
+        "struct": 3,
+        "sleep": 8,
+        "smart": 0,
+        "batt": 9,
+        "comf": 10,
+        "val": 7
+      },
+      "f": {
+        "display": 0,
+        "gps": 0,
+        "lift": 0,
+        "swimm": 1,
+        "readiness": 1,
+        "hrv": 1,
+        "nosub": 1,
+        "ecg": 0,
+        "pay": 1,
+        "music": 1,
+        "maps": 0,
+        "small": 0,
+        "iphone": 1
+      },
+      "pro": "The longest battery life of any ring and no subscription at all, for well under Oura money.",
+      "con": "The smallest app and research base of the four, so the numbers are less interpreted than Oura's or Ultrahuman's."
+    }
+  ];
+
+  DIMNAMES = { gym:"gym work", run:"running", swim:"swimming", struct:"training structure", sleep:"recovery data", smart:"smart features", batt:"battery life", comf:"comfort", val:"price" };
+
+  weights() {
+    const s = this.state;
+    return {
+      gym: Math.min(10, s.gym * 1.6),
+      run: Math.min(10, s.run * 1.8),
+      swim: Math.min(10, s.swim * 2.2),
+      struct: s.structure, sleep: s.sleep, smart: s.smart,
+      batt: s.battery, comf: s.comfort,
+      val: 10 - Math.min(9, (s.budget - 10) / 15.6)
+    };
+  }
+
+  scoreWith(dm, W, sumW) {
+    let acc = 0;
+    for (const k in W) acc += W[k] * (dm[k] || 0);
+    return sumW > 0 ? acc / sumW : 0;
+  }
+
+  topDims(dm, W, n) {
+    const out = [];
+    for (const k in W) out.push({ k: k, v: W[k] * (dm[k] || 0) });
+    out.sort((a, b) => b.v - a.v);
+    return out.slice(0, n).map(o => this.DIMNAMES[o.k]);
+  }
+
+  fmtRs(v) {
+    if (v >= 100000) return "\u20b9" + (v / 100000).toFixed(2) + "L";
+    return "\u20b9" + Math.round(v / 1000) + "k";
+  }
+
+  blockersFor(f) {
+    const must = this.state.must, out = [];
+    for (let i = 0; i < this.MUSTS.length; i++) {
+      const m = this.MUSTS[i];
+      if (must[m.key] && !f[m.key]) out.push(m.label.toLowerCase());
+    }
+    return out;
+  }
+
   buildUtilityChart(t) {
     const xLabelsText = ["None / Low", "Moderate", "High"];
     const budget = [6.4, 6.6, 6.5];
@@ -455,108 +1795,235 @@ class Component extends DCLogic {
     const xs = [70, 220, 370];
     const yMin = 4, yMax = 10.5;
     const toY = v => 130 - ((v - yMin) / (yMax - yMin)) * 110;
-    const toPoints = vals => vals.map((v, i) => `${xs[i]},${toY(v)}`).join(" ");
+    const toPoints = vals => vals.map((v, i) => xs[i] + "," + toY(v)).join(" ");
     const dots = [];
-    [[budget, t.textFaint], [mid, t.text], [premium, t.accent]].forEach(([vals, color]) => {
-      vals.forEach((v, i) => dots.push({ cx: xs[i], cy: toY(v), color }));
+    [[budget, t.textFaint], [mid, t.text], [premium, t.accent]].forEach(pair => {
+      pair[0].forEach((v, i) => dots.push({ cx: xs[i], cy: toY(v), color: pair[1] }));
     });
     return {
       budgetPoints: toPoints(budget), midPoints: toPoints(mid), premiumPoints: toPoints(premium),
-      dots,
+      dots: dots,
       xAxis: xs.map((x, i) => React.createElement("text", {
-        key: i, x, y: 158, textAnchor: "middle", fontSize: 11,
+        key: i, x: x, y: 158, textAnchor: "middle", fontSize: 11,
         fill: "var(--text-faint)", fontFamily: "JetBrains Mono, monospace"
       }, xLabelsText[i]))
     };
   }
 
-  buildScorecardBars(t) {
-    const data = [
-      { name: "Garmin FR265 (46mm)", score: 7.20, color: t.text },
-      { name: "Garmin FR570 (42mm)", score: 7.45, color: t.accent },
-      { name: "Coros Pace 4 (42mm)", score: 7.10, color: t.textFaint }
+  buildBatteryBars(t) {
+    const rows = [
+      { name: "Garmin Instinct 3", d: 24, note: "", c: t.accent },
+      { name: "Coros Apex 4", d: 21, note: "", c: t.accent },
+      { name: "Coros Pace 4", d: 19, note: "41h GPS", c: t.accent },
+      { name: "Coros Pace 3", d: 15, note: "", c: t.accent },
+      { name: "Whoop 5.0 (band)", d: 14, note: "no GPS", c: t.fill.neutral },
+      { name: "Garmin FR265", d: 14, note: "20h GPS", c: t.accent },
+      { name: "Garmin FR70", d: 11, note: "24h GPS", c: t.accent },
+      { name: "Garmin FR570", d: 10.5, note: "28h GPS", c: t.accent },
+      { name: "Oura Ring 4", d: 7, note: "no GPS", c: t.fill.neutral },
+      { name: "Apple Watch Ultra 3", d: 1.75, note: "", c: t.sem.red },
+      { name: "Apple Watch Series 11", d: 1, note: "38h low power", c: t.sem.red },
+      { name: "Apple Watch SE 3", d: 0.75, note: "", c: t.sem.red }
     ];
-    return data.map(d => ({
-      name: d.name, score: d.score.toFixed(2),
-      barStyle: `width:${(d.score / 8.5) * 100}%; height:100%; background:${d.color}; border-radius:5px;`
+    return rows.map(r => ({
+      name: r.name,
+      valueLabel: (r.d < 2 ? (r.d * 24) + "h" : r.d + "d") + (r.note ? " \u00b7 " + r.note : ""),
+      barStyle: "width:" + Math.max(1.5, (r.d / 24) * 100) + "%; height:100%; background:" + r.c + "; border-radius:5px;"
     }));
   }
 
-  buildCostBars(t) {
-    const zoneColor = { green: t.sem.green, amber: t.sem.amber, red: t.sem.red };
-    const devices = [
-      { name: "Apple SE 3", value: 25900, zone: "green" },
-      { name: "Coros Pace 4", value: 33000, zone: "green" },
-      { name: "Garmin FR265 (46mm)", value: 35990, zone: "green" },
-      { name: "Garmin Vivoactive 6", value: 39990, zone: "green" },
-      { name: "Coros Apex 4", value: 42299, zone: "green" },
-      { name: "Garmin FR570 (US landed)", value: 42440, zone: "amber" },
-      { name: "Apple Series 11", value: 45900, zone: "amber" },
-      { name: "Garmin Instinct 3", value: 46990, zone: "amber" },
-      { name: "Garmin FR570 (India retail)", value: 66990, zone: "red" },
-      { name: "Fenix 8 / Epix Pro 2", value: 140000, zone: "red" },
-      { name: "Whoop (5-yr TCO)", value: 150000, zone: "red" }
+  buildTcoBars(t) {
+    const rows = [
+      { name: "Amazfit Helio Strap", v: 16000, z: "green" },
+      { name: "Garmin FR70", v: 25000, z: "green" },
+      { name: "RingConn Gen 2", v: 25000, z: "green" },
+      { name: "Coros Pace 3", v: 25499, z: "green" },
+      { name: "Apple Watch SE 3", v: 25900, z: "green" },
+      { name: "Ultrahuman Ring Air", v: 28000, z: "green" },
+      { name: "Coros Pace 4", v: 31290, z: "green" },
+      { name: "Garmin FR265", v: 35990, z: "green" },
+      { name: "Coros Apex 4", v: 42299, z: "green" },
+      { name: "Garmin FR570 (imported)", v: 45600, z: "amber" },
+      { name: "Apple Watch Series 11", v: 45900, z: "amber" },
+      { name: "Oura Ring 4 + membership", v: 46200, z: "amber" },
+      { name: "Garmin FR570 (India retail)", v: 66990, z: "red" },
+      { name: "Whoop 5.0", v: 110000, z: "red" },
+      { name: "Garmin Fenix 8", v: 140000, z: "red" },
+      { name: "Whoop MG", v: 160000, z: "red" }
     ];
-    const max = 150000;
-    return devices.map(d => ({
-      name: d.name,
-      priceLabel: "₹" + (d.value / 1000).toFixed(d.value % 1000 === 0 ? 0 : 1) + "k",
-      barStyle: `width:${(d.value / max) * 100}%; height:100%; background:${zoneColor[d.zone]}; border-radius:5px;`
+    const col = { green: t.sem.green, amber: t.sem.amber, red: t.sem.red };
+    return rows.map(r => ({
+      name: r.name, valueLabel: this.fmtRs(r.v),
+      barStyle: "width:" + ((r.v / 160000) * 100) + "%; height:100%; background:" + col[r.z] + "; border-radius:5px;"
     }));
+  }
+
+  buildArbRows(t) {
+    const rows = [
+      { name: "Garmin FR570 (42mm)", india: 66990, landed: 45600 },
+      { name: "Apple Watch Series 11", india: 45900, landed: 37000 },
+      { name: "Coros Apex 4 (42mm)", india: 42299, landed: 43600 },
+      { name: "Garmin FR265 (46mm)", india: 35990, landed: 33100 },
+      { name: "Coros Pace 4 (42mm)", india: 31290, landed: 25300 }
+    ];
+    const max = 66990;
+    return rows.map(r => {
+      const save = r.india - r.landed;
+      return {
+        name: r.name,
+        savingLabel: save > 0 ? "saves " + this.fmtRs(save) : "costs " + this.fmtRs(-save) + " more",
+        savingColor: save > 5000 ? t.sem.green : (save > 0 ? t.sem.amber : t.sem.red),
+        indiaBar: "width:" + ((r.india / max) * 100) + "%; height:100%; background:" + t.textFaint + "; border-radius:4px;",
+        landedBar: "width:" + ((r.landed / max) * 100) + "%; height:100%; background:" + t.accent + "; border-radius:4px;"
+      };
+    });
+  }
+
+  buildStructRows(t) {
+    const g = t.sem.green, a = t.sem.amber, r = t.sem.red, n = t.textMuted;
+    const rows = [
+      ["Tracks the workout itself", [[a,"Yes, shallow"],[g,"Yes, deepest"],[r,"Duration and strain only"],[r,"No session tracking"]]],
+      ["Native daily readiness score", [[r,"No \u2014 needs an app"],[g,"Yes, mature"],[g,"Yes, best in class"],[g,"Yes, best in class"]]],
+      ["Days between charges", [[r,"About 1"],[g,"10\u201324"],[g,"About 14"],[g,"6\u201312"]]],
+      ["Swim lap, stroke, SWOLF", [[a,"Basic"],[g,"Pool and open water"],[r,"None"],[r,"None"]]],
+      ["Heart rate under lifting", [[g,"Reliable"],[g,"Reliable"],[r,"Reads low"],[r,"Comes off"]]],
+      ["Time, notifications, calls", [[g,"Full smart layer"],[a,"Alerts, limited replies"],[r,"None"],[r,"None"]]],
+      ["Comfortable worn in bed", [[a,"Bulky"],[a,"Bulky"],[g,"Yes"],[g,"Best of the four"]]],
+      ["Subscription to get full data", [[g,"None"],[g,"None"],[r,"Whoop: mandatory"],[a,"Oura: yes"]]],
+      ["Five-year cost range", [[n,"\u20b926k\u2013\u20b990k"],[n,"\u20b925k\u2013\u20b91.4L"],[n,"\u20b916k\u2013\u20b91.6L"],[n,"\u20b925k\u2013\u20b946k"]]]
+    ];
+    return rows.map(row => ({ label: row[0], cells: row[1].map(c => ({ color: c[0], text: c[1] })) }));
   }
 
   buildMatrixGroups(t) {
-    const rag = (color, text) => ({ dot: color ? { green: t.sem.green, amber: t.sem.amber, red: t.sem.red }[color] : "", dotDisplay: color ? "inline-block" : "none", text });
+    const rag = (color, text) => ({ dot: color ? { green: t.sem.green, amber: t.sem.amber, red: t.sem.red }[color] : "", dotDisplay: color ? "inline-block" : "none", text: text });
     const groups = [
-      { name: "Sensors & Accuracy", rows: [
-        ["HR sensor generation", [rag('amber','Solid, no dedicated layer'), rag('amber','Improved Pace 3/4-gen'), rag('amber','Same improved sensor'), rag('green','Elevate Gen 4 — mature'), rag('green','Elevate Gen 5 — newest'), rag('amber','Strong at rest')]],
-        ["HR accuracy under lifting", [rag('green','No documented gap'), rag('green','No documented gap'), rag('green','No documented gap'), rag('green','No documented gap'), rag('green','No documented gap'), rag('red','Underreports — ~110-120bpm vs 160bpm spikes')]],
-        ["GPS accuracy", [rag('green','Reliable'), rag('green','Tied with Garmin'), rag('green','Tied with Garmin'), rag('green','Tied with Coros'), rag('green','Tied with Coros'), rag('red','No built-in GPS at all')]],
-        ["Swim HR accuracy", [rag('amber','Basic pool tracking'), rag('amber','Documented inconsistency'), rag('amber','Same caveat'), rag('green','No documented issue'), rag('green','No documented issue'), rag('red','No swim-specific HR')]],
-        ["Swim metrics depth", [rag('amber','Basic'), rag('green','Full pool + open-water'), rag('green','Full pool + open-water'), rag('green','Full pool + open-water'), rag('green','Full pool + open-water'), rag('red','Strain/duration only')]]
+      { name: "Sensors and accuracy", rows: [
+        ["HR sensor generation", [rag("amber","Solid, no training layer"), rag("amber","Post-Pace 3 sensor"), rag("amber","Same sensor"), rag("green","Elevate Gen 4, mature"), rag("green","Elevate Gen 5, newest"), rag("amber","Strong at rest")]],
+        ["HR under lifting", [rag("green","No documented gap"), rag("green","No documented gap"), rag("green","No documented gap"), rag("green","No documented gap"), rag("green","No documented gap"), rag("red","110\u2013120bpm vs 160 spikes")]],
+        ["GPS accuracy", [rag("green","Reliable"), rag("green","Tied with Garmin"), rag("green","Tied with Garmin"), rag("green","Tied with Coros"), rag("green","Tied with Coros"), rag("red","No GPS at all")]],
+        ["Swim HR accuracy", [rag("amber","Basic pool only"), rag("amber","Documented wobble"), rag("amber","Same caveat"), rag("green","No documented issue"), rag("green","No documented issue"), rag("red","No swim HR")]],
+        ["Swim metric depth", [rag("amber","Basic"), rag("green","Pool + open water"), rag("green","Pool + open water"), rag("green","Pool + open water"), rag("green","Pool + open water"), rag("red","Duration only")]]
       ]},
-      { name: "Insights & Recovery", rows: [
-        ["24/7 recovery algorithm", [rag('red','None natively'), rag('amber','EvoLab — training-focused'), rag('amber','Same'), rag('green','Body Battery + Readiness + HRV'), rag('green','Same, newest sensor'), rag('green','Best-in-class at this one thing')]],
-        ["Training load / race prediction", [rag('amber','Needs 3rd-party app'), rag('green','EvoLab — arguably strongest'), rag('green','Same'), rag('green','Training Status + Predictor'), rag('green','Same'), rag('red','No structured training metrics')]],
-        ["Sleep analysis", [rag('green','Solid'), rag('green','Solid'), rag('green','Solid'), rag('green','Sleep Coach'), rag('green','Sleep Coach'), rag('green','Best-in-class')]],
-        ["ECG / advanced sensors", [rag('green','Active'), rag('red','None'), rag('red','None'), rag('red','None (Gen 4)'), rag('amber','Present, not firmware-enabled'), rag('amber','Some tiers add ECG-adjacent')]]
+      { name: "Insight and recovery", rows: [
+        ["24/7 wellness layer", [rag("red","None native"), rag("amber","EvoLab: training-led"), rag("amber","Same"), rag("green","Body Battery + Readiness"), rag("green","Same, newest sensor"), rag("green","Best at this one thing")]],
+        ["Training load, race predictor", [rag("amber","Third-party app"), rag("green","EvoLab, arguably best"), rag("green","Same"), rag("green","Training Status"), rag("green","Same + Triathlon Coach"), rag("red","No structured metrics")]],
+        ["Sleep analysis", [rag("green","Solid"), rag("green","Solid"), rag("green","Solid"), rag("green","Sleep Coach"), rag("green","Sleep Coach"), rag("green","Best in class")]],
+        ["ECG and extra sensors", [rag("green","Active"), rag("red","None"), rag("red","None"), rag("red","None"), rag("amber","Present, not enabled"), rag("amber","MG tier only")]]
       ]},
-      { name: "Smartwatch & Extras", rows: [
-        ["Calls / notifications / apps", [rag('green','Full smartwatch layer'), rag('red','Notifications only'), rag('red','Notifications only'), rag('amber','Notifications + limited replies'), rag('amber','Same'), rag('red','No display at all')]],
-        ["Subscription requirement", [rag('green','None mandatory'), rag('green','None, ever'), rag('green','None, ever'), rag('green','Core free; optional AI extras'), rag('green','Same'), rag('red','Mandatory — bundled in')]]
-      ]},
-      { name: "Practical", rows: [
-        ["Battery life", [rag('red','24hrs / 38hrs low-power'), rag('green','41-65hrs GPS / weeks daily'), rag('green','Same'), rag('green','~13 days'), rag('amber','~9-15 days'), rag('green','Multi-day')]],
-        ["42mm case at sane price", [rag('amber','S11 fine at 41/45mm'), rag('green','Native 42mm'), rag('green','Native 42mm'), rag('red','True 42mm carries premium'), rag('green','Genuinely 42mm via import'), rag('green','Band — no case constraint')]],
-        ["Price (India, landed)", [{dot:'',dotDisplay:'none',text:'₹45,900'}, {dot:'',dotDisplay:'none',text:'₹33,000'}, {dot:'',dotDisplay:'none',text:'₹42,299'}, {dot:'',dotDisplay:'none',text:'₹35,990-41,000'}, {dot:'',dotDisplay:'none',text:'₹42,440 / ₹66,990'}, {dot:'',dotDisplay:'none',text:'₹23-29k/yr'}]]
+      { name: "Living with it", rows: [
+        ["Calls, apps, notifications", [rag("green","Full"), rag("red","Alerts only"), rag("red","Alerts only"), rag("amber","Alerts + replies"), rag("amber","Same"), rag("red","No display")]],
+        ["Subscription", [rag("green","None required"), rag("green","None, ever"), rag("green","None, ever"), rag("green","Core free"), rag("green","Core free"), rag("red","Mandatory")]],
+        ["Battery", [rag("red","24h / 38h low power"), rag("green","19 days / 41h GPS"), rag("green","Weeks"), rag("green","13\u201315 days"), rag("amber","10\u201311 days"), rag("green","About 14 days")]],
+        ["42mm at a sane price", [rag("green","42mm standard"), rag("green","Native 42mm"), rag("green","Native 42mm"), rag("red","265S carries a premium"), rag("green","42mm if imported"), rag("green","No case at all")]],
+        ["Price (India, landed)", [rag(null,"\u20b945,900"), rag(null,"\u20b931,290"), rag(null,"\u20b942,299"), rag(null,"\u20b931\u201341k"), rag(null,"\u20b945.6k / \u20b967k"), rag(null,"\u20b923\u201329k/yr")]]
       ]}
     ];
     return groups.map(g => ({ name: g.name, rows: g.rows.map(r => ({ label: r[0], cells: r[1] })) }));
   }
 
-  buildPersonaRows(t) {
-    const rows = [
-      { useCase: "Casual health tracking, phone integration is the priority", device: "Apple Watch S11", why: "Full smartwatch layer wins when training depth isn't the priority. Accept the WR50 durability caution.", color: t.fill.blue },
-      { useCase: "Training for a running goal, price-conscious, want long battery", device: "Coros Pace 4", why: "EvoLab race predictor + training load is the strongest running-specific layer, at the lowest price.", color: t.fill.green },
-      { useCase: "Gym 4x/week + weekly swim, no program, prefer 42mm case", device: "Garmin FR570 (42mm)", why: "Newest sensor generation, dormant ECG hardware, only Garmin genuinely 42mm without an India premium.", color: t.fill.neutral },
-      { useCase: "Same profile, but no import channel or budget-constrained", device: "Garmin FR265 (46mm)", why: "Same 24/7 wellness stack, one sensor generation behind, larger case — the sensible compromise.", color: t.fill.amber },
-      { useCase: "Deep recovery/sleep obsessive who already owns a GPS watch", device: "Whoop, stacked", why: "Whoop's only legitimate use case: a second layer of overnight detail on top of coverage you already have.", color: t.fill.red },
-      { useCase: "Want ecosystem AND recovery depth, budget isn't a constraint", device: "Apple Watch + Ultrahuman Ring", why: "Finger-based HRV closes Apple Watch's recovery gap without giving up the ecosystem.", color: t.fill.purple },
-      { useCase: "Funded, periodized plan starting within 6-12 months", device: "FR570, or Fenix 8 / Epix Pro 2", why: "This is where the premium tier's ~3-point utility advantage over budget/mid tiers actually gets used.", color: t.fill.neutral }
-    ];
-    return rows;
-  }
-
   renderVals() {
     const t = this.theme(this.state.dark);
     if (typeof document !== "undefined") { const ds = document.documentElement.style; ds.background = t.bg; ds.colorScheme = this.state.dark ? "dark" : "light"; document.body.style.background = t.bg; }
-    const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
-      `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
-      `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
-      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText}; --sem-green:${t.sem.green}; --sem-amber:${t.sem.amber}; --sem-red:${t.sem.red}; --sem-purple:${t.sem.purple}; --fill-green:${t.fill.green}; --fill-amber:${t.fill.amber}; --fill-red:${t.fill.red}; --fill-purple:${t.fill.purple}; --fill-blue:${t.fill.blue}; --on-accent:${t.onAccent}; --tag:${this.state.dark ? "#87aed6" : "#3568a0"};`;
+    const rootStyle = "font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); " +
+      "--bg:" + t.bg + "; --bg-alt:" + t.bgAlt + "; --bg-card:" + t.bgCard + "; --bg-chip:" + t.bgChip + "; --text:" + t.text + "; --text-body:" + t.textBody + "; --text-muted:" + t.textMuted + "; --text-faint:" + t.textFaint + "; " +
+      "--border:" + t.border + "; --border-strong:" + t.borderStrong + "; --dot-muted:" + t.dotMuted + "; --accent:" + t.accent + "; --accent-hover:" + t.accentHover + "; " +
+      "--btn-bg:" + t.btnBg + "; --btn-text:" + t.btnText + "; --footer-accent:" + t.footerAccent + "; --footer-bg:" + t.footerBg + "; --footer-text:" + t.footerText + "; --footer-text-muted:" + t.footerTextMuted + "; --footer-border:" + t.footerBorder + "; --nav-bg:" + t.navBg + "; --selection-bg:" + t.selectionBg + "; --selection-text:" + t.selectionText + "; " +
+      "--sem-green:" + t.sem.green + "; --sem-amber:" + t.sem.amber + "; --sem-red:" + t.sem.red + "; --sem-purple:" + t.sem.purple + "; --fill-green:" + t.fill.green + "; --fill-amber:" + t.fill.amber + "; --fill-red:" + t.fill.red + "; --fill-purple:" + t.fill.purple + "; --fill-blue:" + t.fill.blue + "; --on-accent:" + t.onAccent + "; --tag:" + (this.state.dark ? "#87aed6" : "#3568a0") + ";";
+
+    const s = this.state;
+    const W = this.weights();
+    let sumW = 0; for (const k in W) sumW += W[k];
+    const catColor = { sport: t.accent, smart: t.sem.purple, band: t.sem.amber, ring: t.sem.green };
+
+    const cats = this.CATS.map(c => {
+      const blockers = this.blockersFor(c.f);
+      return { ref: c, score: this.scoreWith(c.dim, W, sumW), blockers: blockers };
+    });
+    const okCats = cats.filter(c => c.blockers.length === 0).sort((a, b) => b.score - a.score);
+    const badCats = cats.filter(c => c.blockers.length > 0).sort((a, b) => b.score - a.score);
+    const rankAccent = i => [t.accent, t.text, t.textFaint, t.textFaint][i] || t.textFaint;
+
+    const catRank = okCats.map((c, i) => ({
+      name: c.ref.name, rankLabel: String(i + 1), accent: rankAccent(i), opacity: 1,
+      scoreLabel: c.score.toFixed(2) + "/10",
+      barStyle: "width:" + (c.score / 10 * 100) + "%; height:100%; background:" + rankAccent(i) + "; border-radius:5px;",
+      verdict: c.ref.verdict + " On your weighting its strongest contributions are " + this.topDims(c.ref.dim, W, 2).join(" and ") + "."
+    })).concat(badCats.map(c => ({
+      name: c.ref.name, rankLabel: "\u2014", accent: t.sem.red, opacity: 0.55,
+      scoreLabel: "out",
+      barStyle: "width:0%; height:100%; background:" + t.sem.red + "; border-radius:5px;",
+      verdict: "Ruled out by your non-negotiables: " + c.blockers.join(", ") + "."
+    })));
+
+    let catSoWhat;
+    if (okCats.length === 0) { catSoWhat = "Every category fails at least one of your non-negotiables. Something on that list has to give \u2014 most often it is the combination of a display, onboard GPS and never taking it off."; }
+    else if (okCats.length === 1) { catSoWhat = "Your gates leave one category standing, which means the form-factor question is already answered and only the device choice remains."; }
+    else {
+      const gap = okCats[0].score - okCats[1].score;
+      catSoWhat = gap < 0.5
+        ? okCats[0].ref.name.toLowerCase() + " and " + okCats[1].ref.name.toLowerCase() + " sit within half a point of each other \u2014 inside this model's noise. Treat them as interchangeable and decide on fit, or consider owning one of each."
+        : (gap < 1.5
+          ? okCats[0].ref.name + " leads by " + gap.toFixed(2) + " points \u2014 a real but not overwhelming margin. Worth a look at the runner-up if anything about the winner bothers you."
+          : okCats[0].ref.name + " leads by " + gap.toFixed(2) + " points, which is decisive. Nothing in the other categories closes that on these settings.");
+    }
+
+    const ceil = s.budget * 1350;
+    const devs = this.DEVS.map(d => {
+      const blockers = this.blockersFor(d.f);
+      if (d.price > ceil) blockers.push("over budget");
+      return { ref: d, score: this.scoreWith(d.dim, W, sumW), blockers: blockers };
+    });
+    const topCat = okCats.length ? okCats[0].ref : cats.slice().sort((a, b) => b.score - a.score)[0].ref;
+    const survivors = devs.filter(d => d.ref.cat === topCat.key && d.blockers.length === 0).sort((a, b) => b.score - a.score);
+
+    const devRank = survivors.slice(0, 3).map((d, i) => ({
+      name: d.ref.n, rankLabel: String(i + 1), accent: rankAccent(i),
+      priceLabel: d.ref.priceLabel, scoreLabel: d.score.toFixed(2),
+      spec: d.ref.spec, pro: d.ref.pro, con: d.ref.con
+    }));
+    const devBars = survivors.slice(0, 8).map((d, i) => ({
+      name: d.ref.n, scoreLabel: d.score.toFixed(2),
+      barStyle: "width:" + (d.score / 10 * 100) + "%; height:100%; background:" + (i === 0 ? t.accent : t.textFaint) + "; border-radius:5px;"
+    }));
+
+    let devSoWhat;
+    if (survivors.length === 0) { devSoWhat = "Nothing in " + topCat.name.toLowerCase() + " survives your gates and budget together. Raise the budget slider, or drop the non-negotiable that is doing the damage \u2014 the table below names it per device."; }
+    else if (survivors.length === 1) { devSoWhat = "One device in this category clears everything you asked for, which makes the decision unusually easy: " + survivors[0].ref.n + " at " + survivors[0].ref.priceLabel + "."; }
+    else {
+      const cheapest = survivors.slice().sort((a, b) => a.ref.price - b.ref.price)[0];
+      const gap = survivors[0].score - survivors[1].score;
+      devSoWhat = (gap < 0.15
+        ? "The top two are inside this model's noise floor, so treat them as tied and buy whichever fits your wrist better. "
+        : "The top pick leads the runner-up by " + gap.toFixed(2) + " points, which is a real gap. ") +
+        (cheapest.ref.n === survivors[0].ref.n
+          ? "It is also the cheapest surviving option, which is the rare case where nothing is being traded away."
+          : "The cheapest surviving option is the " + cheapest.ref.n + " at " + cheapest.ref.priceLabel + ", scoring " + cheapest.score.toFixed(2) + " \u2014 worth " + (survivors[0].score - cheapest.score < 0.4 ? "taking seriously, since the gap is small." : "checking, though the gap is real."));
+    }
+
+    const bestPerCatLabel = okCats.map(c => {
+      const best = devs.filter(d => d.ref.cat === c.ref.key && d.blockers.length === 0).sort((a, b) => b.score - a.score)[0];
+      return c.ref.name + " \u2014 " + (best ? best.ref.n + " (" + best.score.toFixed(2) + ")" : "nothing survives your budget");
+    }).join(" \u00b7 ") || "no category survives your non-negotiables";
+
+    const allDevRows = devs.slice().sort((a, b) => b.score - a.score).map(d => {
+      const ok = d.blockers.length === 0;
+      const isTop = ok && survivors.length > 0 && d.ref.n === survivors[0].ref.n;
+      return {
+        name: d.ref.n, cat: this.CATS.filter(c => c.key === d.ref.cat)[0].name,
+        priceLabel: d.ref.priceLabel, scoreLabel: d.score.toFixed(2),
+        nameColor: ok ? t.text : t.textFaint,
+        scoreColor: isTop ? t.accent : (ok ? t.text : t.textFaint),
+        status: ok ? (isTop ? "Your top pick" : "Clears your gates") : "Blocked \u2014 " + d.blockers.join(", "),
+        statusColor: ok ? (isTop ? t.accent : t.sem.green) : t.textFaint
+      };
+    });
+
+    const structureWord = s.structure <= 3 ? "little" : (s.structure <= 6 ? "some" : "high");
+    const mustCount = Object.keys(s.must).length;
 
     return {
-      rootStyle,
+      rootStyle: rootStyle,
       toggleDark: this.toggleDark,
       titleRef: this.titleRef, handleBack: this.handleBack,
       scrollToTop: this.scrollToTop,
@@ -565,11 +2032,51 @@ class Component extends DCLogic {
       sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
       moonOpacity: this.state.dark ? 1 : 0,
       moonTransform: this.state.dark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.4)",
-      utilityChart: this.buildUtilityChart(t),
-      scorecardBars: this.buildScorecardBars(t),
-      costBars: this.buildCostBars(t),
+
+      gym: s.gym, run: s.run, swim: s.swim, structure: s.structure, sleep: s.sleep,
+      smart: s.smart, battery: s.battery, comfort: s.comfort, budget: s.budget,
+      setGym: this.setNum("gym"), setRun: this.setNum("run"), setSwim: this.setNum("swim"),
+      setStructure: this.setNum("structure"), setSleep: this.setNum("sleep"), setSmart: this.setNum("smart"),
+      setBattery: this.setNum("battery"), setComfort: this.setNum("comfort"), setBudget: this.setNum("budget"),
+      gymLabel: s.gym === 1 ? "1 day" : s.gym + " days",
+      runLabel: s.run === 1 ? "1 run" : s.run + " runs",
+      swimLabel: s.swim === 1 ? "1 swim" : s.swim + " swims",
+      structureLabel: s.structure + " \u00b7 " + structureWord,
+      sleepLabel: s.sleep + "/10",
+      smartLabel: s.smart + "/10",
+      batteryLabel: s.battery + "/10",
+      comfortLabel: s.comfort + "/10",
+      budgetLabel: "\u20b9" + s.budget + "k",
+      budgetCeilLabel: this.fmtRs(ceil),
+      topWeights: this.topDims({ gym: 1, run: 1, swim: 1, struct: 1, sleep: 1, smart: 1, batt: 1, comf: 1, val: 1 }, W, 3).join(", "),
+
+      presets: this.PRESETS.map(pr => ({
+        name: pr.name, apply: this.applyPreset(pr.v),
+        bg: "transparent", fg: t.textMuted, border: t.borderStrong
+      })),
+      mustChips: this.MUSTS.map(m => {
+        const on = !!s.must[m.key];
+        return {
+          label: m.label, toggle: this.toggleMust(m.key), pressed: on ? "true" : "false",
+          bg: on ? t.accent : "transparent", fg: on ? t.onAccent : t.textMuted,
+          border: on ? t.accent : t.borderStrong
+        };
+      }),
+      clearMusts: this.clearMusts,
+      mustSummary: mustCount === 0 ? "No gates set \u2014 nothing is being excluded." : mustCount + (mustCount === 1 ? " gate set" : " gates set") + ", removing " + devs.filter(d => d.blockers.length > 0).length + " of 28 devices.",
+
+      catIntro: this.CATS.map(c => ({ name: c.name, sub: c.sub, built: c.built, weak: c.weak, color: catColor[c.key] })),
+      structRows: this.buildStructRows(t),
+      catRank: catRank, catSoWhat: catSoWhat,
+      topCatName: topCat.name.toLowerCase(),
+      devRank: devRank, devBars: devBars, hasDevBars: survivors.length > 1,
+      devSoWhat: devSoWhat, allDevRows: allDevRows, bestPerCatLabel: bestPerCatLabel,
+      matrixCols: ["Apple S11", "Coros Pace 4", "Coros Apex 4", "Garmin FR265", "Garmin FR570", "Whoop 5.0"],
       matrixGroups: this.buildMatrixGroups(t),
-      personaRows: this.buildPersonaRows(t)
+      utilityChart: this.buildUtilityChart(t),
+      batteryBars: this.buildBatteryBars(t),
+      tcoBars: this.buildTcoBars(t),
+      arbRows: this.buildArbRows(t)
     };
   }
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writing — Ayush Srivastav</title>
+    <link>https://srivastav-ayush.github.io/writing/</link>
+    <description>Decision essays and build notes by Ayush Srivastav, filed under Travel, Tech, Education, and Tools.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Aug 2026 09:00:00 GMT</lastBuildDate>
+    <atom:link href="https://srivastav-ayush.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Rings, Bands, Smartwatches, Sport Watches: Which Fitness Wearable Is Actually Yours</title>
+      <link>https://srivastav-ayush.github.io/writing/Wearable-Watch-Decision.dc.html</link>
+      <guid isPermaLink="true">https://srivastav-ayush.github.io/writing/Wearable-Watch-Decision.dc.html</guid>
+      <category>Tech</category>
+      <pubDate>Sat, 01 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Twenty-eight devices across four form factors, scored on the nine things a fitness wearable can be good at. Describe your training week and the features you refuse to live without, and the page ranks the four categories for you, then ranks the devices inside the one that wins.</description>
+    </item>
+    <item>
+      <title>Kudremukh in a Day: 22 Kilometres Up Karnataka's Horse-Faced Peak</title>
+      <link>https://srivastav-ayush.github.io/writing/Kudremukh-Trek.dc.html</link>
+      <guid isPermaLink="true">https://srivastav-ayush.github.io/writing/Kudremukh-Trek.dc.html</guid>
+      <category>Travel</category>
+      <pubDate>Fri, 26 Jun 2026 09:00:00 GMT</pubDate>
+      <description>My first big Western Ghats climb, told in order: the midnight permit fight, a night bus with no reclining seats, a tent to myself in Kalasa, 11 kilometres up through streams and roots, a summit inside the cloud, and 11 kilometres back down in a storm.</description>
+    </item>
+    <item>
+      <title>The Himalayan Trek Calendar: Which Trek, Which Month, Which Year</title>
+      <link>https://srivastav-ayush.github.io/writing/Himalayan-Trek-Planner.dc.html</link>
+      <guid isPermaLink="true">https://srivastav-ayush.github.io/writing/Himalayan-Trek-Planner.dc.html</guid>
+      <category>Travel</category>
+      <pubDate>Wed, 01 Apr 2026 09:00:00 GMT</pubDate>
+      <description>Sixty-five Himalayan treks sorted by season, altitude, and difficulty into a four-quarter calendar. Which trail is safe in which month, what each one asks of you physically, and the order to attempt them in so that every year builds on the one before it.</description>
+    </item>
+    <item>
+      <title>Twelve Excel Timeplans, One Gantt: Everyone Keeps Their Own File</title>
+      <link>https://srivastav-ayush.github.io/writing/Timeplan-Dashboard.dc.html</link>
+      <guid isPermaLink="true">https://srivastav-ayush.github.io/writing/Timeplan-Dashboard.dc.html</guid>
+      <category>Tools</category>
+      <pubDate>Thu, 12 Mar 2026 09:00:00 GMT</pubDate>
+      <description>A single offline HTML file that opens every owner's own .xlsx, draws one master programme Gantt, resolves the dependencies they wrote in their own rows, and writes changes back to each source file without touching anyone else's.</description>
+    </item>
+    <item>
+      <title>iPhone Ownership in India: When to Buy, and the Year You Should Sell</title>
+      <link>https://srivastav-ayush.github.io/writing/iPhone-Ownership-Strategy.dc.html</link>
+      <guid isPermaLink="true">https://srivastav-ayush.github.io/writing/iPhone-Ownership-Strategy.dc.html</guid>
+      <category>Tech</category>
+      <pubDate>Sun, 01 Feb 2026 09:00:00 GMT</pubDate>
+      <description>Depreciation modelled from resale data, the Pro premium priced against the one feature that justifies it, and affordability tested against your own income.</description>
+    </item>
+    <item>
+      <title>Tap-to-Track: Eight Seconds From Purchase to Spreadsheet</title>
+      <link>https://srivastav-ayush.github.io/writing/Tap-to-Track.dc.html</link>
+      <guid isPermaLink="true">https://srivastav-ayush.github.io/writing/Tap-to-Track.dc.html</guid>
+      <category>Tools</category>
+      <pubDate>Wed, 10 Dec 2025 09:00:00 GMT</pubDate>
+      <description>Double-tap the back of an iPhone and a purchase lands in a Google Sheet you own. How the shortcut is wired, why the amount field does arithmetic without eval(), and how to set the whole thing up for yourself.</description>
+    </item>
+    <item>
+      <title>ISB vs IIM A/B/C: The Salary Where the Cheaper Option Flips</title>
+      <link>https://srivastav-ayush.github.io/writing/ISB-vs-IIM-Cost-Comparison.dc.html</link>
+      <guid isPermaLink="true">https://srivastav-ayush.github.io/writing/ISB-vs-IIM-Cost-Comparison.dc.html</guid>
+      <category>Education</category>
+      <pubDate>Tue, 05 Aug 2025 09:00:00 GMT</pubDate>
+      <description>Fees, foregone salary, and loan interest for ISB's one-year MBA set against the two-year programmes at Ahmedabad, Bangalore, and Calcutta.</description>
+    </item>
+    <item>
+      <title>GMAT vs GRE: The Same Score Comes Easier on One of Them</title>
+      <link>https://srivastav-ayush.github.io/writing/GMAT-vs-GRE-Decision.dc.html</link>
+      <guid isPermaLink="true">https://srivastav-ayush.github.io/writing/GMAT-vs-GRE-Decision.dc.html</guid>
+      <category>Education</category>
+      <pubDate>Tue, 01 Jul 2025 09:00:00 GMT</pubDate>
+      <description>Section by section through the GMAT Focus Edition and the GRE — scoring, adaptive design, question types, and where each exam punishes a different weakness.</description>
+    </item>
+  </channel>
+</rss>

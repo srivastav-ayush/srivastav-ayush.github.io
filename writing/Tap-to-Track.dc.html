@@ -7,11 +7,16 @@
 <meta name="description" content="Double-tap the back of an iPhone and a purchase lands in a Google Sheet you own. How the shortcut is wired, why the amount field does arithmetic without eval(), what the AI actually contributed to the build, and how to set the whole thing up for yourself.">
 <link rel="canonical" href="https://srivastav-ayush.github.io/writing/Tap-to-Track.dc.html">
 <meta property="og:type" content="article">
+<meta property="article:published_time" content="2025-12-10">
+<meta property="article:author" content="https://srivastav-ayush.github.io/">
+<meta property="article:section" content="Tools">
+<meta name="author" content="Ayush Srivastav">
 <meta property="og:title" content="Tap-to-Track: Eight Seconds From Purchase to Spreadsheet — Ayush Srivastav">
 <meta property="og:description" content="Double-tap the back of an iPhone and a purchase lands in a Google Sheet you own. How the shortcut is wired, why the amount field does arithmetic without eval(), what the AI actually contributed to the build, and how to set the whole thing up for yourself.">
 <meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
 <meta property="og:url" content="https://srivastav-ayush.github.io/writing/Tap-to-Track.dc.html">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Writing — Ayush Srivastav" href="https://srivastav-ayush.github.io/feed.xml">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XML0VEY6NS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -69,7 +74,7 @@
 <div style="{{ rootStyle }}">
   <a href="#main" class="skip-link" style="background:var(--accent); color:var(--bg); padding:12px 20px; border-radius:0 0 8px 0; font-size:14px; font-weight:600;">Skip to content</a>
   <nav style="position:fixed; top:0; left:0; right:0; z-index:500; background:var(--nav-bg); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-bottom:1px solid var(--border);">
-    <div style="max-width:1200px; margin:0 auto; height:84px; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
+    <div style="max-width:1200px; margin:0 auto; height:clamp(62px,9.5vh,84px); display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 clamp(16px,4vw,48px); font-size:14px;">
       <a href="../index.html" style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; flex:none;">
         <div style="display:flex; align-items:baseline;">
           <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:30px; line-height:1; color:var(--text); letter-spacing:-1px;">A</span>
@@ -86,7 +91,7 @@
       </div>
     </div>
   </nav>
-  <div style="height:84px;"></div>
+  <div style="height:clamp(62px,9.5vh,84px);"></div>
 
   <main id="main">
 
@@ -100,7 +105,7 @@
     </div>
 
     <div style="display:flex; align-items:center; gap:14px; margin-top:26px; padding-top:20px; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-faint); animation:fadeInUp 0.4s ease both;">
-      <span>By Ayush</span><span>·</span><span>14 min read</span><span>·</span><span>December 2025</span>
+      <span>By Ayush</span><span>·</span><span>11 min read</span><span>·</span><span>December 2025</span>
     </div>
 
     <div style="font-size:17px; line-height:1.8; color:var(--text-body); margin-top:40px; animation:fadeInUp 0.4s ease 0.05s both;">
@@ -159,7 +164,7 @@
 
       <div style="overflow-x:auto; margin:0 0 26px; border:1px solid var(--border); border-radius:10px;">
         <table class="art-table art-table-compact" style="min-width:420px;">
-          <thead><tr style="background:var(--text); color:var(--bg);"><th style="border-bottom:none; width:26%;">You type</th><th style="border-bottom:none; width:22%;">Logs</th><th style="border-bottom:none; width:52%;">Use case</th></tr></thead>
+          <thead><tr style="background:var(--text); color:var(--bg);"><th scope="col" style="border-bottom:none; width:26%;">You type</th><th scope="col" style="border-bottom:none; width:22%;">Logs</th><th scope="col" style="border-bottom:none; width:52%;">Use case</th></tr></thead>
           <tbody>
             <tr><td style="font-weight:600; color:var(--text);"><code style="font-family:'JetBrains Mono',monospace; font-size:12px;">120</code></td><td style="color:var(--text-body);">120</td><td style="color:var(--text-body);">normal</td></tr>
             <tr><td style="font-weight:600; color:var(--text);"><code style="font-family:'JetBrains Mono',monospace; font-size:12px;">=500/3</code></td><td style="color:var(--text-body);">166.67</td><td style="color:var(--text-body);">split three ways</td></tr>
@@ -178,7 +183,7 @@
 
       <div style="overflow-x:auto; margin:0 0 26px; border:1px solid var(--border); border-radius:10px;">
         <table class="art-table art-table-compact" style="min-width:440px;">
-          <thead><tr style="background:var(--text); color:var(--bg);"><th style="border-bottom:none; width:24%;">Cell before</th><th style="border-bottom:none; width:22%;">You enter</th><th style="border-bottom:none; width:30%;">Becomes</th><th style="border-bottom:none; width:24%;">Displays</th></tr></thead>
+          <thead><tr style="background:var(--text); color:var(--bg);"><th scope="col" style="border-bottom:none; width:24%;">Cell before</th><th scope="col" style="border-bottom:none; width:22%;">You enter</th><th scope="col" style="border-bottom:none; width:30%;">Becomes</th><th scope="col" style="border-bottom:none; width:24%;">Displays</th></tr></thead>
           <tbody>
             <tr><td style="font-weight:600; color:var(--text);"><em>(empty)</em></td><td style="color:var(--text-body);"><code style="font-family:'JetBrains Mono',monospace; font-size:12px;">120</code></td><td style="color:var(--text-body);"><code style="font-family:'JetBrains Mono',monospace; font-size:12px;">120</code></td><td style="color:var(--text-body);">₹120</td></tr>
             <tr><td style="font-weight:600; color:var(--text);"><em>(empty)</em></td><td style="color:var(--text-body);"><code style="font-family:'JetBrains Mono',monospace; font-size:12px;">=500/3</code></td><td style="color:var(--text-body);"><code style="font-family:'JetBrains Mono',monospace; font-size:12px;">=500/3</code></td><td style="color:var(--text-body);">₹166.67</td></tr>
@@ -265,7 +270,7 @@
 
       <div style="overflow-x:auto; margin:0 0 26px; border:1px solid var(--border); border-radius:10px;">
         <table class="art-table art-table-compact" style="min-width:420px;">
-          <thead><tr style="background:var(--text); color:var(--bg);"><th style="border-bottom:none; width:58%;">Setup</th><th style="border-bottom:none; width:42%;">Verdict</th></tr></thead>
+          <thead><tr style="background:var(--text); color:var(--bg);"><th scope="col" style="border-bottom:none; width:58%;">Setup</th><th scope="col" style="border-bottom:none; width:42%;">Verdict</th></tr></thead>
           <tbody>
             <tr><td style="font-weight:600; color:var(--text);">Personal Gmail owns the sheet, same account runs the script</td><td style="color:var(--text-body);">Best. No dependencies.</td></tr>
             <tr><td style="font-weight:600; color:var(--text);">Sheet owned by someone else, you have edit access</td><td style="color:var(--text-body);">Works, but breaks silently if they revoke access</td></tr>
@@ -344,7 +349,25 @@
         <a href="https://github.com/srivastav-ayush/tap-to-track" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 22px; border-radius:999px; background:var(--btn-text); color:var(--btn-bg); font-size:14px; font-weight:600; transition:opacity 0.15s;" style-hover="opacity:0.82 !important;">github.com/srivastav-ayush/tap-to-track ↗</a>
       </div>
 
+      <div style="margin-top:44px; padding-top:24px; border-top:1px solid var(--border);">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-faint); margin-bottom:14px;">Read next</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:12px;">
+          <a href="Timeplan-Dashboard.dc.html" style="display:flex; flex-direction:column; gap:8px; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:var(--bg-card); transition:border-color 0.15s, transform 0.2s ease;" style-hover="border-color:var(--accent) !important; transform:translateY(-3px) !important;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent);">Tools</span>
+            <span style="font-size:15px; line-height:1.45; font-weight:600; color:var(--text); text-wrap:pretty;">Twelve Excel Timeplans, One Gantt: Everyone Keeps Their Own File</span>
+          </a>
+          <a href="iPhone-Ownership-Strategy.dc.html" style="display:flex; flex-direction:column; gap:8px; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:var(--bg-card); transition:border-color 0.15s, transform 0.2s ease;" style-hover="border-color:var(--accent) !important; transform:translateY(-3px) !important;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent);">Tech</span>
+            <span style="font-size:15px; line-height:1.45; font-weight:600; color:var(--text); text-wrap:pretty;">iPhone Ownership in India: When to Buy, and the Year You Should Sell</span>
+          </a>
+        </div>
+      </div>
+
       <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:36px; padding-top:20px; border-top:1px solid var(--border);"><strong style="color:var(--text-muted);">Built with:</strong> iOS Shortcuts (Back Tap trigger, arithmetic-aware amount entry, category picker), Google Apps Script (header-driven column discovery, bounds-checked writes, undo snapshots, script-lock concurrency), Google Sheets, and a hand-written recursive-descent arithmetic parser in JavaScript. Claude was used as a pair-programmer on the backend, the Shortcut and the documentation. <strong style="color:var(--text-muted);">Requirements:</strong> a Google account and an iPhone on iOS 15 or later; Excel is not needed — the .xlsx is only a container. <strong style="color:var(--text-muted);">Note:</strong> the web app deployment URL grants write access to your sheet. Do not publish it.</div>
+
+      <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:14px;">
+        <strong style="color:var(--text-muted);">How this was written:</strong> researched and drafted with Claude, an AI assistant, working to my direction. I set the question, checked the numbers, and edited the argument.
+      </div>
     </div>
   </article>
 
@@ -371,7 +394,7 @@
       </div>
     </div>
     <div style="max-width:1200px; margin:0 auto; padding:20px clamp(16px,5vw,64px) 32px; border-top:1px solid var(--footer-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-      <div style="font-size:13px; color:var(--footer-text-muted);">© {{ currentYear }} Ayush Srivastav</div>
+      <div style="font-size:13px; color:var(--footer-text-muted); white-space:nowrap;">© {{ currentYear }} Ayush Srivastav</div>
       <a href="#top" onClick="{{ scrollToTop }}" style="font-size:13px; color:var(--footer-text-muted); transition:color 0.15s;" style-hover="color:var(--footer-accent) !important;">Back to top ↑</a>
     </div>
   </footer>
@@ -416,6 +439,9 @@ class Component extends DCLogic {
     });
   };
 
+  // The prefers-reduced-motion CSS block cannot touch Web Animations API calls — gate them here instead.
+  reduceMotion() { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } }
+
   titleRef = (el) => {
     if (!el) return;
     this.__titleEl = el;
@@ -433,7 +459,7 @@ class Component extends DCLogic {
     const dx = origin.left - rect.left, dy = origin.top - rect.top;
     const sx = origin.width / rect.width, sy = origin.height / rect.height;
     el.style.transformOrigin = "top left";
-    if (typeof el.animate === "function") {
+    if (typeof el.animate === "function" && !this.reduceMotion()) {
       el.animate([
         { transform: `translate(${dx}px,${dy}px) scale(${sx},${sy})`, opacity: 0.55 },
         { transform: "translate(0px,0px) scale(1,1)", opacity: 1 }
