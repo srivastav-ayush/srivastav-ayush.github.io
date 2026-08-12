@@ -11,6 +11,12 @@
 <meta property="og:image" content="https://srivastav-ayush.github.io/assets/img/og-card.png">
 <meta property="og:url" content="https://srivastav-ayush.github.io/work/">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Work & Projects — Ayush Srivastav">
+<meta name="twitter:description" content="Vehicle thermal and performance simulation projects at Ola Electric, ECU cooling systems engineering at Volvo Group, and research in biomechanics, actuators, and materials.">
+<meta property="og:site_name" content="Ayush Srivastav">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image:alt" content="Ayush Srivastav — engineering portfolio, publications and writing.">
+<meta name="theme-color" content="#faf7f0">
 <link rel="canonical" href="https://srivastav-ayush.github.io/work/">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XML0VEY6NS"></script>
 <script>
@@ -22,13 +28,14 @@
 <link rel="icon" type="image/png" href="../assets/img/favicon-light.png">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <style>html{background:#faf7f0;-webkit-text-size-adjust:100%;text-size-adjust:100%}html.dark-init{background:#181410}body{margin:0;background:inherit}</style>
-<script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";}function __setFav(m){var h=m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png",l=document.querySelectorAll('link[rel="icon"]');for(var i=l.length-1;i>0;i--)l[i].parentNode.removeChild(l[i]);if(l[0])l[0].setAttribute("href",h);}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});document.addEventListener("DOMContentLoaded",function(){__setFav(__mq.matches);});if(window.MutationObserver&&document.head){new MutationObserver(function(){__setFav(__mq.matches);}).observe(document.head,{childList:true});}}catch(e){}</script>
+<script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";var __tc=document.querySelector('meta[name="theme-color"]');if(__tc)__tc.setAttribute("content","#181410");}function __setFav(m){var h=m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png",l=document.querySelectorAll('link[rel="icon"]');for(var i=l.length-1;i>0;i--)l[i].parentNode.removeChild(l[i]);if(l[0])l[0].setAttribute("href",h);}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});document.addEventListener("DOMContentLoaded",function(){__setFav(__mq.matches);});if(window.MutationObserver&&document.head){new MutationObserver(function(){__setFav(__mq.matches);}).observe(document.head,{childList:true});}}catch(e){}</script>
 <script src="../support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     a { color:inherit; text-decoration:none; }
@@ -127,7 +134,7 @@
             <sc-if value="{{ p.hasLinks }}">
               <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:2px;">
                 <sc-for list="{{ p.links }}" as="f" hint-placeholder-count="1">
-                  <a href="{{ f.url }}" target="_blank" onClick="{{ stopPropagation }}" style="display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:6px 12px; border-radius:6px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+                  <a href="{{ f.url }}" target="_blank" rel="noopener noreferrer" onClick="{{ stopPropagation }}" style="display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:6px 12px; border-radius:6px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
                     <sc-if value="{{ f.isGithub }}"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path></svg></sc-if>
                     <sc-if value="{{ f.isPaper }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></sc-if>
                     <sc-if value="{{ f.isVideo }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg></sc-if>
@@ -173,7 +180,7 @@
 
       <div style="display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:28px;">
         <div style="display:flex; flex-direction:column; gap:8px; min-width:0;">
-          <h2 style="font-family:'Instrument Serif',serif; font-size:32px; font-weight:400; margin:0; line-height:1.15;"><sc-if value="{{ selectedProject.hasTitleUrl }}" hint-placeholder-val="{{ false }}"><a href="{{ selectedProject.titleUrl }}" target="_blank" style="color:inherit;">{{ selectedProject.title }}</a></sc-if><sc-if value="{{ selectedProject.noTitleUrl }}" hint-placeholder-val="{{ true }}">{{ selectedProject.title }}</sc-if></h2>
+          <h2 style="font-family:'Instrument Serif',serif; font-size:32px; font-weight:400; margin:0; line-height:1.15;"><sc-if value="{{ selectedProject.hasTitleUrl }}" hint-placeholder-val="{{ false }}"><a href="{{ selectedProject.titleUrl }}" target="_blank" rel="noopener noreferrer" style="color:inherit;">{{ selectedProject.title }}</a></sc-if><sc-if value="{{ selectedProject.noTitleUrl }}" hint-placeholder-val="{{ true }}">{{ selectedProject.title }}</sc-if></h2>
           <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:{{ selectedProject.tagColor }}; text-transform:uppercase; letter-spacing:0.04em; background:{{ selectedProject.tagBg }}; padding:5px 12px; border-radius:20px; white-space:nowrap; align-self:flex-start;">{{ selectedProject.tag }}</div>
         </div>
         <sc-if value="{{ selectedProject.orgName }}" hint-placeholder-val="{{ true }}">
@@ -230,7 +237,7 @@
       <sc-if value="{{ selectedProject.hasLinks }}">
         <div style="display:flex; flex-wrap:wrap; gap:10px;">
           <sc-for list="{{ selectedProject.links }}" as="f" hint-placeholder-count="1">
-            <a href="{{ f.url }}" target="_blank" style="display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:9px 16px; border-radius:8px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+            <a href="{{ f.url }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:9px 16px; border-radius:8px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
               <sc-if value="{{ f.isGithub }}"><svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path></svg></sc-if>
               <sc-if value="{{ f.isPaper }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></sc-if>
               <sc-if value="{{ f.isVideo }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon></svg></sc-if>
@@ -245,7 +252,7 @@
 
       <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; margin-top:48px; padding-top:28px; border-top:1px solid var(--border);">
         <button onClick="{{ prevProjectNav.onClick }}" style="border:none; background:none; cursor:pointer; padding:0; display:flex; align-items:center; gap:12px; text-align:left; max-width:45%; transition:opacity 0.15s;" style-hover="opacity:0.65 !important;">
-          <img loading="lazy" decoding="async" src="{{ prevProjectNav.img }}" alt="" style="width:44px; height:44px; border-radius:8px; object-fit:cover; flex:none;">
+          <img loading="lazy" decoding="async" src="{{ prevProjectNav.img }}" alt="" width="44" height="44" style="width:44px; height:44px; border-radius:8px; object-fit:cover; flex:none;">
           <div style="display:flex; flex-direction:column; gap:4px; min-width:0;">
             <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint);">← Previous</div>
             <div style="font-size:14.5px; font-weight:600; color:var(--text);">{{ prevProjectNav.title }}</div>
@@ -256,7 +263,7 @@
             <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint);">Next →</div>
             <div style="font-size:14.5px; font-weight:600; color:var(--text);">{{ nextProjectNav.title }}</div>
           </div>
-          <img loading="lazy" decoding="async" src="{{ nextProjectNav.img }}" alt="" style="width:44px; height:44px; border-radius:8px; object-fit:cover; flex:none;">
+          <img loading="lazy" decoding="async" src="{{ nextProjectNav.img }}" alt="" width="44" height="44" style="width:44px; height:44px; border-radius:8px; object-fit:cover; flex:none;">
         </button>
       </div>
       </div>
@@ -286,14 +293,14 @@
       </div>
       <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-end;">
         <div style="display:flex; gap:22px; font-size:14px; font-weight:500; flex-wrap:wrap; justify-content:flex-end;">
-          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
-          <a href="https://github.com/srivastav-ayush" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
-          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
+          <a href="https://www.linkedin.com/in/srivastav-ayush/" target="_blank" rel="noopener noreferrer" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">LinkedIn</a>
+          <a href="https://github.com/srivastav-ayush" target="_blank" rel="noopener noreferrer" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=EBR4pMAAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener noreferrer" style="color:var(--footer-text); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Scholar</a>
         </div>
         <div style="display:flex; gap:22px; font-size:13px; font-weight:500; flex-wrap:wrap; justify-content:flex-end; color:var(--footer-text-muted);">
-          <a href="https://twitter.com/srvstv_ayush" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">X</a>
-          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Strava</a>
-          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
+          <a href="https://twitter.com/srvstv_ayush" target="_blank" rel="noopener noreferrer" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">X</a>
+          <a href="https://strava.app.link/xYNEYjC9GNb" target="_blank" rel="noopener noreferrer" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Strava</a>
+          <a href="https://www.goodreads.com/user/show/110721023-ayush-srivastav" target="_blank" rel="noopener noreferrer" style="color:var(--footer-text-muted); transition:color 0.15s; display:inline-flex; align-items:center; min-height:44px;" style-hover="color:var(--footer-accent) !important;">Goodreads</a>
         </div>
       </div>
     </div>
