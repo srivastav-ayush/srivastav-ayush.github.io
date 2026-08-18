@@ -191,7 +191,7 @@
 04_Exports/                    SVG / PNG / PDF exports
 05_Master_Time_Plan_Dashboard/ the dashboard itself — open this</div>
 
-      <p style="margin:0 0 22px;">Two more folders appear inside <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">03_Time_Plans</code> as you use it: <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">_baselines/</code> for the dated snapshots, and <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">04_Archived_Timeplans/</code> for the version each file replaced. Nothing in the code hardcodes any of these names — rename them freely. Twelve example timeplans ship with it, so it draws something the moment you open it.</p>
+      <p style="margin:0 0 22px;">Two more folders appear inside <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">03_Time_Plans</code> as you use it: <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">_baselines/</code> for the dated snapshots, and <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">04_Archived_Timeplans/</code> for the version each file replaced. Nothing in the code hardcodes any of these names — rename them freely. Six example timeplans ship with it, so it draws something the moment you open it.</p>
 
       <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">One file per timeplan</h2>
 
@@ -199,7 +199,11 @@
 
       <p style="margin:0 0 22px;">Each file has exactly two sheets. The <strong style="color:var(--text);">input sheet</strong> is where the owner types, and it is the only sheet the dashboard reads or writes. The <strong style="color:var(--text);">time plan sheet</strong> is that plan's own Gantt, drawn in Excel by formulas — nobody types in it. So each file is a usable timeplan on its own, with or without the dashboard, which is what makes it reasonable to ask twelve people to adopt the template.</p>
 
-      <p style="margin:0 0 22px;">Two header fields do more work than they look like they do. <strong style="color:var(--text);">Plan ID</strong> is set once and never changed, so dependencies and baseline comparisons keep working even after a file is renamed. <strong style="color:var(--text);">Last updated</strong> is the freshness stamp — the dashboard flags plans older than two weeks and stamps it for you when it saves.</p>
+      <p style="margin:0 0 22px;">On the input sheet the owner types the activity, the responsible person, the start and end week, and one <strong style="color:var(--text);">Status</strong> from a fourteen-value dropdown — Completed, Blocker, Risk, Dependency, Deferred, Pending and the rest. Status says <em>why</em>; it never says whether the row is late. That is the <strong style="color:var(--text);">Tracker</strong> column beside it, a formula nobody types in, which reads the row's end week against today and returns one of five answers: Done, Closed, Incomplete, Due this week, On Track. Keeping the two apart matters — a row can read Aligned and still be four weeks past its end week, and the Tracker is what says so.</p>
+
+      <p style="margin:0 0 22px;">The sheets are wired together by cell position, and none of them is protected any more, which is why the template ships with a short list of rules: do not insert or delete rows or columns, do not cut cells or drag them, do not sort, do not type in the Tracker or on the time plan sheet. Every one of those moves values out from under a formula, and it fails quietly rather than loudly.</p>
+
+      <p style="margin:0 0 22px;">Two header fields do more work than they look like they do. <strong style="color:var(--text);">Plan ID</strong> is set once and never changed, so dependencies and baseline comparisons keep working even after a file is renamed. <strong style="color:var(--text);">Last updated</strong> is the freshness stamp, and in the current templates the cell fills itself in, so nobody types a date and nobody forgets to. The dashboard reads it, flags any plan older than two weeks, and writes the date itself only where that cell holds a literal rather than the formula.</p>
 
       <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> "Nobody has touched L4_Logistics for 49 days" is a fact no amount of staring at a Gantt will give you, and it is usually the most useful line on the screen.</p>
 
@@ -211,29 +215,28 @@
 
       <p style="margin:0 0 22px;">Separate several with a semicolon. The activity name works instead of the number (<code style="font-family:'JetBrains Mono',monospace; font-size:12px;">L1_Programme-Gate 2 review</code>), and a bare number or name means "in this same file". Use the number — it is matched first and can never be ambiguous. Every activity's exact reference is printed in the Ref column of its own tab, ready to copy.</p>
 
-      <p style="margin:0 0 22px;">Anything that does not match is listed under Warnings and drawn as a red chip, with the file and row it came from. It is never silently dropped. A typo in a dependency is a planning error, and the tool's job is to put it in front of a person.</p>
+      <p style="margin:0 0 22px;">Anything that does not match is listed under Risks, in the File checks tab, and drawn as a red chip with the file and row it came from. It is never silently dropped. A typo in a dependency is a planning error, and the tool's job is to put it in front of a person.</p>
 
-      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> Warnings that name the file and the row get fixed. "3 dependencies could not be resolved" gets ignored.</p>
+      <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 34px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">So what?</strong> A check that names the file and the row gets fixed. "3 dependencies could not be resolved" gets ignored.</p>
 
       <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">What the dashboard gives you</h2>
 
       <figure style="margin:0 0 30px;">
         <div style="width:100%; border-radius:12px; overflow:hidden; border:1px solid var(--border); background:var(--bg-card);">
-          <img loading="lazy" decoding="async" width="1200" height="900" src="../assets/img/writing/timeplan-gantt.jpg" alt="The dashboard showing twelve timeplans merged into one Gantt chart: L1 to L4 workstreams down the left, weeks across the top, coloured status bars per activity, and a red line marking the current week." style="display:block; width:100%; height:auto;">
+          <img loading="lazy" decoding="async" width="1600" height="842" src="../assets/img/writing/timeplan-gantt.jpg" alt="The dashboard showing six timeplans merged into one Gantt chart: L1 Programme Master Plan, L2 Bodyshop Workstream and L3 Tooling Plan stacked down the left, activity, responsible, department and status columns beside them, the weeks of 2026 across the top, coloured bars per activity, the current week shaded, and two milestone markers on the axis." style="display:block; width:100%; height:auto;">
         </div>
-        <figcaption style="font-size:13px; color:var(--text-faint); text-align:center; margin-top:10px;">Twelve owners' files, one programme view — status colours, slip markers, and the current week in red.</figcaption>
+        <figcaption style="font-size:13px; color:var(--text-faint); text-align:center; margin-top:10px;">Six owners' files, one programme view — L1 to L3 stacked, status colours per activity, milestone markers on the axis, and the current week shaded.</figcaption>
       </figure>
 
       <div style="overflow-x:auto; margin:0 0 26px; border:1px solid var(--border); border-radius:10px;">
         <table class="art-table art-table-compact" style="min-width:480px;">
           <thead><tr style="background:var(--text); color:var(--bg);"><th scope="col" style="border-bottom:none; width:26%;">Panel</th><th scope="col" style="border-bottom:none; width:74%;">What it does</th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:600; color:var(--text);">Files</td><td style="color:var(--text-body);">Pick the source folder, reload after an owner updates their file, change folder, clear.</td></tr>
+            <tr><td style="font-weight:600; color:var(--text);">Files</td><td style="color:var(--text-body);">Pick the source folder, reload after an owner updates their file, change folder, clear. The last folder is remembered, so it reopens where you left off.</td></tr>
             <tr><td style="font-weight:600; color:var(--text);">Save to Excel</td><td style="color:var(--text-body);">Lists exactly which timeplans changed and what changed in each, then writes only those.</td></tr>
-            <tr><td style="font-weight:600; color:var(--text);">Export</td><td style="color:var(--text-body);">SVG, PNG and PDF of the current view, plus printable A4 status sheets — one page per timeplan, with a sign-off line.</td></tr>
-            <tr><td style="font-weight:600; color:var(--text);">Warnings</td><td style="color:var(--text-body);">Everything wrong in the loaded files, filtered by Problems / To look at, or by one timeplan. Green when clean.</td></tr>
-            <tr><td style="font-weight:600; color:var(--text);">Baseline</td><td style="color:var(--text-body);">Freeze today's dates, then see what has moved since.</td></tr>
-            <tr><td style="font-weight:600; color:var(--text);">Knock-on</td><td style="color:var(--text-body);">What else has to move because something moved.</td></tr>
+            <tr><td style="font-weight:600; color:var(--text);">Export</td><td style="color:var(--text-body);">SVG, PNG and a landscape PDF of the current view in Letter, A3 or A2, plus one printable status sheet per timeplan — its activities, its own checks and a sign-off line.</td></tr>
+            <tr><td style="font-weight:600; color:var(--text);">Risks</td><td style="color:var(--text-body);">Three tabs: what is late or waiting on something unfinished, what else has to move because something moved, and what is wrong in the files themselves. Filter by severity or by one timeplan. Green when clean.</td></tr>
+            <tr><td style="font-weight:600; color:var(--text);">Baseline</td><td style="color:var(--text-body);">Freeze today's dates, then see what has moved since — against today, or against a second capture.</td></tr>
             <tr><td style="font-weight:600; color:var(--text);">Timeplans</td><td style="color:var(--text-body);">One row per file: show/hide, rename, age in days since the owner last saved it, activity count, warning count.</td></tr>
             <tr><td style="font-weight:600; color:var(--text);">View</td><td style="color:var(--text-body);">Compact timeline, which columns to show, and a snapshot window that crops the view and every export.</td></tr>
           </tbody>
@@ -242,17 +245,19 @@
 
       <p style="margin:0 0 22px;">Double-click any bar or table row to change its start and end week and, optionally, its status, name, responsible or location. Pending changes show in red until you save.</p>
 
+      <p style="margin:0 0 22px;">Two things on the screen belong to the dashboard rather than to anyone's workbook: the programme heading above the table, and the <strong style="color:var(--text);">milestones</strong> marked on the week axis — a gate, a sign-off, a build date, each with its own symbol and a line down the plan. Neither is ever written into a timeplan. Both persist locally, and <strong style="color:var(--text);">Save settings</strong> writes them, along with which plans are shown, into a single <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">Dashboard_Settings.json</code> beside the plans, so everyone opens the same view. That file is shared, so the last person to save it wins — worth nominating one owner of the team view.</p>
+
       <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Baselines, and what has moved</h2>
 
       <p style="margin:0 0 22px;"><strong style="color:var(--text);">Capture</strong> freezes the start and end week of every activity in every loaded file, exactly as they are at that moment, and stores it as a dated snapshot. Nothing on the plan moves and nothing is written into the timeplans.</p>
 
-      <p style="margin:0 0 22px;">Switch Baseline view on afterwards and the difference is drawn in place: a dashed outline where the activity used to sit, and a badge for how far it moved — <strong style="color:var(--sem-red);">+3w</strong> is three weeks later, <strong style="color:var(--sem-green);">−2w</strong> is two weeks earlier. Every snapshot is kept and named by month, and two dropdowns set what is compared: from a capture, to today's live plan or to a second capture. "What moved between the June and the August review" becomes one question instead of an afternoon.</p>
+      <p style="margin:0 0 22px;">Switch Baseline view on afterwards and the difference is drawn in place: a dashed outline where the activity used to sit, and a badge for how far it moved — <strong style="color:var(--sem-red);">+3w</strong> is three weeks later, <strong style="color:var(--sem-green);">−2w</strong> is two weeks earlier. Every snapshot is kept, named by month and numbered when there is more than one that month, and two dropdowns set what is compared: from a capture, to today's live plan or to a second capture. "What moved between the June and the August review" becomes one question instead of an afternoon.</p>
 
       <p style="margin:0 0 22px;">Activities are matched on Plan ID first, file name second, then activity number — so renaming a file or an activity does not break the comparison.</p>
 
       <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Knock-on effects</h2>
 
-      <p style="margin:0 0 22px;">Movement matters less than its consequences. The knock-on view takes every activity whose end date differs from before — an unsaved edit of yours, or a move away from the selected baseline — and follows the dependencies downstream, flagging two things:</p>
+      <p style="margin:0 0 22px;">Movement matters less than its consequences. The Delays tab takes every activity whose end date differs from before — an unsaved edit of yours, or a move away from the selected baseline — and follows the dependencies downstream, flagging two things:</p>
 
       <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:34px;">
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
@@ -281,7 +286,7 @@
 
       <p style="margin:0 0 22px;">Reading is easy. Writing back into twelve workbooks people rely on is not, so the save path is the most conservative part of the tool.</p>
 
-      <p style="margin:0 0 22px;">Each changed timeplan is rebuilt from that file's own bytes, so an edit in one plan can never touch another, and formulas, conditional formatting, colours and sheet protection all survive. Before anything is overwritten, the version being replaced is copied into the archive folder as <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">2026-08-08_1432_L2_Bodyshop.xlsx</code> — date, time, then the file name, so copies sort oldest to newest. Only then is the new version written. If the copy cannot be made, the save stops and the original is left alone.</p>
+      <p style="margin:0 0 22px;">Each changed timeplan is rebuilt from that file's own bytes, so an edit in one plan can never touch another, and every formula, conditional format, colour and dropdown in it survives. Before anything is overwritten, the version being replaced is copied into the archive folder as <code style="font-family:'JetBrains Mono',monospace; font-size:12px;">2026-08-08_1432_L2_Bodyshop.xlsx</code> — date, time, then the file name, so copies sort oldest to newest. Only then is the new version written. If the copy cannot be made, the save stops and the original is left alone.</p>
 
       <p style="margin:0 0 22px;">Every rebuilt file is re-parsed and verified before anything is committed; if one value does not round-trip, the whole save aborts. And if any file changed on disk since you loaded it, the save stops and asks you to reload first — so you cannot overwrite somebody else's work by accident.</p>
 
@@ -319,7 +324,7 @@
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; display:flex; gap:16px; align-items:flex-start;">
           <div style="flex-shrink:0; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em; width:34px; padding-top:2px;">05</div>
           <div style="flex:1; min-width:0;">
-            <div style="font-weight:600; color:var(--text); font-size:14.5px;">Check the knock-on view before agreeing to a date</div>
+            <div style="font-weight:600; color:var(--text); font-size:14.5px;">Check the Delays tab before agreeing to a date</div>
             <div style="font-size:13.5px; color:var(--text-body); margin-top:4px; line-height:1.6;">It lists the impossible dates and the activities down to their last two weeks of float, each with its owner.</div>
           </div>
         </div>
@@ -334,15 +339,15 @@
 
       <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Limits</h2>
 
-      <p style="margin:0 0 22px;"><strong style="color:var(--text);">Chrome or Edge</strong> for folder loading and saving in place. Firefox and Safari can load files and will download the saved ones instead. The templates are formatted and formula-filled for about <strong style="color:var(--text);">200 activities per timeplan</strong> — past that the dashboard still reads up to 2000 rows, but Warnings tells you to copy the last row of that file's own time plan sheet down, or its Excel Gantt stops drawing at row 200. Twelve files of 200 activities is 2400 activities and is fine. The grid draws up to 700 weeks, about thirteen years.</p>
+      <p style="margin:0 0 22px;"><strong style="color:var(--text);">Chrome or Edge</strong> for folder loading and saving in place. Firefox and Safari can load files and will download the saved ones instead. The templates are formatted and formula-filled for about <strong style="color:var(--text);">200 activities per timeplan</strong> — past that the dashboard still reads up to 2000 rows, but Risks tells you to copy the last row of that file's own time plan sheet down, or its Excel Gantt stops drawing at row 200. Twelve files of 200 activities is 2400 activities and is fine. The grid draws up to 700 weeks, about thirteen years.</p>
 
       <p style="margin:0 0 22px;">And there is no scheduling engine: no resource levelling, no critical-path optimisation, nothing that reflows the plan for you. Those need a single shared source of truth and a single owner, which is exactly what this arrangement does not have.</p>
 
       <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">Where the AI actually helped</h2>
 
-      <p style="margin:0 0 22px;">This one is a single HTML file with no build step and no libraries, which means every part of it — the .xlsx parse, the rebuild that preserves formulas and sheet protection, the dependency resolver, the Gantt renderer — is hand-written. That is a lot of surface for a tool built alongside a day job, and Claude was a pair-programmer on all of it.</p>
+      <p style="margin:0 0 22px;">This one is a single HTML file with no build step and no libraries, which means every part of it — the .xlsx parse, the rebuild that preserves formulas and formatting, the dependency resolver, the Gantt renderer — is hand-written. That is a lot of surface for a tool built alongside a day job, and Claude was a pair-programmer on all of it.</p>
 
-      <p style="margin:0 0 22px;">The rebuild path is where it earned its place. Writing an .xlsx back so that formulas, conditional formatting and sheet protection survive means editing the parts of the package you changed and leaving the rest byte-identical, and getting that subtly wrong produces a file that opens with a repair prompt — which, in a shared folder, is how a tool loses everyone's trust in one afternoon. Working through that with a second party, and then adding the verify-by-re-parsing step and the dated archive before it, turned "probably fine" into something I was willing to point at other people's files.</p>
+      <p style="margin:0 0 22px;">The rebuild path is where it earned its place. Writing an .xlsx back so that formulas, conditional formatting and data validation survive means editing the parts of the package you changed and leaving the rest byte-identical, and getting that subtly wrong produces a file that opens with a repair prompt — which, in a shared folder, is how a tool loses everyone's trust in one afternoon. Working through that with a second party, and then adding the verify-by-re-parsing step and the dated archive before it, turned "probably fine" into something I was willing to point at other people's files.</p>
 
       <p style="margin:0 0 22px;">The other half is the documentation. The repository carries a full technical reference — data model, the parse and rebuild path, dependency resolution, the baseline format — which exists because writing it was cheap. A tool that twelve people depend on and only one person understands is a liability, and the version of this project without an AI in it is the version where that reference never gets written.</p>
 
