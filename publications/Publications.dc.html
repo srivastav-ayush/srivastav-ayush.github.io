@@ -365,8 +365,8 @@
 </script>
 <link rel="icon" type="image/png" href="../assets/img/favicon-light.png">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-<style>html{background:#faf7f0;-webkit-text-size-adjust:100%;text-size-adjust:100%}html.dark-init{background:#181410}body{margin:0;background:inherit}</style>
-<script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#181410";var __tc=document.querySelector('meta[name="theme-color"]');if(__tc)__tc.setAttribute("content","#181410");}function __setFav(m){var h=m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png",l=document.querySelectorAll('link[rel="icon"]');for(var i=l.length-1;i>0;i--)l[i].parentNode.removeChild(l[i]);if(l[0])l[0].setAttribute("href",h);}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});document.addEventListener("DOMContentLoaded",function(){__setFav(__mq.matches);});if(window.MutationObserver&&document.head){new MutationObserver(function(){__setFav(__mq.matches);}).observe(document.head,{childList:true});}}catch(e){}</script>
+<style>html{background:#faf7f0;-webkit-text-size-adjust:100%;text-size-adjust:100%}html.dark-init{background:#13151c}body{margin:0;background:inherit}</style>
+<script>try{var __d=localStorage.getItem("ayush-theme")==="dark";if(__d){var d=document.documentElement;d.classList.add("dark-init");d.style.colorScheme="dark";d.style.background="#13151c";var __tc=document.querySelector('meta[name="theme-color"]');if(__tc)__tc.setAttribute("content","#181410");}function __setFav(m){var h=m?"../assets/img/favicon-dark.png":"../assets/img/favicon-light.png",l=document.querySelectorAll('link[rel="icon"]');for(var i=l.length-1;i>0;i--)l[i].parentNode.removeChild(l[i]);if(l[0])l[0].setAttribute("href",h);}var __mq=window.matchMedia("(prefers-color-scheme: dark)");__setFav(__mq.matches);__mq.addEventListener?__mq.addEventListener("change",function(e){__setFav(e.matches);}):__mq.addListener(function(e){__setFav(e.matches);});document.addEventListener("DOMContentLoaded",function(){__setFav(__mq.matches);});if(window.MutationObserver&&document.head){new MutationObserver(function(){__setFav(__mq.matches);}).observe(document.head,{childList:true});}}catch(e){}</script>
 <script src="../support.js"></script>
 </head>
 <body>
@@ -785,15 +785,15 @@ class Component extends DCLogic {
 
   theme(dark) {
     return dark ? {
-      bg: "#181410", bgAlt: "#1d1712", bgCard: "#231e18", bgChip: "#2b251d",
-      text: "#f3ede0", textBody: "#c4b9a6", textMuted: "#9a907b", textFaint: "#9a907b",
-      border: "#3a3327", borderStrong: "#4a4234", dotMuted: "#4a4234",
+      bg: "#13151c", bgAlt: "#181b23", bgCard: "#1d212b", bgChip: "#242835",
+      text: "#eef0f5", textBody: "#b6bac6", textMuted: "#848a99", textFaint: "#848a99",
+      border: "#2a2f3b", borderStrong: "#363c4a", dotMuted: "#363c4a",
       accent: "#87aed6", accentHover: "#a6c5e6",
-      btnBg: "#f3ede0", btnText: "#181410",
+      btnBg: "#eef0f5", btnText: "#13151c",
       footerAccent: "#87aed6",
-      footerBg: "#0e0b08", footerText: "#f3ede0", footerTextMuted: "#9a907b", footerBorder: "#2a2419",
-      navBg: "rgba(24,20,16,.88)",
-      selectionBg: "#87aed6", selectionText: "#181410"
+      footerBg: "#0a0c11", footerText: "#eef0f5", footerTextMuted: "#848a99", footerBorder: "#1f232c",
+      navBg: "rgba(19,21,28,.88)",
+      selectionBg: "#87aed6", selectionText: "#13151c"
     } : {
       bg: "#faf7f0", bgAlt: "#f1ebde", bgCard: "#fff9f0", bgChip: "#efe8d8",
       text: "#241f19", textBody: "#57503f", textMuted: "#6f6656", textFaint: "#6f6656",
