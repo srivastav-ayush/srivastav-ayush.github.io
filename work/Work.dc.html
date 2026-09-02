@@ -88,6 +88,7 @@
         <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
         <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
         <a href="../writing/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
+        <a href="../reading/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Reading</a>
         <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
       </div>
     </div>
@@ -99,7 +100,7 @@
   <sc-if value="{{ isListView }}">
     <section style="max-width:1200px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 24px;">
       <h1 style="font-family:'Instrument Serif',serif; font-size:46px; font-weight:400; margin:0 0 16px;">Work &amp; projects</h1>
-      <p style="font-size:17px; line-height:1.6; color:var(--text-muted); max-width:640px; margin:0 0 28px;">Systems Engineering at Volvo Group and Simulation Modeling at Ola Electric, alongside research and academic projects. Click any project for details.</p>
+      <p style="font-size:17px; line-height:1.6; color:var(--text-muted); margin:0 0 28px; text-wrap:pretty;">Systems Engineering at Volvo Group and Simulation Modeling at Ola Electric, alongside research and academic projects. Click any project for details.</p>
       <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;">
         <div style="display:inline-flex; background:var(--bg-chip); border-radius:8px; padding:4px; gap:4px; flex-wrap:wrap;">
           <button onClick="{{ setAll }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ allBg }}; color:{{ allColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">All</button>
@@ -107,10 +108,20 @@
           <button onClick="{{ setResearch }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ researchBg }}; color:{{ researchColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Research</button>
           <button onClick="{{ setAcademic }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ academicBg }}; color:{{ academicColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Academic</button>
         </div>
-        <button onClick="{{ toggleSort }}" style="border:1px solid var(--border-strong); background:none; cursor:pointer; padding:11px 16px; border-radius:8px; font-size:12.5px; font-weight:600; font-family:'JetBrains Mono',monospace; color:var(--text-muted); display:flex; align-items:center; gap:7px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{ sortIconStyle }}"><path d="M3 6h18M6 12h12M10 18h4"></path></svg>
-          {{ sortLabel }}
-        </button>
+        <div ref="{{ sortWrapRef }}" style="position:relative; flex:0 0 auto;">
+          <button onClick="{{ toggleSortMenu }}" aria-haspopup="listbox" aria-expanded="{{ sortMenuOpen }}" aria-label="Sort: {{ sortLabel }}" style="{{ sortButtonStyle }}" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="16" y1="2" x2="16" y2="6"></line></svg>
+            <span>Sort</span>
+            <sc-if value="{{ !sortAsc }}" hint-placeholder-val="{{ true }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></sc-if>
+            <sc-if value="{{ sortAsc }}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></sc-if>
+          </button>
+          <sc-if value="{{ sortMenuOpen }}" hint-placeholder-val="{{ false }}">
+            <div role="listbox" style="position:absolute; top:calc(100% + 8px); right:0; min-width:170px; background:var(--bg-card); border:1px solid var(--border); border-radius:12px; box-shadow:0 16px 32px rgba(0,0,0,0.22); padding:6px; z-index:50;">
+              <button onClick="{{ setSortDesc }}" style="{{ sortRowDescStyle }}" style-hover="background:var(--bg-alt) !important;"><span>Newest first</span><sc-if value="{{ !sortAsc }}" hint-placeholder-val="{{ true }}"><span style="color:var(--accent); font-weight:700;">✓</span></sc-if></button>
+              <button onClick="{{ setSortAsc }}" style="{{ sortRowAscStyle }}" style-hover="background:var(--bg-alt) !important;"><span>Oldest first</span><sc-if value="{{ sortAsc }}" hint-placeholder-val="{{ false }}"><span style="color:var(--accent); font-weight:700;">✓</span></sc-if></button>
+            </div>
+          </sc-if>
+        </div>
       </div>
     </section>
 
@@ -343,6 +354,7 @@ class Component extends DCLogic {
     selectedId: null,
     slideIndex: 0,
     sortAsc: false,
+    sortMenuOpen: false,
     lightboxOpen: false,
     width: (typeof window !== "undefined" ? window.innerWidth : 1200),
     dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark")
@@ -354,9 +366,14 @@ class Component extends DCLogic {
     this.clearSlideTimer();
     if (this.__observer) this.__observer.disconnect();
     if (typeof window !== "undefined" && this.onResize) window.removeEventListener("resize", this.onResize);
+    if (typeof document !== "undefined" && this.__onDocClick) document.removeEventListener("mousedown", this.__onDocClick);
   }
 
   componentDidMount() {
+    if (typeof document !== "undefined") {
+      this.__onDocClick = (e) => { if (this.__sortWrapEl && !this.__sortWrapEl.contains(e.target)) this.setState({ sortMenuOpen: false }); };
+      document.addEventListener("mousedown", this.__onDocClick);
+    }
     if (typeof window !== "undefined") {
       this.onKeyDown = (e) => {
         if (this.state.lightboxOpen) {
@@ -418,7 +435,10 @@ class Component extends DCLogic {
     cards.forEach(c => { c.classList.add("is-visible"); });
   }
 
-  toggleSort = () => this.setState(s => ({ sortAsc: !s.sortAsc }));
+  toggleSortMenu = (e) => { if (e) e.preventDefault(); this.setState(s => ({ sortMenuOpen: !s.sortMenuOpen })); };
+  setSortDesc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: false, sortMenuOpen: false }); };
+  setSortAsc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: true, sortMenuOpen: false }); };
+  sortWrapRef = (el) => { this.__sortWrapEl = el; };
 
   onImageTouchStart = (e) => { this.__touchStartX = e.touches[0].clientX; };
   onImageTouchEnd = (e) => {
@@ -992,9 +1012,16 @@ class Component extends DCLogic {
       setAcademic: () => this.setState({ filter: "academic" }),
       setResearch: () => this.setState({ filter: "research" }),
       setWork: () => this.setState({ filter: "work" }),
-      toggleSort: this.toggleSort,
+      sortAsc,
+      sortWrapRef: this.sortWrapRef,
+      toggleSortMenu: this.toggleSortMenu,
+      sortMenuOpen: this.state.sortMenuOpen,
+      setSortDesc: this.setSortDesc,
+      setSortAsc: this.setSortAsc,
       sortLabel: sortAsc ? "Oldest first" : "Newest first",
-      sortIconStyle: sortAsc ? "transform:scaleY(-1);" : "",
+      sortButtonStyle: `display:flex; align-items:center; gap:6px; min-height:44px; padding:0 14px; border:1px solid var(--border-strong); background:var(--bg); color:var(--text-muted); font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; border-radius:999px; cursor:pointer; white-space:nowrap; transition:border-color 0.15s, color 0.15s;`,
+      sortRowDescStyle: `display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; text-align:left; border:none; background:${!sortAsc ? "var(--bg-alt)" : "transparent"}; color:${!sortAsc ? "var(--text)" : "var(--text-muted)"}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; padding:10px 12px; border-radius:8px; cursor:pointer;`,
+      sortRowAscStyle: `display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; text-align:left; border:none; background:${sortAsc ? "var(--bg-alt)" : "transparent"}; color:${sortAsc ? "var(--text)" : "var(--text-muted)"}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; padding:10px 12px; border-radius:8px; cursor:pointer;`,
       allBg: all.bg, allColor: all.color,
       academicBg: academic.bg, academicColor: academic.color,
       researchBg: research.bg, researchColor: research.color,

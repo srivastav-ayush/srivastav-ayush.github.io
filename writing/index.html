@@ -84,6 +84,7 @@
         <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
         <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
         <a href="../writing/index.html" class="nav-link" aria-current="page" style="color:var(--accent); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
+        <a href="../reading/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Reading</a>
         <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
       </div>
     </div>
@@ -93,12 +94,12 @@
   <main id="main">
 
   <sc-if value="{{ isHub }}">
-  <section style="max-width:1000px; margin:0 auto; padding:clamp(30px,5vw,48px) clamp(16px,5vw,64px) 20px;">
+  <section style="max-width:1200px; margin:0 auto; padding:clamp(30px,5vw,48px) clamp(16px,5vw,64px) 20px;">
     <h1 style="font-family:'Instrument Serif',serif; font-size:clamp(34px,6vw,46px); line-height:1.1; font-weight:400; margin:0 0 16px;">Writing</h1>
-    <p style="font-size:17px; line-height:1.6; color:var(--text-muted); margin:0; max-width:640px; text-wrap:pretty;">Notes on choices I over-thought — watches, phones, exams, mountain trails — and the small tools I built for myself. Worked through in full, numbers and all. Pick a shelf to start on.</p>
+    <p style="font-size:17px; line-height:1.6; color:var(--text-muted); margin:0; max-width:900px; text-wrap:pretty;">Notes on choices I over-thought — watches, phones, exams, mountain trails — and the small tools I built for myself. Worked through in full, numbers and all. Pick a shelf to start on.</p>
   </section>
 
-  <section style="max-width:1000px; margin:0 auto; padding:16px clamp(16px,5vw,64px) 120px;">
+  <section style="max-width:1200px; margin:0 auto; padding:16px clamp(16px,5vw,64px) 120px;">
     <div style="{{ hubGridStyle }}">
       <sc-for list="{{ categories }}" as="cat" hint-placeholder-count="4">
         <a href="{{ cat.href }}" onClick="{{ cat.open }}" ref="{{ cat.cardRef }}" style="display:flex; flex-direction:column; border:1px solid var(--border); border-radius:16px; padding:clamp(22px,3vw,26px) clamp(18px,3vw,28px); background:var(--bg); transition:border-color 0.15s, background 0.15s, transform 0.2s ease, box-shadow 0.2s ease; animation:fadeInUp 0.4s ease both; animation-delay:{{ cat.delay }};" style-hover="border-color:var(--accent) !important; background:var(--bg-card) !important; transform:translateY(-4px) !important; box-shadow:0 14px 30px rgba(0,0,0,0.10) !important;">
@@ -125,7 +126,7 @@
   </sc-if>
 
   <sc-if value="{{ isCategory }}">
-  <section style="max-width:900px; margin:0 auto; padding:clamp(30px,5vw,48px) clamp(16px,5vw,64px) 20px;">
+  <section style="max-width:1200px; margin:0 auto; padding:clamp(30px,5vw,48px) clamp(16px,5vw,64px) 20px;">
     <a href="index.html" onClick="{{ goHub }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; min-height:44px;" style-hover="color:var(--accent) !important;">← All writing</a>
     <div ref="{{ catHeaderRef }}" style="display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; margin-top:8px;">
       <h1 style="font-family:'Instrument Serif',serif; font-size:clamp(34px,6vw,46px); line-height:1.1; font-weight:400; margin:0; color:{{ activeColor }};">{{ activeName }}</h1>
@@ -134,14 +135,24 @@
     <p style="font-size:17px; line-height:1.6; color:var(--text-muted); margin:16px 0 0; max-width:640px; text-wrap:pretty;">{{ activeBlurb }}</p>
   </section>
 
-  <section style="max-width:900px; margin:0 auto; padding:0 clamp(16px,5vw,64px) 12px; display:flex; justify-content:flex-end;">
-    <button onClick="{{ toggleSort }}" style="border:1px solid var(--border-strong); background:none; cursor:pointer; padding:11px 16px; border-radius:8px; font-size:12.5px; font-weight:600; font-family:'JetBrains Mono',monospace; color:var(--text-muted); display:flex; align-items:center; gap:7px; transition:border-color 0.15s,color 0.15s;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{ sortIconStyle }}"><path d="M3 6h18M6 12h12M10 18h4"></path></svg>
-      {{ sortLabel }}
-    </button>
+  <section style="max-width:1200px; margin:0 auto; padding:0 clamp(16px,5vw,64px) 12px; display:flex; justify-content:flex-end;">
+    <div ref="{{ sortWrapRef }}" style="position:relative; flex:0 0 auto;">
+      <button onClick="{{ toggleSortMenu }}" aria-haspopup="listbox" aria-expanded="{{ sortMenuOpen }}" aria-label="Sort: {{ sortLabel }}" style="{{ sortButtonStyle }}" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="16" y1="2" x2="16" y2="6"></line></svg>
+        <span>Sort</span>
+        <sc-if value="{{ !sortAsc }}" hint-placeholder-val="{{ true }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></sc-if>
+        <sc-if value="{{ sortAsc }}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></sc-if>
+      </button>
+      <sc-if value="{{ sortMenuOpen }}" hint-placeholder-val="{{ false }}">
+        <div role="listbox" style="position:absolute; top:calc(100% + 8px); right:0; min-width:170px; background:var(--bg-card); border:1px solid var(--border); border-radius:12px; box-shadow:0 16px 32px rgba(0,0,0,0.22); padding:6px; z-index:50;">
+          <button onClick="{{ setSortDesc }}" style="{{ sortRowDescStyle }}" style-hover="background:var(--bg-alt) !important;"><span>Newest first</span><sc-if value="{{ !sortAsc }}" hint-placeholder-val="{{ true }}"><span style="color:var(--accent); font-weight:700;">✓</span></sc-if></button>
+          <button onClick="{{ setSortAsc }}" style="{{ sortRowAscStyle }}" style-hover="background:var(--bg-alt) !important;"><span>Oldest first</span><sc-if value="{{ sortAsc }}" hint-placeholder-val="{{ false }}"><span style="color:var(--accent); font-weight:700;">✓</span></sc-if></button>
+        </div>
+      </sc-if>
+    </div>
   </section>
 
-  <section style="max-width:900px; margin:0 auto; padding:12px clamp(16px,5vw,64px) 60px;">
+  <section style="max-width:1200px; margin:0 auto; padding:12px clamp(16px,5vw,64px) 60px;">
     <sc-for list="{{ articles }}" as="art" hint-placeholder-count="2">
       <a href="{{ art.href }}" ref="{{ art.cardRef }}" onClick="{{ art.open }}" style="display:block; border:1px solid var(--border); border-radius:14px; padding:32px clamp(20px,4vw,36px); margin-top:20px; transition:border-color 0.15s, background 0.15s, transform 0.2s ease, box-shadow 0.2s ease;" style-hover="border-color:var(--accent) !important; background:var(--bg-card) !important; transform:translateY(-4px) !important; box-shadow:0 14px 30px rgba(0,0,0,0.10) !important;">
         <div>
@@ -156,7 +167,7 @@
     </sc-for>
   </section>
 
-  <section style="max-width:900px; margin:0 auto; padding:0 clamp(16px,5vw,64px) 120px;">
+  <section style="max-width:1200px; margin:0 auto; padding:0 clamp(16px,5vw,64px) 120px;">
     <div style="border-top:1px solid var(--border); padding-top:28px;">
       <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-faint); margin-bottom:14px;">Other categories</div>
       <div style="display:flex; flex-wrap:wrap; gap:10px;">
@@ -230,10 +241,14 @@ class Component extends DCLogic {
   state = {
     dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark"),
     sortAsc: false,
+    sortMenuOpen: false,
     category: (typeof location !== "undefined" && location.hash ? decodeURIComponent(location.hash.slice(1)).toLowerCase() : "")
   };
 
-  toggleSort = () => this.setState(s => ({ sortAsc: !s.sortAsc }));
+  toggleSortMenu = (e) => { if (e) e.preventDefault(); this.setState(s => ({ sortMenuOpen: !s.sortMenuOpen })); };
+  setSortDesc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: false, sortMenuOpen: false }); };
+  setSortAsc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: true, sortMenuOpen: false }); };
+  sortWrapRef = (el) => { this.__sortWrapEl = el; };
 
   // The Writing index is a two-level view: a category hub, and one list per category.
   // The open category lives in the URL hash (#tools) so a category view can be linked and bookmarked.
@@ -325,6 +340,10 @@ class Component extends DCLogic {
   };
 
   componentDidMount() {
+    if (typeof document !== "undefined") {
+      this.__onDocClick = (e) => { if (this.__sortWrapEl && !this.__sortWrapEl.contains(e.target)) this.setState({ sortMenuOpen: false }); };
+      document.addEventListener("mousedown", this.__onDocClick);
+    }
     if (typeof window === "undefined") return;
     this.__onPop = () => {
       const h = location.hash ? decodeURIComponent(location.hash.slice(1)).toLowerCase() : "";
@@ -334,6 +353,7 @@ class Component extends DCLogic {
     window.addEventListener("hashchange", this.__onPop);
   }
   componentWillUnmount() {
+    if (typeof document !== "undefined" && this.__onDocClick) document.removeEventListener("mousedown", this.__onDocClick);
     if (typeof window === "undefined" || !this.__onPop) return;
     window.removeEventListener("popstate", this.__onPop);
     window.removeEventListener("hashchange", this.__onPop);
@@ -496,9 +516,16 @@ class Component extends DCLogic {
       scrollToTop: this.scrollToTop,
       currentYear: new Date().getFullYear(),
       ...hubVals,
-      toggleSort: this.toggleSort,
+      sortAsc: this.state.sortAsc,
+      sortWrapRef: this.sortWrapRef,
+      toggleSortMenu: this.toggleSortMenu,
+      sortMenuOpen: this.state.sortMenuOpen,
+      setSortDesc: this.setSortDesc,
+      setSortAsc: this.setSortAsc,
       sortLabel: this.state.sortAsc ? "Oldest first" : "Newest first",
-      sortIconStyle: this.state.sortAsc ? "transform:scaleY(-1);" : "",
+      sortButtonStyle: `display:flex; align-items:center; gap:6px; min-height:44px; padding:0 14px; border:1px solid var(--border-strong); background:var(--bg); color:var(--text-muted); font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; border-radius:999px; cursor:pointer; white-space:nowrap; transition:border-color 0.15s, color 0.15s;`,
+      sortRowDescStyle: `display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; text-align:left; border:none; background:${!this.state.sortAsc ? "var(--bg-alt)" : "transparent"}; color:${!this.state.sortAsc ? "var(--text)" : "var(--text-muted)"}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; padding:10px 12px; border-radius:8px; cursor:pointer;`,
+      sortRowAscStyle: `display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; text-align:left; border:none; background:${this.state.sortAsc ? "var(--bg-alt)" : "transparent"}; color:${this.state.sortAsc ? "var(--text)" : "var(--text-muted)"}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; padding:10px 12px; border-radius:8px; cursor:pointer;`,
       sunOpacity: this.state.dark ? 0 : 1,
       sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
       moonOpacity: this.state.dark ? 1 : 0,
