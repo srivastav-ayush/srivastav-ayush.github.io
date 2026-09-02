@@ -33,6 +33,7 @@ Pages are grouped into per-section folders; only the homepage and shared runtime
 | `writing/Timeplan-Dashboard.dc.html` | Long-form essay page (Writing, **Tools**) — build note for the `srivastav-ayush/timeplan-dashboard` repo. Same conventions; carries the one screenshot in the section (`assets/img/writing/timeplan-gantt.jpg`). |
 | `writing/Kudremukh-Trek.dc.html` | Long-form essay page (Writing) — personal trip narrative (not data-array-driven; prose + `image-slot` photo placeholders written directly in the template), unlike the decision-framework essays above. |
 | `cv/CV.dc.html` | Full CV — mostly hand-written HTML in the template, not data-array-driven. |
+| `reading/Reading.dc.html` / `reading/index.html` | Reading page — flat `allBooks` array (books, not essays), expandable rows, genre filter chips + sort/status menu. **Must stay byte-identical to `reading/index.html`** — see §8. Book covers are real files at `assets/img/books/<key>.jpg`, not `image-slot`s. Category taxonomy is documented at the end of §6 — categorize every new book against it. |
 | `support.js` | The template-rendering runtime (turns `{{ }}` holes, `<sc-for>`, `<sc-if>` into a live page). **Never edit.** |
 | `image-slot.js` | Drag-and-drop image placeholder web component (`<image-slot>` / `<x-import component-from-global-scope="image-slot">`). **Never edit.** |
 | `.image-slots.state.json` | **Deleted Aug 2026 (all five copies were 0-byte) and no longer needed.** Publication/patent figures are real files in `assets/img/publications/<slotId>.webp`, wired via `src="{{ pub.figure }}"` on each slot; the hero photo and article photos use plain `src` paths. If you drop a new image into a slot in the editor, the runtime will create this sidecar again in that page's folder and it will take precedence over `src` — that's fine, but prefer saving the file into `assets/` and pointing `src` at it. |
@@ -168,6 +169,19 @@ Copy an existing object and edit fields — don't invent new field names casuall
 **`allTalks`** (Talks): `{ slotId, date (ISO), customImage, event, orgUrl, pairKey? }`. Two talks sharing `pairKey` merge into one card (same paper presented at two venues) — see the grouping logic right after the array in `Talks.dc.html`.
 
 **`CV.dc.html`**: no arrays; edit the HTML directly. Sections: header (name/title/résumé download button), Education (cards), Experience (timeline with logo/org/role/dates/bullets), Research Experience (timeline with guide links, repo/thesis/journal links), Awards & Achievements (grid: logo · heading+body · year), footer.
+
+**`allBooks`** (Reading): `{ key, title, author, genre, subGenre, rating (0-5), status? ("reading"|"incomplete", omit for finished), blurb, date, review }`. `key` is also the cover filename (`assets/img/books/<key>.jpg`) — add the cover file when adding a book. `genre` is one of the 8 top-level filter categories below; `subGenre` is the specific leaf under it. **Reading page book taxonomy** (set Sep 2026, by request — categorize every new book against this before appending it to `allBooks`; top-level names are the exact filter-chip labels, CSS uppercases them):
+```
+Fiction: Literary fiction / Historical fiction / Mystery and crime / Thriller / Fantasy / Science fiction
+Biography & Memoir: Biography / Autobiography / Memoir
+History & Society: History / Politics and geopolitics / Sociology / Culture and anthropology
+Science & Technology: Science / Engineering / AI and computers / Medicine / Mathematics
+Business & Economics: Business strategy / Management and leadership / Entrepreneurship / Economics / Marketing
+Money & Investing: Personal finance / Investing / Stock markets / Wealth building
+Personal Development: Habits and productivity / Psychology / Communication and relationships / Career / Health and fitness
+Travel, Arts & Culture: Travel / Art and design / Music and film / Architecture / Food and cultural writing
+```
+`bookGenres` (the chip list, `["All", ...]`) must stay exactly these 8 names + "All" — don't add a 9th top-level category without the user asking; add new leaves under an existing top-level instead.
 
 ## 7. Link conventions (verified — keep these exact)
 

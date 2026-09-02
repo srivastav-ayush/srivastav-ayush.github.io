@@ -429,8 +429,8 @@
         <a href="../work/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
         <a href="../publications/index.html" class="nav-link" aria-current="page" style="color:var(--accent); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
         <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
-        <a href="../writing/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
         <a href="../reading/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Reading</a>
+        <a href="../writing/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
         <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
       </div>
     </div>
@@ -443,10 +443,10 @@
     <h1 style="font-family:'Instrument Serif',serif; font-size:46px; font-weight:400; margin:0 0 16px;">Publications &amp; patents</h1>
     <p style="font-size:17px; line-height:1.6; color:var(--text-muted); max-width:640px; margin:0 0 32px;">Patents, journal papers, conference presentations, and book chapters.</p>
     <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;">
-      <div style="display:inline-flex; background:var(--bg-chip); border-radius:8px; padding:4px; gap:4px;">
-        <button onClick="{{ showAll }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ allBg }}; color:{{ allColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">All</button>
-        <button onClick="{{ showSelected }}" style="border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ selectedBg }}; color:{{ selectedColor }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Selected</button>
-      </div>
+      <button onClick="{{ toggleSelectedFilter }}" role="checkbox" aria-checked="{{ selectedOnly }}" style="{{ selectedToggleStyle }}" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.5l2.9 6.6 7.1.6-5.4 4.7 1.7 6.9L12 17.3 5.7 20.8l1.7-6.9L2 9.7l7.1-.6L12 2.5z"></path></svg>
+        <span>Selected only</span>
+      </button>
       <div ref="{{ sortWrapRef }}" style="position:relative; flex:0 0 auto;">
         <button onClick="{{ toggleSortMenu }}" aria-haspopup="listbox" aria-expanded="{{ sortMenuOpen }}" aria-label="Sort: {{ sortLabel }}" style="{{ sortButtonStyle }}" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="16" y1="2" x2="16" y2="6"></line></svg>
@@ -960,8 +960,8 @@ class Component extends DCLogic {
       sunTransform: this.state.dark ? "rotate(-90deg) scale(0.4)" : "rotate(0deg) scale(1)",
       moonOpacity: this.state.dark ? 1 : 0,
       moonTransform: this.state.dark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.4)",
-      showAll: () => { this.setState({ filter: "all" }); this.flashList(); },
-      showSelected: () => { this.setState({ filter: "selected" }); this.flashList(); },
+      toggleSelectedFilter: () => { this.setState({ filter: isAll ? "selected" : "all" }); this.flashList(); },
+      selectedOnly: !isAll,
       sortAsc,
       sortWrapRef: this.sortWrapRef,
       toggleSortMenu: this.toggleSortMenu,
@@ -972,10 +972,7 @@ class Component extends DCLogic {
       sortButtonStyle: `display:flex; align-items:center; gap:6px; min-height:44px; padding:0 14px; border:1px solid var(--border-strong); background:var(--bg); color:var(--text-muted); font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; border-radius:999px; cursor:pointer; white-space:nowrap; transition:border-color 0.15s, color 0.15s;`,
       sortRowDescStyle: `display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; text-align:left; border:none; background:${!sortAsc ? "var(--bg-alt)" : "transparent"}; color:${!sortAsc ? "var(--text)" : "var(--text-muted)"}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; padding:10px 12px; border-radius:8px; cursor:pointer;`,
       sortRowAscStyle: `display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; text-align:left; border:none; background:${sortAsc ? "var(--bg-alt)" : "transparent"}; color:${sortAsc ? "var(--text)" : "var(--text-muted)"}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; padding:10px 12px; border-radius:8px; cursor:pointer;`,
-      allBg: isAll ? "var(--btn-bg)" : "transparent",
-      allColor: isAll ? "var(--btn-text)" : "var(--text-muted)",
-      selectedBg: !isAll ? "var(--btn-bg)" : "transparent",
-      selectedColor: !isAll ? "var(--btn-text)" : "var(--text-muted)"
+      selectedToggleStyle: `display:flex; align-items:center; gap:6px; min-height:44px; padding:0 14px; border:1px solid ${isAll ? "var(--border-strong)" : "var(--btn-bg)"}; background:${isAll ? "var(--bg)" : "var(--btn-bg)"}; color:${isAll ? "var(--text-muted)" : "var(--btn-text)"}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; border-radius:999px; cursor:pointer; white-space:nowrap; transition:border-color 0.15s, color 0.15s, background 0.15s;`
     };
   }
 }

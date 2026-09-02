@@ -87,8 +87,8 @@
         <a href="../work/index.html" class="nav-link" aria-current="page" style="color:var(--accent); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
         <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
         <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
-        <a href="../writing/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
         <a href="../reading/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Reading</a>
+        <a href="../writing/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
         <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
       </div>
     </div>
@@ -653,8 +653,6 @@ class Component extends DCLogic {
     return out;
   }
 
-  solidCategoryColors = { work: "#3568a0", research: "#4a7a43", academic: "#ac6438" };
-
   orgBoxStyle(shape, size) {
     const sizes = size === "detail" ? { square: 68, wideH: 42, wideHLg: 58, pad: 10 } : { square: 70, wideH: 38, wideHLg: 55, pad: 10 };
     if (shape === "wide-lg") {
@@ -959,8 +957,8 @@ class Component extends DCLogic {
 
     const activeStyle = (name) => {
       if (filter !== name) return { bg: "transparent", color: "var(--text-muted)" };
-      if (name === "all") return { bg: "var(--btn-bg)", color: "var(--btn-text)" };
-      return { bg: this.solidCategoryColors[name], color: "#ffffff" };
+      if (name === "all") return { bg: "var(--border-strong)", color: "var(--text)" };
+      return { bg: catColors[name].bg, color: catColors[name].color };
     };
     const all = activeStyle("all"), academic = activeStyle("academic"), research = activeStyle("research"), work = activeStyle("work");
 

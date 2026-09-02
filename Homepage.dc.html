@@ -150,8 +150,8 @@
         <a href="work/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
         <a href="publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
         <a href="talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
-        <a href="writing/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
         <a href="reading/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Reading</a>
+        <a href="writing/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
         <a href="cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
       </div>
     </div>
@@ -403,13 +403,12 @@ class Component extends DCLogic {
   setMilestoneFilter = (cat) => this.setState({ milestoneFilter: cat });
 
   categoryLabels = { career: "Career", education: "Education", talk: "Talk", publication: "Publication", patent: "Patent", award: "Award" };
-  solidMilestoneColors = { career: "#3568a0", education: "#5b4a9e", talk: "#ac6438", publication: "#4a7a43", patent: "#a34a82", award: "#956f25" };
 
   categoryColors(dark) {
     const hues = {
       career: dark ? "#87aed6" : "#3568a0",
       education: dark ? "#ab9fe8" : "#5b4a9e",
-      talk: dark ? "#e0a37c" : "#89502d",
+      talk: dark ? "#e08a89" : "#a03130",
       publication: dark ? "#8ebd82" : "#3f6839",
       patent: dark ? "#d493be" : "#914274",
       award: dark ? "#e0b34a" : "#78591e"
@@ -702,8 +701,8 @@ class Component extends DCLogic {
         });
         const activeStyle = (name) => {
           if (filter !== name) return { bg: "transparent", color: "var(--text-muted)" };
-          if (name === "all") return { bg: "var(--btn-bg)", color: "var(--btn-text)" };
-          return { bg: this.solidMilestoneColors[name], color: "#ffffff" };
+          if (name === "all") return { bg: "var(--border-strong)", color: "var(--text)" };
+          return { bg: catColors[name].bg, color: catColors[name].color };
         };
         return {
           yearGroups: groups,

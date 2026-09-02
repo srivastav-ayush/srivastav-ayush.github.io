@@ -46,6 +46,7 @@
     .nav-links::-webkit-scrollbar { display:none; }
     ::selection { background:var(--selection-bg); color:var(--selection-text); }
 
+    @keyframes expandFadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration:0.001ms !important; animation-delay:0ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
     }
@@ -79,8 +80,8 @@
         <a href="../work/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
         <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
         <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
-        <a href="../writing/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
         <a href="../reading/index.html" class="nav-link" aria-current="page" style="color:var(--accent); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Reading</a>
+        <a href="../writing/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
         <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
       </div>
     </div>
@@ -93,13 +94,29 @@
       <p style="font-size:17px; line-height:1.6; color:var(--text-muted); margin:0; text-wrap:pretty;">Books I've read — the author, the argument, and the lines worth keeping. Sorted by when I read them.</p>
     </section>
 
-    <section style="max-width:1200px; margin:0 auto; padding:4px clamp(16px,5vw,64px) 16px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:nowrap;">
-      <div style="display:flex; flex:1 1 auto; min-width:0; background:var(--bg-chip); border-radius:8px; padding:4px; gap:4px; flex-wrap:wrap;">
-        <sc-for list="{{ genreChips }}" as="g" hint-placeholder-count="6">
-          <button onClick="{{ g.select }}" style="{{ g.chipStyle }}" style-hover="opacity:0.72 !important;">{{ g.name }} <span style="{{ g.countStyle }}">({{ g.count }})</span></button>
-        </sc-for>
+    <section style="max-width:1200px; margin:0 auto; padding:4px clamp(16px,5vw,64px) 16px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+      <div ref="{{ categoryWrapRef }}" style="position:relative; flex:none;">
+        <button onClick="{{ toggleCategoryMenu }}" aria-haspopup="listbox" aria-expanded="{{ categoryMenuOpen }}" style="{{ categoryButtonStyle }}" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+          <span>Category: {{ activeGenreLabel }}</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <sc-if value="{{ categoryMenuOpen }}" hint-placeholder-val="{{ false }}">
+          <div role="listbox" style="position:absolute; top:calc(100% + 8px); left:0; min-width:220px; background:var(--bg-card); border:1px solid var(--border); border-radius:12px; box-shadow:0 16px 32px rgba(0,0,0,0.22); padding:6px; z-index:50; max-height:min(70vh,420px); overflow-y:auto;">
+            <sc-for list="{{ categoryOptions }}" as="c" hint-placeholder-count="8">
+              <button onClick="{{ c.select }}" style="{{ c.rowStyle }}" style-hover="{{ c.rowHoverStyle }}">
+                <span>{{ c.name }}</span>
+                <sc-if value="{{ c.active }}" hint-placeholder-val="{{ false }}"><span style="color:var(--accent); font-weight:700;">✓</span></sc-if>
+              </button>
+            </sc-for>
+          </div>
+        </sc-if>
       </div>
-      <div ref="{{ sortWrapRef }}" style="position:relative; flex:0 0 auto; margin-left:4px;">
+      <div style="display:flex; align-items:center; gap:10px; flex:none;">
+      <button onClick="{{ toggleMustReadOnly }}" role="checkbox" aria-checked="{{ mustReadOnly }}" style="{{ mustReadButtonStyle }}" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+        <svg width="13" height="13" viewBox="0 0 24 24" style="{{ mustReadIconStyle }}" fill="currentColor" stroke="none"><path d="M12 2.5l2.9 6.6 7.1.6-5.4 4.7 1.7 6.9L12 17.3 5.7 20.8l1.7-6.9L2 9.7l7.1-.6L12 2.5z"></path></svg>
+        <span>Must-read</span>
+      </button>
+      <div ref="{{ sortWrapRef }}" style="position:relative; flex:none;">
         <button onClick="{{ toggleSortMenu }}" aria-haspopup="listbox" aria-expanded="{{ sortMenuOpen }}" aria-label="{{ sortAriaLabel }}" style="{{ sortButtonStyle }}" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
           <sc-if value="{{ sortIsRating }}" hint-placeholder-val="{{ false }}">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.5l2.9 6.6 7.1.6-5.4 4.7 1.7 6.9L12 17.3 5.7 20.8l1.7-6.9L2 9.7l7.1-.6L12 2.5z"></path></svg>
@@ -136,34 +153,40 @@
           </div>
         </sc-if>
       </div>
+      </div>
     </section>
 
     <section style="max-width:1200px; margin:0 auto; padding:8px clamp(16px,5vw,64px) 90px;">
+      <sc-if value="{{ noBooksFound }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:14px; color:var(--text-muted); padding:24px 0;">No books match this filter.</p>
+      </sc-if>
       <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(155px,1fr)); gap:32px 22px;">
         <sc-for list="{{ books }}" as="bk" hint-placeholder-count="10">
-          <div onClick="{{ bk.toggle }}" onKeyDown="{{ bk.onKeyDown }}" role="button" tabIndex="0" aria-expanded="{{ bk.expanded }}" style="{{ bk.cardStyle }}">
+          <div key="{{ bk.key }}" ref="{{ bk.cardRef }}" onClick="{{ bk.toggle }}" onKeyDown="{{ bk.onKeyDown }}" role="button" tabIndex="0" aria-expanded="{{ bk.expanded }}" style="{{ bk.cardStyle }}">
             <div ref="{{ bk.coverRef }}" style="{{ bk.coverWrapStyle }}" style-hover="transform:translateY(-5px) !important; box-shadow:0 18px 34px rgba(0,0,0,0.22) !important;">
               <img src="{{ bk.coverSrc }}" alt="Cover of {{ bk.title }}, by {{ bk.author }}" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">
               <sc-if value="{{ bk.showBadge }}" hint-placeholder-val="{{ false }}">
                 <div style="{{ bk.badgeStyle }}"><span style="{{ bk.badgeDotStyle }}"></span>{{ bk.badgeLabel }}</div>
               </sc-if>
-              <div style="position:absolute; right:8px; bottom:8px; width:24px; height:24px; border-radius:50%; background:var(--bg); border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; transform:{{ bk.chevronTransform }}; transition:transform 0.2s ease; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
-              </div>
             </div>
             <div style="{{ bk.infoStyle }}">
               <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:{{ bk.titleSize }}; color:var(--text); line-height:1.25;">{{ bk.title }}</div>
               <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); margin-top:3px;">{{ bk.author }}</div>
+              <sc-if value="{{ bk.expanded }}" hint-placeholder-val="{{ false }}">
+                <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-muted); margin-top:3px; text-transform:uppercase; letter-spacing:0.04em; animation:expandFadeIn 0.32s ease-out;">{{ bk.genre }}</div>
+              </sc-if>
               <sc-if value="{{ bk.showStars }}" hint-placeholder-val="{{ true }}">
-                <div style="position:relative; display:inline-block; font-size:13px; letter-spacing:1.5px; margin-top:5px; line-height:1;">
+                <div style="position:relative; display:block; width:max-content; font-size:13px; letter-spacing:1.5px; margin-top:5px; line-height:1;">
                   <span style="color:var(--text-faint);">★★★★★</span>
                   <span style="position:absolute; top:0; left:0; overflow:hidden; white-space:nowrap; width:{{ bk.starWidthPct }}; color:var(--star-color);">★★★★★</span>
                 </div>
               </sc-if>
               <sc-if value="{{ bk.expanded }}" hint-placeholder-val="{{ false }}">
-                <div style="{{ bk.yearBadgeStyle }}">{{ bk.yearLabel }}</div>
-                <p style="font-size:13.5px; color:var(--text-muted); line-height:1.5; margin:10px 0 0; max-width:480px;">{{ bk.blurb }}</p>
-                <p style="{{ bk.reviewStyle }}">{{ bk.reviewText }}</p>
+                <div style="animation:expandFadeIn 0.32s ease-out;">
+                  <div style="{{ bk.yearBadgeStyle }}">{{ bk.yearLabel }}</div>
+                  <p style="font-size:13.5px; color:var(--text-muted); line-height:1.5; margin:10px 0 0; max-width:480px;">{{ bk.blurb }}</p>
+                  <p style="{{ bk.reviewStyle }}">{{ bk.reviewText }}</p>
+                </div>
               </sc-if>
             </div>
           </div>
@@ -233,13 +256,16 @@ class Component extends DCLogic {
     bookGenreFilter: "All",
     statusFilter: "all",
     bookSortMode: "date-desc",
-    sortMenuOpen: false
+    sortMenuOpen: false,
+    mustReadOnly: false,
+    categoryMenuOpen: false
   };
 
   toggleBook = (key) => (e) => {
     if (e) e.preventDefault();
     const el = this.__coverEls && this.__coverEls[key];
     const width = el ? el.getBoundingClientRect().width : null;
+    this.__snapshotCardRects();
     this.setState(s => {
       const nowExpanded = !s.expandedBooks[key];
       const coverWidths = (nowExpanded && width) ? { ...s.coverWidths, [key]: width } : s.coverWidths;
@@ -247,19 +273,70 @@ class Component extends DCLogic {
     });
   };
   coverRef = (key) => (el) => { if (!this.__coverEls) this.__coverEls = {}; this.__coverEls[key] = el; };
+  cardRef = (key) => (el) => { if (!this.__cardEls) this.__cardEls = {}; this.__cardEls[key] = el; };
+
+  // FLIP: snapshot every visible card's position before the toggle-driven re-render,
+  // then in componentDidUpdate slide each card that moved from its old spot to its new one,
+  // so the grid reflow (siblings shifting when a card expands) reads as a slide, not a snap.
+  __snapshotCardRects = () => {
+    if (typeof window === "undefined" || !this.__cardEls) return;
+    const rects = {};
+    Object.keys(this.__cardEls).forEach((k) => {
+      const el = this.__cardEls[k];
+      if (el) rects[k] = el.getBoundingClientRect();
+    });
+    this.__preRects = rects;
+  };
+  componentDidUpdate() {
+    if (!this.__preRects) return;
+    const preRects = this.__preRects;
+    this.__preRects = null;
+    if (typeof window === "undefined") return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    Object.keys(preRects).forEach((k) => {
+      const el = this.__cardEls && this.__cardEls[k];
+      if (!el) return;
+      const before = preRects[k];
+      const after = el.getBoundingClientRect();
+      const dx = before.left - after.left;
+      const dy = before.top - after.top;
+      if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5) return;
+      el.style.transition = "none";
+      el.style.transform = `translate(${dx}px, ${dy}px)`;
+      requestAnimationFrame(() => {
+        el.style.transition = "transform 0.4s cubic-bezier(0.22,1,0.36,1)";
+        el.style.transform = "translate(0px, 0px)";
+        const cleanup = () => { el.style.transition = ""; el.style.transform = ""; el.removeEventListener("transitionend", cleanup); };
+        el.addEventListener("transitionend", cleanup);
+      });
+    });
+  }
   handleBookKeyDown = (key) => (e) => {
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); this.toggleBook(key)(e); }
   };
-  setBookGenreFilter = (g) => (e) => { if (e) e.preventDefault(); this.setState({ bookGenreFilter: g }); };
+  setBookGenreFilter = (g) => (e) => { if (e) e.preventDefault(); this.setState({ bookGenreFilter: g, categoryMenuOpen: false }); };
+  toggleCategoryMenu = (e) => { if (e) e.preventDefault(); this.setState(s => ({ categoryMenuOpen: !s.categoryMenuOpen })); };
+  categoryWrapRef = (el) => { this.__categoryWrapEl = el; };
   toggleSortMenu = (e) => { if (e) e.preventDefault(); this.setState(s => ({ sortMenuOpen: !s.sortMenuOpen })); };
   selectSortMode = (mode) => (e) => { if (e) e.preventDefault(); this.setState({ bookSortMode: mode, sortMenuOpen: false }); };
   selectStatusFilter = (v) => (e) => { if (e) e.preventDefault(); this.setState({ statusFilter: v, sortMenuOpen: false }); };
+  toggleMustReadOnly = (e) => { if (e) e.preventDefault(); this.setState(s => ({ mustReadOnly: !s.mustReadOnly, sortMenuOpen: false })); };
   sortWrapRef = (el) => { this.__sortWrapEl = el; };
 
   componentDidMount() {
     if (typeof document === "undefined") return;
+    // Warm the browser cache for every cover so switching filters never shows a stale image
+    // while the newly-visible cover (previously lazy, never fetched) loads in — the <img>
+    // tags themselves stay loading="lazy" per site convention; this just pre-fetches the bytes.
+    this.__coverPreloads = this.allBooks.map(b => {
+      const img = new Image();
+      img.src = "../assets/img/books/" + b.key + ".jpg";
+      return img;
+    });
     this.__onDocClick = (e) => {
-      if (this.__sortWrapEl && !this.__sortWrapEl.contains(e.target)) this.setState({ sortMenuOpen: false });
+      const outsideSort = this.__sortWrapEl && !this.__sortWrapEl.contains(e.target);
+      const outsideCategory = this.__categoryWrapEl && !this.__categoryWrapEl.contains(e.target);
+      if (outsideSort || outsideCategory) this.setState(s => ({ sortMenuOpen: outsideSort ? false : s.sortMenuOpen, categoryMenuOpen: outsideCategory ? false : s.categoryMenuOpen }));
     };
     document.addEventListener("mousedown", this.__onDocClick);
   }
@@ -277,49 +354,55 @@ class Component extends DCLogic {
 
   statusFilterOptionsDef = [
     { value: "all", label: "All books" },
-    { value: "reading", label: "Currently reading" },
+    { value: "reading", label: "Reading" },
     { value: "incomplete", label: "Incomplete" }
   ];
 
   // Books I've read — a flat data array, not separate pages. Click a cover to expand the take.
+  // Category taxonomy (see AI_README.md "Reading page book taxonomy" for the full hierarchy):
+  // genre = one of the 8 top-level filters (Fiction, Biography, History & Society, Science & Tech,
+  // Business, Money, Personal Development, Arts & Travel). subGenre = the specific leaf under it.
+  // Categorize every new book against that hierarchy before appending it here.
   allBooks = [
-    { key: "lifespan", title: "Lifespan: Why We Age—and Why We Don't Have To", author: "David A. Sinclair", genre: "Science", rating: 4, status: "reading", blurb: "Sinclair's case that aging is a treatable disease, built on his own longevity research.", date: new Date(2026, 8, 1), review: null },
-    { key: "the-mussoorie-murders", title: "The Mussoorie Murders", author: "Divyaroop Bhatnagar", genre: "Fiction", rating: 5, status: "reading", blurb: "A murder investigation unfolds against the hill-station backdrop of Mussoorie.", date: new Date(2026, 7, 15), review: null },
-    { key: "how-the-world-really-works", title: "How the World Really Works: A Scientist's Guide to Our Past, Present and Future", author: "Vaclav Smil", genre: "Science", rating: 4.5, status: "reading", blurb: "Smil explains the fundamentals — energy, food, materials, globalisation — behind how the modern world actually functions.", date: new Date(2026, 4, 15), review: null },
-    { key: "the-land-of-moonlit-snows", title: "The Land of Moonlit Snows & Other Real Travel Stories from the Indian Himalaya", author: "Gaurav Punj", genre: "Travel", rating: 3, blurb: "Real travel stories from treks and journeys through the Indian Himalaya.", date: new Date(2026, 2, 15), review: null },
-    { key: "the-remains-of-the-day", title: "The Remains of the Day", author: "Kazuo Ishiguro", genre: "Fiction", rating: 4, blurb: "An English butler reflects on a lifetime of service and duty during a road trip through the countryside.", date: new Date(2026, 1, 15), review: null },
-    { key: "the-picture-of-dorian-gray", title: "The Picture of Dorian Gray", author: "Oscar Wilde", genre: "Fiction", rating: 3, blurb: "Wilde's tale of a man who stays young while his portrait bears the mark of his sins.", date: new Date(2026, 0, 15), review: null },
-    { key: "days-at-the-morisaki-bookshop", title: "Days at the Morisaki Bookshop", author: "Satoshi Yagisawa", genre: "Fiction", rating: 3, blurb: "A woman rebuilds her life working at her uncle's secondhand bookshop in Tokyo's Jimbocho district.", date: new Date(2025, 1, 22), review: null },
-    { key: "men-without-women", title: "Men Without Women", author: "Haruki Murakami", genre: "Fiction", rating: 4, blurb: "Seven short stories about men who, in one way or another, find themselves alone.", date: new Date(2025, 1, 15), review: null },
-    { key: "the-silent-patient", title: "The Silent Patient", author: "Alex Michaelides", genre: "Fiction", rating: 5, blurb: "A psychotherapist becomes obsessed with treating a woman who won't speak after shooting her husband.", date: new Date(2025, 0, 25), review: null },
-    { key: "numbers-dont-lie", title: "Numbers Don't Lie: 71 Things You Need to Know About the World", author: "Vaclav Smil", genre: "Science", rating: 5, blurb: "71 short essays using data to explain how the world actually works, from energy to demographics.", date: new Date(2025, 0, 1), review: null },
-    { key: "a-murder-in-dehradun", title: "A Murder in Dehradun", author: "Siddharth Maheshwari", genre: "Fiction", rating: 4, blurb: "A true-crime-style thriller following the investigation of a murder in the hill town of Dehradun.", date: new Date(2024, 9, 17), review: null },
-    { key: "how-to-know-a-person", title: "How to Know a Person", author: "David Brooks", genre: "Non-fiction", rating: 5, blurb: "David Brooks on the skills and attention that let people truly see and understand one another.", date: new Date(2024, 8, 21), review: null },
-    { key: "one-of-us-is-lying", title: "One of Us Is Lying", author: "Karen M. McManus", genre: "Fiction", rating: 5, blurb: "Four students walk into detention; only three walk out alive, in this YA murder mystery.", date: new Date(2024, 8, 10), review: null },
-    { key: "ikigai", title: "Ikigai: The Japanese Secret to a Long and Happy Life", author: "Héctor García", genre: "Self-help", rating: 3, blurb: "A look at longevity and purpose through the lifestyle of Japan's Okinawan villagers.", date: new Date(2024, 5, 27), review: null },
-    { key: "technofeudalism", title: "Technofeudalism: What Killed Capitalism", author: "Yanis Varoufakis", genre: "Business", rating: 5, blurb: "Yanis Varoufakis argues capitalism has quietly been replaced by a rent-driven order run by tech platforms.", date: new Date(2024, 0, 13), review: null },
-    { key: "how-to-avoid-loss", title: "How to Avoid Loss and Earn Consistently in the Stock Market", author: "Prasenjit Paul", genre: "Finance", rating: 4, blurb: "A practical guide to value investing in the Indian stock market.", date: new Date(2024, 0, 7), review: null },
-    { key: "hp-deathly-hallows", title: "Harry Potter and the Deathly Hallows", author: "J.K. Rowling", genre: "Fiction", rating: 5, blurb: "Harry, Ron and Hermione hunt down the remaining Horcruxes in the final battle against Voldemort.", date: new Date(2023, 11, 28), review: null },
-    { key: "hp-half-blood-prince", title: "Harry Potter and the Half-Blood Prince", author: "J.K. Rowling", genre: "Fiction", rating: 5, blurb: "Harry uncovers Voldemort's past through his memories, with Dumbledore's help.", date: new Date(2023, 11, 15), review: null },
-    { key: "hp-order-of-the-phoenix", title: "Harry Potter and the Order of the Phoenix", author: "J.K. Rowling", genre: "Fiction", rating: 4, blurb: "Harry forms a secret student defence group as the Ministry denies Voldemort's return.", date: new Date(2023, 10, 20), review: null },
-    { key: "hp-goblet-of-fire", title: "Harry Potter and the Goblet of Fire", author: "J.K. Rowling", genre: "Fiction", rating: 5, blurb: "Harry competes in the deadly Triwizard Tournament as Voldemort's return draws near.", date: new Date(2023, 9, 16), review: null },
-    { key: "hp-prisoner-of-azkaban", title: "Harry Potter and the Prisoner of Azkaban", author: "J.K. Rowling", genre: "Fiction", rating: 5, blurb: "An escaped prisoner from Azkaban seems to be hunting Harry.", date: new Date(2023, 8, 23), review: null },
-    { key: "hp-chamber-of-secrets", title: "Harry Potter and the Chamber of Secrets", author: "J.K. Rowling", genre: "Fiction", rating: 5, blurb: "Harry's second year at Hogwarts, haunted by a mysterious chamber and its monster.", date: new Date(2023, 8, 16), review: null },
-    { key: "hp-philosophers-stone", title: "Harry Potter and the Philosopher's Stone", author: "J.K. Rowling", genre: "Fiction", rating: 5, blurb: "An orphaned boy discovers he's a wizard and begins his first year at Hogwarts.", date: new Date(2023, 8, 9), review: null },
-    { key: "how-will-you-measure-your-life", title: "How Will You Measure Your Life?", author: "Clayton M. Christensen", genre: "Business", rating: 4, blurb: "Clayton Christensen applies business-strategy frameworks to questions of career, relationships, and integrity.", date: new Date(2023, 7, 25), review: null },
-    { key: "how-to-win-friends", title: "How to Win Friends & Influence People", author: "Dale Carnegie", genre: "Self-help", rating: 5, blurb: "Dale Carnegie's classic guide to building relationships and influencing people ethically.", date: new Date(2023, 0, 8), review: null },
-    { key: "attitude-is-everything", title: "Attitude Is Everything", author: "Jeff Keller", genre: "Self-help", rating: 3, blurb: "A short motivational guide on how changing your attitude changes your results.", date: new Date(2022, 6, 22), review: null },
-    { key: "predictably-irrational", title: "Predictably Irrational", author: "Dan Ariely", genre: "Non-fiction", rating: 5, blurb: "Ariely's own MIT experiments on the hidden, irrational forces behind everyday decisions.", date: new Date(2020, 9, 29), review: "A collection of experiments Ariely ran while teaching at MIT, framed to observe our own daily routines as if we were outsiders looking in. Each experiment is its own chapter, and each one forces you to rethink what actually drives your decisions and the people around you — expectations, emotions, social norms, the invisible pulls that skew our reasoning. Written simply and organised clearly enough that it pulls you through in one sitting. A must-read." },
-    { key: "mans-search-for-meaning", title: "Man's Search for Meaning", author: "Viktor Frankl", genre: "Biography", rating: 4, blurb: "Frankl's account of surviving the Holocaust, and how he found meaning inside it.", date: new Date(2020, 9, 11), review: "Frankl's account of his years as a prisoner in Nazi concentration camps, and the method of logotherapy he built from it: meaning comes from work, love, or attitude, and it's found in the world rather than inside your own head. One of those books worth revisiting from time to time — camp survivors, for years, believed they'd reached the absolute limit of suffering, only to find it has none. You can't see the meaning of the whole film before its last sequence is shown." },
-    { key: "outliers", title: "Outliers", author: "Malcolm Gladwell", genre: "Non-fiction", rating: 4, blurb: "Gladwell on why success is never purely a matter of individual merit.", date: new Date(2020, 7, 23), review: "Gladwell picks apart the lives of exceptionally successful people to find what actually made the difference, against our habit of romanticising the self-made man who built an empire from nothing. Parentage, timing, and hidden opportunity all play a part. Full of case studies, and some run longer with more detail than they need to, but each one still lands the argument clearly and smoothly. Recommended — it will hand you a new perspective." },
-    { key: "the-alchemist", title: "The Alchemist", author: "Paulo Coelho", genre: "Fiction", rating: 4, blurb: "Coelho's fable of a shepherd boy chasing a prophecy to the pyramids of Egypt.", date: new Date(2020, 7, 3), review: "Santiago follows a recurring dream across the desert toward treasure at the pyramids, picking up a king's idea of a 'Personal Legend' along the way. Robbed twice, in love at an oasis, taught by an Alchemist who turns every life-threatening moment into a life lesson — at some points you speed through in anticipation of what's next, at others the author wanders off-topic. A must-read that helps you accept your daily struggles as necessary refinements toward your own Personal Legend." },
-    { key: "the-secret", title: "The Secret", author: "Rhonda Byrne", genre: "Self-help", rating: 3, blurb: "Byrne's Law of Attraction — the idea is worth knowing, the book is repetitive.", date: new Date(2020, 6, 29), review: "The pitch: every thought eventually turns into a thing, and you are a transmission tower emitting thoughts at a particular frequency, so think more about the rewards ahead than the losses behind. The idea is simple enough to explain in a paragraph, and the book spends its length restating it with different examples. Repetitive and boring — I wouldn't recommend reading it, just study the Law of Attraction itself and save yourself the boredom." },
-    { key: "monk-who-sold-his-ferrari", title: "The Monk Who Sold His Ferrari", author: "Robin Sharma", genre: "Self-help", rating: 4, blurb: "Sharma's fable of a burnt-out attorney who sells everything and flies to India.", date: new Date(2020, 6, 28), review: "Julian Mantle, a high-profile attorney, has a heart attack in the courtroom, sells everything he owns, and flies to India in search of Nirvana. He comes back changed, having learned the 7 Timeless Virtues of Enlightened Living from monks in the Himalayas, which he passes on to his former associate John. A slow-paced fable — some parts lose your attention, a fair share pull you straight through — built on the idea that material success alone doesn't buy a happy life. Recommended, for a few habits worth picking up." },
-    { key: "white-nights", title: "White Nights", author: "Fyodor Dostoevsky", genre: "Fiction", rating: 0, status: "incomplete", blurb: "A lonely dreamer in St Petersburg falls for a young woman over four sleepless summer nights.", date: new Date(2024, 6, 1), review: null },
-    { key: "shantaram", title: "Shantaram", author: "Gregory David Roberts", genre: "Fiction", rating: 0, status: "incomplete", blurb: "An escaped Australian convict builds a new life in the slums and criminal underworld of 1980s Bombay.", date: new Date(2019, 6, 1), review: null }
+    { key: "lifespan", title: "Lifespan: Why We Age—and Why We Don't Have To", author: "David A. Sinclair", genre: "Science & Technology", subGenre: "Science", rating: 3.5, status: "reading", blurb: "Sinclair's case that aging is a treatable disease, built on his own longevity research.", date: new Date(2026, 8, 1), review: null },
+    { key: "the-mussoorie-murders", title: "The Mussoorie Murders", author: "Divyaroop Bhatnagar", genre: "Fiction", subGenre: "Mystery and crime", rating: 4.5, status: "reading", blurb: "A murder investigation unfolds against the hill-station backdrop of Mussoorie.", date: new Date(2026, 7, 15), review: null },
+    { key: "how-the-world-really-works", title: "How the World Really Works: A Scientist's Guide to Our Past, Present and Future", author: "Vaclav Smil", genre: "Science & Technology", subGenre: "Science", rating: 4.5, status: "reading", blurb: "Smil explains the fundamentals — energy, food, materials, globalisation — behind how the modern world actually functions.", date: new Date(2026, 4, 15), review: null },
+    { key: "the-land-of-moonlit-snows", title: "The Land of Moonlit Snows & Other Real Travel Stories from the Indian Himalaya", author: "Gaurav Punj", genre: "Travel, Arts & Culture", subGenre: "Travel", rating: 2.5, blurb: "Real travel stories from treks and journeys through the Indian Himalaya.", date: new Date(2026, 2, 15), review: null },
+    { key: "the-remains-of-the-day", title: "The Remains of the Day", author: "Kazuo Ishiguro", genre: "Fiction", subGenre: "Literary fiction", rating: 3, blurb: "An English butler reflects on a lifetime of service and duty during a road trip through the countryside.", date: new Date(2026, 1, 15), review: null },
+    { key: "the-picture-of-dorian-gray", title: "The Picture of Dorian Gray", author: "Oscar Wilde", genre: "Fiction", subGenre: "Literary fiction", rating: 3, blurb: "Wilde's tale of a man who stays young while his portrait bears the mark of his sins.", date: new Date(2026, 0, 15), review: null },
+    { key: "days-at-the-morisaki-bookshop", title: "Days at the Morisaki Bookshop", author: "Satoshi Yagisawa", genre: "Fiction", subGenre: "Literary fiction", rating: 3, blurb: "A woman rebuilds her life working at her uncle's secondhand bookshop in Tokyo's Jimbocho district.", date: new Date(2025, 1, 22), review: null },
+    { key: "men-without-women", title: "Men Without Women", author: "Haruki Murakami", genre: "Fiction", subGenre: "Literary fiction", rating: 4, blurb: "Seven short stories about men who, in one way or another, find themselves alone.", date: new Date(2025, 1, 15), review: null },
+    { key: "the-silent-patient", title: "The Silent Patient", author: "Alex Michaelides", genre: "Fiction", subGenre: "Thriller", rating: 5, blurb: "A psychotherapist becomes obsessed with treating a woman who won't speak after shooting her husband.", date: new Date(2025, 0, 25), review: null },
+    { key: "numbers-dont-lie", title: "Numbers Don't Lie: 71 Things You Need to Know About the World", author: "Vaclav Smil", genre: "Science & Technology", subGenre: "Science", mustRead: true, rating: 5, blurb: "71 short essays using data to explain how the world actually works, from energy to demographics.", date: new Date(2025, 0, 1), review: null },
+    { key: "a-murder-in-dehradun", title: "A Murder in Dehradun", author: "Siddharth Maheshwari", genre: "Fiction", subGenre: "Mystery and crime", rating: 3.5, blurb: "A true-crime-style thriller following the investigation of a murder in the hill town of Dehradun.", date: new Date(2024, 9, 17), review: null },
+    { key: "why-bharat-matters", title: "Why Bharat Matters", author: "S. Jaishankar", genre: "History & Society", subGenre: "Politics and geopolitics", rating: 0, status: "incomplete", blurb: "India's external affairs minister sets out the civilisational reach and strategic thinking behind the country's foreign policy.", date: new Date(2024, 9, 5), review: null },
+    { key: "how-to-know-a-person", title: "How to Know a Person", author: "David Brooks", genre: "Personal Development", subGenre: "Communication and relationships", mustRead: true, rating: 5, blurb: "David Brooks on the skills and attention that let people truly see and understand one another.", date: new Date(2024, 8, 21), review: null },
+    { key: "one-of-us-is-lying", title: "One of Us Is Lying", author: "Karen M. McManus", genre: "Fiction", subGenre: "Mystery and crime", rating: 5, blurb: "Four students walk into detention; only three walk out alive, in this YA murder mystery.", date: new Date(2024, 8, 10), review: null },
+    { key: "sapiens", title: "Sapiens: A Brief History of Humankind", author: "Yuval Noah Harari", genre: "History & Society", subGenre: "History", rating: 0, status: "incomplete", blurb: "Harari traces humankind's rise through the cognitive, agricultural, and scientific revolutions, and the shared myths that hold large societies together.", date: new Date(2024, 5, 15), review: null },
+    { key: "ikigai", title: "Ikigai: The Japanese Secret to a Long and Happy Life", author: "Héctor García", genre: "Personal Development", subGenre: "Health and fitness", rating: 2.5, blurb: "A look at longevity and purpose through the lifestyle of Japan's Okinawan villagers.", date: new Date(2024, 5, 27), review: null },
+    { key: "technofeudalism", title: "Technofeudalism: What Killed Capitalism", author: "Yanis Varoufakis", genre: "Business & Economics", subGenre: "Economics", rating: 4.5, blurb: "Yanis Varoufakis argues capitalism has quietly been replaced by a rent-driven order run by tech platforms.", date: new Date(2024, 0, 13), review: null },
+    { key: "how-to-avoid-loss", title: "How to Avoid Loss and Earn Consistently in the Stock Market", author: "Prasenjit Paul", genre: "Money & Investing", subGenre: "Stock markets", rating: 3.5, blurb: "A practical guide to value investing in the Indian stock market.", date: new Date(2024, 0, 7), review: null },
+    { key: "hp-deathly-hallows", title: "Harry Potter and the Deathly Hallows", author: "J.K. Rowling", genre: "Fiction", subGenre: "Fantasy", rating: 4.5, blurb: "Harry, Ron and Hermione hunt down the remaining Horcruxes in the final battle against Voldemort.", date: new Date(2023, 11, 28), review: null },
+    { key: "hp-half-blood-prince", title: "Harry Potter and the Half-Blood Prince", author: "J.K. Rowling", genre: "Fiction", subGenre: "Fantasy", rating: 4.5, blurb: "Harry uncovers Voldemort's past through his memories, with Dumbledore's help.", date: new Date(2023, 11, 15), review: null },
+    { key: "hp-order-of-the-phoenix", title: "Harry Potter and the Order of the Phoenix", author: "J.K. Rowling", genre: "Fiction", subGenre: "Fantasy", rating: 4, blurb: "Harry forms a secret student defence group as the Ministry denies Voldemort's return.", date: new Date(2023, 10, 20), review: null },
+    { key: "hp-goblet-of-fire", title: "Harry Potter and the Goblet of Fire", author: "J.K. Rowling", genre: "Fiction", subGenre: "Fantasy", rating: 4.5, blurb: "Harry competes in the deadly Triwizard Tournament as Voldemort's return draws near.", date: new Date(2023, 9, 16), review: null },
+    { key: "hp-prisoner-of-azkaban", title: "Harry Potter and the Prisoner of Azkaban", author: "J.K. Rowling", genre: "Fiction", subGenre: "Fantasy", rating: 5, blurb: "An escaped prisoner from Azkaban seems to be hunting Harry.", date: new Date(2023, 8, 23), review: null },
+    { key: "hp-chamber-of-secrets", title: "Harry Potter and the Chamber of Secrets", author: "J.K. Rowling", genre: "Fiction", subGenre: "Fantasy", rating: 4.5, blurb: "Harry's second year at Hogwarts, haunted by a mysterious chamber and its monster.", date: new Date(2023, 8, 16), review: null },
+    { key: "hp-philosophers-stone", title: "Harry Potter and the Philosopher's Stone", author: "J.K. Rowling", genre: "Fiction", subGenre: "Fantasy", rating: 4.5, blurb: "An orphaned boy discovers he's a wizard and begins his first year at Hogwarts.", date: new Date(2023, 8, 9), review: null },
+    { key: "how-will-you-measure-your-life", title: "How Will You Measure Your Life?", author: "Clayton M. Christensen", genre: "Personal Development", subGenre: "Career", rating: 4, blurb: "Clayton Christensen applies business-strategy frameworks to questions of career, relationships, and integrity.", date: new Date(2023, 7, 25), review: null },
+    { key: "how-to-win-friends", title: "How to Win Friends & Influence People", author: "Dale Carnegie", genre: "Personal Development", subGenre: "Communication and relationships", rating: 4.5, blurb: "Dale Carnegie's classic guide to building relationships and influencing people ethically.", date: new Date(2023, 0, 8), review: null },
+    { key: "attitude-is-everything", title: "Attitude Is Everything", author: "Jeff Keller", genre: "Personal Development", subGenre: "Psychology", rating: 2, blurb: "A short motivational guide on how changing your attitude changes your results.", date: new Date(2022, 6, 22), review: null },
+    { key: "predictably-irrational", title: "Predictably Irrational", author: "Dan Ariely", genre: "Business & Economics", subGenre: "Economics", mustRead: true, rating: 5, blurb: "Ariely's own MIT experiments on the hidden, irrational forces behind everyday decisions.", date: new Date(2020, 9, 29), review: "A collection of experiments Ariely ran while teaching at MIT, framed to observe our own daily routines as if we were outsiders looking in. Each experiment is its own chapter, and each one forces you to rethink what actually drives your decisions and the people around you — expectations, emotions, social norms, the invisible pulls that skew our reasoning. Written simply and organised clearly enough that it pulls you through in one sitting. A must-read." },
+    { key: "mans-search-for-meaning", title: "Man's Search for Meaning", author: "Viktor Frankl", genre: "Biography & Memoir", subGenre: "Memoir", rating: 4, blurb: "Frankl's account of surviving the Holocaust, and how he found meaning inside it.", date: new Date(2020, 9, 11), review: "Frankl's account of his years as a prisoner in Nazi concentration camps, and the method of logotherapy he built from it: meaning comes from work, love, or attitude, and it's found in the world rather than inside your own head. One of those books worth revisiting from time to time — camp survivors, for years, believed they'd reached the absolute limit of suffering, only to find it has none. You can't see the meaning of the whole film before its last sequence is shown." },
+    { key: "outliers", title: "Outliers", author: "Malcolm Gladwell", genre: "History & Society", subGenre: "Sociology", rating: 4.5, blurb: "Gladwell on why success is never purely a matter of individual merit.", date: new Date(2020, 7, 23), review: "Gladwell picks apart the lives of exceptionally successful people to find what actually made the difference, against our habit of romanticising the self-made man who built an empire from nothing. Parentage, timing, and hidden opportunity all play a part. Full of case studies, and some run longer with more detail than they need to, but each one still lands the argument clearly and smoothly. Recommended — it will hand you a new perspective." },
+    { key: "the-alchemist", title: "The Alchemist", author: "Paulo Coelho", genre: "Fiction", subGenre: "Literary fiction", rating: 4, blurb: "Coelho's fable of a shepherd boy chasing a prophecy to the pyramids of Egypt.", date: new Date(2020, 7, 3), review: "Santiago follows a recurring dream across the desert toward treasure at the pyramids, picking up a king's idea of a 'Personal Legend' along the way. Robbed twice, in love at an oasis, taught by an Alchemist who turns every life-threatening moment into a life lesson — at some points you speed through in anticipation of what's next, at others the author wanders off-topic. A must-read that helps you accept your daily struggles as necessary refinements toward your own Personal Legend." },
+    { key: "the-secret", title: "The Secret", author: "Rhonda Byrne", genre: "Personal Development", subGenre: "Psychology", rating: 3, blurb: "Byrne's Law of Attraction — the idea is worth knowing, the book is repetitive.", date: new Date(2020, 6, 29), review: "The pitch: every thought eventually turns into a thing, and you are a transmission tower emitting thoughts at a particular frequency, so think more about the rewards ahead than the losses behind. The idea is simple enough to explain in a paragraph, and the book spends its length restating it with different examples. Repetitive and boring — I wouldn't recommend reading it, just study the Law of Attraction itself and save yourself the boredom." },
+    { key: "monk-who-sold-his-ferrari", title: "The Monk Who Sold His Ferrari", author: "Robin Sharma", genre: "Personal Development", subGenre: "Habits and productivity", rating: 3.5, blurb: "Sharma's fable of a burnt-out attorney who sells everything and flies to India.", date: new Date(2020, 6, 28), review: "Julian Mantle, a high-profile attorney, has a heart attack in the courtroom, sells everything he owns, and flies to India in search of Nirvana. He comes back changed, having learned the 7 Timeless Virtues of Enlightened Living from monks in the Himalayas, which he passes on to his former associate John. A slow-paced fable — some parts lose your attention, a fair share pull you straight through — built on the idea that material success alone doesn't buy a happy life. Recommended, for a few habits worth picking up." },
+    { key: "white-nights", title: "White Nights", author: "Fyodor Dostoevsky", genre: "Fiction", subGenre: "Literary fiction", rating: 0, status: "incomplete", blurb: "A lonely dreamer in St Petersburg falls for a young woman over four sleepless summer nights.", date: new Date(2024, 6, 1), review: null },
+    { key: "shantaram", title: "Shantaram", author: "Gregory David Roberts", genre: "Fiction", subGenre: "Literary fiction", rating: 0, status: "incomplete", blurb: "An escaped Australian convict builds a new life in the slums and criminal underworld of 1980s Bombay.", date: new Date(2019, 6, 1), review: null }
   ];
 
-  bookGenres = ["All", "Biography", "Business", "Fiction", "Finance", "Non-fiction", "Science", "Self-help", "Travel"];
+  bookGenres = ["All", "Fiction", "Biography & Memoir", "History & Society", "Science & Technology", "Business & Economics", "Money & Investing", "Personal Development", "Travel, Arts & Culture"];
 
   scrollToTop = (e) => {
     e.preventDefault();
@@ -341,6 +424,7 @@ class Component extends DCLogic {
       border: "#2a2f3b", borderStrong: "#363c4a",
       accent: "#87aed6", accentHover: "#a6c5e6",
       starColor: "#e3b34c",
+      mustReadBorder: "#f0c04a", mustReadGlow: "rgba(240,192,74,0.45)",
       btnBg: "#eef0f5", btnText: "#13151c",
       footerAccent: "#87aed6",
       footerBg: "#0a0c11", footerText: "#eef0f5", footerTextMuted: "#848a99", footerBorder: "#1f232c",
@@ -352,6 +436,7 @@ class Component extends DCLogic {
       border: "#e4dbca", borderStrong: "#d8cfc0",
       accent: "#3568a0", accentHover: "#244f78",
       starColor: "#b8842a",
+      mustReadBorder: "#c9861a", mustReadGlow: "rgba(201,134,26,0.45)",
       btnBg: "#241f19", btnText: "#faf7f0",
       footerAccent: "#87aed6",
       footerBg: "#241f19", footerText: "#faf7f0", footerTextMuted: "#a49a85", footerBorder: "#3a3327",
@@ -377,18 +462,22 @@ class Component extends DCLogic {
       "rating-asc": (a, b) => a.rating - b.rating
     };
     const statusFilter = this.state.statusFilter || "all";
+    const mustReadOnly = !!this.state.mustReadOnly;
     const visibleBooks = this.allBooks
-      .filter(b => (genreFilter === "All" || b.genre === genreFilter) && (statusFilter === "all" || (b.status || "finished") === statusFilter))
+      .filter(b => (genreFilter === "All" || b.genre === genreFilter) && (statusFilter === "all" || (b.status || "finished") === statusFilter) && (!mustReadOnly || b.mustRead))
       .slice()
       .sort(sortFns[bookSortMode] || sortFns["date-desc"]);
+    const noBooksFound = visibleBooks.length === 0;
 
-    const genreChips = this.bookGenres.map(g => {
+    const categoryMenuOpen = this.state.categoryMenuOpen;
+    const categoryButtonStyle = `display:flex; align-items:center; gap:6px; min-height:44px; padding:0 14px; border:1px solid ${t.borderStrong}; background:${t.bg}; color:${t.textMuted}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; border-radius:999px; cursor:pointer; white-space:nowrap; transition:border-color 0.15s, color 0.15s;`;
+    const categoryOptions = this.bookGenres.map(g => {
       const active = genreFilter === g;
       return {
         name: g,
-        count: g === "All" ? this.allBooks.length : this.allBooks.filter(b => b.genre === g).length,
-        chipStyle: `border:none; cursor:pointer; padding:11px 18px; border-radius:6px; font-size:13px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:${active ? t.btnBg : "transparent"}; color:${active ? t.btnText : t.textMuted}; transition:opacity 0.15s;`,
-        countStyle: `font-size:10.5px; opacity:0.7; text-transform:none; letter-spacing:normal;`,
+        active,
+        rowStyle: `display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; text-align:left; border:none; background:${active ? t.bgAlt : "transparent"}; color:${active ? t.text : t.textMuted}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; padding:10px 12px; border-radius:8px; cursor:pointer;`,
+        rowHoverStyle: `background:${t.bgAlt} !important;`,
         select: this.setBookGenreFilter(g)
       };
     });
@@ -421,29 +510,32 @@ class Component extends DCLogic {
     const statusFilterActive = statusFilter !== "all";
     const statusFilterLabel = (this.statusFilterOptionsDef.find(o => o.value === statusFilter) || {}).label || "All books";
     const sortAriaLabel = `Sort: ${currentSortLabel}. Filter: ${statusFilterLabel}`;
+    const mustReadButtonStyle = `display:flex; align-items:center; gap:6px; min-height:44px; padding:0 14px; border:1px solid ${mustReadOnly ? t.mustReadBorder : t.borderStrong}; background:${mustReadOnly ? t.mustReadGlow : t.bg}; color:${mustReadOnly ? t.text : t.textMuted}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; border-radius:999px; cursor:pointer; white-space:nowrap; transition:border-color 0.15s, color 0.15s, background 0.15s;`;
+    const mustReadIconStyle = `color:${mustReadOnly ? t.mustReadBorder : t.textMuted};`;
 
     const books = visibleBooks.map(b => {
       const expanded = !!this.state.expandedBooks[b.key];
       const status = b.status || "finished";
-      const badgeLabel = status === "reading" ? "Currently Reading" : status === "incomplete" ? "Unfinished" : "";
-      const badgeDotColor = status === "reading" ? "#6fa8d8" : "#e0935a";
+      const badgeLabel = status === "reading" ? "Reading" : status === "incomplete" ? "Unfinished" : "";
+      const badgeDotColor = status === "reading" ? "#4caf6e" : "#e0503f";
       const year = b.date.getFullYear();
       const yearLabel = status === "reading" ? `Reading since ${year}` : status === "incomplete" ? `Left unfinished in ${year}` : `Read in ${year}`;
+      const showBadge = status !== "finished";
       return {
         ...b,
         expanded,
         year,
         yearLabel,
         showStars: status === "finished",
-        showBadge: status !== "finished",
+        showBadge,
         badgeLabel,
-        badgeStyle: `position:absolute; top:8px; right:8px; display:flex; align-items:center; gap:4px; color:#fff; background:rgba(20,16,12,0.62); backdrop-filter:blur(4px); padding:4px 9px; border-radius:20px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em;`,
-        badgeDotStyle: `width:7px; height:7px; border-radius:50%; background:${badgeDotColor}; flex:none; display:inline-block;`,
+        badgeStyle: `position:absolute; top:8px; right:8px; display:flex; align-items:center; gap:3px; color:#fff; background:rgba(20,16,12,0.62); backdrop-filter:blur(4px); padding:3px 7px; border-radius:20px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.03em;`,
+        badgeDotStyle: `width:5px; height:5px; border-radius:50%; background:${badgeDotColor}; flex:none; display:inline-block;`,
         starWidthPct: (b.rating / 5 * 100) + "%",
-        chevronTransform: expanded ? "rotate(180deg)" : "rotate(0deg)",
         toggle: this.toggleBook(b.key),
         onKeyDown: this.handleBookKeyDown(b.key),
         coverRef: this.coverRef(b.key),
+        cardRef: this.cardRef(b.key),
         coverSrc: "../assets/img/books/" + b.key + ".jpg",
         reviewText: b.review || "No written thoughts yet \u2014 check back soon.",
         reviewStyle: b.review ? `font-size:14px; line-height:1.65; color:${t.textBody}; margin:10px 0 0; border-top:1px solid ${t.border}; padding-top:12px; max-width:480px;` : `font-size:14px; line-height:1.65; color:${t.textFaint}; margin:10px 0 0; border-top:1px solid ${t.border}; padding-top:12px; font-style:italic; max-width:480px;`,
@@ -453,15 +545,20 @@ class Component extends DCLogic {
           ? `grid-column:1 / -1; display:flex; gap:24px; align-items:flex-start; cursor:pointer; padding:6px 0;`
           : `grid-column:auto; display:flex; flex-direction:column; gap:0; cursor:pointer;`,
         coverWrapStyle: expanded
-          ? `position:relative; flex:0 0 ${Math.round(this.state.coverWidths[b.key] || 160)}px; width:${Math.round(this.state.coverWidths[b.key] || 160)}px; aspect-ratio:2/3; border-radius:10px; overflow:hidden; border:1px solid ${t.border}; box-shadow:0 10px 26px rgba(0,0,0,0.18); transition:transform 0.2s ease, box-shadow 0.2s ease;`
-          : `position:relative; width:100%; aspect-ratio:2/3; border-radius:10px; overflow:hidden; border:1px solid ${t.border}; box-shadow:0 6px 16px rgba(0,0,0,0.12); transition:transform 0.2s ease, box-shadow 0.2s ease;`,
+          ? `position:relative; flex:0 0 ${Math.round(this.state.coverWidths[b.key] || 160)}px; width:${Math.round(this.state.coverWidths[b.key] || 160)}px; aspect-ratio:2/3; border-radius:10px; overflow:hidden; border:${b.mustRead ? `2.5px solid ${t.mustReadBorder}` : `1px solid ${t.border}`}; box-shadow:${b.mustRead ? `0 0 0 1px rgba(0,0,0,0.18), 0 0 0 5px ${t.mustReadGlow}, 0 10px 26px rgba(0,0,0,0.18)` : "0 10px 26px rgba(0,0,0,0.18)"}; transition:transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s cubic-bezier(0.22,1,0.36,1);`
+          : `position:relative; width:100%; aspect-ratio:2/3; border-radius:10px; overflow:hidden; border:${b.mustRead ? `2.5px solid ${t.mustReadBorder}` : `1px solid ${t.border}`}; box-shadow:${b.mustRead ? `0 0 0 1px rgba(0,0,0,0.18), 0 0 0 5px ${t.mustReadGlow}, 0 6px 16px rgba(0,0,0,0.12)` : "0 6px 16px rgba(0,0,0,0.12)"}; transition:transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s cubic-bezier(0.22,1,0.36,1);`,
         infoStyle: expanded ? `flex:1; min-width:0; padding-top:2px;` : `padding-top:10px;`
       };
     });
 
     return {
       rootStyle,
-      genreChips,
+      categoryWrapRef: this.categoryWrapRef,
+      toggleCategoryMenu: this.toggleCategoryMenu,
+      categoryMenuOpen,
+      categoryButtonStyle,
+      categoryOptions,
+      activeGenreLabel: genreFilter,
       sortWrapRef: this.sortWrapRef,
       toggleSortMenu: this.toggleSortMenu,
       sortMenuOpen,
@@ -473,6 +570,11 @@ class Component extends DCLogic {
       statusFilterOptions,
       statusFilterActive,
       sortAriaLabel,
+      mustReadOnly,
+      toggleMustReadOnly: this.toggleMustReadOnly,
+      mustReadButtonStyle,
+      mustReadIconStyle,
+      noBooksFound,
       books,
       currentYear: new Date().getFullYear(),
       scrollToTop: this.scrollToTop,
