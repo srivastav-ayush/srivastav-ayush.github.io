@@ -125,6 +125,7 @@
         <a href="../work/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
         <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
         <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
+        <a href="../reading/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Reading</a>
         <a href="../writing/index.html" class="nav-link" aria-current="true" style="color:var(--accent); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
         <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
       </div>
@@ -135,7 +136,7 @@
   <main id="main">
 
   <article style="max-width:740px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 100px;">
-    <a href="../writing/index.html#education" onClick="{{ handleBack }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; margin-bottom:28px;">← Back to Writing</a>
+    <a href="../writing/index.html" onClick="{{ handleBack }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; margin-bottom:28px; min-height:44px;">← Back to Writing</a>
 
     <div ref="{{ titleRef }}">
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--tag); margin-bottom:14px;">Education</div>
@@ -320,18 +321,18 @@
         <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-faint); margin-bottom:14px;">Read next</div>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:12px;">
           <a href="ISB-vs-IIM-Cost-Comparison.dc.html" style="display:flex; flex-direction:column; gap:8px; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:var(--bg-card); transition:border-color 0.15s, transform 0.2s ease;" style-hover="border-color:var(--accent) !important; transform:translateY(-3px) !important;">
-            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent);">Education</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--tag-education);">Education</span>
             <span style="font-size:15px; line-height:1.45; font-weight:600; color:var(--text); text-wrap:pretty;">ISB vs IIM A/B/C: The Salary Where the Cheaper Option Flips</span>
           </a>
           <a href="iPhone-Ownership-Strategy.dc.html" style="display:flex; flex-direction:column; gap:8px; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:var(--bg-card); transition:border-color 0.15s, transform 0.2s ease;" style-hover="border-color:var(--accent) !important; transform:translateY(-3px) !important;">
-            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent);">Tech</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--tag-tech);">Tech</span>
             <span style="font-size:15px; line-height:1.45; font-weight:600; color:var(--text); text-wrap:pretty;">iPhone Ownership in India: When to Buy, and the Year You Should Sell</span>
           </a>
         </div>
       </div>
 
       <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:36px; padding-top:20px; border-top:1px solid var(--border);">
-        <strong style="color:var(--text-muted);">Data sources:</strong> <a href="https://www.mba.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">GMAT Official Guide and mba.com</a> exam specifications, ETS <a href="https://www.ets.org/gre" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">GRE General Test</a> specifications (post-September 2023 format), <a href="https://gmatclub.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">GMAT Club</a> and <a href="https://www.reddit.com/r/GMAT/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">r/GMAT</a> / <a href="https://www.reddit.com/r/GRE/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">r/GRE</a> community prep data. Section weights are approximate and vary slightly between official practice tests.
+        <strong style="color:var(--text-muted);">Data sources:</strong> <a href="https://www.mba.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener noreferrer">GMAT Official Guide and mba.com</a> exam specifications, ETS <a href="https://www.ets.org/gre" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener noreferrer">GRE General Test</a> specifications (post-September 2023 format), <a href="https://gmatclub.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener noreferrer">GMAT Club</a> and <a href="https://www.reddit.com/r/GMAT/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener noreferrer">r/GMAT</a> / <a href="https://www.reddit.com/r/GRE/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener noreferrer">r/GRE</a> community prep data. Section weights are approximate and vary slightly between official practice tests.
       </div>
 
       <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:14px;">
@@ -481,7 +482,7 @@ class Component extends DCLogic {
     const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
       `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
       `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
-      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText}; --sem-green:${t.sem.green}; --sem-amber:${t.sem.amber}; --sem-red:${t.sem.red}; --sem-purple:${t.sem.purple}; --fill-green:${t.fill.green}; --fill-amber:${t.fill.amber}; --fill-red:${t.fill.red}; --fill-purple:${t.fill.purple}; --fill-blue:${t.fill.blue}; --on-accent:${t.onAccent}; --tag:${this.state.dark ? "#a692d9" : "#5b4a9e"};`;
+      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText}; --sem-green:${t.sem.green}; --sem-amber:${t.sem.amber}; --sem-red:${t.sem.red}; --sem-purple:${t.sem.purple}; --fill-green:${t.fill.green}; --fill-amber:${t.fill.amber}; --fill-red:${t.fill.red}; --fill-purple:${t.fill.purple}; --fill-blue:${t.fill.blue}; --on-accent:${t.onAccent}; --tag:${this.state.dark ? "#a692d9" : "#5b4a9e"}; --tag-travel:${this.state.dark ? "#cd7d4b" : "#9c5024"}; --tag-tech:${this.state.dark ? "#87aed6" : "#3568a0"}; --tag-education:${this.state.dark ? "#a692d9" : "#5b4a9e"}; --tag-tools:${this.state.dark ? "#8ebd82" : "#3f6839"};`;
 
     const structureRows = [
       { factor: "Total duration", gmat: "2h 15m", gre: "≈1h 58m" },

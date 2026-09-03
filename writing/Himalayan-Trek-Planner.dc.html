@@ -125,6 +125,7 @@
         <a href="../work/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Work</a>
         <a href="../publications/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Publications</a>
         <a href="../talks/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Talks</a>
+        <a href="../reading/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Reading</a>
         <a href="../writing/index.html" class="nav-link" aria-current="true" style="color:var(--accent); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">Writing</a>
         <a href="../cv/index.html" class="nav-link" style="color:var(--text-faint); display:inline-flex; align-items:center; min-height:44px; padding:0 2px;">CV</a>
       </div>
@@ -135,7 +136,7 @@
   <main id="main">
 
   <article style="max-width:740px; margin:0 auto; padding:clamp(30px,5vw,48px) clamp(16px,5vw,64px) 100px;">
-    <a href="../writing/index.html#travel" onClick="{{ handleBack }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; margin-bottom:28px;">← Back to Writing</a>
+    <a href="../writing/index.html" onClick="{{ handleBack }}" style="font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; color:var(--text-faint); display:inline-flex; align-items:center; gap:6px; margin-bottom:28px; min-height:44px;">← Back to Writing</a>
 
     <div ref="{{ titleRef }}">
     <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--tag); margin-bottom:14px;">Travel</div>
@@ -461,18 +462,18 @@
         <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--text-faint); margin-bottom:14px;">Read next</div>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:12px;">
           <a href="Kudremukh-Trek.dc.html" style="display:flex; flex-direction:column; gap:8px; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:var(--bg-card); transition:border-color 0.15s, transform 0.2s ease;" style-hover="border-color:var(--accent) !important; transform:translateY(-3px) !important;">
-            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent);">Travel</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--tag-travel);">Travel</span>
             <span style="font-size:15px; line-height:1.45; font-weight:600; color:var(--text); text-wrap:pretty;">Kudremukh in a Day: 22 Kilometres Up Karnataka's Horse-Faced Peak</span>
           </a>
           <a href="Wearable-Watch-Decision.dc.html" style="display:flex; flex-direction:column; gap:8px; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:var(--bg-card); transition:border-color 0.15s, transform 0.2s ease;" style-hover="border-color:var(--accent) !important; transform:translateY(-3px) !important;">
-            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent);">Tech</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--tag-tech);">Tech</span>
             <span style="font-size:15px; line-height:1.45; font-weight:600; color:var(--text); text-wrap:pretty;">Rings, Bands, Smartwatches, Sport Watches: Which Fitness Wearable Is Actually Yours</span>
           </a>
         </div>
       </div>
 
       <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:36px; padding-top:20px; border-top:1px solid var(--border);">
-        <strong style="color:var(--text-muted);">Data sources and method:</strong> <a href="https://trekthehimalayas.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Trek the Himalayas</a>, <a href="https://indiahikes.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener">Indiahikes</a>, Nepal Mountain Trekkers, Indiahikes seasonal reports, and Nepal trekking permit databases. Views, summit feeling, cultural richness, and first-timer safety are scored per trek on a 1–10 scale; seasonal weather, trail vibe, and food are scored per quarter, because they are properties of the season rather than of the trail. Scores reflect seasonal conditions only, not a trek's absolute ceiling — the same trek scores differently in different quarters, which is why several appear twice. First-timer safety assumes an IMF-certified guided group operator; independent trekking lowers it by 2–3 points. Costs are approximate and exclude international flights unless noted.
+        <strong style="color:var(--text-muted);">Data sources and method:</strong> <a href="https://trekthehimalayas.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener noreferrer">Trek the Himalayas</a>, <a href="https://indiahikes.com/" style="color:var(--accent); font-weight:500;" style-hover="color:var(--accent-hover) !important;" target="_blank" rel="noopener noreferrer">Indiahikes</a>, Nepal Mountain Trekkers, Indiahikes seasonal reports, and Nepal trekking permit databases. Views, summit feeling, cultural richness, and first-timer safety are scored per trek on a 1–10 scale; seasonal weather, trail vibe, and food are scored per quarter, because they are properties of the season rather than of the trail. Scores reflect seasonal conditions only, not a trek's absolute ceiling — the same trek scores differently in different quarters, which is why several appear twice. First-timer safety assumes an IMF-certified guided group operator; independent trekking lowers it by 2–3 points. Costs are approximate and exclude international flights unless noted.
       </div>
 
       <div style="font-size:12.5px; color:var(--text-faint); line-height:1.7; margin-top:14px;">
@@ -785,7 +786,7 @@ class Component extends DCLogic {
     const rootStyle = `font-family:'Archivo',sans-serif; max-width:100%; overflow-x:hidden; background:var(--bg); color:var(--text); ` +
       `--bg:${t.bg}; --bg-alt:${t.bgAlt}; --bg-card:${t.bgCard}; --bg-chip:${t.bgChip}; --text:${t.text}; --text-body:${t.textBody}; --text-muted:${t.textMuted}; --text-faint:${t.textFaint}; ` +
       `--border:${t.border}; --border-strong:${t.borderStrong}; --dot-muted:${t.dotMuted}; --accent:${t.accent}; --accent-hover:${t.accentHover}; ` +
-      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText}; --sem-green:${t.sem.green}; --sem-amber:${t.sem.amber}; --sem-red:${t.sem.red}; --sem-purple:${t.sem.purple}; --fill-green:${t.fill.green}; --fill-amber:${t.fill.amber}; --fill-red:${t.fill.red}; --fill-purple:${t.fill.purple}; --fill-blue:${t.fill.blue}; --on-accent:${t.onAccent}; --tag:${this.state.dark ? "#cd7d4b" : "#9c5024"};`;
+      `--btn-bg:${t.btnBg}; --btn-text:${t.btnText}; --footer-accent:${t.footerAccent}; --footer-bg:${t.footerBg}; --footer-text:${t.footerText}; --footer-text-muted:${t.footerTextMuted}; --footer-border:${t.footerBorder}; --nav-bg:${t.navBg}; --selection-bg:${t.selectionBg}; --selection-text:${t.selectionText}; --sem-green:${t.sem.green}; --sem-amber:${t.sem.amber}; --sem-red:${t.sem.red}; --sem-purple:${t.sem.purple}; --fill-green:${t.fill.green}; --fill-amber:${t.fill.amber}; --fill-red:${t.fill.red}; --fill-purple:${t.fill.purple}; --fill-blue:${t.fill.blue}; --on-accent:${t.onAccent}; --tag:${this.state.dark ? "#cd7d4b" : "#9c5024"}; --tag-travel:${this.state.dark ? "#cd7d4b" : "#9c5024"}; --tag-tech:${this.state.dark ? "#87aed6" : "#3568a0"}; --tag-education:${this.state.dark ? "#a692d9" : "#5b4a9e"}; --tag-tools:${this.state.dark ? "#8ebd82" : "#3f6839"};`;
 
     const Q = { Q1: t.accent, Q2: t.sem.green, Q3: t.sem.amber, Q4: t.sem.purple };
     const QFill = { Q1: t.fill.blue, Q2: t.fill.green, Q3: t.fill.amber, Q4: t.fill.purple };

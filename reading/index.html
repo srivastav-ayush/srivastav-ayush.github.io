@@ -17,6 +17,25 @@
 <meta property="og:locale" content="en_IN">
 <meta property="og:image:alt" content="Ayush Srivastav — engineering portfolio, publications and writing.">
 <meta name="theme-color" content="#faf7f0">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Reading — Ayush Srivastav",
+ "description": "Books Ayush Srivastav has read — reviews, ratings, and when he read them.",
+ "url": "https://srivastav-ayush.github.io/reading/",
+ "inLanguage": "en",
+ "isPartOf": {
+   "@type": "WebSite",
+   "@id": "https://srivastav-ayush.github.io/#website"
+  },
+ "about": {
+   "@type": "Person",
+   "@id": "https://srivastav-ayush.github.io/#person",
+   "name": "Ayush Srivastav"
+  }
+}
+</script>
 <link rel="canonical" href="https://srivastav-ayush.github.io/reading/">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XML0VEY6NS"></script>
 <script>
@@ -89,9 +108,9 @@
   <div style="height:clamp(62px,9.5vh,84px);"></div>
 
   <main id="main">
-    <section style="max-width:1200px; margin:0 auto; padding:clamp(30px,5vw,48px) clamp(16px,5vw,64px) 20px;">
-      <h1 style="font-family:'Instrument Serif',serif; font-size:clamp(34px,6vw,46px); line-height:1.1; font-weight:400; margin:0 0 16px;">Reading</h1>
-      <p style="font-size:17px; line-height:1.6; color:var(--text-muted); margin:0; text-wrap:pretty;">Books I've read — the author, the argument, and the lines worth keeping. Sorted by when I read them.</p>
+    <section style="max-width:1200px; margin:0 auto; padding:48px clamp(16px,5vw,64px) 24px;">
+      <h1 style="font-family:'Instrument Serif',serif; font-size:clamp(34px,6vw,46px); font-weight:400; margin:0 0 16px;">Reading</h1>
+      <p style="font-size:17px; line-height:1.6; color:var(--text-muted); margin:0; text-wrap:pretty;">Books I've read, the ones I'm partway through, and the few I put down — the author, the argument, and the lines worth keeping.</p>
     </section>
 
     <section style="max-width:1200px; margin:0 auto; padding:4px clamp(16px,5vw,64px) 16px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
@@ -364,9 +383,9 @@ class Component extends DCLogic {
   // Business, Money, Personal Development, Arts & Travel). subGenre = the specific leaf under it.
   // Categorize every new book against that hierarchy before appending it here.
   allBooks = [
-    { key: "lifespan", title: "Lifespan: Why We Age—and Why We Don't Have To", author: "David A. Sinclair", genre: "Science & Technology", subGenre: "Science", rating: 3.5, status: "reading", blurb: "Sinclair's case that aging is a treatable disease, built on his own longevity research.", date: new Date(2026, 8, 1), review: null },
-    { key: "the-mussoorie-murders", title: "The Mussoorie Murders", author: "Divyaroop Bhatnagar", genre: "Fiction", subGenre: "Mystery and crime", rating: 4.5, status: "reading", blurb: "A murder investigation unfolds against the hill-station backdrop of Mussoorie.", date: new Date(2026, 7, 15), review: null },
-    { key: "how-the-world-really-works", title: "How the World Really Works: A Scientist's Guide to Our Past, Present and Future", author: "Vaclav Smil", genre: "Science & Technology", subGenre: "Science", rating: 4.5, status: "reading", blurb: "Smil explains the fundamentals — energy, food, materials, globalisation — behind how the modern world actually functions.", date: new Date(2026, 4, 15), review: null },
+    { key: "lifespan", title: "Lifespan: Why We Age—and Why We Don't Have To", author: "David A. Sinclair", genre: "Science & Technology", subGenre: "Science", rating: 0, status: "reading", blurb: "Sinclair's case that aging is a treatable disease, built on his own longevity research.", date: new Date(2026, 8, 1), review: null },
+    { key: "the-mussoorie-murders", title: "The Mussoorie Murders", author: "Divyaroop Bhatnagar", genre: "Fiction", subGenre: "Mystery and crime", rating: 0, status: "reading", blurb: "A murder investigation unfolds against the hill-station backdrop of Mussoorie.", date: new Date(2026, 7, 15), review: null },
+    { key: "how-the-world-really-works", title: "How the World Really Works: A Scientist's Guide to Our Past, Present and Future", author: "Vaclav Smil", genre: "Science & Technology", subGenre: "Science", rating: 0, status: "reading", blurb: "Smil explains the fundamentals — energy, food, materials, globalisation — behind how the modern world actually functions.", date: new Date(2026, 4, 15), review: null },
     { key: "the-land-of-moonlit-snows", title: "The Land of Moonlit Snows & Other Real Travel Stories from the Indian Himalaya", author: "Gaurav Punj", genre: "Travel, Arts & Culture", subGenre: "Travel", rating: 2.5, blurb: "Real travel stories from treks and journeys through the Indian Himalaya.", date: new Date(2026, 2, 15), review: null },
     { key: "the-remains-of-the-day", title: "The Remains of the Day", author: "Kazuo Ishiguro", genre: "Fiction", subGenre: "Literary fiction", rating: 3, blurb: "An English butler reflects on a lifetime of service and duty during a road trip through the countryside.", date: new Date(2026, 1, 15), review: null },
     { key: "the-picture-of-dorian-gray", title: "The Picture of Dorian Gray", author: "Oscar Wilde", genre: "Fiction", subGenre: "Literary fiction", rating: 3, blurb: "Wilde's tale of a man who stays young while his portrait bears the mark of his sins.", date: new Date(2026, 0, 15), review: null },

@@ -12,8 +12,9 @@ Static, hand-built, no framework and no build step. GitHub Pages serves the file
 | `/publications/` | `publications/index.html` (mirror of `publications/Publications.dc.html`) |
 | `/talks/` | `talks/index.html` (mirror of `talks/Talks.dc.html`) |
 | `/writing/` | `writing/index.html` (mirror of `writing/Articles.dc.html`) |
+| `/reading/` | `reading/index.html` (mirror of `reading/Reading.dc.html`) |
 | `/cv/` | `cv/index.html` (mirror of `cv/CV.dc.html`) |
-| `/writing/<Article-Name>.dc.html` | the five long-form essays |
+| `/writing/<Article-Name>.dc.html` | the eight long-form essays |
 
 Each section folder has an `index.html`, so GitHub Pages serves the clean URL (`/work/`) as
 well as the explicit one (`/work/index.html`). Links in the markup use the **explicit** form so
