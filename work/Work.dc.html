@@ -244,7 +244,7 @@
       <div style="font-size:16px; line-height:1.75; color:var(--text-body); margin-bottom:28px;"><sc-for list="{{ selectedProject.abstractSegments }}" as="sg" hint-placeholder-count="1"><sc-if value="{{ sg.isPlain }}" hint-placeholder-val="{{ true }}">{{ sg.text }}</sc-if><sc-if value="{{ sg.isBold }}" hint-placeholder-val="{{ false }}"><strong>{{ sg.text }}</strong></sc-if></sc-for></div>
 
       <sc-if value="{{ selectedProject.hasProcess }}">
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; padding:24px; background:var(--bg-chip); border-radius:12px; margin-bottom:28px;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr)); gap:20px; padding:24px; background:var(--bg-chip); border-radius:12px; margin-bottom:28px;">
           <sc-for list="{{ selectedProject.process }}" as="st" hint-placeholder-count="3">
             <div>
               <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); margin-bottom:6px;">{{ st.step }}</div>

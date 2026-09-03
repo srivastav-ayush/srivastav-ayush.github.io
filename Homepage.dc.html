@@ -298,7 +298,7 @@
                 <p style="font-size:15.5px; line-height:1.55; color:var(--text); font-weight:600; margin:0 0 10px;">{{ e.hook }}</p>
               </sc-if>
               <p style="font-size:14.5px; line-height:1.65; color:var(--text-muted); margin:0 0 16px;"><sc-if value="{{ e.hasIntroSegments }}" hint-placeholder-val="{{ false }}"><sc-for list="{{ e.introSegments }}" as="sg" hint-placeholder-count="1"><sc-if value="{{ sg.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ sg.url }}" target="_blank" rel="noopener noreferrer" style="color:inherit;">{{ sg.text }}</a></sc-if><sc-if value="{{ sg.isSup }}" hint-placeholder-val="{{ false }}"><sup>{{ sg.text }}</sup></sc-if><sc-if value="{{ sg.isPlain }}" hint-placeholder-val="{{ true }}">{{ sg.text }}</sc-if></sc-for></sc-if><sc-if value="{{ e.hasIntroSegmentsNot }}" hint-placeholder-val="{{ true }}">{{ e.introPre }}<sc-if value="{{ e.hasIntroLink }}"><a href="{{ e.introLinkUrl }}" target="_blank" rel="noopener noreferrer" style="color:inherit;">{{ e.introLinkText }}</a></sc-if>{{ e.introPost }}</sc-if></p>
-              <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; padding:22px; background:var(--bg-chip); border-radius:12px;">
+              <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr)); gap:20px; padding:22px; background:var(--bg-chip); border-radius:12px;">
                 <sc-for list="{{ e.process }}" as="st" hint-placeholder-count="3">
                   <div>
                     <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); margin-bottom:6px;">{{ st.step }}</div>

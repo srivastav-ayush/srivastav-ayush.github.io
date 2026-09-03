@@ -160,7 +160,7 @@
       <p style="margin:0 0 22px;">Most comparisons between ISB and the IIMs start and end with admission difficulty or brand pull. Cost is the one variable that actually has a computable answer: what a program costs once you add its fees to the salary you give up to attend it, and at what income that math tips in favour of one over the other. <strong style="color:var(--text);">That crossover isn't fixed.</strong> ISB packs its MBA into one year; IIM Ahmedabad, Bangalore, and Calcutta spread theirs across two. A shorter program with a higher fee trades against a longer one with a lower fee — and which side wins depends on the salary being given up, the raise you assume you'd otherwise have gotten, and how much of the fee you borrow.</p>
       <p style="font-size:14.5px; color:var(--text-muted); margin:0 0 22px; border-left:3px solid var(--accent); padding-left:16px;"><strong style="color:var(--text);">Scope:</strong> cost, and only cost. Fit, cohort, brand pull, and network are real and are not modelled here — this answers the narrower question of which programme is cheaper for you once foregone salary and loan interest are counted. Fees are ISB 2026-27 and IIM 2025-27; placement figures are the 2024-25 reported averages.</p>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:16px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr)); gap:12px; margin-bottom:16px;">
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
           <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">ISB total programme cost</div>
           <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(20px,2.9vw,24px); color:var(--text); line-height:1;">₹45.1L</div>
@@ -225,7 +225,7 @@
           Foregone salary (IIM) = current salary + current salary × (1 + {{ preIncrement }}%) = {{ oppFactorLabel }} × current salary
         </div>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:34px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr)); gap:12px; margin-bottom:34px;">
         <sc-for list="{{ crossoverCards }}" as="c" hint-placeholder-count="3">
           <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px; text-align:center;">
             <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Crossover vs {{ c.name }}</div>
@@ -244,7 +244,7 @@
           <input id="salarySlider" type="range" class="art-slider" min="6" max="40" step="1" value="{{ salary }}" onChange="{{ setSalary }}" style="flex:1; min-width:120px;">
           <div style="font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:800; color:var(--text); width:62px; text-align:right; flex-shrink:0;">₹{{ salary }}L</div>
         </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(100px,1fr)); gap:10px; margin:16px 0 4px;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100px,100%),1fr)); gap:10px; margin:16px 0 4px;">
           <sc-for list="{{ cashCards }}" as="c" hint-placeholder-count="4">
             <div style="background:var(--bg-chip); border-radius:8px; padding:12px 10px; text-align:center; border:2px solid {{ c.borderColor }};">
               <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">{{ c.name }}</div>
@@ -316,7 +316,7 @@
           <input id="loanYearsSlider" type="range" class="art-slider" min="1" max="10" step="1" value="{{ loanYears }}" onChange="{{ setLoanYears }}" style="flex:1; min-width:120px;">
           <div style="font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:800; color:var(--text); width:62px; text-align:right; flex-shrink:0;">{{ loanYears }} yr</div>
         </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(100px,1fr)); gap:10px; margin:16px 0 4px;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100px,100%),1fr)); gap:10px; margin:16px 0 4px;">
           <sc-for list="{{ loanCards }}" as="c" hint-placeholder-count="4">
             <div style="background:var(--bg-chip); border-radius:8px; padding:12px 10px; text-align:center; border:2px solid {{ c.borderColor }};">
               <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">{{ c.name }}</div>

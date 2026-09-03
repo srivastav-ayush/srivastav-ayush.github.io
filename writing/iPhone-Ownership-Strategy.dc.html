@@ -159,7 +159,7 @@
 
       <h2 style="font-family:'Instrument Serif',serif; font-size:clamp(23px,3.4vw,28px); font-weight:400; color:var(--text); margin:48px 0 16px; line-height:1.25;">The short answer</h2>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:24px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr)); gap:12px; margin-bottom:24px;">
         <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:16px 18px;">
           <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin-bottom:8px;">Cheapest strategy</div>
           <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(20px,2.9vw,24px); color:var(--text); line-height:1;">{{ s1Annual }}/yr</div>
@@ -278,7 +278,7 @@
         </div>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin-bottom:14px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr)); gap:14px; margin-bottom:14px;">
         <sc-for list="{{ strategyCards }}" as="s" hint-placeholder-count="3">
           <div style="background:var(--bg-card); border:1px solid var(--border); border-top:3px solid {{ s.color }}; border-radius:10px; padding:18px 18px;">
             <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); margin-bottom:4px;">{{ s.label }}</div>
@@ -316,7 +316,7 @@
           <input id="holdSlider" type="range" class="art-slider" min="1" max="7" step="1" value="{{ holdYears }}" onChange="{{ setHoldYears }}" style="flex:1; min-width:120px;">
           <div style="font-family:'JetBrains Mono',monospace; font-size:15px; font-weight:800; color:var(--text); width:62px; text-align:right; flex-shrink:0;">{{ holdYears }} yr</div>
         </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:10px; margin:16px 0 4px;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(110px,100%),1fr)); gap:10px; margin:16px 0 4px;">
           <sc-for list="{{ holdCards }}" as="c" hint-placeholder-count="4">
             <div style="background:var(--bg-chip); border-radius:8px; padding:12px 10px; text-align:center; border:2px solid {{ c.borderColor }};">
               <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">{{ c.name }}</div>
@@ -378,7 +378,7 @@
           <input id="floorSlider" type="range" class="art-slider" min="10" max="120" step="5" value="{{ expenseFloor }}" onChange="{{ setExpenseFloor }}" style="flex:1; min-width:120px;">
           <div style="font-family:'JetBrains Mono',monospace; font-size:15px; font-weight:800; color:var(--text); width:72px; text-align:right; flex-shrink:0;">{{ floorLabel }}</div>
         </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:10px; margin:16px 0 4px;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(110px,100%),1fr)); gap:10px; margin:16px 0 4px;">
           <sc-for list="{{ incomeCards }}" as="c" hint-placeholder-count="4">
             <div style="background:var(--bg-chip); border-radius:8px; padding:12px 10px; text-align:center; border:2px solid {{ c.borderColor }};">
               <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">{{ c.name }}</div>
