@@ -730,9 +730,9 @@ class Component extends DCLogic {
   }
 
   allProjects = [
-    { id: "gt-vehicle", logoShape: "wide", category: "work", tag: "Work Project", title: "Vehicle sizing", year: 2023, img: "../assets/img/portfolio/GT-vehicle-1.jpg", images: ["../assets/img/portfolio/GT-vehicle-1.jpg","../assets/img/portfolio/GT-vehicle-2.jpg","../assets/img/portfolio/GT-vehicle-3.jpg","../assets/img/portfolio/GT-vehicle-4.jpg"],
+    { id: "gt-vehicle", logoShape: "wide", category: "work", tag: "Work Project", title: "2W EV component sizing", year: 2023, img: "../assets/img/portfolio/vehicle-sizing-cover.jpg", images: ["../assets/img/portfolio/vehicle-sizing-cover.jpg","../assets/img/portfolio/GT-vehicle-1.jpg","../assets/img/portfolio/GT-vehicle-2.jpg","../assets/img/portfolio/GT-vehicle-3.jpg","../assets/img/portfolio/GT-vehicle-4.jpg"],
       orgName: "Ola Electric", orgLogo: "../assets/logos/ola-cropped.png",
-      summary: "Defining vehicle-level specs — battery, motor, gearing — to hit performance and range targets.",
+      summary: "Defining vehicle-level specs — battery, motor, gearing, aero, electricals — to hit performance and range targets.",
       role: "Owned vehicle-level spec definition across the platform lineup",
       stat: { value: "2", label: "vehicle platforms specced (S1 and M1)" },
       process: [
@@ -747,39 +747,63 @@ class Component extends DCLogic {
         { text: "S1 scooter platform", kind: "bold" }, { text: " and an all-new ", kind: "plain" }, { text: "M1 motorcycle platform", kind: "bold" }, { text: " — I owned spec definition across both.", kind: "plain" }
       ],
       skills: [{ name: "GT Suite", note: "1D vehicle performance model" }], links: [] },
-    { id: "gt-thermal", logoShape: "wide", category: "work", tag: "Work Project", title: "Temperature based deration", year: 2024, img: "../assets/img/portfolio/GT-thermal-2.jpg", images: ["../assets/img/portfolio/GT-thermal-2.jpg","../assets/img/portfolio/GT-thermal-1.jpg","../assets/img/portfolio/GT-thermal-3.jpg","../assets/img/portfolio/GT-thermal-4.jpg"],
+    { id: "thermal-management", logoShape: "wide", category: "work", tag: "Work Project", title: "1D/3D thermal modeling", year: 2024, img: "../assets/img/portfolio/thermal-management-cover.jpg", images: ["../assets/img/portfolio/thermal-management-cover.jpg","../assets/img/portfolio/batteryCHT-2.jpg","../assets/img/portfolio/batteryCHT-1.jpg","../assets/img/portfolio/batteryCHT-3.jpg","../assets/img/portfolio/batteryCHT-4.jpg","../assets/img/portfolio/batteryCHT-5.jpg","../assets/img/portfolio/GT-thermal-2.jpg","../assets/img/portfolio/GT-thermal-1.jpg","../assets/img/portfolio/GT-thermal-3.jpg","../assets/img/portfolio/GT-thermal-4.jpg"],
       orgName: "Ola Electric", orgLogo: "../assets/logos/ola-cropped.png",
-      summary: "Predicting how far a vehicle can drive before thermal deration kicks in, across drive cycles.",
-      role: "Built and owned the thermal deration prediction model",
-      stat: { value: "2", label: "vehicle platforms modeled for thermal deration (S1 and M1)" },
+      summary: "Cell-to-vehicle battery cooling and thermal deration prediction, from CFD and FE models to a 1D vehicle model.",
+      role: "Designed the cooling concept and built the thermal deration prediction model, end to end",
+      stat: { value: "2", label: "vehicle platforms with cooling and thermal deration modeled end-to-end (S1 and M1)" },
       process: [
-        { step: "Problem", text: "Predict how far a rider can go before heat forces the vehicle to derate performance." },
-        { step: "Approach", text: "Lumped-parameter and FE thermal models of battery, motor, MCU, and charger, integrated with the vehicle model." },
-        { step: "Result", text: "Defined how hard every vehicle in the S1 and M1 platforms can run before heat forces battery current deration — quantifying the hit to performance, range, and charging time across ambient conditions and drive cycles." }
+        { step: "Problem", text: "Keep cell temperatures safe across the pack under varying coolant flow, and predict how far a rider can go before heat forces the vehicle to derate performance." },
+        { step: "Approach", text: "Conjugate heat transfer CFD in StarCCM+ derived heat transfer coefficients for a cold-plate cooling concept; lumped-parameter and FE thermal models of battery, motor, MCU, and charger built on top and integrated with the vehicle model." },
+        { step: "Result", text: "Cold-plate cooling concept validated cell-to-vehicle for the S1 and M1 platforms, and used to define how hard every vehicle can run before heat forces battery current deration — quantifying the hit to performance, range, and charging time across ambient conditions and drive cycles." }
       ],
-      meta: [{ label: "Product", value: "S1 platform and M1 platform" }, { label: "Timeline", value: "'22 – '23" }],
+      meta: [{ label: "Product", value: "S1 platform and M1 platform" }, { label: "Timeline", value: "'22 – '24" }],
       abstractSegments: [
-        { text: "Push an EV hard enough and heat builds up in the ", kind: "plain" }, { text: "battery, motor, MCU, and charger", kind: "bold" },
-        { text: " faster than it can dissipate — forcing the vehicle to derate performance to protect the components, and leaving the rider wondering how much farther they can actually go. I built the thermal models behind that limit for Ola's ", kind: "plain" }, { text: "S1 and M1 platforms", kind: "bold" },
-        { text: ", quantifying how much of a hit performance, range, and charging time took as heat forced each vehicle to pull back power.", kind: "plain" }
+        { text: "Li-ion cells have a narrow safe operating temperature band — run them too hot and they degrade faster, and pushing an EV hard enough builds up heat in the ", kind: "plain" }, { text: "battery, motor, MCU, and charger", kind: "bold" },
+        { text: " faster than it can dissipate, forcing the vehicle to derate performance to protect the components. I validated a ", kind: "plain" }, { text: "cold-plate cooling", kind: "bold" },
+        { text: " concept from cell to vehicle level and built the thermal models behind the deration limit, across Ola's ", kind: "plain" }, { text: "S1 and M1 platforms", kind: "bold" },
+        { text: " — quantifying how much of a hit performance, range, and charging time took as heat forced each vehicle to pull back power.", kind: "plain" }
       ],
-      skills: [{ name: "GT Suite", note: "vehicle + thermal integration" }, { name: "MATLAB", note: "lumped-parameter thermal models" }], links: [] },
-    { id: "battery-cht", logoShape: "wide", category: "work", tag: "Work Project", title: "Battery Thermal Management", year: 2025, img: "../assets/img/portfolio/batteryCHT-2.jpg", images: ["../assets/img/portfolio/batteryCHT-2.jpg","../assets/img/portfolio/batteryCHT-1.jpg","../assets/img/portfolio/batteryCHT-3.jpg","../assets/img/portfolio/batteryCHT-4.jpg","../assets/img/portfolio/batteryCHT-5.jpg"],
+      skills: [{ name: "StarCCM+", note: "CFD heat transfer coefficients" }, { name: "GT Suite", note: "vehicle + thermal integration, 1D thermal + radiator circuit" }, { name: "MATLAB", note: "lumped-parameter thermal models" }], links: [] },
+    { id: "cell-modeling", logoShape: "wide", category: "work", tag: "Work Project", title: "Li-ion cell selection", year: 2025, img: "../assets/img/portfolio/cell-modeling-cover.jpg", images: ["../assets/img/portfolio/cell-modeling-cover.jpg","../assets/img/portfolio/cell-modeling-2.jpg","../assets/img/portfolio/cell-modeling-3.jpg"],
       orgName: "Ola Electric", orgLogo: "../assets/logos/ola-cropped.png",
-      summary: "Cell-to-vehicle battery cooling: CFD-derived heat transfer coefficients feeding a 1D thermal model.",
-      role: "Designed the cooling concept and led the CFD-to-1D handoff",
-      stat: { value: "2", label: "vehicle platforms with cell-to-vehicle cooling validated (S1 and M1)" },
+      summary: "Cell characterization across vendors and form factors, and fleet-data-driven battery state-of-health modeling.",
+      role: "Served as technical support to cell sourcing, and owned cell characterization and SoH modeling",
+      stat: { value: "3", label: "cylindrical cell form factors characterized (18650, 21700, 4680) across six vendors" },
       process: [
-        { step: "Problem", text: "Keep cell temperatures safe across the pack under varying coolant flow." },
-        { step: "Approach", text: "Conjugate heat transfer CFD in StarCCM+ to derive heat transfer coefficients, fed into a 1D battery thermal model with a radiator circuit." },
-        { step: "Result", text: "Cold-plate cooling concept validated cell-to-vehicle for the S1 and M1 platforms, and sized against real drive cycles." }
+        { step: "Problem", text: "Support cell sourcing decisions as Ola's chemistry moved from NMC to NCA to LFP, and predict how a cell's capacity fades as a vehicle accumulates real-world mileage." },
+        { step: "Approach", text: "Characterized OCV, pulse discharge/charge DC-resistance, and capacity across temperature (-20°C to 55°C) for cylindrical cells from LG Chem, TenPower, BAK, CATL, EVE, and Ola in 18650, 21700, and 4680 formats, weighing energy density, weight, thermal stability, and performance; integrated the data into vehicle models and built an HPPC-based capacity-degradation and SoH model, cross-checked against fleet cloud data binned by odometer." },
+        { step: "Result", text: "Cell selection input that carried Ola through two chemistry transitions, and a capacity-fade/SoH model used for warranty decisions and validated against real fleet mileage data." }
       ],
-      meta: [{ label: "Product", value: "S1 platform and M1 platform" }, { label: "Timeline", value: "'23 – '24" }],
+      meta: [{ label: "Product", value: "S1 platform and M1 platform" }, { label: "Timeline", value: "2025" }],
       abstractSegments: [
-        { text: "Li-ion cells have a narrow safe operating temperature band — run them too hot and they degrade faster, and uneven coolant flow across the pack means some cells age faster than others. I validated a ", kind: "plain" }, { text: "cold-plate cooling", kind: "bold" },
-        { text: " concept from cell to vehicle level across Ola's ", kind: "plain" }, { text: "S1 and M1 platforms", kind: "bold" }, { text: ".", kind: "plain" }
+        { text: "As Ola's cell chemistry moved from ", kind: "plain" }, { text: "NMC to NCA to LFP", kind: "bold" },
+        { text: ", I served as technical support to sourcing — characterizing ", kind: "plain" }, { text: "OCV, pulse DC-resistance, and capacity", kind: "bold" },
+        { text: " across temperature for cylindrical cells from ", kind: "plain" }, { text: "six vendors and three form factors (18650, 21700, 4680)", kind: "bold" },
+        { text: ", weighing energy density, weight, thermal stability, and performance. That data fed a ", kind: "plain" }, { text: "capacity-degradation and state-of-health model", kind: "bold" },
+        { text: ", built from cycle-life and HPPC test data and validated against real ", kind: "plain" }, { text: "fleet cloud data", kind: "bold" }, { text: ", binned by odometer — used to inform warranty decisions.", kind: "plain" }
       ],
-      skills: [{ name: "StarCCM+", note: "CFD heat transfer coefficients" }, { name: "GT Suite", note: "1D thermal + radiator circuit" }], links: [] },
+      skills: [{ name: "MATLAB/Simulink", note: "CCCV cycling & capacity-degradation model" }, { name: "Python", note: "fleet cloud data analysis" }], links: [] },
+    { id: "battery-safety", logoShape: "wide", category: "work", tag: "Work Project", title: "Battery fire protection", year: 2025, img: "../assets/img/portfolio/battery-safety-cover.jpg", images: ["../assets/img/portfolio/battery-safety-cover.jpg","../assets/img/portfolio/battery-safety-3.jpg","../assets/img/portfolio/battery-safety-4.jpg","../assets/img/portfolio/battery-safety-5.jpg"],
+      orgName: "Ola Electric", orgLogo: "../assets/logos/ola-cropped.png",
+      summary: "Cell-to-cell thermal propagation testing and fire-resistant module design for AIS-156 compliance.",
+      role: "Led fire root-cause investigation, thermal propagation testing, and fire-resistant module design",
+      stat: { value: "6x", label: "cheaper than the next available propagation-prevention solution, now patented and in production" },
+      process: [
+        { step: "Problem", text: "Meet AIS-156 (Amendment 3) thermal propagation requirements, and find the root causes behind EV fire incidents." },
+        { step: "Approach", text: "Partnered with Exponent on cell-to-cell thermal propagation testing and simulation — comparing a triggered cell's temperature against its neighbors through runaway — while running BMS short-circuit testing and CT-scanning ideal, defective, and burst cells to trace fire root causes." },
+        { step: "Result", text: "Instead of adopting an available supplier solution, I designed a ceramic-wool propagation-prevention module roughly 6x cheaper than the next alternative, and carried it through mechanical design refinement, BMS protection-logic development, and manufacturing handoff into production — patented in India (IN 447009) and internationally via WIPO (WO2024095291A1), alongside a separate patent for a defective-cell detection method (IN 444783)." }
+      ],
+      meta: [{ label: "Standard", value: "AIS-156 (Amendment 3)" }, { label: "Timeline", value: "2025" }],
+      abstractSegments: [
+        { text: "India's ", kind: "plain" }, { text: "AIS-156 (Amendment 3)", kind: "bold" },
+        { text: " standard sets thermal propagation requirements for EV battery packs — a design has to contain a single cell's failure rather than let it cascade through the pack. Working with ", kind: "plain" }, { text: "Exponent", kind: "bold" },
+        { text: ", I ran cell-to-cell thermal propagation tests and simulations, and traced fire root causes through BMS short-circuit testing and CT scans of ideal, defective, and burst cells — the basis for a separate ", kind: "plain" }, { text: "defective-cell detection patent", kind: "bold" },
+        { text: ". Rather than adopt an available supplier solution, I designed a ", kind: "plain" }, { text: "ceramic-wool propagation-prevention module", kind: "bold" },
+        { text: " — roughly ", kind: "plain" }, { text: "6x cheaper", kind: "bold" },
+        { text: " than the next available alternative — and carried it through mechanical design, BMS protection logic, and manufacturing handoff into production, patented in India and internationally via WIPO.", kind: "plain" }
+      ],
+      skills: [{ name: "MATLAB", note: "thermal propagation simulation" }, { name: "X-ray CT", note: "cell defect inspection" }], links: [] },
     { id: "cartilage", logoShape: "wide-lg", category: "research", tag: "Research Project", title: "Articular cartilage regeneration", year: 2022, img: "../assets/img/portfolio/cartilage-1.jpg", images: ["../assets/img/portfolio/cartilage-1.jpg","../assets/img/portfolio/cartilage-2.jpg"],
       orgName: "KU Leuven", orgLogo: "../assets/logos/ku-leuven.png",
       summary: "FEA of cartilage regeneration inside a mechanically stimulated hydrogel scaffold.",
@@ -797,7 +821,7 @@ class Component extends DCLogic {
         { text: " that encourages stem cells to differentiate and regenerate the tissue. As the sole developer of the simulation pipeline, I found that mechanical loading on the scaffold pushes differentiation toward fibrous tissue instead of hyaline cartilage — evidence for tuning scaffold stiffness rather than assuming stimulation alone is enough.", kind: "plain" }
       ],
       skills: [{ name: "Abaqus", note: "poro-hyperelastic FE model" }, { name: "MATLAB", note: "co-simulation + property updates" }, { name: "Fortran", note: "poro-hyperelastic constitutive subroutine" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/Cartilage_hydrogel_regeneration", type: "github" }] },
-    { id: "socketsense", category: "research", tag: "Research Project", title: "Socket Sense", titleUrl: "https://www.socketsense.eu/", year: 2021, img: "../assets/img/portfolio/socketsense-1.jpg", images: ["../assets/img/portfolio/socketsense-1.jpg","../assets/img/portfolio/socketsense-2.jpg","../assets/img/portfolio/socketsense-3.jpeg","../assets/img/portfolio/socketsense-4.jpg","../assets/img/portfolio/socketsense-5.jpg","../assets/img/portfolio/socketsense-6.jpg"],
+    { id: "socketsense", category: "research", tag: "Research Project", title: "Socket Sense", titleUrl: "https://www.socketsense.eu/", year: 2021, img: "../assets/img/portfolio/socketsense-cover.jpg", images: ["../assets/img/portfolio/socketsense-cover.jpg","../assets/img/portfolio/socketsense-1.jpg","../assets/img/portfolio/socketsense-2.jpg","../assets/img/portfolio/socketsense-3.jpeg","../assets/img/portfolio/socketsense-4.jpg","../assets/img/portfolio/socketsense-5.jpg","../assets/img/portfolio/socketsense-6.jpg"],
       orgName: "KTH Royal Institute of Technology", orgLogo: "../assets/logos/kth.png",
       summary: "Pressure-distribution FEA of a transfemoral amputee's stump-socket interface.",
       role: "Remote Intern — Major Project Thesis; led the simulation and analysis",
@@ -814,7 +838,7 @@ class Component extends DCLogic {
         { text: " — the work behind my ", kind: "plain" }, { text: "Major Project Thesis", kind: "bold" }, { text: ".", kind: "plain" }
       ],
       skills: [{ name: "ANSYS", note: "socket–stump–femur FE model, frictional contact" }, { name: "OpenSim", note: "inverse kinematics & dynamics from gait data" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/socket-sense", type: "github" }, { label: "Major Project Thesis", url: "https://drive.google.com/file/d/1Iq8iHG-aLJQCsMoNtcDTl3kaXE3R4Z-n/view?usp=drive_link", type: "paper" }, { label: "White Paper", url: "https://www.socketsense.eu/publications/", type: "paper" }] },
-    { id: "hyper-sphere", category: "research", tag: "Research Project", title: "Hyperelastic spherical actuator", year: 2021, img: "../assets/img/portfolio/hyper_sphere-1.jpg", images: ["../assets/img/portfolio/hyper_sphere-1.jpg","../assets/img/portfolio/hyper_sphere-2.jpg"],
+    { id: "hyper-sphere", category: "research", tag: "Research Project", title: "Hyperelastic spherical actuator", year: 2021, img: "../assets/img/portfolio/hyper_sphere-cover.jpg", images: ["../assets/img/portfolio/hyper_sphere-cover.jpg","../assets/img/portfolio/hyper_sphere-1.jpg","../assets/img/portfolio/hyper_sphere-2.jpg"],
       orgName: "MANIT Bhopal", orgLogo: "../assets/logos/manit.png",
       summary: "FEA of a hyperelastic spherical actuator for soft robotics and haptic feedback.",
       role: "Undergraduate researcher — built the analytical and FE model",
@@ -829,7 +853,7 @@ class Component extends DCLogic {
         { text: "Soft robotics and haptic feedback systems", kind: "bold" }, { text: " increasingly rely on hyperelastic actuators that can undergo huge, reversible deformation, but prior balloon-actuator models ignored rotation despite it dominating motion in soft robotic arms. I built an analytical model and verified it against FE simulation, showing that increasing rotational speed from ", kind: "plain" }, { text: "0 to 240 rpm", kind: "bold" }, { text: " lowers the critical inflation pressure and amplifies stress at the inner periphery.", kind: "plain" }
       ],
       skills: [{ name: "Abaqus CAE", note: "FE verification" }, { name: "MATLAB", note: "analytical model" }, { name: "Fortran", note: "UHYPER material subroutine" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/hyperelastic-spherical-actuator", type: "github" }, { label: "Journal Article (DOI)", url: "https://doi.org/10.1080/14484846.2022.2062882", type: "paper" }] },
-    { id: "scaphoid", category: "research", tag: "Research Project", title: "Scaphoid Analysis", year: 2021, img: "../assets/img/portfolio/scaphoid-1.jpg", images: ["../assets/img/portfolio/scaphoid-1.jpg","../assets/img/portfolio/scaphoid-2.jpg","../assets/img/portfolio/scaphoid-3.jpg","../assets/img/portfolio/scaphoid-4.jpg","../assets/img/portfolio/scaphoid-5.jpg","../assets/img/portfolio/scaphoid-6.jpg"],
+    { id: "scaphoid", category: "research", tag: "Research Project", title: "Scaphoid Analysis", year: 2021, img: "../assets/img/portfolio/scaphoid-cover.jpg", images: ["../assets/img/portfolio/scaphoid-cover.jpg","../assets/img/portfolio/scaphoid-1.jpg","../assets/img/portfolio/scaphoid-2.jpg","../assets/img/portfolio/scaphoid-3.jpg","../assets/img/portfolio/scaphoid-4.jpg","../assets/img/portfolio/scaphoid-5.jpg","../assets/img/portfolio/scaphoid-6.jpg"],
       orgName: "AIIMS Bhopal", orgLogo: "../assets/logos/aiims-bhopal-cropped.png",
       summary: "Comparative FEA of scaphoid fracture fixation across 18 fixation configurations.",
       role: "Undergraduate researcher — ran the full FEA comparison study",
@@ -846,7 +870,7 @@ class Component extends DCLogic {
         { text: " from the thumb-side end, so a poorly stabilized fracture can starve the bone of blood and simply never heal. Surgeons stabilize it with K-wires, Herbert's screws, or a combination of both, but which configuration gives the best shot at post-surgery stability was an open clinical question I set out to answer with a comparative FEA study.", kind: "plain" }
       ],
       skills: [{ name: "Materialise Mimics", note: "CT to STL reconstruction" }, { name: "MeshMixer", note: "mesh cleanup" }, { name: "ANSYS", note: "FEA" }, { name: "SolidWorks", note: "fixation hardware CAD" }], links: [{ label: "Repository", url: "https://github.com/srivastav-ayush/scaphoid-analysis", type: "github" }, { label: "Journal Article — IJO (DOI)", url: "https://doi.org/10.1007/s43465-024-01156-w", type: "paper" }, { label: "Journal Article — JHS (DOI)", url: "https://doi.org/10.1177/17531934221145516", type: "paper" }] },
-    { id: "ebaja", category: "academic", tag: "Academic Project", title: "eBAJA — All-Terrain Electric Vehicle", year: 2020, img: "../assets/img/portfolio/ebaja-1.jpg", images: ["../assets/img/portfolio/ebaja-1.jpg","../assets/img/portfolio/ebaja-2.jpg","../assets/img/portfolio/ebaja-3.jpg","../assets/img/portfolio/ebaja-4.jpg","../assets/img/portfolio/ebaja-5.jpg"],
+    { id: "ebaja", category: "academic", tag: "Academic Project", title: "eBAJA — All-Terrain Electric Vehicle", year: 2020, img: "../assets/img/portfolio/ebaja-cover.jpg", images: ["../assets/img/portfolio/ebaja-cover.jpg","../assets/img/portfolio/ebaja-1.jpg","../assets/img/portfolio/ebaja-2.jpg","../assets/img/portfolio/ebaja-3.jpg","../assets/img/portfolio/ebaja-4.jpg","../assets/img/portfolio/ebaja-5.jpg"],
       orgName: "MANIT Bhopal", orgLogo: "../assets/logos/manit.png",
       summary: "All-terrain EV design — steering geometry optimized for a tight turning radius.",
       role: "Steering Head, SAE student chapter — designed the steering system",
