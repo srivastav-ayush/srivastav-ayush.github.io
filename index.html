@@ -212,7 +212,7 @@
         <button onClick="{{ setFilterTalk }}" style="border:none; cursor:pointer; padding:12px 15px; border-radius:6px; font-size:12px; font-weight:600; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.03em; background:{{ filterStyles.talk.bg }}; color:{{ filterStyles.talk.color }}; transition:opacity 0.15s;" style-hover="opacity:0.72 !important;">Talks</button>
       </div>
 
-      <div style="margin-top:18px;">
+      <div style="margin-top:18px; opacity:{{ listOpacity }}; transition:opacity 0.25s ease;">
         <sc-for list="{{ yearGroups }}" as="yg" hint-placeholder-count="3">
           <div>
             <div style="display:flex; align-items:baseline; gap:14px; margin:26px 0 4px;">
@@ -375,7 +375,14 @@ class Component extends DCLogic {
     width: (typeof window !== "undefined" ? window.innerWidth : 1200),
     dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark"),
     milestonesExpanded: false,
-    milestoneFilter: "all"
+    milestoneFilter: "all",
+    flash: false
+  };
+
+  flashList = () => {
+    clearTimeout(this.__flashT);
+    this.setState({ flash: true });
+    this.__flashT = setTimeout(() => this.setState({ flash: false }), 260);
   };
 
   componentDidMount() {
@@ -385,6 +392,7 @@ class Component extends DCLogic {
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.onResize);
+    clearTimeout(this.__flashT);
   }
 
   scrollToTop = (e) => {
@@ -401,7 +409,7 @@ class Component extends DCLogic {
   };
 
   toggleMilestonesExpand = () => this.setState(s => ({ milestonesExpanded: !s.milestonesExpanded }));
-  setMilestoneFilter = (cat) => this.setState({ milestoneFilter: cat });
+  setMilestoneFilter = (cat) => { this.setState({ milestoneFilter: cat }); this.flashList(); };
 
   categoryLabels = { career: "Career", education: "Education", talk: "Talk", publication: "Publication", patent: "Patent", award: "Award" };
 
@@ -716,6 +724,7 @@ class Component extends DCLogic {
       })(),
       milestonesToggleLabel: this.state.milestonesExpanded ? "Show recent only ↑" : "Show full timeline since 2016 ↓",
       toggleMilestonesExpand: this.toggleMilestonesExpand,
+      listOpacity: this.state.flash ? 0.35 : 1,
       setFilterAll: () => this.setMilestoneFilter("all"),
       setFilterCareer: () => this.setMilestoneFilter("career"),
       setFilterEducation: () => this.setMilestoneFilter("education"),

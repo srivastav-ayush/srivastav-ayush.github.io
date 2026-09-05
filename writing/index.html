@@ -167,7 +167,7 @@
       <p style="font-size:14px; color:var(--text-muted); padding:24px 0;">No articles match this filter.</p>
     </sc-if>
 
-    <div style="display:flex; flex-direction:column; gap:16px;">
+    <div style="display:flex; flex-direction:column; gap:16px; opacity:{{ listOpacity }}; transition:opacity 0.25s ease;">
       <sc-for list="{{ cards }}" as="art" hint-placeholder-count="4">
         <a href="{{ art.href }}" ref="{{ art.cardRef }}" onClick="{{ art.open }}" style="display:block; border:1px solid var(--border); border-radius:14px; padding:24px 26px; transition:border-color .15s,transform .15s,box-shadow .15s;" style-hover="border-color:var(--accent) !important; transform:translateY(-2px) !important; box-shadow:0 10px 22px rgba(0,0,0,.07) !important;">
           <div style="display:flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:{{ art.tagColor }};">
@@ -246,18 +246,25 @@ class Component extends DCLogic {
     selectedOnly: false,
     sortAsc: false,
     sortMenuOpen: false,
-    categoryMenuOpen: false
+    categoryMenuOpen: false,
+    flash: false
   };
 
   categories = ["All", "Travel", "Tech", "Education", "Tools"];
 
+  flashList = () => {
+    clearTimeout(this.__flashT);
+    this.setState({ flash: true });
+    this.__flashT = setTimeout(() => this.setState({ flash: false }), 260);
+  };
+
   toggleCategoryMenu = (e) => { if (e) e.preventDefault(); this.setState(s => ({ categoryMenuOpen: !s.categoryMenuOpen })); };
-  setCategoryFilter = (c) => (e) => { if (e) e.preventDefault(); this.setState({ categoryFilter: c, categoryMenuOpen: false }); };
+  setCategoryFilter = (c) => (e) => { if (e) e.preventDefault(); this.setState({ categoryFilter: c, categoryMenuOpen: false }); this.flashList(); };
   categoryWrapRef = (el) => { this.__categoryWrapEl = el; };
   toggleSortMenu = (e) => { if (e) e.preventDefault(); this.setState(s => ({ sortMenuOpen: !s.sortMenuOpen })); };
-  setSortDesc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: false, sortMenuOpen: false }); };
-  setSortAsc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: true, sortMenuOpen: false }); };
-  toggleSelectedOnly = (e) => { if (e) e.preventDefault(); this.setState(s => ({ selectedOnly: !s.selectedOnly, sortMenuOpen: false })); };
+  setSortDesc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: false, sortMenuOpen: false }); this.flashList(); };
+  setSortAsc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: true, sortMenuOpen: false }); this.flashList(); };
+  toggleSelectedOnly = (e) => { if (e) e.preventDefault(); this.setState(s => ({ selectedOnly: !s.selectedOnly, sortMenuOpen: false })); this.flashList(); };
   sortWrapRef = (el) => { this.__sortWrapEl = el; };
 
   componentDidMount() {
@@ -270,6 +277,7 @@ class Component extends DCLogic {
     document.addEventListener("mousedown", this.__onDocClick);
   }
   componentWillUnmount() {
+    clearTimeout(this.__flashT);
     if (typeof document !== "undefined" && this.__onDocClick) document.removeEventListener("mousedown", this.__onDocClick);
   }
 
@@ -413,6 +421,7 @@ class Component extends DCLogic {
       sortRowAscStyle: `display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; text-align:left; border:none; background:${sortAsc ? "var(--bg-alt)" : "transparent"}; color:${sortAsc ? "var(--text)" : "var(--text-muted)"}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; padding:10px 12px; border-radius:8px; cursor:pointer;`,
       noArticlesFound,
       cards,
+      listOpacity: this.state.flash ? 0.35 : 1,
       isDarkMode: this.state.dark,
       isLightMode: !this.state.dark,
       toggleDark: this.toggleDark,

@@ -144,7 +144,7 @@
       </div>
     </section>
 
-    <section key="{{ filterKey }}" style="max-width:1200px; margin:0 auto; padding:32px clamp(16px,5vw,64px) 96px; display:flex; flex-direction:column; gap:22px;">
+    <section key="{{ filterKey }}" style="max-width:1200px; margin:0 auto; padding:32px clamp(16px,5vw,64px) 96px; display:flex; flex-direction:column; gap:22px; opacity:{{ listOpacity }}; transition:opacity 0.25s ease;">
       <sc-if value="{{ hasFilteredProjects }}" hint-placeholder-val="{{ true }}">
       <sc-for list="{{ filteredProjects }}" as="p" hint-placeholder-count="6">
         <div onClick="{{ p.open }}" onKeyDown="{{ p.openKey }}" role="button" tabIndex="0" aria-label="{{ p.cardLabel }}" class="reveal-card" style="{{ p.cardStyle }}" style-hover="box-shadow:0 12px 28px rgba(0,0,0,0.12) !important; transform:translateY(-2px) !important; border-color:var(--border-strong) !important;">
@@ -377,13 +377,21 @@ class Component extends DCLogic {
     sortMenuOpen: false,
     lightboxOpen: false,
     width: (typeof window !== "undefined" ? window.innerWidth : 1200),
-    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark")
+    dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark"),
+    flash: false
+  };
+
+  flashList = () => {
+    clearTimeout(this.__flashT);
+    this.setState({ flash: true });
+    this.__flashT = setTimeout(() => this.setState({ flash: false }), 260);
   };
 
   componentWillUnmount() {
     if (this.onKeyDown && typeof window !== "undefined") window.removeEventListener("keydown", this.onKeyDown);
     if (this.onPopState && typeof window !== "undefined") window.removeEventListener("popstate", this.onPopState);
     this.clearSlideTimer();
+    clearTimeout(this.__flashT);
     if (this.__observer) this.__observer.disconnect();
     if (typeof window !== "undefined" && this.onResize) window.removeEventListener("resize", this.onResize);
     if (typeof document !== "undefined" && this.__onDocClick) document.removeEventListener("mousedown", this.__onDocClick);
@@ -456,8 +464,8 @@ class Component extends DCLogic {
   }
 
   toggleSortMenu = (e) => { if (e) e.preventDefault(); this.setState(s => ({ sortMenuOpen: !s.sortMenuOpen })); };
-  setSortDesc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: false, sortMenuOpen: false }); };
-  setSortAsc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: true, sortMenuOpen: false }); };
+  setSortDesc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: false, sortMenuOpen: false }); this.flashList(); };
+  setSortAsc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: true, sortMenuOpen: false }); this.flashList(); };
   sortWrapRef = (el) => { this.__sortWrapEl = el; };
 
   onImageTouchStart = (e) => { this.__touchStartX = e.touches[0].clientX; };
@@ -1050,10 +1058,11 @@ class Component extends DCLogic {
       onImageTouchStart: this.onImageTouchStart,
       onImageTouchEnd: this.onImageTouchEnd,
       stopPropagation: (e) => e.stopPropagation(),
-      setAll: () => this.setState({ filter: "all" }),
-      setAcademic: () => this.setState({ filter: "academic" }),
-      setResearch: () => this.setState({ filter: "research" }),
-      setWork: () => this.setState({ filter: "work" }),
+      setAll: () => { this.setState({ filter: "all" }); this.flashList(); },
+      setAcademic: () => { this.setState({ filter: "academic" }); this.flashList(); },
+      setResearch: () => { this.setState({ filter: "research" }); this.flashList(); },
+      setWork: () => { this.setState({ filter: "work" }); this.flashList(); },
+      listOpacity: this.state.flash ? 0.35 : 1,
       sortAsc,
       sortWrapRef: this.sortWrapRef,
       toggleSortMenu: this.toggleSortMenu,

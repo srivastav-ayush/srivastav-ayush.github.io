@@ -141,90 +141,179 @@
     </div>
   </section>
 
-  <section style="max-width:1000px; margin:0 auto; padding:32px clamp(16px,5vw,64px) 96px; position:relative;">
-    <div style="position:absolute; left:calc(clamp(16px,5vw,64px) + 5px); top:8px; bottom:40px; width:2px; background:var(--border);"></div>
-    <sc-for list="{{ talkCards }}" as="card" hint-placeholder-count="5">
-      <div class="reveal-card" style="position:relative; display:flex; align-items:center; gap:22px; padding-bottom:44px;">
-        <div style="flex:none; width:12px; align-self:center;">
-          <div style="width:12px; height:12px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--bg);"></div>
+  <sc-if value="{{ hasIndustry }}">
+  <section style="max-width:1200px; margin:0 auto; padding:16px clamp(16px,5vw,64px) 32px;">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-bottom:14px; margin-bottom:12px; border-bottom:2px solid {{ sectionColors.industry }};">
+      <h2 style="font-family:'Instrument Serif',serif; font-size:34px; font-weight:400; margin:0;">Industry conferences</h2>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:{{ sectionColors.industry }}; text-transform:uppercase; letter-spacing:0.05em;">{{ industryCards.length }} talk{{ industryPlural }}</div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:20px; opacity:{{ listOpacity }}; transition:opacity 0.25s ease;">
+    <sc-for list="{{ industryCards }}" as="card" hint-placeholder-count="2">
+      <div class="reveal-card" style="display:flex; gap:22px; flex-wrap:wrap; background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:18px; transition:box-shadow 0.15s, transform 0.15s;" style-hover="box-shadow:0 10px 26px rgba(0,0,0,0.10) !important; transform:translateY(-2px) !important;">
+        <div style="position:relative; width:340px; max-width:100%; aspect-ratio:16/10; border-radius:8px; overflow:hidden; background:#ffffff; flex:none; display:flex; align-items:center; justify-content:center;">
+          <sc-if value="{{ card.singleImage }}" hint-placeholder-val="{{ false }}">
+            <img loading="lazy" decoding="async" src="{{ card.singleImage }}" alt="{{ card.imageAlt }}" style="width:100%; height:100%; object-fit:contain; display:block; margin:auto;">
+          </sc-if>
+          <sc-if value="{{ card.needsSlot }}">
+            <x-import component-from-global-scope="image-slot" from="../image-slot.js" id="{{ card.slotId }}" shape="rect" placeholder="Add event photo" style="width:100%; height:100%;" hint-size="340px,212px"></x-import>
+          </sc-if>
+          <sc-if value="{{ card.featured }}">
+            <div style="position:absolute; bottom:8px; right:8px; display:flex; align-items:center; gap:4px; color:#fff; background:rgba(20,16,12,0.62); backdrop-filter:blur(4px); padding:4px 9px; border-radius:20px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L5.8 21l1.6-7-5.4-4.7 7.1-.6z"></path></svg>
+              Featured
+            </div>
+          </sc-if>
         </div>
-        <div style="flex:1; min-width:0; display:flex; gap:22px; flex-wrap:wrap; background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:18px; transition:box-shadow 0.15s, transform 0.15s;" style-hover="box-shadow:0 10px 26px rgba(0,0,0,0.10) !important; transform:translateY(-2px) !important;">
-          <div style="position:relative; width:340px; max-width:100%; aspect-ratio:16/10; border-radius:8px; overflow:hidden; background:#ffffff; flex:none; display:flex; align-items:center; justify-content:center;">
-            <sc-if value="{{ card.singleImage }}" hint-placeholder-val="{{ false }}">
-              <img loading="lazy" decoding="async" src="{{ card.singleImage }}" alt="{{ card.imageAlt }}" style="width:100%; height:100%; object-fit:contain; display:block; margin:auto;">
-            </sc-if>
-            <sc-if value="{{ card.needsSlot }}">
-              <x-import component-from-global-scope="image-slot" from="../image-slot.js" id="{{ card.slotId }}" shape="rect" placeholder="Add event photo" style="width:100%; height:100%;" hint-size="340px,212px"></x-import>
-            </sc-if>
-            <sc-if value="{{ card.featured }}">
-              <div style="position:absolute; bottom:8px; right:8px; display:flex; align-items:center; gap:4px; color:#fff; background:rgba(20,16,12,0.62); backdrop-filter:blur(4px); padding:4px 9px; border-radius:20px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em;">
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L5.8 21l1.6-7-5.4-4.7 7.1-.6z"></path></svg>
-                Featured
+        <div style="flex:1; min-width:220px; display:flex; flex-direction:column; gap:6px;">
+          <div style="font-weight:600; font-size:17px; line-height:1.4; color:var(--text);">{{ card.title }}</div>
+          <sc-for list="{{ card.venues }}" as="t" hint-placeholder-count="1">
+            <div style="display:flex; flex-direction:column; gap:7px; padding-top:12px; margin-top:6px; border-top:1px solid var(--border);">
+              <div>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--accent); white-space:nowrap; margin-right:8px;">{{ t.year }}</span>
+                <sc-if value="{{ t.orgUrl }}">
+                  <a href="{{ t.orgUrl }}" target="_blank" rel="noopener noreferrer" style="font-family:'Instrument Serif',serif; font-size:20px; font-style:italic; line-height:1.4; letter-spacing:0.01em; color:var(--text);" style-hover="color:var(--accent) !important;">
+                    <sc-if value="{{ t.eventNum }}">{{ t.eventNum }}<sup>{{ t.eventSup }}</sup> </sc-if>{{ t.event }}&nbsp;↗
+                  </a>
+                </sc-if>
+                <sc-if value="{{ t.orgUrlMissing }}">
+                  <span style="font-family:'Instrument Serif',serif; font-size:20px; font-style:italic; line-height:1.4; letter-spacing:0.01em; color:var(--text);">
+                    <sc-if value="{{ t.eventNum }}">{{ t.eventNum }}<sup>{{ t.eventSup }}</sup> </sc-if>{{ t.event }}
+                  </span>
+                </sc-if>
               </div>
-            </sc-if>
-          </div>
-          <div style="flex:1; min-width:220px; display:flex; flex-direction:column; gap:6px;">
-            <div style="font-weight:600; font-size:17px; line-height:1.4; color:var(--text);">{{ card.title }}</div>
-            <sc-for list="{{ card.venues }}" as="t" hint-placeholder-count="1">
-              <div style="display:flex; flex-direction:column; gap:7px; padding-top:12px; margin-top:6px; border-top:1px solid var(--border);">
-                <div>
-                  <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--accent); white-space:nowrap; margin-right:8px;">{{ t.year }}</span>
-                  <sc-if value="{{ t.orgUrl }}">
-                    <a href="{{ t.orgUrl }}" target="_blank" rel="noopener noreferrer" style="font-family:'Instrument Serif',serif; font-size:20px; font-style:italic; line-height:1.4; letter-spacing:0.01em; color:var(--text);" style-hover="color:var(--accent) !important;">
-                      <sc-if value="{{ t.eventNum }}">{{ t.eventNum }}<sup>{{ t.eventSup }}</sup> </sc-if>{{ t.event }}&nbsp;↗
-                    </a>
-                  </sc-if>
-                  <sc-if value="{{ t.orgUrlMissing }}">
-                    <span style="font-family:'Instrument Serif',serif; font-size:20px; font-style:italic; line-height:1.4; letter-spacing:0.01em; color:var(--text);">
-                      <sc-if value="{{ t.eventNum }}">{{ t.eventNum }}<sup>{{ t.eventSup }}</sup> </sc-if>{{ t.event }}
-                    </span>
-                  </sc-if>
-                </div>
-                <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; font-size:13px; color:var(--text-faint);">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M3 21h18M9 8h1m4 0h1m-9 4h1m4 0h1m-9 4h1m4 0h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg>
-                  <sc-if value="{{ t.mapsUrl }}">
-                    <a href="{{ t.mapsUrl }}" target="_blank" rel="noopener noreferrer" style="white-space:nowrap; color:var(--text-faint);" style-hover="color:var(--accent) !important;">{{ t.host }} ↗</a>
-                  </sc-if>
-                  <sc-if value="{{ t.mapsUrlMissing }}">
-                    <span style="white-space:nowrap;">{{ t.host }}</span>
-                  </sc-if>
-                  <sc-if value="{{ t.location }}">
-                    <span style="white-space:nowrap;">· {{ t.location }}</span>
-                  </sc-if>
-                  <sc-if value="{{ t.virtual }}">
-                    <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint); border:1px solid var(--border-strong); padding:2px 8px; border-radius:10px;">Virtual</span>
-                  </sc-if>
-                </div>
-                <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:2px;">
-                  <sc-if value="{{ t.slides }}">
-                    <a href="{{ t.slides }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:6px 12px; border-radius:6px;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="11"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
-                      {{ t.slidesLabel }}
-                    </a>
-                  </sc-if>
-                  <sc-if value="{{ t.video }}">
-                    <a href="{{ t.video }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:6px 12px; border-radius:6px;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                      Watch
-                    </a>
-                  </sc-if>
-                  <sc-if value="{{ t.proceedings }}">
-                    <a href="{{ t.proceedings }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:6px 12px; border-radius:6px;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                      Proceedings
-                    </a>
-                  </sc-if>
-                </div>
+              <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; font-size:13px; color:var(--text-faint);">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M3 21h18M9 8h1m4 0h1m-9 4h1m4 0h1m-9 4h1m4 0h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg>
+                <sc-if value="{{ t.mapsUrl }}">
+                  <a href="{{ t.mapsUrl }}" target="_blank" rel="noopener noreferrer" style="white-space:nowrap; color:var(--text-faint);" style-hover="color:var(--accent) !important;">{{ t.host }} ↗</a>
+                </sc-if>
+                <sc-if value="{{ t.mapsUrlMissing }}">
+                  <span style="white-space:nowrap;">{{ t.host }}</span>
+                </sc-if>
+                <sc-if value="{{ t.location }}">
+                  <span style="white-space:nowrap;">· {{ t.location }}</span>
+                </sc-if>
+                <sc-if value="{{ t.virtual }}">
+                  <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint); border:1px solid var(--border-strong); padding:2px 8px; border-radius:10px;">Virtual</span>
+                </sc-if>
               </div>
-            </sc-for>
-          </div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:2px;">
+                <sc-if value="{{ t.slides }}">
+                  <a href="{{ t.slides }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:6px 12px; border-radius:6px;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="11"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
+                    {{ t.slidesLabel }}
+                  </a>
+                </sc-if>
+                <sc-if value="{{ t.video }}">
+                  <a href="{{ t.video }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:6px 12px; border-radius:6px;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Watch
+                  </a>
+                </sc-if>
+                <sc-if value="{{ t.proceedings }}">
+                  <a href="{{ t.proceedings }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:6px 12px; border-radius:6px;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    Proceedings
+                  </a>
+                </sc-if>
+              </div>
+            </div>
+          </sc-for>
         </div>
       </div>
     </sc-for>
-    <sc-if value="{{ noneMatch }}">
-      <p style="font-size:15px; color:var(--text-faint);">No selected talks yet — check back soon.</p>
-    </sc-if>
+    </div>
   </section>
+  </sc-if>
+
+  <sc-if value="{{ hasAcademic }}">
+  <section style="max-width:1200px; margin:0 auto; padding:16px clamp(16px,5vw,64px) 96px;">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-bottom:14px; margin-bottom:12px; border-bottom:2px solid {{ sectionColors.academic }};">
+      <h2 style="font-family:'Instrument Serif',serif; font-size:34px; font-weight:400; margin:0;">Academic conferences</h2>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:{{ sectionColors.academic }}; text-transform:uppercase; letter-spacing:0.05em;">{{ academicCards.length }} talk{{ academicPlural }}</div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:20px; opacity:{{ listOpacity }}; transition:opacity 0.25s ease;">
+    <sc-for list="{{ academicCards }}" as="card" hint-placeholder-count="3">
+      <div class="reveal-card" style="display:flex; gap:22px; flex-wrap:wrap; background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:18px; transition:box-shadow 0.15s, transform 0.15s;" style-hover="box-shadow:0 10px 26px rgba(0,0,0,0.10) !important; transform:translateY(-2px) !important;">
+        <div style="position:relative; width:340px; max-width:100%; aspect-ratio:16/10; border-radius:8px; overflow:hidden; background:#ffffff; flex:none; display:flex; align-items:center; justify-content:center;">
+          <sc-if value="{{ card.singleImage }}" hint-placeholder-val="{{ false }}">
+            <img loading="lazy" decoding="async" src="{{ card.singleImage }}" alt="{{ card.imageAlt }}" style="width:100%; height:100%; object-fit:contain; display:block; margin:auto;">
+          </sc-if>
+          <sc-if value="{{ card.needsSlot }}">
+            <x-import component-from-global-scope="image-slot" from="../image-slot.js" id="{{ card.slotId }}" shape="rect" placeholder="Add event photo" style="width:100%; height:100%;" hint-size="340px,212px"></x-import>
+          </sc-if>
+          <sc-if value="{{ card.featured }}">
+            <div style="position:absolute; bottom:8px; right:8px; display:flex; align-items:center; gap:4px; color:#fff; background:rgba(20,16,12,0.62); backdrop-filter:blur(4px); padding:4px 9px; border-radius:20px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em;">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L5.8 21l1.6-7-5.4-4.7 7.1-.6z"></path></svg>
+              Featured
+            </div>
+          </sc-if>
+        </div>
+        <div style="flex:1; min-width:220px; display:flex; flex-direction:column; gap:6px;">
+          <div style="font-weight:600; font-size:17px; line-height:1.4; color:var(--text);">{{ card.title }}</div>
+          <sc-for list="{{ card.venues }}" as="t" hint-placeholder-count="1">
+            <div style="display:flex; flex-direction:column; gap:7px; padding-top:12px; margin-top:6px; border-top:1px solid var(--border);">
+              <div>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--accent); white-space:nowrap; margin-right:8px;">{{ t.year }}</span>
+                <sc-if value="{{ t.orgUrl }}">
+                  <a href="{{ t.orgUrl }}" target="_blank" rel="noopener noreferrer" style="font-family:'Instrument Serif',serif; font-size:20px; font-style:italic; line-height:1.4; letter-spacing:0.01em; color:var(--text);" style-hover="color:var(--accent) !important;">
+                    <sc-if value="{{ t.eventNum }}">{{ t.eventNum }}<sup>{{ t.eventSup }}</sup> </sc-if>{{ t.event }}&nbsp;↗
+                  </a>
+                </sc-if>
+                <sc-if value="{{ t.orgUrlMissing }}">
+                  <span style="font-family:'Instrument Serif',serif; font-size:20px; font-style:italic; line-height:1.4; letter-spacing:0.01em; color:var(--text);">
+                    <sc-if value="{{ t.eventNum }}">{{ t.eventNum }}<sup>{{ t.eventSup }}</sup> </sc-if>{{ t.event }}
+                  </span>
+                </sc-if>
+              </div>
+              <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; font-size:13px; color:var(--text-faint);">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M3 21h18M9 8h1m4 0h1m-9 4h1m4 0h1m-9 4h1m4 0h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg>
+                <sc-if value="{{ t.mapsUrl }}">
+                  <a href="{{ t.mapsUrl }}" target="_blank" rel="noopener noreferrer" style="white-space:nowrap; color:var(--text-faint);" style-hover="color:var(--accent) !important;">{{ t.host }} ↗</a>
+                </sc-if>
+                <sc-if value="{{ t.mapsUrlMissing }}">
+                  <span style="white-space:nowrap;">{{ t.host }}</span>
+                </sc-if>
+                <sc-if value="{{ t.location }}">
+                  <span style="white-space:nowrap;">· {{ t.location }}</span>
+                </sc-if>
+                <sc-if value="{{ t.virtual }}">
+                  <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint); border:1px solid var(--border-strong); padding:2px 8px; border-radius:10px;">Virtual</span>
+                </sc-if>
+              </div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:2px;">
+                <sc-if value="{{ t.slides }}">
+                  <a href="{{ t.slides }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:6px 12px; border-radius:6px;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="11"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
+                    {{ t.slidesLabel }}
+                  </a>
+                </sc-if>
+                <sc-if value="{{ t.video }}">
+                  <a href="{{ t.video }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:6px 12px; border-radius:6px;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Watch
+                  </a>
+                </sc-if>
+                <sc-if value="{{ t.proceedings }}">
+                  <a href="{{ t.proceedings }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:600; color:var(--text-body); border:1px solid var(--border-strong); padding:6px 12px; border-radius:6px;" style-hover="border-color:var(--accent) !important; color:var(--accent) !important;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    Proceedings
+                  </a>
+                </sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ noneMatch }}">
+  <section style="max-width:1200px; margin:0 auto; padding:16px clamp(16px,5vw,64px) 96px;">
+    <p style="font-size:15px; color:var(--text-faint);">No selected talks yet — check back soon.</p>
+  </section>
+  </sc-if>
 
   <!-- FOOTER / CONTACT -->
   </main>
@@ -288,7 +377,14 @@ class Component extends DCLogic {
     filter: "all",
     sortAsc: false,
     sortMenuOpen: false,
+    flash: false,
     dark: (typeof localStorage !== "undefined" && localStorage.getItem("ayush-theme") === "dark")
+  };
+
+  flashList = () => {
+    clearTimeout(this.__flashT);
+    this.setState({ flash: true });
+    this.__flashT = setTimeout(() => this.setState({ flash: false }), 260);
   };
 
   componentDidMount() {
@@ -301,12 +397,13 @@ class Component extends DCLogic {
   componentWillUnmount() {
     if (this.__observer) this.__observer.disconnect();
     clearTimeout(this.__revealFailsafe);
+    clearTimeout(this.__flashT);
     if (typeof document !== "undefined" && this.__onDocClick) document.removeEventListener("mousedown", this.__onDocClick);
   }
 
   toggleSortMenu = (e) => { if (e) e.preventDefault(); this.setState(s => ({ sortMenuOpen: !s.sortMenuOpen })); };
-  setSortDesc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: false, sortMenuOpen: false }); };
-  setSortAsc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: true, sortMenuOpen: false }); };
+  setSortDesc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: false, sortMenuOpen: false }); this.flashList(); };
+  setSortAsc = (e) => { if (e) e.preventDefault(); this.setState({ sortAsc: true, sortMenuOpen: false }); this.flashList(); };
   sortWrapRef = (el) => { this.__sortWrapEl = el; };
 
   rootRef = (el) => {
@@ -427,8 +524,15 @@ class Component extends DCLogic {
       g.slotId = g.venues[0].slotId;
       g.singleImage = g.venues[0].primaryImage || g.images[0] || "";
       g.imageAlt = g.venues[0].event ? (g.title + " — presented at " + g.venues[0].event) : (g.title || "Conference presentation photo");
+      g.category = g.venues.some(v => v.host === "Gamma Technologies") ? "industry" : "academic";
     });
     const talkCards = groups.slice().sort((a, b) => sortAsc ? a.sortYear - b.sortYear : b.sortYear - a.sortYear);
+    const industryCards = talkCards.filter(c => c.category === "industry");
+    const academicCards = talkCards.filter(c => c.category === "academic");
+    const pluralOf = (n) => n === 1 ? "" : "s";
+    const sectionColors = this.state.dark
+      ? { industry: "#e0a37c", academic: "#87aed6" }
+      : { industry: "#89502d", academic: "#3568a0" };
 
     const t = this.theme(this.state.dark);
     if (typeof document !== "undefined") { const ds = document.documentElement.style; ds.background = t.bg; ds.colorScheme = this.state.dark ? "dark" : "light"; document.body.style.background = t.bg; }
@@ -450,6 +554,14 @@ class Component extends DCLogic {
       moonOpacity: this.state.dark ? 1 : 0,
       moonTransform: this.state.dark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.4)",
       talkCards,
+      industryCards,
+      academicCards,
+      hasIndustry: industryCards.length > 0,
+      hasAcademic: academicCards.length > 0,
+      industryPlural: pluralOf(industryCards.length),
+      academicPlural: pluralOf(academicCards.length),
+      sectionColors,
+      listOpacity: this.state.flash ? 0.35 : 1,
       noneMatch: talkCards.length === 0,
       sortAsc,
       sortWrapRef: this.sortWrapRef,
@@ -461,7 +573,7 @@ class Component extends DCLogic {
       sortButtonStyle: `display:flex; align-items:center; gap:6px; min-height:44px; padding:0 14px; border:1px solid var(--border-strong); background:var(--bg); color:var(--text-muted); font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; border-radius:999px; cursor:pointer; white-space:nowrap; transition:border-color 0.15s, color 0.15s;`,
       sortRowDescStyle: `display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; text-align:left; border:none; background:${!sortAsc ? "var(--bg-alt)" : "transparent"}; color:${!sortAsc ? "var(--text)" : "var(--text-muted)"}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; padding:10px 12px; border-radius:8px; cursor:pointer;`,
       sortRowAscStyle: `display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; text-align:left; border:none; background:${sortAsc ? "var(--bg-alt)" : "transparent"}; color:${sortAsc ? "var(--text)" : "var(--text-muted)"}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; padding:10px 12px; border-radius:8px; cursor:pointer;`,
-      toggleSelectedFilter: () => this.setState({ filter: isAll ? "selected" : "all" }),
+      toggleSelectedFilter: () => { this.setState({ filter: isAll ? "selected" : "all" }); this.flashList(); },
       selectedOnly: !isAll,
       selectedToggleStyle: `display:flex; align-items:center; gap:6px; min-height:44px; padding:0 14px; border:1px solid ${isAll ? "var(--border-strong)" : "var(--btn-bg)"}; background:${isAll ? "var(--bg)" : "var(--btn-bg)"}; color:${isAll ? "var(--text-muted)" : "var(--btn-text)"}; font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:600; border-radius:999px; cursor:pointer; white-space:nowrap; transition:border-color 0.15s, color 0.15s, background 0.15s;`
     };

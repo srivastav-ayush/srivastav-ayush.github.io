@@ -190,7 +190,7 @@
       <sc-if value="{{ noBooksFound }}" hint-placeholder-val="{{ false }}">
         <p style="font-size:14px; color:var(--text-muted); padding:24px 0;">No books match this filter.</p>
       </sc-if>
-      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(min(155px,100%),1fr)); gap:32px 22px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(min(155px,100%),1fr)); gap:32px 22px; opacity:{{ bookListOpacity }}; transition:opacity 0.25s ease;">
         <sc-for list="{{ books }}" as="bk" hint-placeholder-count="10">
           <div key="{{ bk.key }}" ref="{{ bk.cardRef }}" onClick="{{ bk.toggle }}" onKeyDown="{{ bk.onKeyDown }}" role="button" tabIndex="0" aria-expanded="{{ bk.expanded }}" class="{{ bk.cardClassName }}" style="{{ bk.cardStyle }}">
             <div ref="{{ bk.coverRef }}" class="{{ bk.coverWrapClassName }}" style="{{ bk.coverWrapStyle }}" style-hover="transform:translateY(-5px) !important; box-shadow:0 18px 34px rgba(0,0,0,0.22) !important;">
@@ -251,7 +251,7 @@
           </sc-if>
         </div>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr)); gap:20px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr)); gap:20px; opacity:{{ articleListOpacity }}; transition:opacity 0.25s ease;">
         <sc-for list="{{ articles }}" as="art" hint-placeholder-count="3">
           <a href="{{ art.url }}" target="_blank" rel="noopener noreferrer" class="ext-article-card" style="{{ art.cardStyle }}">
             <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:20px; line-height:1.3; color:var(--text);">{{ art.title }}</div>
@@ -332,7 +332,16 @@ class Component extends DCLogic {
     mustReadOnly: false,
     categoryMenuOpen: false,
     articleSortMode: "date-desc",
-    articleSortMenuOpen: false
+    articleSortMenuOpen: false,
+    flashBooks: false,
+    flashArticles: false
+  };
+
+  flashList = (which) => {
+    const timerKey = "__flashT_" + which;
+    clearTimeout(this[timerKey]);
+    this.setState({ ["flash" + which]: true });
+    this[timerKey] = setTimeout(() => this.setState({ ["flash" + which]: false }), 260);
   };
 
   toggleBook = (key) => (e) => {
@@ -388,16 +397,16 @@ class Component extends DCLogic {
   handleBookKeyDown = (key) => (e) => {
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); this.toggleBook(key)(e); }
   };
-  setBookGenreFilter = (g) => (e) => { if (e) e.preventDefault(); this.setState({ bookGenreFilter: g, categoryMenuOpen: false }); };
+  setBookGenreFilter = (g) => (e) => { if (e) e.preventDefault(); this.setState({ bookGenreFilter: g, categoryMenuOpen: false }); this.flashList("Books"); };
   toggleCategoryMenu = (e) => { if (e) e.preventDefault(); this.setState(s => ({ categoryMenuOpen: !s.categoryMenuOpen })); };
   categoryWrapRef = (el) => { this.__categoryWrapEl = el; };
   toggleSortMenu = (e) => { if (e) e.preventDefault(); this.setState(s => ({ sortMenuOpen: !s.sortMenuOpen })); };
-  selectSortMode = (mode) => (e) => { if (e) e.preventDefault(); this.setState({ bookSortMode: mode, sortMenuOpen: false }); };
-  selectStatusFilter = (v) => (e) => { if (e) e.preventDefault(); this.setState({ statusFilter: v, sortMenuOpen: false }); };
-  toggleMustReadOnly = (e) => { if (e) e.preventDefault(); this.setState(s => ({ mustReadOnly: !s.mustReadOnly, sortMenuOpen: false })); };
+  selectSortMode = (mode) => (e) => { if (e) e.preventDefault(); this.setState({ bookSortMode: mode, sortMenuOpen: false }); this.flashList("Books"); };
+  selectStatusFilter = (v) => (e) => { if (e) e.preventDefault(); this.setState({ statusFilter: v, sortMenuOpen: false }); this.flashList("Books"); };
+  toggleMustReadOnly = (e) => { if (e) e.preventDefault(); this.setState(s => ({ mustReadOnly: !s.mustReadOnly, sortMenuOpen: false })); this.flashList("Books"); };
   sortWrapRef = (el) => { this.__sortWrapEl = el; };
   toggleArticleSortMenu = (e) => { if (e) e.preventDefault(); this.setState(s => ({ articleSortMenuOpen: !s.articleSortMenuOpen })); };
-  selectArticleSortMode = (mode) => (e) => { if (e) e.preventDefault(); this.setState({ articleSortMode: mode, articleSortMenuOpen: false }); };
+  selectArticleSortMode = (mode) => (e) => { if (e) e.preventDefault(); this.setState({ articleSortMode: mode, articleSortMenuOpen: false }); this.flashList("Articles"); };
   articleSortWrapRef = (el) => { this.__articleSortWrapEl = el; };
 
   componentDidMount() {
@@ -419,6 +428,8 @@ class Component extends DCLogic {
     document.addEventListener("mousedown", this.__onDocClick);
   }
   componentWillUnmount() {
+    clearTimeout(this.__flashT_Books);
+    clearTimeout(this.__flashT_Articles);
     if (typeof document === "undefined" || !this.__onDocClick) return;
     document.removeEventListener("mousedown", this.__onDocClick);
   }
@@ -704,6 +715,8 @@ class Component extends DCLogic {
       mustReadIconStyle,
       noBooksFound,
       books,
+      bookListOpacity: this.state.flashBooks ? 0.35 : 1,
+      articleListOpacity: this.state.flashArticles ? 0.35 : 1,
       currentYear: new Date().getFullYear(),
       scrollToTop: this.scrollToTop,
       toggleDark: this.toggleDark,
