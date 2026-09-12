@@ -224,7 +224,7 @@
                 <div style="width:74px; flex:none; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-faint); padding-top:3px;">{{ m.dateLabel }}</div>
                 <div style="flex:1; min-width:0;">
                   <span style="{{ m.pillStyle }}">{{ m.pillLabel }}</span>
-                  <div style="font-size:14.5px; line-height:1.55; color:var(--text-body); margin-top:5px;">{{ m.text }} <a href="{{ m.link }}" style="font-weight:600; color:var(--accent);">↗</a></div>
+                  <div style="font-size:14.5px; line-height:1.55; color:var(--text-body); margin-top:5px;">{{ m.text }}</div>
                 </div>
                 <sc-if value="{{ m.upcoming }}">
                   <div style="flex:none; align-self:center;">
@@ -427,12 +427,6 @@ class Component extends DCLogic {
     return out;
   }
 
-  linkFor(category) {
-    if (category === "talk") return "talks/index.html";
-    if (category === "publication" || category === "patent") return "publications/index.html";
-    return "cv/index.html";
-  }
-
   accentThemes = {
     "#3568a0": { light: "#3568a0", lightHover: "#244f78", dark: "#87aed6", darkHover: "#a6c5e6" },
     "#4a7a43": { light: "#3f6839", lightHover: "#2f4f2a", dark: "#8ebd82", darkHover: "#a8d49c" },
@@ -565,6 +559,7 @@ class Component extends DCLogic {
 
   allMilestones = [
     { year: 2026, month: 12, dateLabel: "Dec 2026", category: "talk", upcoming: true, text: "Presenting at SAE TTTMS — Total Traceability, Testing, Modelling & Simulation — at IIT Roorkee." },
+    { year: 2026, month: 10, dateLabel: "Oct 2026", category: "career", upcoming: true, text: "Traveling to Volvo Group's Curitiba, Brazil plant for work — running since 1977, it's the only Volvo site worldwide integrating all four GTO divisions in one location, building engines, transmissions, cabs, trucks, and buses for the Latin American market." },
     { year: 2025, month: 8, dateLabel: "Aug 2025", category: "career", text: "Joined Volvo Group as a System Engineer, taking ownership of ECU cooling system engineering for control units and power electronics." },
     { year: 2025, month: 7, dateLabel: "Jul 2025", category: "award", text: "Awarded the Narotam Sekhsaria Foundation postgraduate scholarship (₹25 lakh) — one of 22 scholars selected nationwide — after securing, and declining, admits from Imperial College London, TU Delft, KTH Royal Institute of Technology, and Texas A&M." },
     { year: 2024, month: 2, dateLabel: "Feb 2024", category: "talk", text: "Presented \u201cCooling Requirement, Strategy and Control Setting for high-end electric motor bikes\u201d at GTTC, Pune." },
@@ -699,7 +694,6 @@ class Component extends DCLogic {
           ...m,
           pillLabel: this.categoryLabels[m.category],
           pillStyle: `font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:${catColors[m.category].color}; background:${catColors[m.category].bg}; padding:3px 9px; border-radius:20px; white-space:nowrap;`,
-          link: this.linkFor(m.category),
           delay: Math.min(i * 30, 600) + "ms"
         }));
         const groups = [];
